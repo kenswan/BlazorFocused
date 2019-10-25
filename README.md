@@ -1,3 +1,3 @@
 # BlazoRx
 
-Adding Flux Architecture to Blazor Components with Microsoft.Extensions.DependencyInjection
+Adding Reactive Programming and Flux Architecture to Blazor Components with Microsoft.Extensions.DependencyInjection
