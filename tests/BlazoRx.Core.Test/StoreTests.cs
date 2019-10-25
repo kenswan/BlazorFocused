@@ -6,17 +6,17 @@ namespace BlazoRx.Core.Test
 {
     public class StoreTests
     {
-        private IStore<MockClass> underTest;
+        private IStore<SimpleClass> underTest;
 
         public StoreTests()
         {
-            underTest = new Store<MockClass>();
+            underTest = new Store<SimpleClass>();
         }
 
         [Fact]
         public void ShouldInitializeStateWithNull()
         {
-            var test = new MockClass();
+            var test = new SimpleClass();
 
             var subscription = underTest.Connect().Subscribe((observer) =>
             {
@@ -29,9 +29,9 @@ namespace BlazoRx.Core.Test
         [Fact]
         public void ShouldUpdateValue()
         {
-            var expectedResult = new MockClass() { FieldOne = "Test1" };
+            var expectedResult = new SimpleClass() { FieldOne = "Test1" };
 
-            var actualResult = new MockClass();
+            var actualResult = new SimpleClass();
 
             var subscription = underTest.Connect().Subscribe((observer) =>
             {
@@ -43,7 +43,7 @@ namespace BlazoRx.Core.Test
             Assert.Equal(expectedResult.FieldOne, actualResult.FieldOne);
         }
 
-        private class MockClass
+        private class SimpleClass
         {
             public string FieldOne { get; set; }
 
