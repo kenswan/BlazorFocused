@@ -8,8 +8,8 @@ namespace BlazoRx.Core
     {
         IObservable<T> Connect();
 
-        IObservable<TReducedValue> Connect<TReducedValue>(IReducer<T, TReducedValue> reducer);
+        FilteredState<T, TReduced> Connect<TReduced>(Func<T, TReduced> filter);
 
-        void Update(T State);
+        void Dispatch(Func<T, T> action);
     }
 }

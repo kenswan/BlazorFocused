@@ -1,22 +1,19 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Reactive.Subjects;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BlazoRx.Core
 {
-    public class Store<T> : IStore<T> where T : class
+    public class Store<T> : IStore<T>, IDisposable where T : class
     {
-        private BehaviorSubject<T> state;
+        private readonly BehaviorSubject<T> state;
 
         public Store()
         {
             state = new BehaviorSubject<T>(default);
-        }
-        
-        public void Update(T state)
-        {
-            this.state.OnNext(state);
         }
 
         public IObservable<T> Connect()
@@ -24,9 +21,24 @@ namespace BlazoRx.Core
             return state;
         }
 
-        public IObservable<TReducedValue> Connect<TReducedValue>(IReducer<T, TReducedValue> reducer)
+        public FilteredState<T, TReduced> Connect<TReduced>(Func<T, TReduced> filter)
         {
-            throw new NotImplementedException();
+            return new FilteredState<T, TReduced>(state, filter);
+        }
+
+        public void Dispatch(Func<T, T> action)
+        {
+            Update(action(state.Value));
+        }
+
+        private void Update(T state)
+        {
+            this.state.OnNext(state);
+        }
+        
+        public void Dispose()
+        {
+            state.Dispose();
         }
     }
 }
