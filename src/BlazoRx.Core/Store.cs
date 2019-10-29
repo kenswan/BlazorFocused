@@ -11,9 +11,9 @@ namespace BlazoRx.Core
     {
         private readonly BehaviorSubject<T> state;
 
-        public Store()
+        public Store(T initialState = default)
         {
-            state = new BehaviorSubject<T>(default);
+            state = new BehaviorSubject<T>(initialState);
         }
 
         public IObservable<T> Connect()
@@ -29,6 +29,11 @@ namespace BlazoRx.Core
         public void Dispatch(Func<T, T> action)
         {
             Update(action(state.Value));
+        }
+
+        public T GetCurrentState()
+        {
+            return state.Value;
         }
 
         private void Update(T state)

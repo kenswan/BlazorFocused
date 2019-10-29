@@ -11,5 +11,7 @@ namespace BlazoRx.Core
         FilteredState<T, TReduced> Connect<TReduced>(Func<T, TReduced> filter);
 
         void Dispatch(Func<T, T> action);
+
+        T GetCurrentState();
     }
 }

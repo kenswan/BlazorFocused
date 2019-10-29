@@ -80,6 +80,17 @@ namespace BlazoRx.Core.Test
             Assert.Equal(expectedFieldB, minorClass.FieldB);
         }
 
+        [Fact]
+        public void ShouldProvideStateSnapshot()
+        {
+            var minorClass = new MinorClass() { FieldA = "Test1", FieldB = "Test2" };
+
+            var initializedStateStore = new Store<MinorClass>(minorClass);
+
+            Assert.Equal(minorClass.FieldA, initializedStateStore.GetCurrentState().FieldA);
+            Assert.Equal(minorClass.FieldB, initializedStateStore.GetCurrentState().FieldB);
+        }
+
         private class SimpleClass
         {
             public string FieldOne { get; set; }
