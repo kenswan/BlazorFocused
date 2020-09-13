@@ -20,5 +20,5 @@ jobs:
       working-directory: ./src/BlazorRx.Core
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      working-directory: ./test/BlazorRx.Test
+      working-directory: ./test/BlazorRx.Core.Test
       run: dotnet test --no-restore --verbosity normal
