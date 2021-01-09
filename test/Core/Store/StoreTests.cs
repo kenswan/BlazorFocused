@@ -1,11 +1,11 @@
 ﻿using System;
-using BlazorRx.Core.Store;
-using BlazorRx.Core.Test.Model;
+using BlazoRx.Core.Store;
+using BlazoRx.Core.Test.Model;
 using Bogus;
 using FluentAssertions;
 using Xunit;
 
-namespace BlazorRx.Core.Test.Store
+namespace BlazoRx.Core.Test.Store
 {
     public class StoreTests
     {

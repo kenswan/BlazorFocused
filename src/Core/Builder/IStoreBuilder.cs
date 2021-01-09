@@ -1,7 +1,7 @@
 ﻿using System;
-using BlazorRx.Core.Reducer;
+using BlazoRx.Core.Reducer;
 
-namespace BlazorRx.Core.Builder
+namespace BlazoRx.Core.Builder
 {
     public interface IStoreBuilder<TState>
     {

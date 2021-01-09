@@ -2,7 +2,7 @@
 using System.Reactive.Subjects;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BlazorRx.Core.Store
+namespace BlazoRx.Core.Store
 {
     public class Store<T> : IStore<T>, IDisposable where T : class
     {

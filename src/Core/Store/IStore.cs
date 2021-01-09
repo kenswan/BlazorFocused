@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BlazorRx.Core.Store
+namespace BlazoRx.Core.Store
 {
     public interface IStore<TState> where TState : class
     {
