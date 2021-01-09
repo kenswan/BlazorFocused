@@ -26,6 +26,6 @@
     <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\BlazorRx.Core\BlazorRx.Core.csproj" />
+    <ProjectReference Include="..\..\src\Core\BlazorRx.Core.csproj" />
   </ItemGroup>
 </Project>

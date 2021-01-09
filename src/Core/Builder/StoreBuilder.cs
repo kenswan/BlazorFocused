@@ -1,7 +1,9 @@
 ﻿using System;
+using Microsoft.Extensions.DependencyInjection;
+
 namespace BlazorRx.Core.Builder
 {
-    public class StoreBuilder<TState> : IStoreBuilder<TState> where TState : class
+    public class StoreBuilder<TState> : IStoreBuilder<TState> where TState : Type
     {
         public IStoreBuilder<TState> RegisterAction(Type type)
         {
