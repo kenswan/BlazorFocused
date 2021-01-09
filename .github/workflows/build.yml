@@ -1,24 +1,24 @@
-name: CI
+name: BlazorX CI
 
-on: [ push, pull_request]
+on: [push, pull_request]
 
 jobs:
-  build:
-
+  Build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.301
-    - name: Install dependencies
-      working-directory: ./
-      run: dotnet restore
-    - name: Build
-      working-directory: ./src/BlazorRx.Core
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      working-directory: ./test/BlazorRx.Core.Test
-      run: dotnet test --no-restore --verbosity normal
+      - uses: actions/checkout@v2
+
+      - name: Install .NET 5
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+
+      - name: Install Dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal
