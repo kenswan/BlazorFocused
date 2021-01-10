@@ -11,7 +11,7 @@ namespace BlazoRx.Core.Reducer
             this.reduceInputFunction = reduceInputFunction;
         }
 
-        public TOutput Reduce(TInput input)
+        public TOutput Execute(TInput input)
         {
             return reduceInputFunction(input);
         }
