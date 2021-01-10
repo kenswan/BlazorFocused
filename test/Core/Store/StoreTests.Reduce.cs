@@ -21,7 +21,6 @@ namespace BlazoRx.Core.Test.Store
             serviceCollection.AddStore(originalClass, builder =>
             {
                 builder.RegisterReducer(new TestReducer());
-                return builder;
             });
 
             var provider = serviceCollection.BuildServiceProvider();

@@ -16,11 +16,12 @@ namespace BlazoRx.Core.Store
         public static void AddStore<T>(
             this IServiceCollection services,
             T initialData,
-            Func<IStoreBuilder<T>, IStoreBuilder<T>> builderFunction) where T : class
+            Action<IStoreBuilder<T>> builderFunction) where T : class
         {
             var store = new Store<T>(initialData);
+            var builder = new StoreBuilder<T>();
 
-            var builder = builderFunction(new StoreBuilder<T>());
+            builderFunction(builder);
 
             store.LoadBuilder(builder);
 
