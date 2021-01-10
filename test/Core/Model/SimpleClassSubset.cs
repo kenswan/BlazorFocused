@@ -1,5 +1,4 @@
-﻿using System;
-namespace BlazoRx.Core.Test.Model
+﻿namespace BlazoRx.Core.Test.Model
 {
     public class SimpleClassSubset
     {

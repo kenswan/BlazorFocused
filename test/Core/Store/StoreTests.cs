@@ -1,7 +1,5 @@
-﻿using System;
-using BlazoRx.Core.Store;
+﻿using BlazoRx.Core.Store;
 using BlazoRx.Core.Test.Model;
-using Bogus;
 using FluentAssertions;
 using Xunit;
 
@@ -30,6 +28,21 @@ namespace BlazoRx.Core.Test.Store
             SimpleClass actualSimpleClass = store.GetCurrentState();
 
             actualSimpleClass.Should().BeNull();
+        }
+
+        [Fact(DisplayName = "Should update state")]
+        public void ShouldUpdateState()
+        {
+            var originalState = new SimpleClass { FieldOne = "Original" };
+            var expectedState = new SimpleClass { FieldOne = "Expected" };
+
+            var store = new Store<SimpleClass>(originalState);
+
+            store.SetState(state => expectedState);
+
+            var actualState = store.GetCurrentState();
+
+            actualState.Should().BeEquivalentTo(expectedState);
         }
     }
 }

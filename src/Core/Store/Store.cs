@@ -7,7 +7,7 @@ namespace BlazoRx.Core.Store
     public class Store<T> : IStore<T>, IDisposable where T : class
     {
         private readonly BehaviorSubject<T> state;
-        private IServiceProvider serviceProvider;
+        private IServiceProvider internalServiceProvider;
         private readonly IServiceCollection serviceCollection;
 
         public Store(T initialState = default)
@@ -21,24 +21,19 @@ namespace BlazoRx.Core.Store
             return state.Value;
         }
 
+        public void SetState(Func<T, T> updateFunction)
+        {
+            state.OnNext(updateFunction(state.Value));
+        }
+
         public void Dispose()
         {
             state.Dispose();
         }
 
-        public void AddReducer<TType>() where TType : Type
-        {
-            serviceCollection.AddTransient<TType>();
-        }
-
-        public void GetReducer<TType>() where TType : Type
-        {
-            serviceCollection.AddTransient<TType>();
-        }
-
         public void Build()
         {
-            serviceProvider = serviceCollection.BuildServiceProvider();
+            internalServiceProvider = serviceCollection.BuildServiceProvider();
         }
     }
 }
