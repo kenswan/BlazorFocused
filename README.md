@@ -35,8 +35,6 @@ public void ConfigureServices(IServiceCollection services)
     serviceCollection.AddStore(testClass, builder =>
     {
         builder.RegisterReducer(new TestReducer());
-
-        return builder;
     });
 }
 ```
