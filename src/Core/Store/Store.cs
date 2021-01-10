@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reactive.Subjects;
+using BlazoRx.Core.Action;
 using BlazoRx.Core.Builder;
 using BlazoRx.Core.Reducer;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,24 +17,16 @@ namespace BlazoRx.Core.Store
             state = new BehaviorSubject<T>(initialState);
         }
 
+        public void Dispatch<TAction>() where TAction : IAction<T>
+        {
+            var action = internalServiceProvider.GetRequiredService<TAction>();
+
+            state.OnNext(action.Execute(state.Value));
+        }
+
         public T GetState()
         {
             return state.Value;
-        }
-
-        public void SetState(Func<T, T> updateFunction)
-        {
-            state.OnNext(updateFunction(state.Value));
-        }
-
-        public void SetState(T value)
-        {
-            state.OnNext(value);
-        }
-
-        public void Subscribe(Action<T> action)
-        {
-            state.Subscribe(data => action(data));
         }
 
         public void Reduce<TOutput>(Action<TOutput> action)
@@ -44,6 +37,21 @@ namespace BlazoRx.Core.Store
             {
                 action(reducer.Execute(data));
             });
+        }
+
+        public void SetState(T value)
+        {
+            state.OnNext(value);
+        }
+
+        public void SetState(Func<T, T> updateFunction)
+        {
+            state.OnNext(updateFunction(state.Value));
+        }
+
+        public void Subscribe(Action<T> action)
+        {
+            state.Subscribe(data => action(data));
         }
 
         public void LoadBuilder(IStoreBuilder<T> builder)

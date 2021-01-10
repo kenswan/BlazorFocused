@@ -1,4 +1,5 @@
 ﻿using System;
+using BlazoRx.Core.Action;
 using BlazoRx.Core.Reducer;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,9 +14,9 @@ namespace BlazoRx.Core.Builder
             serviceCollection = new ServiceCollection();
         }
 
-        public void RegisterAction(Action<TState> action)
+        public void RegisterAction(IAction<TState> action)
         {
-            throw new NotImplementedException();
+            serviceCollection.AddTransient(action.GetType());
         }
 
         public void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)

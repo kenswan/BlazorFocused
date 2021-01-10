@@ -87,5 +87,46 @@ store.Reduce<TestClassSubset>(reducedState =>
     // inform blazor page to refresh with state update
     StateHasChanged();
 });
+```
+
+## Actions
+
+Register custom actions
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllersWithViews();
+    services.AddRazorPages();
+
+    // initialized instance of the store's data
+    var testClass = new TestClass { FieldOne = "Test" };
+
+    // add store in DI
+    serviceCollection.AddStore(testClass, builder =>
+    {
+        builder.RegisterAction(new TestAction());
+    });
+}
+```
+
+Execute actions to update store:
+
+```csharp
+@inject IStore<TestClass> store;
+
+...
+TestClass currentState = default;
+
+// call action to be committed
+store.Dispatch<TestAction>();
+
+store.Subscribe((newState) => {
+    // update state used in page
+    currentState = newState;
+
+    // inform blazor page to refresh with state update
+    StateHasChanged();
+});
 
 ```
