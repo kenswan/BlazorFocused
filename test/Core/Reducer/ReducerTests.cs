@@ -19,7 +19,7 @@ namespace BlazoRx.Core.Test.Reducer
 
             SimpleClassSubset expectedSimpleClassSubset = SimpleReducerFunction(inputSimpleClass);
 
-            SimpleClassSubset actualSimpleClassSubset = reducer.Reduce(inputSimpleClass);
+            SimpleClassSubset actualSimpleClassSubset = reducer.Execute(inputSimpleClass);
 
             actualSimpleClassSubset.Should().BeEquivalentTo(expectedSimpleClassSubset);
         }

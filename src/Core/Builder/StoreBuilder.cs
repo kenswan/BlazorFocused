@@ -1,17 +1,31 @@
 ﻿using System;
+using BlazoRx.Core.Reducer;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazoRx.Core.Builder
 {
-    public class StoreBuilder<TState> : IStoreBuilder<TState> where TState : Type
+    public class StoreBuilder<TState> : IStoreBuilder<TState> where TState : class
     {
-        public IStoreBuilder<TState> RegisterAction(Type type)
+        private ServiceCollection serviceCollection;
+
+        public StoreBuilder()
+        {
+            serviceCollection = new ServiceCollection();
+        }
+
+        public void RegisterAction(Action<TState> action)
         {
             throw new NotImplementedException();
         }
 
-        public IStoreBuilder<TState> RegisterReducer(Type type)
+        public void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)
         {
-            throw new NotImplementedException();
+            serviceCollection.AddTransient(provider => reducer);
+        }
+
+        public IServiceProvider Build()
+        {
+            return serviceCollection.BuildServiceProvider();
         }
     }
 }

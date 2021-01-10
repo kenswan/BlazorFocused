@@ -5,7 +5,7 @@ using Xunit;
 
 namespace BlazoRx.Core.Test.Store
 {
-    public class StoreTests
+    public partial class StoreTests
     {
         [Fact(DisplayName = "Should Store and Return Initial Value")]
         public void ShouldStoreAndReturnInitialValue()
@@ -15,7 +15,7 @@ namespace BlazoRx.Core.Test.Store
 
             var store = new Store<SimpleClass>(inputSimpleClass);
 
-            SimpleClass actualSimpleClass = store.GetCurrentState();
+            SimpleClass actualSimpleClass = store.GetState();
 
             actualSimpleClass.Should().BeEquivalentTo(expectedSimpleClass);
         }
@@ -25,24 +25,9 @@ namespace BlazoRx.Core.Test.Store
         {
             var store = new Store<SimpleClass>(null);
 
-            SimpleClass actualSimpleClass = store.GetCurrentState();
+            SimpleClass actualSimpleClass = store.GetState();
 
             actualSimpleClass.Should().BeNull();
-        }
-
-        [Fact(DisplayName = "Should update state")]
-        public void ShouldUpdateState()
-        {
-            var originalState = new SimpleClass { FieldOne = "Original" };
-            var expectedState = new SimpleClass { FieldOne = "Expected" };
-
-            var store = new Store<SimpleClass>(originalState);
-
-            store.SetState(state => expectedState);
-
-            var actualState = store.GetCurrentState();
-
-            actualState.Should().BeEquivalentTo(expectedState);
         }
     }
 }

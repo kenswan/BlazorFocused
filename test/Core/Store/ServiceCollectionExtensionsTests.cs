@@ -18,7 +18,7 @@ namespace BlazoRx.Core.Test.Store
             var store = provider.GetRequiredService<IStore<SimpleClass>>();
 
             Assert.NotNull(store);
-            Assert.Equal(simpleClass.FieldOne, store.GetCurrentState().FieldOne);
+            Assert.Equal(simpleClass.FieldOne, store.GetState().FieldOne);
         }
     }
 }

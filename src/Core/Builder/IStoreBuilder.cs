@@ -1,10 +1,12 @@
 ﻿using System;
+using BlazoRx.Core.Reducer;
 
 namespace BlazoRx.Core.Builder
 {
-    public interface IStoreBuilder<TState>
+    public interface IStoreBuilder<TState> where TState : class
     {
-        IStoreBuilder<TState> RegisterAction(Type type);
-        IStoreBuilder<TState> RegisterReducer(Type type);
+        IServiceProvider Build();
+        void RegisterAction(Action<TState> action);
+        void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer);
     }
 }
