@@ -1,5 +1,6 @@
 ﻿using System;
-namespace BlazorRx.Core.Reducer
+
+namespace BlazoRx.Core.Reducer
 {
     public class Reducer<TInput, TOutput> : IReducer<TInput, TOutput> where TInput : class
     {
