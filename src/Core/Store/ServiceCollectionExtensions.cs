@@ -1,8 +1,7 @@
 ﻿using System;
-using BlazoRx.Core.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BlazoRx.Core.Store
+namespace BlazoRx.Store
 {
     public static class ServiceCollectionExtensions
     {

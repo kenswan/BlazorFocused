@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Reactive.Subjects;
-using BlazoRx.Core.Action;
-using BlazoRx.Core.Builder;
-using BlazoRx.Core.Reducer;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BlazoRx.Core.Store
+namespace BlazoRx.Store
 {
     public class Store<T> : IStore<T>, IDisposable where T : class
     {

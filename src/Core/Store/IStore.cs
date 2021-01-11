@@ -1,7 +1,6 @@
 ﻿using System;
-using BlazoRx.Core.Action;
 
-namespace BlazoRx.Core.Store
+namespace BlazoRx.Store
 {
     public interface IStore<TState> where TState : class
     {

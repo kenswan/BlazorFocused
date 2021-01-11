@@ -1,8 +1,6 @@
 ﻿using System;
-using BlazoRx.Core.Action;
-using BlazoRx.Core.Reducer;
 
-namespace BlazoRx.Core.Builder
+namespace BlazoRx.Store
 {
     public interface IStoreBuilder<TState> where TState : class
     {

@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Store\" />
-    <Folder Include="Reducer\" />
     <Folder Include="Model\" />
     <Folder Include="Utility\" />
   </ItemGroup>

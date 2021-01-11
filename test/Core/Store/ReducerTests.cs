@@ -1,10 +1,8 @@
-﻿using System;
-using BlazoRx.Core.Reducer;
-using BlazoRx.Core.Test.Model;
+﻿using BlazoRx.Core.Test.Model;
 using FluentAssertions;
 using Xunit;
 
-namespace BlazoRx.Core.Test.Reducer
+namespace BlazoRx.Store.Test
 {
     public class ReducerTests
     {
