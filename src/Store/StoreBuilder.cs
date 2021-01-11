@@ -1,9 +1,7 @@
 ﻿using System;
-using BlazoRx.Core.Action;
-using BlazoRx.Core.Reducer;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BlazoRx.Core.Builder
+namespace BlazoRx.Store
 {
     public class StoreBuilder<TState> : IStoreBuilder<TState> where TState : class
     {

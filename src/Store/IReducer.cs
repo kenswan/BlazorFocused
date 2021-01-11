@@ -1,4 +1,4 @@
-﻿namespace BlazoRx.Core.Reducer
+﻿namespace BlazoRx.Store
 {
     public interface IReducer<TInput, TOutput> where TInput : class
     {

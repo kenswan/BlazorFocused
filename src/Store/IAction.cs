@@ -1,4 +1,4 @@
-﻿namespace BlazoRx.Core.Action
+﻿namespace BlazoRx.Store
 {
     public interface IAction<TState>
     {

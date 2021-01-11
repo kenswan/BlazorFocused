@@ -1,5 +1,4 @@
-﻿using System;
-using BlazoRx.Core.Reducer;
+﻿using BlazoRx.Store;
 using BlazoRx.Core.Test.Model;
 
 namespace BlazoRx.Core.Test.Utility
