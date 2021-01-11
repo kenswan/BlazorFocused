@@ -26,6 +26,6 @@
     <Folder Include="Utility\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Core\BlazoRx.Core.csproj" />
+    <ProjectReference Include="..\src\BlazoRx.Core.csproj" />
   </ItemGroup>
 </Project>
