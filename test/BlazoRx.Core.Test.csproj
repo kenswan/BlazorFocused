@@ -18,6 +18,7 @@
     <PackageReference Include="Moq" Version="4.15.2" />
     <PackageReference Include="Bogus" Version="32.0.2" />
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup>
