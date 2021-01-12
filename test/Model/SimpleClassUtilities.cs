@@ -1,7 +1,7 @@
 ﻿using System;
 using Bogus;
 
-namespace BlazoRx.Core.Test.Model
+namespace BlazorFocused.Core.Test.Model
 {
     public class SimpleClassUtilities
     {

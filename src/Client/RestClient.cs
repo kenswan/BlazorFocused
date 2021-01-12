@@ -4,7 +4,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-namespace BlazoRx.Client
+namespace BlazorFocused.Client
 {
     public class RestClient : IRestClient
     {

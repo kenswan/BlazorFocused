@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace BlazoRx.Client
+namespace BlazorFocused.Client
 {
     public interface IRestClient
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BlazoRx.Store
+namespace BlazorFocused.Store
 {
     public class StoreBuilder<TState> : IStoreBuilder<TState> where TState : class
     {
