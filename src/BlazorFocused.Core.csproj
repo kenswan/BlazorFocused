@@ -19,10 +19,12 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  
   <ItemGroup>
     <Folder Include="Store\" />
     <Folder Include="Client\" />
   </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="System.Reactive" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />

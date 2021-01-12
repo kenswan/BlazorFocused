@@ -2,7 +2,7 @@
 using FluentAssertions;
 using Xunit;
 
-namespace BlazorFocused.Store.Test
+namespace BlazorFocused.Store
 {
     public partial class StoreTests
     {
