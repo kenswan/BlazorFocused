@@ -1,10 +1,10 @@
-﻿using BlazoRx.Core.Test.Model;
-using BlazoRx.Core.Test.Utility;
+﻿using BlazorFocused.Core.Test.Model;
+using BlazorFocused.Core.Test.Utility;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace BlazoRx.Store.Test
+namespace BlazorFocused.Store.Test
 {
     public partial class StoreTests
     {

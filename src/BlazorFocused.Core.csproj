@@ -2,18 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>BlazoRx</RootNamespace>
-    <PackageId>BlazoRx</PackageId>
+    <RootNamespace>BlazorFocused</RootNamespace>
+    <PackageId>BlazorFocused</PackageId>
     <PackageVersion>1.0.0-alpha1</PackageVersion>
     <Authors>Kenneth Swan</Authors>
     <Copyright>Copyright (c) 2021 Kenneth Swan</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/kenswan/blazorx/main/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/kenswan/blazorx</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/kenswan/blazor-focused/main/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/kenswan/blazor-focused</PackageProjectUrl>
     <Description>Introducing Reactive Programming, Flux Architecture, and standardized network requests to Blazor Components</Description>
     <PackageReleaseNotes>Initial library submission</PackageReleaseNotes>
     <SynchReleaseVersion>false</SynchReleaseVersion>
-    <Title>BlazoRx</Title>
+    <Title>BlazorFocused</Title>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BlazoRx.Store
+namespace BlazorFocused.Store
 {
     public interface IStore<TState> where TState : class
     {

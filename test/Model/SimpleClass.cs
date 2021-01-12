@@ -1,4 +1,4 @@
-﻿namespace BlazoRx.Core.Test.Model
+﻿namespace BlazorFocused.Core.Test.Model
 {
     public class SimpleClass
     {

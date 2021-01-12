@@ -1,4 +1,4 @@
-﻿namespace BlazoRx.Store
+﻿namespace BlazorFocused.Store
 {
     public interface IReducer<TInput, TOutput> where TInput : class
     {

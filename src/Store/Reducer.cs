@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BlazoRx.Store
+namespace BlazorFocused.Store
 {
     public class Reducer<TInput, TOutput> : IReducer<TInput, TOutput> where TInput : class
     {
