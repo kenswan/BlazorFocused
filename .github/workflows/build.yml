@@ -1,4 +1,4 @@
-name: BlazorX CI
+name: BlazorFocused CI
 
 on: [push, pull_request]
 
