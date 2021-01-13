@@ -9,7 +9,7 @@ using BlazorFocused.Integration.Shared;
 namespace BlazorFocused.Integration.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
