@@ -1,6 +1,7 @@
 ﻿using ClientPage = BlazorFocused.Integration.Client.Pages;
 using Bunit;
 using Xunit;
+using BlazorFocused.Integration.Test.Utility;
 
 namespace BlazorFocused.Integration.Test.Client.Pages
 {
@@ -13,6 +14,7 @@ namespace BlazorFocused.Integration.Test.Client.Pages
             context = new TestContext();
         }
 
+        [Trait(nameof(Category), nameof(Category.Integration))]
         [Fact(DisplayName = "Should render intro page")]
         public void ShouldRenderWelcome()
         {

@@ -28,6 +28,8 @@
     <Folder Include="Server\" />
     <Folder Include="Client\Pages\" />
     <Folder Include="Server\Controllers\" />
+    <Folder Include="Utility\" />
+    <Folder Include="Server\Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Client\BlazorFocused.Integration.Client.csproj" />
