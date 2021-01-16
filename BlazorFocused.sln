@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFocused.Integration.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFocused.Integration.Shared", "int\Shared\BlazorFocused.Integration.Shared.csproj", "{CAA7E4C6-83D9-4257-89A2-8E813133DAEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFocused.Integration.Test", "int\Test\BlazorFocused.Integration.Test.csproj", "{E54A8737-2C23-448A-9640-4C8FD0FE3148}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{CAA7E4C6-83D9-4257-89A2-8E813133DAEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAA7E4C6-83D9-4257-89A2-8E813133DAEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAA7E4C6-83D9-4257-89A2-8E813133DAEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E54A8737-2C23-448A-9640-4C8FD0FE3148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E54A8737-2C23-448A-9640-4C8FD0FE3148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E54A8737-2C23-448A-9640-4C8FD0FE3148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E54A8737-2C23-448A-9640-4C8FD0FE3148}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
