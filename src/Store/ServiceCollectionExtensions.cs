@@ -9,7 +9,7 @@ namespace BlazorFocused.Store
         public static void AddStore<T>(
             this IServiceCollection services,
             T initialData,
-            Action<IStoreBuilder<T>> builderFunction = null) where T : class
+            Action<StoreBuilder<T>> builderFunction = null) where T : class
         {
             var builder = new StoreBuilder<T>();
 

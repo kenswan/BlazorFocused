@@ -7,17 +7,20 @@ namespace BlazorFocused.Core.Test.Utility
 {
     public class TestActionAsync : IActionAsync<SimpleClass>
     {
-        private string url;
+        private readonly string url;
 
-        /* public TestActionAsync(string url)
+        public TestActionAsync()
+        {
+            this.url = "api/with/type";
+        }
+
+        public TestActionAsync(string url)
         {
             this.url = url;
-        } */
+        }
 
         public async ValueTask<SimpleClass> ExecuteAsync(IRestClient restClient, SimpleClass state)
         {
-            url = "api/test";
-
             return await restClient.GetAsync<SimpleClass>(url);
         }
     }

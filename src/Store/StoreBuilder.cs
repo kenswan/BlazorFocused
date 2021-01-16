@@ -14,12 +14,28 @@ namespace BlazorFocused.Store
 
         public void RegisterAction(IAction<TState> action)
         {
-            serviceCollection.AddTransient(action.GetType());
+            serviceCollection.AddTransient(action.GetType(), provider => action);
+        }
+
+        public void RegisterAction<TAction>()
+            where TAction : IAction<TState>
+        {
+            Type type = typeof(TAction);
+
+            serviceCollection.AddTransient(type);
         }
 
         public void RegisterAsyncAction(IActionAsync<TState> action)
         {
-            serviceCollection.AddTransient(action.GetType());
+            serviceCollection.AddTransient(action.GetType(), provider => action);
+        }
+
+        public void RegisterAsyncAction<TAction>()
+            where TAction : IActionAsync<TState>
+        {
+            Type type = typeof(TAction);
+
+            serviceCollection.AddTransient(type);
         }
 
         public void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)
