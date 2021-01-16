@@ -1,9 +1,12 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using BlazorFocused.Client;
+using BlazorFocused.Store;
+using BlazorFocused.Integration.Client.Models;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using BlazorFocused.Integration.Client.Actions;
+using BlazorFocused.Integration.Client.Reducers;
 
 namespace BlazorFocused.Integration.Client
 {
@@ -15,9 +18,15 @@ namespace BlazorFocused.Integration.Client
 
             builder.RootComponents.Add<App>("#app");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddScoped(sp =>
+                new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            builder.Services.AddTransient<IRestClient, RestClient>();
+            builder.Services.AddStore(new ToDoStore(), builder =>
+            {
+                builder.RegisterAsyncAction<GetToDoItems>();
+                builder.RegisterReducer(new ToDoCountReducer());
+                builder.RegisterHttpClient();
+            });
 
             await builder.Build().RunAsync();
         }

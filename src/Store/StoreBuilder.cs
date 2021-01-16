@@ -41,7 +41,7 @@ namespace BlazorFocused.Store
             serviceCollection.AddTransient(type);
         }
 
-        public void RegisterHttpClient(Action<HttpClient> configureHttpClient)
+        public void RegisterHttpClient(Action<HttpClient> configureHttpClient = null)
         {
             this.configureHttpClient = configureHttpClient;
         }

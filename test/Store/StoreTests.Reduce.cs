@@ -8,8 +8,8 @@ namespace BlazorFocused.Store.Test
 {
     public partial class StoreTests
     {
-        [Fact(DisplayName = "Should reduce state value")]
-        public void ShouldReduceStateValue()
+        [Fact(DisplayName = "Should reduce state value with instance")]
+        public void ShouldReduceStateValueWithInstance()
         {
             var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
             var originalReducedClass = new TestReducer().Execute(originalClass);
