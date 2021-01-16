@@ -4,7 +4,7 @@ namespace BlazorFocused.Store
 {
     public interface IStoreBuilder<TState> where TState : class
     {
-        IServiceProvider Build();
+        IServiceProvider BuildServices();
 
         void RegisterAction(IAction<TState> action);
 

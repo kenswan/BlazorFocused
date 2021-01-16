@@ -18,7 +18,7 @@ namespace BlazorFocused.Store
                 builderFunction(builder);
             }
 
-            services.AddHttpClient<IRestClient, RestClient>();
+            services.AddRestClient(builder.BuildHttpClient());
 
             services.AddScoped<IStore<T>, Store<T>>(serviceProvider =>
             {

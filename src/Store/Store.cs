@@ -66,7 +66,7 @@ namespace BlazorFocused.Store
 
         public void LoadBuilder(IStoreBuilder<T> builder)
         {
-            internalServiceProvider = builder.Build();
+            internalServiceProvider = builder.BuildServices();
         }
 
         public void Dispose()
