@@ -4,14 +4,16 @@
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>BlazorFocused</RootNamespace>
     <PackageId>BlazorFocused</PackageId>
-    <PackageVersion>1.0.0-alpha1</PackageVersion>
     <Authors>Kenneth Swan</Authors>
     <Copyright>Copyright (c) 2021 Kenneth Swan</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageLicenseUrl>https://raw.githubusercontent.com/kenswan/blazor-focused/main/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/kenswan/blazor-focused</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kenswan/blazor-focused.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>dotnet;blazor;c-sharp;flux-architecture;http-client</PackageTags>
     <Description>Introducing Reactive Programming, Flux Architecture, and standardized network requests to Blazor Components</Description>
-    <PackageReleaseNotes>Initial library submission</PackageReleaseNotes>
+    <PackageReleaseNotes>See https://github.com/kenswan/blazor-focused/releases</PackageReleaseNotes>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <Title>BlazorFocused</Title>
   </PropertyGroup>
