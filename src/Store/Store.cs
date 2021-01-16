@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Reactive.Subjects;
+using System.Threading.Tasks;
+using BlazorFocused.Client;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorFocused.Store
@@ -7,11 +9,13 @@ namespace BlazorFocused.Store
     public class Store<T> : IStore<T>, IDisposable where T : class
     {
         private readonly BehaviorSubject<T> state;
+        private readonly IRestClient restClient;
         private IServiceProvider internalServiceProvider;
 
-        public Store(T initialState = default)
+        public Store(T initialState, IRestClient restClient)
         {
             state = new BehaviorSubject<T>(initialState);
+            this.restClient = restClient;
         }
 
         public void Dispatch<TAction>() where TAction : IAction<T>
@@ -19,6 +23,15 @@ namespace BlazorFocused.Store
             var action = internalServiceProvider.GetRequiredService<TAction>();
 
             state.OnNext(action.Execute(state.Value));
+        }
+
+        public async ValueTask DispatchAsync<TActionAsync>() where TActionAsync : IActionAsync<T>
+        {
+            var action = internalServiceProvider.GetRequiredService<TActionAsync>();
+
+            var value = await action.ExecuteAsync(restClient, state.Value);
+
+            state.OnNext(value);
         }
 
         public T GetState()

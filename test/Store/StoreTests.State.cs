@@ -12,7 +12,7 @@ namespace BlazorFocused.Store.Test
             var originalState = new SimpleClass { FieldOne = "Original" };
             var expectedState = new SimpleClass { FieldOne = "Expected" };
 
-            var store = new Store<SimpleClass>(originalState);
+            var store = new Store<SimpleClass>(originalState, restClientMock.Object);
 
             store.SetState(expectedState);
 
@@ -27,7 +27,7 @@ namespace BlazorFocused.Store.Test
             var originalState = new SimpleClass { FieldOne = "Original" };
             var expectedState = new SimpleClass { FieldOne = "Expected" };
 
-            var store = new Store<SimpleClass>(originalState);
+            var store = new Store<SimpleClass>(originalState, restClientMock.Object);
 
             store.SetState(currentState =>
             {
@@ -47,7 +47,7 @@ namespace BlazorFocused.Store.Test
             var expectedState = new SimpleClass { FieldOne = "Expected" };
             SimpleClass updatedState = null;
 
-            var store = new Store<SimpleClass>(originalState);
+            var store = new Store<SimpleClass>(originalState, restClientMock.Object);
 
             store.Subscribe((newState) => { updatedState = newState; });
 

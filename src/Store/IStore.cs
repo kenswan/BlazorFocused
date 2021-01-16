@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace BlazorFocused.Store
 {
@@ -6,6 +7,9 @@ namespace BlazorFocused.Store
     {
         void Dispatch<TAction>()
             where TAction : IAction<TState>;
+
+        ValueTask DispatchAsync<TAction>()
+            where TAction : IActionAsync<TState>;
 
         TState GetState();
 

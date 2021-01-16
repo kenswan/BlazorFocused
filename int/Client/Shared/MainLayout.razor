@@ -1,0 +1,41 @@
+﻿@inherits LayoutComponentBase
+@using BlazorFocused.Client;
+@using BlazorFocused.Integration.Shared.Models;
+
+@inject IRestClient restClient;
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <div class="main">
+        <div class="top-row px-4">
+            @if (user == null)
+            {
+                <a href="" @onclick="GetUserOnClickAsync" class="ml-md-auto">Login</a>
+            }
+            else
+            {
+                <div>
+                    <b>@user.LastName, @user.FirstName</b><text>&nbsp;</text>
+                    <a href="" @onclick="GetUserOnClickAsync">Change User</a>
+                </div>
+            }
+        </div>
+
+        <div class="content px-4">
+            @Body
+        </div>
+    </div>
+</div>
+
+@code {
+
+    protected User user = null;
+
+    private async Task GetUserOnClickAsync(MouseEventArgs e)
+    {
+        user = await restClient.GetAsync<User>("api/user");
+    }
+}
