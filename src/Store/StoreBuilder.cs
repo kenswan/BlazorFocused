@@ -17,6 +17,11 @@ namespace BlazorFocused.Store
             serviceCollection.AddTransient(action.GetType());
         }
 
+        public void RegisterAsyncAction(IActionAsync<TState> action)
+        {
+            serviceCollection.AddTransient(action.GetType());
+        }
+
         public void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)
         {
             serviceCollection.AddTransient(provider => reducer);

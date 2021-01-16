@@ -1,30 +1,34 @@
 ﻿using System;
+using BlazorFocused.Client;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorFocused.Store
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddStore<T>(this IServiceCollection services, T initialData) where T : class
-        {
-            var store = new Store<T>(initialData);
-
-            services.AddScoped<IStore<T>, Store<T>>(ServiceProvider => store);
-        }
-
         public static void AddStore<T>(
             this IServiceCollection services,
             T initialData,
-            Action<IStoreBuilder<T>> builderFunction) where T : class
+            Action<IStoreBuilder<T>> builderFunction = null) where T : class
         {
-            var store = new Store<T>(initialData);
             var builder = new StoreBuilder<T>();
 
-            builderFunction(builder);
+            if (builderFunction is not null)
+            {
+                builderFunction(builder);
+            }
 
-            store.LoadBuilder(builder);
+            services.AddHttpClient<IRestClient, RestClient>();
 
-            services.AddScoped<IStore<T>, Store<T>>(ServiceProvider => store);
+            services.AddScoped<IStore<T>, Store<T>>(serviceProvider =>
+            {
+                var httpClient = serviceProvider.GetRequiredService<IRestClient>();
+                var store = new Store<T>(initialData, httpClient);
+
+                store.LoadBuilder(builder);
+
+                return store;
+            });
         }
     }
 }
