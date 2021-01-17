@@ -20,4 +20,9 @@
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Actions\" />
+    <Folder Include="Reducers\" />
+  </ItemGroup>
 </Project>
