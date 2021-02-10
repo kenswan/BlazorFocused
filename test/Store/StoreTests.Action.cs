@@ -11,16 +11,11 @@ namespace BlazorFocused.Store.Test
         [Fact(DisplayName = "Should execute action by instance")]
         public void ShouldExecuteActionWithInstance()
         {
-            var serviceCollection = new ServiceCollection();
             SimpleClass originalClass = default;
 
-            serviceCollection.AddStore(originalClass, builder =>
-            {
-                builder.RegisterAction(new TestAction());
-            });
+            storeBuilder.RegisterAction(new TestAction());
 
-            var provider = serviceCollection.BuildServiceProvider();
-            var store = provider.GetRequiredService<IStore<SimpleClass>>();
+            var store = new Store<SimpleClass>(originalClass, storeBuilder);
 
             store.GetState().Should().BeNull();
 
@@ -32,16 +27,11 @@ namespace BlazorFocused.Store.Test
         [Fact(DisplayName = "Should execute action by type")]
         public void ShouldExecuteActionWithType()
         {
-            var serviceCollection = new ServiceCollection();
             SimpleClass originalClass = default;
 
-            serviceCollection.AddStore(originalClass, builder =>
-            {
-                builder.RegisterAction<TestAction>();
-            });
+            storeBuilder.RegisterAction<TestAction>();
 
-            var provider = serviceCollection.BuildServiceProvider();
-            var store = provider.GetRequiredService<IStore<SimpleClass>>();
+            var store = new Store<SimpleClass>(originalClass, storeBuilder);
 
             store.GetState().Should().BeNull();
 

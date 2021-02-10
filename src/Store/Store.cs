@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Reactive.Subjects;
 using System.Threading.Tasks;
-using BlazorFocused.Client;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorFocused.Store
@@ -9,13 +8,21 @@ namespace BlazorFocused.Store
     public class Store<T> : IStore<T>, IDisposable where T : class
     {
         private readonly BehaviorSubject<T> state;
-        private readonly IRestClient restClient;
         private IServiceProvider internalServiceProvider;
 
-        public Store(T initialState, IRestClient restClient)
+        public Store(T initialState, IStoreBuilder<T> storeBuilder = null)
         {
             state = new BehaviorSubject<T>(initialState);
-            this.restClient = restClient;
+            internalServiceProvider = storeBuilder?.BuildServices();
+        }
+
+        public Store(T initialState, Action<IStoreBuilder<T>> storeBuilderAction)
+        {
+            state = new BehaviorSubject<T>(initialState);
+            var storeBuilder = new StoreBuilder<T>();
+
+            storeBuilderAction.Invoke(storeBuilder);
+            internalServiceProvider = storeBuilder.BuildServices();
         }
 
         public void Dispatch<TAction>() where TAction : IAction<T>
@@ -29,7 +36,7 @@ namespace BlazorFocused.Store
         {
             var action = internalServiceProvider.GetRequiredService<TActionAsync>();
 
-            var value = await action.ExecuteAsync(restClient, state.Value);
+            var value = await action.ExecuteAsync(state.Value);
 
             state.OnNext(value);
         }
@@ -62,11 +69,6 @@ namespace BlazorFocused.Store
         public void Subscribe(Action<T> action)
         {
             state.Subscribe(data => action(data));
-        }
-
-        public void LoadBuilder(IStoreBuilder<T> builder)
-        {
-            internalServiceProvider = builder.BuildServices();
         }
 
         public void Dispose()

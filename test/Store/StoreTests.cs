@@ -1,18 +1,16 @@
-﻿using BlazorFocused.Client;
-using BlazorFocused.Core.Test.Model;
+﻿using BlazorFocused.Core.Test.Model;
 using FluentAssertions;
-using Moq;
 using Xunit;
 
 namespace BlazorFocused.Store.Test
 {
     public partial class StoreTests
     {
-        private readonly Mock<IRestClient> restClientMock;
+        private readonly IStoreBuilder<SimpleClass> storeBuilder;
 
         public StoreTests()
         {
-            restClientMock = new Mock<IRestClient>();
+            storeBuilder = new StoreBuilder<SimpleClass>();
         }
 
         [Fact(DisplayName = "Should Store and Return Initial Value")]
@@ -21,7 +19,7 @@ namespace BlazorFocused.Store.Test
             SimpleClass inputSimpleClass = SimpleClassUtilities.GetRandomSimpleClass();
             SimpleClass expectedSimpleClass = inputSimpleClass;
 
-            var store = new Store<SimpleClass>(inputSimpleClass, restClientMock.Object);
+            var store = new Store<SimpleClass>(inputSimpleClass);
 
             SimpleClass actualSimpleClass = store.GetState();
 
@@ -31,7 +29,7 @@ namespace BlazorFocused.Store.Test
         [Fact(DisplayName = "Should Return 'null' when initialized as null")]
         public void ShouldReturnNullWhenInitializedAsNull()
         {
-            var store = new Store<SimpleClass>(null, restClientMock.Object);
+            var store = new Store<SimpleClass>(null);
 
             SimpleClass actualSimpleClass = store.GetState();
 

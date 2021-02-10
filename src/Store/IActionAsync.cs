@@ -5,6 +5,6 @@ namespace BlazorFocused.Store
 {
     public interface IActionAsync<TState>
     {
-        ValueTask<TState> ExecuteAsync(IRestClient restClient, TState state);
+        ValueTask<TState> ExecuteAsync(TState state);
     }
 }
