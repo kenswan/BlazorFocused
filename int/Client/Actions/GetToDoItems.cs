@@ -8,7 +8,14 @@ namespace BlazorFocused.Integration.Client.Actions
 {
     public class GetToDoItems : IActionAsync<ToDoStore>
     {
-        public async ValueTask<ToDoStore> ExecuteAsync(IRestClient restClient, ToDoStore state)
+        private readonly IRestClient restClient;
+
+        public GetToDoItems(IRestClient restClient)
+        {
+            this.restClient = restClient;
+        }
+
+        public async ValueTask<ToDoStore> ExecuteAsync(ToDoStore state)
         {
             var items = await restClient.GetAsync<IEnumerable<ToDoItem>>("api/todo");
 

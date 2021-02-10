@@ -3,7 +3,7 @@ using BlazorFocused.Core.Test.Model;
 
 namespace BlazorFocused.Core.Test.Utility
 {
-    public class TestReducer : IReducer<SimpleClass, SimpleClassSubset>
+    public class TestReducer : TestClass, IReducer<SimpleClass, SimpleClassSubset>
     {
         public SimpleClassSubset Execute(SimpleClass input)
         {

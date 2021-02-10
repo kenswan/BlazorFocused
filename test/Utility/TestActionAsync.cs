@@ -1,27 +1,23 @@
 ﻿using System.Threading.Tasks;
-using BlazorFocused.Client;
 using BlazorFocused.Core.Test.Model;
 using BlazorFocused.Store;
 
 namespace BlazorFocused.Core.Test.Utility
 {
-    public class TestActionAsync : IActionAsync<SimpleClass>
+    public class TestActionAsync : TestClass, IActionAsync<SimpleClass>
     {
-        private readonly string url;
+        private readonly TestService testService;
 
-        public TestActionAsync()
+        public TestActionAsync() { }
+
+        public TestActionAsync(TestService testService)
         {
-            this.url = "api/with/type";
+            this.testService = testService;
         }
 
-        public TestActionAsync(string url)
+        public async ValueTask<SimpleClass> ExecuteAsync(SimpleClass state)
         {
-            this.url = url;
-        }
-
-        public async ValueTask<SimpleClass> ExecuteAsync(IRestClient restClient, SimpleClass state)
-        {
-            return await restClient.GetAsync<SimpleClass>(url);
+            return await testService.GetValueAsync<SimpleClass>();
         }
     }
 }

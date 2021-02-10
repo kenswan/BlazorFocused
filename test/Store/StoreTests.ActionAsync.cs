@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using BlazorFocused.Client;
 using BlazorFocused.Core.Test.Model;
 using BlazorFocused.Core.Test.Utility;
 using FluentAssertions;
@@ -9,22 +11,20 @@ namespace BlazorFocused.Store.Test
 {
     public partial class StoreTests
     {
-        [Fact(DisplayName = "Should execute action async")]
+        [Fact(DisplayName = "Should execute action async" )]
         public async Task ShouldRetrieveValueAsyncWithInstance()
         {
             var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
             var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
-            var apiUrl = "api/with/instance";
+            var testServiceMock = new Mock<TestService>();
 
-            restClientMock.Setup(client =>
-                client.GetAsync<SimpleClass>(apiUrl))
+            testServiceMock.Setup(service =>
+                service.GetValueAsync<SimpleClass>())
                     .ReturnsAsync(updatedClass);
 
-            var builder = new StoreBuilder<SimpleClass>();
-            builder.RegisterAsyncAction(new TestActionAsync(apiUrl));
+            storeBuilder.RegisterAsyncAction(new TestActionAsync(testServiceMock.Object));
 
-            var store = new Store<SimpleClass>(originalClass, restClientMock.Object);
-            store.LoadBuilder(builder);
+            var store = new Store<SimpleClass>(originalClass, storeBuilder);
 
             await store.DispatchAsync<TestActionAsync>();
 
@@ -36,17 +36,17 @@ namespace BlazorFocused.Store.Test
         {
             var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
             var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
-            var apiUrl = "api/with/type";
 
-            restClientMock.Setup(client =>
-                client.GetAsync<SimpleClass>(apiUrl))
+            var testServiceMock = new Mock<TestService>();
+
+            testServiceMock.Setup(service =>
+                service.GetValueAsync<SimpleClass>())
                     .ReturnsAsync(updatedClass);
 
-            var builder = new StoreBuilder<SimpleClass>();
-            builder.RegisterAsyncAction<TestActionAsync>();
+            storeBuilder.RegisterAsyncAction<TestActionAsync>();
+            storeBuilder.RegisterService(testServiceMock.Object);
 
-            var store = new Store<SimpleClass>(originalClass, restClientMock.Object);
-            store.LoadBuilder(builder);
+            var store = new Store<SimpleClass>(originalClass, storeBuilder);
 
             await store.DispatchAsync<TestActionAsync>();
 

@@ -41,9 +41,23 @@ namespace BlazorFocused.Store
             serviceCollection.AddTransient(type);
         }
 
-        public void RegisterHttpClient(Action<HttpClient> configureHttpClient = null)
+        public void RegisterHttpClient()
         {
-            this.configureHttpClient = configureHttpClient;
+            serviceCollection.AddHttpClient();
+        }
+
+        public void RegisterHttpClient<TService, TImplementation>()
+            where TService : class
+            where TImplementation : class, TService
+        {
+            serviceCollection.AddHttpClient<TService, TImplementation>();
+        }
+
+        public void RegisterHttpClient<TService, TImplementation>(Action<HttpClient> configureHttpClient)
+            where TService : class
+            where TImplementation : class, TService
+        {
+            serviceCollection.AddHttpClient<TService, TImplementation>(configureHttpClient);
         }
 
         public void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)
@@ -58,5 +72,17 @@ namespace BlazorFocused.Store
 
         public Action<HttpClient> BuildHttpClient()
             => configureHttpClient;
+
+        public void RegisterService<TService>() where TService : class
+        {
+            Type type = typeof(TService);
+
+            serviceCollection.AddScoped(type);
+        }
+
+        public void RegisterService<TService>(TService service) where TService : class
+        {
+            serviceCollection.AddScoped(provider => service);
+        }
     }
 }

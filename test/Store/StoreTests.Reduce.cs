@@ -1,7 +1,6 @@
 ﻿using BlazorFocused.Core.Test.Model;
 using BlazorFocused.Core.Test.Utility;
 using FluentAssertions;
-using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace BlazorFocused.Store.Test
@@ -15,15 +14,11 @@ namespace BlazorFocused.Store.Test
             var originalReducedClass = new TestReducer().Execute(originalClass);
             var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
             var updatedReducedClass = new TestReducer().Execute(updatedClass);
-            var serviceCollection = new ServiceCollection();
 
-            serviceCollection.AddStore(originalClass, builder =>
-            {
-                builder.RegisterReducer(new TestReducer());
-            });
+            storeBuilder.RegisterReducer(new TestReducer());
 
-            var provider = serviceCollection.BuildServiceProvider();
-            var store = provider.GetRequiredService<IStore<SimpleClass>>();
+            var store = new Store<SimpleClass>(originalClass, storeBuilder);
+
             SimpleClassSubset actualReducedState = default;
 
             store.Reduce<SimpleClassSubset>(reducedState =>
