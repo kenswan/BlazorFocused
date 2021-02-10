@@ -12,7 +12,7 @@ namespace BlazorFocused.Core.Test.Utility
             this.HttpClient = httpClient;
         }
 
-        public ValueTask<T> TestGetValueAsync<T>(string url)
+        public ValueTask<T> GetValueAsync<T>(string url)
         {
             return new ValueTask<T>(default(T));
         }

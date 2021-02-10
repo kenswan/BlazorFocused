@@ -5,13 +5,11 @@ namespace BlazorFocused.Core.Test.Utility
 {
     public class TestService : TestClass
     {
-        public TestService()
-        {
-        }
+        public TestService() { }
 
-        public ValueTask<T> GetValueAsync<T>()
+        public virtual ValueTask<T> GetValueAsync<T>()
         {
-            throw new NotImplementedException();
+            return new ValueTask<T>(default(T));
         }
     }
 }

@@ -6,27 +6,18 @@ namespace BlazorFocused.Core.Test.Utility
 {
     public class TestActionAsync : TestClass, IActionAsync<SimpleClass>
     {
-        public static string DefaultUrl { get; } = "api/with/type";
-
-        private readonly ITestHttpService testHttpService;
-        private string url;
+        private readonly TestService testService;
 
         public TestActionAsync() { }
 
-        public TestActionAsync(TestHttpService testHttpService)
+        public TestActionAsync(TestService testService)
         {
-            this.testHttpService = testHttpService;
-            url = DefaultUrl;
-        }
-
-        public TestActionAsync(string url)
-        {
-            this.url = url;
+            this.testService = testService;
         }
 
         public async ValueTask<SimpleClass> ExecuteAsync(SimpleClass state)
         {
-            return await testHttpService.TestGetValueAsync<SimpleClass>(url);
+            return await testService.GetValueAsync<SimpleClass>();
         }
     }
 }

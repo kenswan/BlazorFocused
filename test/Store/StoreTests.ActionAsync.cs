@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using BlazorFocused.Client;
 using BlazorFocused.Core.Test.Model;
 using BlazorFocused.Core.Test.Utility;
@@ -10,20 +11,18 @@ namespace BlazorFocused.Store.Test
 {
     public partial class StoreTests
     {
-        [Fact(DisplayName = "Should execute action async", Skip = "WIP" )]
+        [Fact(DisplayName = "Should execute action async" )]
         public async Task ShouldRetrieveValueAsyncWithInstance()
         {
             var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
             var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
-            var apiUrl = "api/with/instance";
-            var testHttpServiceMock = new Mock<TestHttpService>();
+            var testServiceMock = new Mock<TestService>();
 
-            testHttpServiceMock.Setup(service =>
-                service.TestGetValueAsync<SimpleClass>(apiUrl))
+            testServiceMock.Setup(service =>
+                service.GetValueAsync<SimpleClass>())
                     .ReturnsAsync(updatedClass);
 
-            storeBuilder.RegisterAsyncAction(new TestActionAsync(apiUrl));
-            storeBuilder.RegisterHttpClient<ITestHttpService, TestHttpService>();
+            storeBuilder.RegisterAsyncAction(new TestActionAsync(testServiceMock.Object));
 
             var store = new Store<SimpleClass>(originalClass, storeBuilder);
 
@@ -32,20 +31,20 @@ namespace BlazorFocused.Store.Test
             store.GetState().Should().BeEquivalentTo(updatedClass);
         }
 
-        [Fact(DisplayName = "Should execute action async by type", Skip = "WIP")]
+        [Fact(DisplayName = "Should execute action async by type")]
         public async Task ShouldRetrieveValueAsyncWithType()
         {
             var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
             var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
 
-            var testHttpServiceMock = new Mock<TestHttpService>();
+            var testServiceMock = new Mock<TestService>();
 
-            testHttpServiceMock.Setup(service =>
-                service.TestGetValueAsync<SimpleClass>(TestActionAsync.DefaultUrl))
+            testServiceMock.Setup(service =>
+                service.GetValueAsync<SimpleClass>())
                     .ReturnsAsync(updatedClass);
 
             storeBuilder.RegisterAsyncAction<TestActionAsync>();
-            storeBuilder.RegisterHttpClient<ITestHttpService, TestHttpService>();
+            storeBuilder.RegisterService(testServiceMock.Object);
 
             var store = new Store<SimpleClass>(originalClass, storeBuilder);
 
