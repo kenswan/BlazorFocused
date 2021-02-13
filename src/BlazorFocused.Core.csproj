@@ -25,6 +25,7 @@
   <ItemGroup>
     <Folder Include="Store\" />
     <Folder Include="Client\" />
+    <Folder Include="Testing\" />
   </ItemGroup>
 
   <ItemGroup>
