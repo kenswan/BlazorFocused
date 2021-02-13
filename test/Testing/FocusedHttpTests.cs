@@ -42,7 +42,6 @@ namespace BlazorFocused.Testing.Test
             {
                 request.HttpMethod = httpMethod;
                 request.Url = relativeRequestUrl;
-                return request;
             }, httpStatusCode, responseObject);
 
             var client = focusedHttp.Client();
@@ -67,7 +66,6 @@ namespace BlazorFocused.Testing.Test
             {
                 request.HttpMethod = httpMethod;
                 request.Url = relativeRequestUrl;
-                return request;
             }, httpStatusCode, responseObject);
 
             await MakeRequest(focusedHttp.Client(), httpMethod, relativeRequestUrl);
@@ -97,7 +95,6 @@ namespace BlazorFocused.Testing.Test
             {
                 request.HttpMethod = httpMethod;
                 request.Url = relativeRequestUrl;
-                return request;
             }, httpStatusCode, responseObject);
 
             await MakeRequest(focusedHttp.Client(), httpMethod, relativeRequestUrl);
@@ -127,7 +124,6 @@ namespace BlazorFocused.Testing.Test
             {
                 request.HttpMethod = httpMethod;
                 request.Url = relativeRequestUrl;
-                return request;
             }, httpStatusCode, responseObject);
 
             Action act = () => focusedHttp.VerifyWasCalled();

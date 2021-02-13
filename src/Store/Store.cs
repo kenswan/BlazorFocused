@@ -8,7 +8,7 @@ namespace BlazorFocused.Store
     public class Store<T> : IStore<T>, IDisposable where T : class
     {
         private readonly BehaviorSubject<T> state;
-        private IServiceProvider internalServiceProvider;
+        private readonly IServiceProvider internalServiceProvider;
 
         public Store(T initialState, IStoreBuilder<T> storeBuilder = null)
         {

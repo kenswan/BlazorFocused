@@ -5,7 +5,8 @@ namespace BlazorFocused.Testing
 {
     public class FocusedSetup
     {
-        public object Content { get; set; }
+        // TODO: Add Object compare to setup (POST & PUT)
+        // public object Content { get; set; }
 
         public HttpMethod HttpMethod { get; set; }
 

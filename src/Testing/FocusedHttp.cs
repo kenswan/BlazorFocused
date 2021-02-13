@@ -54,9 +54,11 @@ namespace BlazorFocused.Testing
             };
         }
 
-        public void Setup(Func<FocusedSetup, FocusedSetup> httpSetup, HttpStatusCode httpStatusCode, object response)
+        public void Setup(Action<FocusedSetup> httpSetup, HttpStatusCode httpStatusCode, object response)
         {
-            var setup = httpSetup(new FocusedSetup());
+            var setup = new FocusedSetup();
+
+            httpSetup(setup);
 
             var setupResponse = new FocusedResponse
             {
