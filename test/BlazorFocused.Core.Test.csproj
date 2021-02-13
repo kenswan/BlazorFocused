@@ -25,6 +25,7 @@
     <Folder Include="Store\" />
     <Folder Include="Model\" />
     <Folder Include="Utility\" />
+    <Folder Include="Testing\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\BlazorFocused.Core.csproj" />
