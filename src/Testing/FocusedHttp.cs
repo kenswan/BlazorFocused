@@ -15,8 +15,8 @@ namespace BlazorFocused.Testing
     {
         public string BaseAddress { get; private set; }
 
-        private List<FocusedRequest> requests;
-        private List<FocusedResponse> responses;
+        private readonly List<FocusedRequest> requests;
+        private readonly List<FocusedResponse> responses;
 
         public FocusedHttp(string baseAddress = "http://test-url.io")
         {

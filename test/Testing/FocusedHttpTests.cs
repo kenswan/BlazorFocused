@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
@@ -17,7 +18,7 @@ namespace BlazorFocused.Testing.Test
 
         public FocusedHttpTests()
         {
-            baseAddress = new Faker().Internet.Url();
+            baseAddress = GetRandomUrl();
             focusedHttp = new FocusedHttp(baseAddress);
         }
 
@@ -29,89 +30,171 @@ namespace BlazorFocused.Testing.Test
             Assert.Equal(baseAddress, client.BaseAddress.OriginalString);
         }
 
-        [Fact]
-        public async Task ShouldReturnSetResponse()
+        [Theory]
+        [MemberData(nameof(HttpData))]
+        public async Task ShouldReturnRequestedResponse(
+            HttpMethod httpMethod,
+            HttpStatusCode httpStatusCode,
+            string relativeRequestUrl,
+            SimpleClass responseObject)
         {
-            var requestUrl = "api/test";
-            var expectedReponseCode = HttpStatusCode.OK;
-            var expectedResponseObject =
-                new SimpleClass { FieldOne = "Test1", FieldTwo = "Test2", FieldThree = "Field3" };
-
             focusedHttp.Setup(request =>
             {
-                request.HttpMethod = HttpMethod.Get;
-                request.Url = requestUrl;
+                request.HttpMethod = httpMethod;
+                request.Url = relativeRequestUrl;
                 return request;
-            }, expectedReponseCode, expectedResponseObject);
+            }, httpStatusCode, responseObject);
 
             var client = focusedHttp.Client();
-            var actualResponse = await client.GetAsync(requestUrl);
+            HttpResponseMessage actualResponse = await MakeRequest(client, httpMethod, relativeRequestUrl);
             var actualStatusCode = actualResponse?.StatusCode;
             var actualResponseString = await actualResponse.Content.ReadAsStringAsync();
             var actualResponseObject = JsonSerializer.Deserialize<SimpleClass>(actualResponseString);
 
-            Assert.Equal(expectedReponseCode, actualResponse.StatusCode);
-            actualResponseObject.Should().BeEquivalentTo(expectedResponseObject);
+            Assert.Equal(httpStatusCode, actualResponse.StatusCode);
+            actualResponseObject.Should().BeEquivalentTo(responseObject);
         }
 
-        [Fact]
-        public async Task ShouldVerifyRequestMade()
+        [Theory]
+        [MemberData(nameof(HttpData))]
+        public async Task ShouldVerifyRequestMade(
+            HttpMethod httpMethod,
+            HttpStatusCode httpStatusCode,
+            string relativeRequestUrl,
+            SimpleClass responseObject)
         {
-            var requestUrl = "api/test/4";
-            var expectedReponseCode = HttpStatusCode.OK;
-            var expectedResponseObject =
-                new SimpleClass { FieldOne = "Test1", FieldTwo = "Test2", FieldThree = "Field3" };
-
             focusedHttp.Setup(request =>
             {
-                request.HttpMethod = HttpMethod.Get;
-                request.Url = requestUrl;
+                request.HttpMethod = httpMethod;
+                request.Url = relativeRequestUrl;
                 return request;
-            }, expectedReponseCode, expectedResponseObject);
+            }, httpStatusCode, responseObject);
 
-            var client = focusedHttp.Client();
-            await client.GetAsync(requestUrl);
+            await MakeRequest(focusedHttp.Client(), httpMethod, relativeRequestUrl);
 
             var calledException = Record.Exception(() => focusedHttp.VerifyWasCalled());
 
             var calledWithMethodException =
-                Record.Exception(() => focusedHttp.VerifyWasCalled(HttpMethod.Get));
+                Record.Exception(() => focusedHttp.VerifyWasCalled(httpMethod));
 
             var calledWithMethodAndUrlException =
-                Record.Exception(() => focusedHttp.VerifyWasCalled(HttpMethod.Get, requestUrl));
+                Record.Exception(() => focusedHttp.VerifyWasCalled(httpMethod, relativeRequestUrl));
 
             Assert.Null(calledException);
             Assert.Null(calledWithMethodException);
             Assert.Null(calledWithMethodAndUrlException);
         }
 
-        [Fact]
-        public void ShouldVerifyRequestNotMade()
+        [Theory]
+        [MemberData(nameof(HttpData))]
+        public async Task ShouldVerifyNoRequestWasMade(
+            HttpMethod httpMethod,
+            HttpStatusCode httpStatusCode,
+            string relativeRequestUrl,
+            SimpleClass responseObject)
         {
-            var requestUrl = "api/test/4";
-            var expectedReponseCode = HttpStatusCode.OK;
-            var expectedResponseObject =
-                new SimpleClass { FieldOne = "Test1", FieldTwo = "Test2", FieldThree = "Field3" };
-
             focusedHttp.Setup(request =>
             {
-                request.HttpMethod = HttpMethod.Post;
-                request.Url = requestUrl;
+                request.HttpMethod = httpMethod;
+                request.Url = relativeRequestUrl;
                 return request;
-            }, expectedReponseCode, expectedResponseObject);
+            }, httpStatusCode, responseObject);
 
-            Action act = () => focusedHttp.VerifyWasCalled();
-            Action actWithMethod = () => focusedHttp.VerifyWasCalled(HttpMethod.Get);
-            Action actWithMethodAndUrl = () => focusedHttp.VerifyWasCalled(HttpMethod.Get, requestUrl);
+            await MakeRequest(focusedHttp.Client(), httpMethod, relativeRequestUrl);
+            var differentHttpMethod = PickDifferentMethod(httpMethod);
+            var differentRelativeUrl = GetRandomRelativeUrl();
 
-            act.Should().Throw<FocusedTestException>();
+            Action actWithMethod = () => focusedHttp.VerifyWasCalled(differentHttpMethod);
+            Action actWithMethodAndUrl = () => focusedHttp.VerifyWasCalled(httpMethod, differentRelativeUrl);
 
             actWithMethod.Should().Throw<FocusedTestException>()
-                .Where(exception => exception.Message.Contains(HttpMethod.Get.ToString()));
+                .Where(exception => exception.Message.Contains(differentHttpMethod.ToString()));
 
             actWithMethodAndUrl.Should().Throw<FocusedTestException>()
-                .Where(exception => exception.Message.Contains(HttpMethod.Get.ToString()) &&
-                    exception.Message.Contains(requestUrl));
+                .Where(exception => exception.Message.Contains(httpMethod.ToString()) &&
+                    exception.Message.Contains(differentRelativeUrl));
         }
+
+        [Theory]
+        [MemberData(nameof(HttpData))]
+        public void ShouldVerifyNoRequestMade(
+            HttpMethod httpMethod,
+            HttpStatusCode httpStatusCode,
+            string relativeRequestUrl,
+            SimpleClass responseObject)
+        {
+            focusedHttp.Setup(request =>
+            {
+                request.HttpMethod = httpMethod;
+                request.Url = relativeRequestUrl;
+                return request;
+            }, httpStatusCode, responseObject);
+
+            Action act = () => focusedHttp.VerifyWasCalled();
+
+            act.Should().Throw<FocusedTestException>();
+        }
+
+        public static TheoryData<HttpMethod, HttpStatusCode, string, SimpleClass> HttpData =>
+            new TheoryData<HttpMethod, HttpStatusCode, string, SimpleClass>
+            {
+                { HttpMethod.Delete, GetRandomStatusCode(), GetRandomRelativeUrl(), GetRandomSimpleClass() },
+                { HttpMethod.Get, GetRandomStatusCode(), GetRandomRelativeUrl(), GetRandomSimpleClass() },
+                { HttpMethod.Patch, GetRandomStatusCode(), GetRandomRelativeUrl(), GetRandomSimpleClass() },
+                { HttpMethod.Post, GetRandomStatusCode(), GetRandomRelativeUrl(), GetRandomSimpleClass() },
+                { HttpMethod.Put, GetRandomStatusCode(), GetRandomRelativeUrl(), GetRandomSimpleClass() }
+            };
+
+        private static Task<HttpResponseMessage> MakeRequest(HttpClient client, HttpMethod httpMethod, string url)
+        {
+            switch (httpMethod)
+            {
+                case HttpMethod method when method == HttpMethod.Delete:
+                    return client.DeleteAsync(url);
+                case HttpMethod method when method == HttpMethod.Get:
+                    return client.GetAsync(url);
+                case HttpMethod method when method == HttpMethod.Patch:
+                    return client.PatchAsync(url, null);
+                case HttpMethod method when method == HttpMethod.Post:
+                    return client.PostAsync(url, null);
+                case HttpMethod method when method == HttpMethod.Put:
+                    return client.PutAsync(url, null);
+            }
+
+            return default;
+        }
+
+        private static HttpMethod PickDifferentMethod(HttpMethod httpMethod)
+        {
+            var methods = new List<HttpMethod>
+            {
+                HttpMethod.Delete,
+                HttpMethod.Get,
+                HttpMethod.Patch,
+                HttpMethod.Post,
+                HttpMethod.Put
+            };
+
+            methods.Remove(httpMethod);
+
+            return new Faker().PickRandom(methods);
+        }
+
+        private static HttpStatusCode GetRandomStatusCode() =>
+            new Faker().PickRandom<HttpStatusCode>();
+
+        private static string GetRandomUrl() =>
+            new Faker().Internet.Url();
+
+        private static string GetRandomRelativeUrl() =>
+            new Faker().Internet.UrlRootedPath();
+
+        private static SimpleClass GetRandomSimpleClass() =>
+            new Faker<SimpleClass>()
+                .RuleForType(typeof(string), fake => fake.Lorem.Sentence(GetRandomNumber()))
+                .Generate();
+
+        private static int GetRandomNumber() =>
+            new Faker().Random.Int(4, 10);
     }
 }
