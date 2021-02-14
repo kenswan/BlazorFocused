@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -17,11 +16,9 @@ namespace BlazorFocused.Client.Test
             var url = GetRandomRelativeUrl();
             var expectedResponse = GetRandomResponseObjects();
 
-            focusedHttp.Setup(setup =>
-            {
-                setup.HttpMethod = HttpMethod.Get;
-                setup.Url = url;
-            }, HttpStatusCode.OK, expectedResponse);
+            focusedHttp
+                .Setup(HttpMethod.Get, url)
+                .ReturnsAsync(HttpStatusCode.OK, expectedResponse);
 
             var actualResponse = await restClient.GetAsync<IEnumerable<SimpleClass>>(url);
 
@@ -34,11 +31,9 @@ namespace BlazorFocused.Client.Test
             var url = GetRandomRelativeUrl();
             var invalidResponse = GetRandomResponseObject();
 
-            focusedHttp.Setup(setup =>
-            {
-                setup.HttpMethod = HttpMethod.Get;
-                setup.Url = url;
-            }, HttpStatusCode.BadRequest, invalidResponse);
+            focusedHttp
+                .Setup(HttpMethod.Get, url)
+                .ReturnsAsync(HttpStatusCode.BadRequest, invalidResponse);
 
             var actualResponse = await restClient.GetAsync<IEnumerable<SimpleClass>>(url);
 

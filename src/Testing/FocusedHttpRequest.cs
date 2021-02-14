@@ -1,9 +1,8 @@
-﻿using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 
 namespace BlazorFocused.Testing
 {
-    internal class FocusedRequest
+    public class FocusedHttpRequest
     {
         public HttpMethod Method { get; set; }
 

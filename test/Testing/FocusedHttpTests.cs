@@ -38,15 +38,12 @@ namespace BlazorFocused.Testing.Test
             string relativeRequestUrl,
             SimpleClass responseObject)
         {
-            focusedHttp.Setup(request =>
-            {
-                request.HttpMethod = httpMethod;
-                request.Url = relativeRequestUrl;
-            }, httpStatusCode, responseObject);
+            focusedHttp
+                .Setup(httpMethod, relativeRequestUrl)
+                .ReturnsAsync(httpStatusCode, responseObject);
 
             var client = focusedHttp.Client();
             HttpResponseMessage actualResponse = await MakeRequest(client, httpMethod, relativeRequestUrl);
-            var actualStatusCode = actualResponse?.StatusCode;
             var actualResponseString = await actualResponse.Content.ReadAsStringAsync();
             var actualResponseObject = JsonSerializer.Deserialize<SimpleClass>(actualResponseString);
 
@@ -62,11 +59,9 @@ namespace BlazorFocused.Testing.Test
             string relativeRequestUrl,
             SimpleClass responseObject)
         {
-            focusedHttp.Setup(request =>
-            {
-                request.HttpMethod = httpMethod;
-                request.Url = relativeRequestUrl;
-            }, httpStatusCode, responseObject);
+            focusedHttp
+                .Setup(httpMethod, relativeRequestUrl)
+                .ReturnsAsync(httpStatusCode, responseObject);
 
             await MakeRequest(focusedHttp.Client(), httpMethod, relativeRequestUrl);
 
@@ -91,11 +86,9 @@ namespace BlazorFocused.Testing.Test
             string relativeRequestUrl,
             SimpleClass responseObject)
         {
-            focusedHttp.Setup(request =>
-            {
-                request.HttpMethod = httpMethod;
-                request.Url = relativeRequestUrl;
-            }, httpStatusCode, responseObject);
+            focusedHttp
+                .Setup(httpMethod, relativeRequestUrl)
+                .ReturnsAsync(httpStatusCode, responseObject);
 
             await MakeRequest(focusedHttp.Client(), httpMethod, relativeRequestUrl);
             var differentHttpMethod = PickDifferentMethod(httpMethod);
@@ -120,11 +113,9 @@ namespace BlazorFocused.Testing.Test
             string relativeRequestUrl,
             SimpleClass responseObject)
         {
-            focusedHttp.Setup(request =>
-            {
-                request.HttpMethod = httpMethod;
-                request.Url = relativeRequestUrl;
-            }, httpStatusCode, responseObject);
+            focusedHttp
+                .Setup(httpMethod, relativeRequestUrl)
+                .ReturnsAsync(httpStatusCode, responseObject);
 
             Action act = () => focusedHttp.VerifyWasCalled();
 
@@ -143,21 +134,15 @@ namespace BlazorFocused.Testing.Test
 
         private static Task<HttpResponseMessage> MakeRequest(HttpClient client, HttpMethod httpMethod, string url)
         {
-            switch (httpMethod)
+            return httpMethod switch
             {
-                case HttpMethod method when method == HttpMethod.Delete:
-                    return client.DeleteAsync(url);
-                case HttpMethod method when method == HttpMethod.Get:
-                    return client.GetAsync(url);
-                case HttpMethod method when method == HttpMethod.Patch:
-                    return client.PatchAsync(url, null);
-                case HttpMethod method when method == HttpMethod.Post:
-                    return client.PostAsync(url, null);
-                case HttpMethod method when method == HttpMethod.Put:
-                    return client.PutAsync(url, null);
-            }
-
-            return default;
+                HttpMethod method when method == HttpMethod.Delete => client.DeleteAsync(url),
+                HttpMethod method when method == HttpMethod.Get => client.GetAsync(url),
+                HttpMethod method when method == HttpMethod.Patch => client.PatchAsync(url, null),
+                HttpMethod method when method == HttpMethod.Post => client.PostAsync(url, null),
+                HttpMethod method when method == HttpMethod.Put => client.PutAsync(url, null),
+                _ => throw new FocusedTestException($"{httpMethod} not supported"),
+            };
         }
 
         private static HttpMethod PickDifferentMethod(HttpMethod httpMethod)

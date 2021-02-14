@@ -15,34 +15,34 @@ namespace BlazorFocused.Testing
     {
         public string BaseAddress { get; private set; }
 
-        private readonly List<FocusedRequest> requests;
-        private readonly List<FocusedResponse> responses;
+        private readonly List<FocusedHttpRequest> requests;
+        private readonly List<FocusedHttpResponse> responses;
 
         public FocusedHttp(string baseAddress = "http://test-url.io")
         {
             BaseAddress = baseAddress;
-            requests = new List<FocusedRequest>();
-            responses = new List<FocusedResponse>();
+            requests = new List<FocusedHttpRequest>();
+            responses = new List<FocusedHttpResponse>();
         }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            var requestMethod = request.Method;
-            var requestUrl = request.RequestUri.OriginalString;
-            var requestContent = (request.Content is not null) ?
+            var method = request.Method;
+            var url = request.RequestUri.OriginalString;
+            var content = (request.Content is not null) ?
                 await request.Content.ReadAsStringAsync(cancellationToken) : string.Empty;
 
-            requests.Add(new FocusedRequest { Method = requestMethod, Content = requestContent, Url = requestUrl });
+            requests.Add(new FocusedHttpRequest { Method = method, Content = content, Url = url });
 
             var response = responses.Where(request =>
-                request.RequestedMethod == requestMethod &&
-                string.Equals(request.RequestedUrl, requestUrl, StringComparison.OrdinalIgnoreCase))
+                request.Method == method &&
+                string.Equals(request.Url, url, StringComparison.OrdinalIgnoreCase))
                     .FirstOrDefault();
 
             return new HttpResponseMessage
             {
-                StatusCode = response is not null ? response.ResponseStatusCode : HttpStatusCode.NotImplemented,
-                Content = new StringContent(JsonSerializer.Serialize(response?.ResponseObject), Encoding.UTF8, "application/json")
+                StatusCode = response is not null ? response.StatusCode : HttpStatusCode.NotImplemented,
+                Content = new StringContent(JsonSerializer.Serialize(response?.Response), Encoding.UTF8, "application/json")
             };
         }
 
@@ -54,41 +54,44 @@ namespace BlazorFocused.Testing
             };
         }
 
-        public void Setup(Action<FocusedSetup> httpSetup, HttpStatusCode httpStatusCode, object response)
+        public FocusedHttpSetup Setup(HttpMethod method, string url)
         {
-            var setup = new FocusedSetup();
+            var request = new FocusedHttpRequest { Method = method, Url = url };
 
-            httpSetup(setup);
+            return new FocusedHttpSetup(request, Resolve);
+        }
 
-            var setupResponse = new FocusedResponse
+        private void Resolve(FocusedHttpRequest request, HttpStatusCode statusCode, object response)
+        {
+            var setupResponse = new FocusedHttpResponse
             {
-                RequestedMethod = setup.HttpMethod,
-                RequestedUrl = GetFullUrl(setup.Url),
-                ResponseStatusCode = httpStatusCode,
-                ResponseObject = response
+                Method = request.Method,
+                Url = GetFullUrl(request.Url),
+                StatusCode = statusCode,
+                Response = response
             };
 
             responses.Add(setupResponse);
         }
 
-        public void VerifyWasCalled(HttpMethod httpMethod = default, string url = default)
+        public void VerifyWasCalled(HttpMethod method = default, string url = default)
         {
-            if (httpMethod is not null && url is not null)
+            if (method is not null && url is not null)
             {
                 var match = requests
-                    .Where(request => request.Method == httpMethod && request.Url == GetFullUrl(url))
+                    .Where(request => request.Method == method && request.Url == GetFullUrl(url))
                     .FirstOrDefault();
 
                 if (match is null)
-                    throw new FocusedTestException($"{httpMethod} - {url} was not requested");
+                    throw new FocusedTestException($"{method} - {url} was not requested");
             }
-            else if (httpMethod is not null)
+            else if (method is not null)
             {
                 var match = requests
-                    .Where(request => request.Method == httpMethod).FirstOrDefault();
+                    .Where(request => request.Method == method).FirstOrDefault();
 
                 if (match is null)
-                    throw new FocusedTestException($"{httpMethod} was not requested");
+                    throw new FocusedTestException($"{method} was not requested");
             }
             else
             {
