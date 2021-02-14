@@ -6,8 +6,8 @@ namespace BlazorFocused.Store
 {
     public class StoreBuilder<TState> : IStoreBuilder<TState> where TState : class
     {
-        private Action<HttpClient> configureHttpClient;
-        private ServiceCollection serviceCollection;
+        private readonly Action<HttpClient> configureHttpClient;
+        private readonly ServiceCollection serviceCollection;
 
         public StoreBuilder()
         {
@@ -63,6 +63,13 @@ namespace BlazorFocused.Store
         public void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)
         {
             serviceCollection.AddTransient(provider => reducer);
+        }
+
+        public void RegisterReducer<TReducer, TOutput>()
+            where TOutput : class
+            where TReducer : class, IReducer<TState, TOutput>
+        {
+            serviceCollection.AddTransient<IReducer<TState, TOutput>, TReducer>();
         }
 
         public IServiceProvider BuildServices()

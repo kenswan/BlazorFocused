@@ -4,23 +4,7 @@ Adding Reactive Programming and Flux Architecture to Blazor Components with Micr
 
 ## Register
 
-Integrate basic store in Startup.cs:
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddControllersWithViews();
-    services.AddRazorPages();
-
-    // initialized instance of the store's data
-    var testClass = new TestClass { FieldOne = "Test" };
-
-    // add store in DI
-    services.AddStore(testClass);
-}
-```
-
-Integrate store with reducers in Startup.cs:
+Integrate store in Startup.cs:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -34,7 +18,13 @@ public void ConfigureServices(IServiceCollection services)
     // add store in DI
     serviceCollection.AddStore(testClass, builder =>
     {
-        builder.RegisterReducer(new TestReducer());
+        builder.RegisterAction<TestAction>();
+        builder.RegisterActionAsync<TestActionAsync>();
+        builder.RegisterReducer<TestReducer, TestClassSubset>();
+
+        // Services within actions and reducers
+        builder.RegisterService<TestService>();
+        builder.RegisterHttpClient<ITestClient, TestClient>();
     });
 }
 ```
@@ -90,25 +80,6 @@ store.Reduce<TestClassSubset>(reducedState =>
 ```
 
 ## Actions
-
-Register custom actions
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddControllersWithViews();
-    services.AddRazorPages();
-
-    // initialized instance of the store's data
-    var testClass = new TestClass { FieldOne = "Test" };
-
-    // add store in DI
-    serviceCollection.AddStore(testClass, builder =>
-    {
-        builder.RegisterAction(new TestAction());
-    });
-}
-```
 
 Execute actions to update store:
 
