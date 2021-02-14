@@ -29,6 +29,10 @@ namespace BlazorFocused.Store
             where TService : class
             where TImplementation : class, TService;
 
+        void RegisterReducer<TReducer, TOutput>()
+            where TOutput : class
+            where TReducer : class, IReducer<TState, TOutput>;
+
         void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer);
 
         void RegisterService<TService>()

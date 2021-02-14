@@ -9,7 +9,7 @@ namespace BlazorFocused.Store.Test
     public partial class StoreBuilderTests
     {
         [Fact]
-        public void ShouldRegisterReducer()
+        public void ShouldRegisterReducerByInstance()
         {
             var testReducer = new TestReducer() { CheckedPropertyId = Guid.NewGuid().ToString() };
 
@@ -20,6 +20,18 @@ namespace BlazorFocused.Store.Test
             var providerReducer = (TestReducer)services.GetRequiredService<IReducer<SimpleClass, SimpleClassSubset>>();
 
             Assert.Equal(testReducer.CheckedPropertyId, providerReducer.CheckedPropertyId);
+        }
+
+        [Fact]
+        public void ShouldRegisterReducerByType()
+        {
+            storeBuilder.RegisterReducer<TestReducer, SimpleClassSubset>();
+
+            var services = storeBuilder.BuildServices();
+
+            var providerReducer = services.GetRequiredService<IReducer<SimpleClass, SimpleClassSubset>>();
+
+            Assert.NotNull(providerReducer);
         }
     }
 }
