@@ -21,10 +21,10 @@ namespace BlazorFocused.Integration.Client
             builder.Services.AddScoped(sp =>
                 new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            builder.Services.AddStore(new ToDoStore(), builder =>
+            builder.Services.AddStore<ToDoStore>(builder =>
             {
                 builder.RegisterAsyncAction<GetToDoItems>();
-                builder.RegisterReducer(new ToDoCountReducer());
+                builder.RegisterReducer<ToDoCountReducer, ToDoCounter>();
                 builder.RegisterHttpClient();
             });
 

@@ -5,8 +5,6 @@ namespace BlazorFocused.Store
 {
     public interface IStoreBuilder<TState> where TState : class
     {
-        Action<HttpClient> BuildHttpClient();
-
         IServiceProvider BuildServices();
 
         void RegisterAction<TAction>()
@@ -33,12 +31,15 @@ namespace BlazorFocused.Store
             where TOutput : class
             where TReducer : class, IReducer<TState, TOutput>;
 
-        void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer);
+        void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)
+            where TOutput : class;
 
         void RegisterService<TService>()
             where TService : class;
 
         void RegisterService<TService>(TService service)
             where TService : class;
+
+        void SetInitialState(TState state);
     }
 }

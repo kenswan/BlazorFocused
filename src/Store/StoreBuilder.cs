@@ -4,20 +4,21 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorFocused.Store
 {
-    public class StoreBuilder<TState> : IStoreBuilder<TState> where TState : class
+    internal class StoreBuilder<TState> : IStoreBuilder<TState> where TState : class
     {
-        private readonly Action<HttpClient> configureHttpClient;
+        public TState InitialState { get; private set; }
+
         private readonly ServiceCollection serviceCollection;
 
         public StoreBuilder()
         {
+            InitialState = default;
             serviceCollection = new ServiceCollection();
-            configureHttpClient = null;
         }
 
         public void RegisterAction(IAction<TState> action)
         {
-            serviceCollection.AddTransient(action.GetType(), provider => action);
+            serviceCollection.AddTransient(action.GetType(), _ => action);
         }
 
         public void RegisterAction<TAction>()
@@ -30,7 +31,7 @@ namespace BlazorFocused.Store
 
         public void RegisterAsyncAction(IActionAsync<TState> action)
         {
-            serviceCollection.AddTransient(action.GetType(), provider => action);
+            serviceCollection.AddTransient(action.GetType(), _ => action);
         }
 
         public void RegisterAsyncAction<TAction>()
@@ -61,8 +62,9 @@ namespace BlazorFocused.Store
         }
 
         public void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)
+            where TOutput : class
         {
-            serviceCollection.AddTransient(provider => reducer);
+            serviceCollection.AddTransient(_ => reducer);
         }
 
         public void RegisterReducer<TReducer, TOutput>()
@@ -77,9 +79,6 @@ namespace BlazorFocused.Store
             return serviceCollection.BuildServiceProvider();
         }
 
-        public Action<HttpClient> BuildHttpClient()
-            => configureHttpClient;
-
         public void RegisterService<TService>() where TService : class
         {
             Type type = typeof(TService);
@@ -89,7 +88,12 @@ namespace BlazorFocused.Store
 
         public void RegisterService<TService>(TService service) where TService : class
         {
-            serviceCollection.AddScoped(provider => service);
+            serviceCollection.AddScoped(_ => service);
+        }
+
+        public void SetInitialState(TState state)
+        {
+            InitialState = state;
         }
     }
 }

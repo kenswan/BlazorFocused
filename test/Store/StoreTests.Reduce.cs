@@ -15,9 +15,39 @@ namespace BlazorFocused.Store.Test
             var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
             var updatedReducedClass = new TestReducer().Execute(updatedClass);
 
-            storeBuilder.RegisterReducer(new TestReducer());
+            var store = new Store<SimpleClass>(builder =>
+            {
+                builder.SetInitialState(originalClass);
+                builder.RegisterReducer(new TestReducer());
+            });
 
-            var store = new Store<SimpleClass>(originalClass, storeBuilder);
+            SimpleClassSubset actualReducedState = default;
+
+            store.Reduce<SimpleClassSubset>(reducedState =>
+            {
+                actualReducedState = reducedState;
+            });
+
+            actualReducedState.Should().BeEquivalentTo(originalReducedClass);
+
+            store.SetState(updatedClass);
+
+            actualReducedState.Should().BeEquivalentTo(updatedReducedClass);
+        }
+
+        [Fact(DisplayName = "Should reduce state value with type")]
+        public void ShouldReduceStateValueWithType()
+        {
+            var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
+            var originalReducedClass = new TestReducer().Execute(originalClass);
+            var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
+            var updatedReducedClass = new TestReducer().Execute(updatedClass);
+
+            var store = new Store<SimpleClass>(builder =>
+            {
+                builder.SetInitialState(originalClass);
+                builder.RegisterReducer<TestReducer, SimpleClassSubset>();
+            });
 
             SimpleClassSubset actualReducedState = default;
 

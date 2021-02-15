@@ -11,7 +11,7 @@ using NativeHttpClient = System.Net.Http.HttpClient;
 
 namespace BlazorFocused.Testing
 {
-    public class SimulatedHttp : HttpMessageHandler
+    public class SimulatedHttp : HttpMessageHandler, ISimulatedHttp
     {
         public string BaseAddress { get; private set; }
 
@@ -54,7 +54,7 @@ namespace BlazorFocused.Testing
             };
         }
 
-        public SimulatedHttpSetup Setup(HttpMethod method, string url)
+        public ISimulatedHttpSetup Setup(HttpMethod method, string url)
         {
             var request = new SimulatedHttpRequest { Method = method, Url = url };
 

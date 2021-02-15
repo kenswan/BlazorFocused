@@ -10,7 +10,7 @@ namespace BlazorFocused.Client.Test
     public partial class RestClientTests
     {
         private readonly string baseAddress;
-        private readonly SimulatedHttp simulatedHttp;
+        private readonly ISimulatedHttp simulatedHttp;
         private readonly Mock<ILogger<RestClient>> loggerMock;
         private readonly IRestClient restClient;
 

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using BlazorFocused.Client;
+﻿using System.Threading.Tasks;
 using BlazorFocused.Core.Test.Model;
 using BlazorFocused.Core.Test.Utility;
 using FluentAssertions;
@@ -11,7 +9,7 @@ namespace BlazorFocused.Store.Test
 {
     public partial class StoreTests
     {
-        [Fact(DisplayName = "Should execute action async" )]
+        [Fact(DisplayName = "Should execute action async")]
         public async Task ShouldRetrieveValueAsyncWithInstance()
         {
             var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
@@ -22,13 +20,16 @@ namespace BlazorFocused.Store.Test
                 service.GetValueAsync<SimpleClass>())
                     .ReturnsAsync(updatedClass);
 
-            storeBuilder.RegisterAsyncAction(new TestActionAsync(testServiceMock.Object));
-
-            var store = new Store<SimpleClass>(originalClass, storeBuilder);
+            var store = new Store<SimpleClass>(builder =>
+            {
+                builder.SetInitialState(originalClass);
+                builder.RegisterAsyncAction(new TestActionAsync(testServiceMock.Object));
+            });
 
             await store.DispatchAsync<TestActionAsync>();
 
             store.GetState().Should().BeEquivalentTo(updatedClass);
+            testServiceMock.Verify(service => service.GetValueAsync<SimpleClass>(), Times.Once);
         }
 
         [Fact(DisplayName = "Should execute action async by type")]
@@ -43,14 +44,17 @@ namespace BlazorFocused.Store.Test
                 service.GetValueAsync<SimpleClass>())
                     .ReturnsAsync(updatedClass);
 
-            storeBuilder.RegisterAsyncAction<TestActionAsync>();
-            storeBuilder.RegisterService(testServiceMock.Object);
-
-            var store = new Store<SimpleClass>(originalClass, storeBuilder);
+            var store = new Store<SimpleClass>(builder =>
+            {
+                builder.SetInitialState(originalClass);
+                builder.RegisterAsyncAction<TestActionAsync>();
+                builder.RegisterService(testServiceMock.Object);
+            });
 
             await store.DispatchAsync<TestActionAsync>();
 
             store.GetState().Should().BeEquivalentTo(updatedClass);
+            testServiceMock.Verify(service => service.GetValueAsync<SimpleClass>(), Times.Once);
         }
     }
 }
