@@ -2,7 +2,7 @@
 
 namespace BlazorFocused.Testing
 {
-    public class SimulatedHttpRequest
+    internal class SimulatedHttpRequest
     {
         public HttpMethod Method { get; set; }
 

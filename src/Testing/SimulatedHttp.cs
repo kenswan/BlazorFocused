@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using NativeHttpClient = System.Net.Http.HttpClient;
 
+[assembly: InternalsVisibleTo("BlazorFocused.Core.Test")]
+
 namespace BlazorFocused.Testing
 {
-    public class SimulatedHttp : HttpMessageHandler
+    public class SimulatedHttp : HttpMessageHandler, ISimulatedHttp
     {
         public string BaseAddress { get; private set; }
 
@@ -54,7 +57,7 @@ namespace BlazorFocused.Testing
             };
         }
 
-        public SimulatedHttpSetup Setup(HttpMethod method, string url)
+        public ISimulatedHttpSetup Setup(HttpMethod method, string url)
         {
             var request = new SimulatedHttpRequest { Method = method, Url = url };
 

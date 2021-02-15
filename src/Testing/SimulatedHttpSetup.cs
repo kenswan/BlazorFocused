@@ -3,7 +3,7 @@ using System.Net;
 
 namespace BlazorFocused.Testing
 {
-    public class SimulatedHttpSetup
+    internal class SimulatedHttpSetup : ISimulatedHttpSetup
     {
         private readonly SimulatedHttpRequest request;
         private readonly Action<SimulatedHttpRequest, HttpStatusCode, object> responseAction;

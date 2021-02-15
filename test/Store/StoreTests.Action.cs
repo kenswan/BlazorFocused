@@ -1,7 +1,6 @@
 ﻿using BlazorFocused.Core.Test.Model;
 using BlazorFocused.Core.Test.Utility;
 using FluentAssertions;
-using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace BlazorFocused.Store.Test
@@ -13,9 +12,11 @@ namespace BlazorFocused.Store.Test
         {
             SimpleClass originalClass = default;
 
-            storeBuilder.RegisterAction(new TestAction());
-
-            var store = new Store<SimpleClass>(originalClass, storeBuilder);
+            var store = new Store<SimpleClass>(builder =>
+            {
+                builder.SetInitialState(originalClass);
+                builder.RegisterAction(new TestAction());
+            });
 
             store.GetState().Should().BeNull();
 
@@ -29,9 +30,12 @@ namespace BlazorFocused.Store.Test
         {
             SimpleClass originalClass = default;
 
-            storeBuilder.RegisterAction<TestAction>();
+            var store = new Store<SimpleClass>(builder =>
+            {
+                builder.SetInitialState(originalClass);
+                builder.RegisterAction<TestAction>();
 
-            var store = new Store<SimpleClass>(originalClass, storeBuilder);
+            });
 
             store.GetState().Should().BeNull();
 

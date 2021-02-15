@@ -13,7 +13,7 @@ namespace BlazorFocused.Testing.Test
 {
     public class SimulatedHttpTests
     {
-        private readonly SimulatedHttp simulatedHttp;
+        private readonly ISimulatedHttp simulatedHttp;
         private readonly string baseAddress;
 
         public SimulatedHttpTests()

@@ -6,20 +6,16 @@ namespace BlazorFocused.Store.Test
 {
     public partial class StoreTests
     {
-        private readonly IStoreBuilder<SimpleClass> storeBuilder;
-
-        public StoreTests()
-        {
-            storeBuilder = new StoreBuilder<SimpleClass>();
-        }
-
         [Fact(DisplayName = "Should Store and Return Initial Value")]
         public void ShouldStoreAndReturnInitialValue()
         {
             SimpleClass inputSimpleClass = SimpleClassUtilities.GetRandomSimpleClass();
             SimpleClass expectedSimpleClass = inputSimpleClass;
 
-            var store = new Store<SimpleClass>(inputSimpleClass);
+            var store = new Store<SimpleClass>(builder =>
+            {
+                builder.SetInitialState(inputSimpleClass);
+            });
 
             SimpleClass actualSimpleClass = store.GetState();
 
