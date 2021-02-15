@@ -10,16 +10,16 @@ namespace BlazorFocused.Client.Test
     public partial class RestClientTests
     {
         private readonly string baseAddress;
-        private readonly FocusedHttp focusedHttp;
+        private readonly SimulatedHttp simulatedHttp;
         private readonly Mock<ILogger<RestClient>> loggerMock;
         private readonly IRestClient restClient;
 
         public RestClientTests()
         {
             baseAddress = new Faker().Internet.Url();
-            focusedHttp = new FocusedHttp(baseAddress);
+            simulatedHttp = new SimulatedHttp(baseAddress);
             loggerMock = new Mock<ILogger<RestClient>>();
-            restClient = new RestClient(focusedHttp.Client(), loggerMock.Object);
+            restClient = new RestClient(simulatedHttp.Client(), loggerMock.Object);
         }
 
         private static string GetRandomRelativeUrl() =>

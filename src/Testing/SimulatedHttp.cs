@@ -11,18 +11,18 @@ using NativeHttpClient = System.Net.Http.HttpClient;
 
 namespace BlazorFocused.Testing
 {
-    public class FocusedHttp : HttpMessageHandler
+    public class SimulatedHttp : HttpMessageHandler
     {
         public string BaseAddress { get; private set; }
 
-        private readonly List<FocusedHttpRequest> requests;
-        private readonly List<FocusedHttpResponse> responses;
+        private readonly List<SimulatedHttpRequest> requests;
+        private readonly List<SimulatedHttpResponse> responses;
 
-        public FocusedHttp(string baseAddress = "http://test-url.io")
+        public SimulatedHttp(string baseAddress = "http://test-url.io")
         {
             BaseAddress = baseAddress;
-            requests = new List<FocusedHttpRequest>();
-            responses = new List<FocusedHttpResponse>();
+            requests = new List<SimulatedHttpRequest>();
+            responses = new List<SimulatedHttpResponse>();
         }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -32,7 +32,7 @@ namespace BlazorFocused.Testing
             var content = (request.Content is not null) ?
                 await request.Content.ReadAsStringAsync(cancellationToken) : string.Empty;
 
-            requests.Add(new FocusedHttpRequest { Method = method, Content = content, Url = url });
+            requests.Add(new SimulatedHttpRequest { Method = method, Content = content, Url = url });
 
             var response = responses.Where(request =>
                 request.Method == method &&
@@ -54,16 +54,16 @@ namespace BlazorFocused.Testing
             };
         }
 
-        public FocusedHttpSetup Setup(HttpMethod method, string url)
+        public SimulatedHttpSetup Setup(HttpMethod method, string url)
         {
-            var request = new FocusedHttpRequest { Method = method, Url = url };
+            var request = new SimulatedHttpRequest { Method = method, Url = url };
 
-            return new FocusedHttpSetup(request, Resolve);
+            return new SimulatedHttpSetup(request, Resolve);
         }
 
-        private void Resolve(FocusedHttpRequest request, HttpStatusCode statusCode, object response)
+        private void Resolve(SimulatedHttpRequest request, HttpStatusCode statusCode, object response)
         {
-            var setupResponse = new FocusedHttpResponse
+            var setupResponse = new SimulatedHttpResponse
             {
                 Method = request.Method,
                 Url = GetFullUrl(request.Url),
@@ -83,7 +83,7 @@ namespace BlazorFocused.Testing
                     .FirstOrDefault();
 
                 if (match is null)
-                    throw new FocusedTestException($"{method} - {url} was not requested");
+                    throw new SimulatedHttpTestException($"{method} - {url} was not requested");
             }
             else if (method is not null)
             {
@@ -91,12 +91,12 @@ namespace BlazorFocused.Testing
                     .Where(request => request.Method == method).FirstOrDefault();
 
                 if (match is null)
-                    throw new FocusedTestException($"{method} was not requested");
+                    throw new SimulatedHttpTestException($"{method} was not requested");
             }
             else
             {
                 if (!requests.Any())
-                    throw new FocusedTestException($"No request was made");
+                    throw new SimulatedHttpTestException($"No request was made");
             }
         }
 

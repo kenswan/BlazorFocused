@@ -2,7 +2,7 @@
 
 namespace BlazorFocused.Testing
 {
-    internal class FocusedHttpResponse : FocusedHttpRequest
+    internal class SimulatedHttpResponse : SimulatedHttpRequest
     {
         public HttpStatusCode StatusCode { get; set; }
 
