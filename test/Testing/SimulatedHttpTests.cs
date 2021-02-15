@@ -11,21 +11,21 @@ using Xunit;
 
 namespace BlazorFocused.Testing.Test
 {
-    public class FocusedHttpTests
+    public class SimulatedHttpTests
     {
-        private readonly FocusedHttp focusedHttp;
+        private readonly SimulatedHttp simulatedHttp;
         private readonly string baseAddress;
 
-        public FocusedHttpTests()
+        public SimulatedHttpTests()
         {
             baseAddress = GetRandomUrl();
-            focusedHttp = new FocusedHttp(baseAddress);
+            simulatedHttp = new SimulatedHttp(baseAddress);
         }
 
         [Fact]
         public void ShouldSetBaseUri()
         {
-            var client = focusedHttp.Client();
+            var client = simulatedHttp.Client();
 
             Assert.Equal(baseAddress, client.BaseAddress.OriginalString);
         }
@@ -38,11 +38,11 @@ namespace BlazorFocused.Testing.Test
             string relativeRequestUrl,
             SimpleClass responseObject)
         {
-            focusedHttp
+            simulatedHttp
                 .Setup(httpMethod, relativeRequestUrl)
                 .ReturnsAsync(httpStatusCode, responseObject);
 
-            var client = focusedHttp.Client();
+            var client = simulatedHttp.Client();
             HttpResponseMessage actualResponse = await MakeRequest(client, httpMethod, relativeRequestUrl);
             var actualResponseString = await actualResponse.Content.ReadAsStringAsync();
             var actualResponseObject = JsonSerializer.Deserialize<SimpleClass>(actualResponseString);
@@ -59,19 +59,19 @@ namespace BlazorFocused.Testing.Test
             string relativeRequestUrl,
             SimpleClass responseObject)
         {
-            focusedHttp
+            simulatedHttp
                 .Setup(httpMethod, relativeRequestUrl)
                 .ReturnsAsync(httpStatusCode, responseObject);
 
-            await MakeRequest(focusedHttp.Client(), httpMethod, relativeRequestUrl);
+            await MakeRequest(simulatedHttp.Client(), httpMethod, relativeRequestUrl);
 
-            var calledException = Record.Exception(() => focusedHttp.VerifyWasCalled());
+            var calledException = Record.Exception(() => simulatedHttp.VerifyWasCalled());
 
             var calledWithMethodException =
-                Record.Exception(() => focusedHttp.VerifyWasCalled(httpMethod));
+                Record.Exception(() => simulatedHttp.VerifyWasCalled(httpMethod));
 
             var calledWithMethodAndUrlException =
-                Record.Exception(() => focusedHttp.VerifyWasCalled(httpMethod, relativeRequestUrl));
+                Record.Exception(() => simulatedHttp.VerifyWasCalled(httpMethod, relativeRequestUrl));
 
             Assert.Null(calledException);
             Assert.Null(calledWithMethodException);
@@ -86,21 +86,21 @@ namespace BlazorFocused.Testing.Test
             string relativeRequestUrl,
             SimpleClass responseObject)
         {
-            focusedHttp
+            simulatedHttp
                 .Setup(httpMethod, relativeRequestUrl)
                 .ReturnsAsync(httpStatusCode, responseObject);
 
-            await MakeRequest(focusedHttp.Client(), httpMethod, relativeRequestUrl);
+            await MakeRequest(simulatedHttp.Client(), httpMethod, relativeRequestUrl);
             var differentHttpMethod = PickDifferentMethod(httpMethod);
             var differentRelativeUrl = GetRandomRelativeUrl();
 
-            Action actWithMethod = () => focusedHttp.VerifyWasCalled(differentHttpMethod);
-            Action actWithMethodAndUrl = () => focusedHttp.VerifyWasCalled(httpMethod, differentRelativeUrl);
+            Action actWithMethod = () => simulatedHttp.VerifyWasCalled(differentHttpMethod);
+            Action actWithMethodAndUrl = () => simulatedHttp.VerifyWasCalled(httpMethod, differentRelativeUrl);
 
-            actWithMethod.Should().Throw<FocusedTestException>()
+            actWithMethod.Should().Throw<SimulatedHttpTestException>()
                 .Where(exception => exception.Message.Contains(differentHttpMethod.ToString()));
 
-            actWithMethodAndUrl.Should().Throw<FocusedTestException>()
+            actWithMethodAndUrl.Should().Throw<SimulatedHttpTestException>()
                 .Where(exception => exception.Message.Contains(httpMethod.ToString()) &&
                     exception.Message.Contains(differentRelativeUrl));
         }
@@ -113,13 +113,13 @@ namespace BlazorFocused.Testing.Test
             string relativeRequestUrl,
             SimpleClass responseObject)
         {
-            focusedHttp
+            simulatedHttp
                 .Setup(httpMethod, relativeRequestUrl)
                 .ReturnsAsync(httpStatusCode, responseObject);
 
-            Action act = () => focusedHttp.VerifyWasCalled();
+            Action act = () => simulatedHttp.VerifyWasCalled();
 
-            act.Should().Throw<FocusedTestException>();
+            act.Should().Throw<SimulatedHttpTestException>();
         }
 
         public static TheoryData<HttpMethod, HttpStatusCode, string, SimpleClass> HttpData =>
@@ -141,7 +141,7 @@ namespace BlazorFocused.Testing.Test
                 HttpMethod method when method == HttpMethod.Patch => client.PatchAsync(url, null),
                 HttpMethod method when method == HttpMethod.Post => client.PostAsync(url, null),
                 HttpMethod method when method == HttpMethod.Put => client.PutAsync(url, null),
-                _ => throw new FocusedTestException($"{httpMethod} not supported"),
+                _ => throw new SimulatedHttpTestException($"{httpMethod} not supported"),
             };
         }
 

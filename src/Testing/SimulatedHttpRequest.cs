@@ -2,7 +2,7 @@
 
 namespace BlazorFocused.Testing
 {
-    public class FocusedHttpRequest
+    public class SimulatedHttpRequest
     {
         public HttpMethod Method { get; set; }
 

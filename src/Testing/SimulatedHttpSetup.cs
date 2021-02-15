@@ -3,14 +3,14 @@ using System.Net;
 
 namespace BlazorFocused.Testing
 {
-    public class FocusedHttpSetup
+    public class SimulatedHttpSetup
     {
-        private readonly FocusedHttpRequest request;
-        private readonly Action<FocusedHttpRequest, HttpStatusCode, object> responseAction;
+        private readonly SimulatedHttpRequest request;
+        private readonly Action<SimulatedHttpRequest, HttpStatusCode, object> responseAction;
 
-        public FocusedHttpSetup(
-            FocusedHttpRequest request,
-            Action<FocusedHttpRequest, HttpStatusCode, object> responseAction)
+        public SimulatedHttpSetup(
+            SimulatedHttpRequest request,
+            Action<SimulatedHttpRequest, HttpStatusCode, object> responseAction)
         {
             this.request = request;
             this.responseAction = responseAction;

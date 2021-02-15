@@ -16,7 +16,7 @@ namespace BlazorFocused.Client.Test
             var url = GetRandomRelativeUrl();
             var expectedResponse = GetRandomResponseObjects();
 
-            focusedHttp
+            simulatedHttp
                 .Setup(HttpMethod.Get, url)
                 .ReturnsAsync(HttpStatusCode.OK, expectedResponse);
 
@@ -31,7 +31,7 @@ namespace BlazorFocused.Client.Test
             var url = GetRandomRelativeUrl();
             var invalidResponse = GetRandomResponseObject();
 
-            focusedHttp
+            simulatedHttp
                 .Setup(HttpMethod.Get, url)
                 .ReturnsAsync(HttpStatusCode.BadRequest, invalidResponse);
 
