@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using Microsoft.Extensions.DependencyInjection;
+
+[assembly: InternalsVisibleTo("BlazorFocused.Core.Test")]
 
 namespace BlazorFocused.Store
 {
