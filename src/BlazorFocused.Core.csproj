@@ -8,7 +8,7 @@
     <Copyright>Copyright (c) 2021 Kenneth Swan</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/kenswan/blazor-focused</PackageProjectUrl>
+    <PackageProjectUrl>https://blazorfocused.net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/kenswan/blazor-focused.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>dotnet;blazor;c-sharp;flux-architecture;http-client</PackageTags>
