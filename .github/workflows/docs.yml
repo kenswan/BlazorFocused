@@ -30,9 +30,20 @@ jobs:
     - name: Push Docs
       run: |
         cd ..
+        echo Cloning Repo
         git clone -b gh-pages https://github.com/kenswan/blazor-focused.git gh-pages
+        echo Setting Global Creds
+        git config --global user.name 'Automated Push'
+        git config --global user.email 'kenswan@users.noreply.github.com'
+        echo Set Remote
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+        echo Checkout gh-pages
+        git checkout gh-pages
+        echo Copy Files
         mv blazor-focused/docs/_site gh-pages/docs
         cd gh-pages
+        echo Add/Commit Files
         git add -A
         git commit -m "Updating Site"
+        echo Push Files
         git push
