@@ -1,4 +1,4 @@
-name: Deploy Documentation to GitHub Pages
+name: Deploy Documentation
 
 on:
   push:
@@ -42,5 +42,5 @@ jobs:
         mv blazor-focused/docs/_site gh-pages/docs
         cd gh-pages
         git add -A
-        git commit -m "PR #${{ github.event.pull_request.number }}"
+        git commit -m "Commit #${{ github.sha }}"
         git push
