@@ -7,7 +7,7 @@ Please nagivate to the api documenation [here](/api/index.html)
 Package Manager
 
 ```powershell
-Install-Package BlazorFocused -Version 1.0.0
+Install-Package BlazorFocused
 ```
 
 .NET CLI
