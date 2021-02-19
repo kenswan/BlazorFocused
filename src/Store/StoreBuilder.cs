@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorFocused.Store
 {
+    /// <inheritdoc cref="IStoreBuilder{TState}"/>
     internal class StoreBuilder<TState> : IStoreBuilder<TState> where TState : class
     {
         public TState InitialState { get; private set; }
@@ -50,18 +51,18 @@ namespace BlazorFocused.Store
             serviceCollection.AddHttpClient();
         }
 
-        public void RegisterHttpClient<TService, TImplementation>()
-            where TService : class
-            where TImplementation : class, TService
+        public void RegisterHttpClient<TInterface, TImplementation>()
+            where TInterface : class
+            where TImplementation : class, TInterface
         {
-            serviceCollection.AddHttpClient<TService, TImplementation>();
+            serviceCollection.AddHttpClient<TInterface, TImplementation>();
         }
 
-        public void RegisterHttpClient<TService, TImplementation>(Action<HttpClient> configureHttpClient)
-            where TService : class
-            where TImplementation : class, TService
+        public void RegisterHttpClient<TInterface, TImplementation>(Action<HttpClient> configureHttpClient)
+            where TInterface : class
+            where TImplementation : class, TInterface
         {
-            serviceCollection.AddHttpClient<TService, TImplementation>(configureHttpClient);
+            serviceCollection.AddHttpClient<TInterface, TImplementation>(configureHttpClient);
         }
 
         public void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)
