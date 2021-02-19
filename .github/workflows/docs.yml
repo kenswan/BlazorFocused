@@ -30,5 +30,9 @@ jobs:
     - name: Push Docs
       run: |
         cd ..
-        git clone -b gh-pages https://github.com/kenswan/blazor-focused.git
-        dir
+        git clone -b gh-pages https://github.com/kenswan/blazor-focused.git gh-pages
+        mv blazor-focused/docs/_site gh-pages/docs
+        cd gh-pages
+        git add -A
+        git commit -m "Updating Site"
+        git push
