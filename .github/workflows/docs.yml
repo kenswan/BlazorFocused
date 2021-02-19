@@ -27,25 +27,18 @@ jobs:
       shell: pwsh
       run: docfx build
       working-directory: ${{env.docs-directory}}
-    - name: Push Docs
+    - name: Prepare GitHub Pages Repo
       run: |
         cd ..
-        echo Cloning Repo
         git clone -b gh-pages https://github.com/kenswan/blazor-focused.git gh-pages
-        echo Setting Global Creds
-        git config --global user.name 'Automated Push'
+        git config --global user.name 'Automated'
         git config --global user.email 'kenswan@users.noreply.github.com'
-        echo Set Remote
         cd gh-pages
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-        echo Checkout gh-pages
-        git checkout gh-pages
-        echo Copy Files
-        cd ..
+    - name: Copy & Push Doc Files
+      run: |
         mv blazor-focused/docs/_site gh-pages/docs
         cd gh-pages
-        echo Add/Commit Files
         git add -A
-        git commit -m "Updating Site"
-        echo Push Files
+        git commit -m "PR #${{ github.event.pull_request.number }}"
         git push
