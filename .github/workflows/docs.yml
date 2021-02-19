@@ -36,10 +36,12 @@ jobs:
         git config --global user.name 'Automated Push'
         git config --global user.email 'kenswan@users.noreply.github.com'
         echo Set Remote
+        cd gh-pages
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
         echo Checkout gh-pages
         git checkout gh-pages
         echo Copy Files
+        cd ..
         mv blazor-focused/docs/_site gh-pages/docs
         cd gh-pages
         echo Add/Commit Files
