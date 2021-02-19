@@ -2,6 +2,6 @@
 
 ## Namespaces
 
-- [BlazorFocused.Client](BlazorFocused.Client.html)
-- [BlazorFocused.Store](BlazorFocused.Store.html)
-- [BlazorFocused.Testing](BlazorFocused.Testing.html)
+- [BlazorFocused.Client](BlazorFocused.Client.yml)
+- [BlazorFocused.Store](BlazorFocused.Store.yml)
+- [BlazorFocused.Testing](BlazorFocused.Testing.yml)
