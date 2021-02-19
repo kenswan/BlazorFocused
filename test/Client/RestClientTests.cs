@@ -3,7 +3,7 @@ using BlazorFocused.Core.Test.Model;
 using BlazorFocused.Testing;
 using Bogus;
 using Microsoft.Extensions.Logging;
-using Moq;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace BlazorFocused.Client.Test
 {
@@ -11,15 +11,15 @@ namespace BlazorFocused.Client.Test
     {
         private readonly string baseAddress;
         private readonly ISimulatedHttp simulatedHttp;
-        private readonly Mock<ILogger<RestClient>> loggerMock;
+        private readonly ILogger<RestClient> nullLogger;
         private readonly IRestClient restClient;
 
         public RestClientTests()
         {
             baseAddress = new Faker().Internet.Url();
             simulatedHttp = new SimulatedHttp(baseAddress);
-            loggerMock = new Mock<ILogger<RestClient>>();
-            restClient = new RestClient(simulatedHttp.Client(), loggerMock.Object);
+            nullLogger = NullLogger<RestClient>.Instance;
+            restClient = new RestClient(simulatedHttp.Client(), nullLogger);
         }
 
         private static string GetRandomRelativeUrl() =>

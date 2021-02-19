@@ -9,32 +9,33 @@ using Microsoft.Extensions.Logging;
 
 namespace BlazorFocused.Store
 {
-    internal class Store<T> : IStore<T>, IDisposable where T : class
+    /// <inheritdoc cref="IStore{TState}"/>
+    internal class Store<TState> : IStore<TState>, IDisposable where TState : class
     {
-        private readonly BehaviorSubject<T> state;
+        private readonly BehaviorSubject<TState> state;
         private readonly IServiceProvider internalServiceProvider;
-        private readonly ILogger<Store<T>> logger;
+        private readonly ILogger<Store<TState>> logger;
         private readonly string storeName;
 
-        public Store(Action<IStoreBuilder<T>> storeBuilderAction)
+        public Store(Action<IStoreBuilder<TState>> storeBuilderAction)
         {
-            storeName = typeof(T).ToString();
+            storeName = typeof(TState).ToString();
 
-            var storeBuilder = new StoreBuilder<T>();
+            var storeBuilder = new StoreBuilder<TState>();
 
             if (storeBuilderAction is not null)
             {
                 storeBuilderAction.Invoke(storeBuilder);
             }
 
-            state = new BehaviorSubject<T>(storeBuilder.InitialState);
+            state = new BehaviorSubject<TState>(storeBuilder.InitialState);
 
             internalServiceProvider = storeBuilder.BuildServices();
 
-            this.logger = internalServiceProvider.GetService<ILogger<Store<T>>>();
+            logger = internalServiceProvider.GetService<ILogger<Store<TState>>>();
         }
 
-        public void Dispatch<TAction>() where TAction : IAction<T>
+        public void Dispatch<TAction>() where TAction : IAction<TState>
         {
             var actionName = typeof(TAction);
 
@@ -49,7 +50,7 @@ namespace BlazorFocused.Store
             state.OnNext(action.Execute(state.Value));
         }
 
-        public async ValueTask DispatchAsync<TActionAsync>() where TActionAsync : IActionAsync<T>
+        public async ValueTask DispatchAsync<TActionAsync>() where TActionAsync : IActionAsync<TState>
         {
             var actionName = typeof(TActionAsync);
 
@@ -66,7 +67,7 @@ namespace BlazorFocused.Store
             state.OnNext(value);
         }
 
-        public T GetState()
+        public TState GetState()
         {
             return state.Value;
         }
@@ -77,7 +78,7 @@ namespace BlazorFocused.Store
 
             logger?.LogDebug($"Retrieving reducer {reducerName}");
 
-            var reducer = internalServiceProvider.GetRequiredService<IReducer<T, TOutput>>();
+            var reducer = internalServiceProvider.GetRequiredService<IReducer<TState, TOutput>>();
 
             logger?.LogDebug($"Found reducer {reducerName}");
 
@@ -91,21 +92,21 @@ namespace BlazorFocused.Store
             });
         }
 
-        public void SetState(T value)
+        public void SetState(TState updatedState)
         {
             logger?.LogDebug($"Setting state for store {storeName}");
 
-            state.OnNext(value);
+            state.OnNext(updatedState);
         }
 
-        public void SetState(Func<T, T> updateFunction)
+        public void SetState(Func<TState, TState> updateFunction)
         {
             logger?.LogDebug($"Setting state for store {storeName}");
 
             state.OnNext(updateFunction(state.Value));
         }
 
-        public void Subscribe(Action<T> action)
+        public void Subscribe(Action<TState> action)
         {
             logger?.LogDebug($"Subscribing to store {storeName}");
 

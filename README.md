@@ -1,10 +1,24 @@
 # BlazorFocused
 
-Adding Reactive Programming and Flux Architecture to Blazor Components with Microsoft.Extensions.DependencyInjection
+Adding Flux Architecture and other utilities to Blazor Components
 
-## Register
+## Installation
 
-Integrate store in Startup.cs:
+Package Manager
+
+```powershell
+Install-Package BlazorFocused -Version 1.0.0
+```
+
+.NET CLI
+
+```powershell
+dotnet add package BlazoFocused
+```
+
+## Quick Start
+
+### Startup
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -29,7 +43,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## State
+### State
 
 Retrieve static state value from store:
 
@@ -60,7 +74,7 @@ store.Subscribe((newState) => {
 
 ```
 
-## Reducers
+### Reducers
 
 Subscribe to reduced value from store:
 
@@ -79,7 +93,7 @@ store.Reduce<TestClassSubset>(reducedState =>
 });
 ```
 
-## Actions
+### Actions
 
 Execute actions to update store:
 

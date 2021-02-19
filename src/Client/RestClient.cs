@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
+[assembly: InternalsVisibleTo("BlazorFocused.Core.Test")]
+
 namespace BlazorFocused.Client
 {
-    public class RestClient : IRestClient
+    internal class RestClient : IRestClient
     {
         private readonly HttpClient client;
         private readonly ILogger<RestClient> logger;

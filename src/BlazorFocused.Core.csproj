@@ -12,7 +12,7 @@
     <RepositoryUrl>https://github.com/kenswan/blazor-focused.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>dotnet;blazor;c-sharp;flux-architecture;http-client</PackageTags>
-    <Description>Introducing Reactive Programming, Flux Architecture, and standardized network requests to Blazor Components</Description>
+    <Description>Introducing Flux Architecture and other utilities to Blazor Components</Description>
     <PackageReleaseNotes>See https://github.com/kenswan/blazor-focused/releases</PackageReleaseNotes>
     <SynchReleaseVersion>false</SynchReleaseVersion>
     <Title>BlazorFocused</Title>
