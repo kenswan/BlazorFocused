@@ -9,8 +9,8 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <IconUrl>https://raw.githubusercontent.com/BlazorFocused/blazorfocused.github.io/gh-pages/images/logo.png</IconUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>http://www.blazorfocused.net</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/kenswan/blazor-focused.git</RepositoryUrl>
+    <PackageProjectUrl>https://www.blazorfocused.net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/BlazorFocused/BlazorFocused.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>dotnet;blazor;c-sharp;flux-architecture;http-client</PackageTags>
     <Description>Introducing Flux Architecture and other utilities to Blazor Components</Description>
