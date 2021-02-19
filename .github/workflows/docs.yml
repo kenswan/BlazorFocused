@@ -30,7 +30,7 @@ jobs:
     - name: Prepare GitHub Pages Repo
       run: |
         cd ..
-        git clone -b gh-pages https://github.com/kenswan/blazor-focused.git gh-pages
+        git clone -b gh-pages https://github.com/BlazorFocused/BlazorFocused.git gh-pages
         git config --global user.name 'Automated'
         git config --global user.email 'kenswan@users.noreply.github.com'
         cd gh-pages
@@ -39,7 +39,7 @@ jobs:
       run: |
         cd ..
         rm -r gh-pages/docs
-        mv blazor-focused/docs/_site gh-pages/docs
+        mv blazorfocused/docs/_site gh-pages/docs
         cd gh-pages
         git add -A
         git commit -m "Commit #${{ github.sha }}"

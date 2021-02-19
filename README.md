@@ -7,7 +7,7 @@ Adding Flux Architecture and other utilities to Blazor Components
 Package Manager
 
 ```powershell
-Install-Package BlazorFocused -Version 1.0.0
+Install-Package BlazorFocused
 ```
 
 .NET CLI
