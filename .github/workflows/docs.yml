@@ -8,7 +8,8 @@ jobs:
   build:
 
     runs-on: windows-latest
-
+    env:
+      docs-directory: ./docs
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
@@ -18,3 +19,16 @@ jobs:
     - name: Install DocFx
       shell: pwsh
       run: choco install docfx -y
+    - name: Generate Metadata
+      shell: pwsh
+      run: docfx metadata
+      working-directory: ${{env.docs-directory}}
+    - name: Build Docs
+      shell: pwsh
+      run: docfx build
+      working-directory: ${{env.docs-directory}}
+    - name: Push Docs
+      run: |
+        cd ..
+        git clone -b gh-pages https://github.com/kenswan/blazor-focused.git
+        dir
