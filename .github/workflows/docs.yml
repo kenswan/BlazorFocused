@@ -37,6 +37,8 @@ jobs:
         git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
     - name: Copy & Push Doc Files
       run: |
+        cd ..
+        rm -r gh-pages/docs
         mv blazor-focused/docs/_site gh-pages/docs
         cd gh-pages
         git add -A
