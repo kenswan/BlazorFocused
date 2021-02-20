@@ -26,11 +26,8 @@ public void ConfigureServices(IServiceCollection services)
     services.AddControllersWithViews();
     services.AddRazorPages();
 
-    // initialized instance of the store's data
-    var testClass = new TestClass { FieldOne = "Test" };
-
     // add store in DI
-    serviceCollection.AddStore(testClass, builder =>
+    serviceCollection.AddStore<TestClass>(builder =>
     {
         builder.RegisterAction<TestAction>();
         builder.RegisterActionAsync<TestActionAsync>();
@@ -39,6 +36,9 @@ public void ConfigureServices(IServiceCollection services)
         // Services within actions and reducers
         builder.RegisterService<TestService>();
         builder.RegisterHttpClient<ITestClient, TestClient>();
+
+        // Set initial state (optional)
+        builder.SetInitialState(new TestClass { FieldOne = "Test" });
     });
 }
 ```
