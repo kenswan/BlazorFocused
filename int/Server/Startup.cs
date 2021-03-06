@@ -30,6 +30,7 @@ namespace Integration.Server
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BlazorFocused.Integration", Version = "v1" });
             });
 
+            services.AddTransient<IToDoService, ToDoService>();
             services.AddTransient<IUserService, UserService>();
         }
 

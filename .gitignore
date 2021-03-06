@@ -18,6 +18,8 @@ docs/_site/
 # User-specific Development Settings (Integration)
 appSettings.Development.json
 
+.DS_Store
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

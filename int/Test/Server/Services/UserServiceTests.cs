@@ -16,7 +16,7 @@ namespace Integration.Test.Server.Services
         }
 
         [Trait(nameof(Category), nameof(Category.Unit))]
-        [Fact(DisplayName = "Should genrate random user")]
+        [Fact(DisplayName = "Should generate random user")]
         public async Task ShouldGenerateRandomUser()
         {
             var user = await userService.GetDefaultUser();

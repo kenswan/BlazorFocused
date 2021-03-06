@@ -22,8 +22,8 @@ namespace Integration.Test.Server.Controllers
         [Fact(DisplayName = "Should Get Default User")]
         public async ValueTask ShouldGetDefaultUser()
         {
-            var client = webApplicationFactory.CreateClient();
-            var url = "api/user";
+            HttpClient client = webApplicationFactory.CreateClient();
+            string url = "api/user";
 
             var response = await client.GetAsync(url);
 

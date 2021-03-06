@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using BlazorFocused.Store;
 using Integration.ToDo.Models;
+using Integration.Shared.Models;
 
 namespace Integration.ToDo.Reducers
 {

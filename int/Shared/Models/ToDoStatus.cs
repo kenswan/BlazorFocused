@@ -1,4 +1,4 @@
-﻿namespace Integration.ToDo.Models
+﻿namespace Integration.Shared.Models
 {
     public enum ToDoStatus
     {
