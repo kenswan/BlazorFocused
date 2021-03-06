@@ -1,17 +1,17 @@
 ﻿using System.Threading.Tasks;
-using BlazorFocused.Integration.Shared.Models;
+using Integration.Shared.Models;
 using Bogus;
 
-namespace BlazorFocused.Integration.Server.Services
+namespace Integration.Server.Services
 {
     public class UserService : IUserService
     {
         public UserService() { }
 
         public ValueTask<User> GetDefaultUser() =>
-            new ValueTask<User>(GetRandomUser());
+            new(GetRandomUser());
 
-        private User GetRandomUser() =>
+        private static User GetRandomUser() =>
             new Faker<User>()
                 .RuleFor(user => user.FirstName, fake => fake.Name.FirstName())
                 .RuleFor(user => user.LastName, fake => fake.Name.LastName())

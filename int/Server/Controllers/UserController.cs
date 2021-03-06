@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using BlazorFocused.Integration.Server.Services;
-using BlazorFocused.Integration.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
+using Integration.Server.Services;
+using Integration.Shared.Models;
 
-namespace BlazorFocused.Integration.Server.Controllers
+namespace Integration.Server.Controllers
 {
     [Route("api/[controller]")]
     public class UserController : Controller

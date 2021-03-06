@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Runtime.CompilerServices;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: InternalsVisibleTo("BlazorFocused.Core.Test")]
+[assembly: InternalsVisibleTo("BlazorFocused.Test")]
 
 namespace BlazorFocused.Store
 {

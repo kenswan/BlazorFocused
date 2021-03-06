@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using BlazorFocused.Core.Test.Model;
+using BlazorFocused.Test.Model;
 using BlazorFocused.Testing;
 using Bogus;
 using Microsoft.Extensions.Logging;

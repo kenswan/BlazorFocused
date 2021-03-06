@@ -10,7 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using NativeHttpClient = System.Net.Http.HttpClient;
 
-[assembly: InternalsVisibleTo("BlazorFocused.Core.Test")]
+[assembly: InternalsVisibleTo("BlazorFocused.Test")]
 
 namespace BlazorFocused.Testing
 {

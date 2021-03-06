@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using BlazorFocused.Core.Test.Model;
+using BlazorFocused.Test.Model;
 using BlazorFocused.Store;
 
-namespace BlazorFocused.Core.Test.Utility
+namespace BlazorFocused.Test.Utility
 {
     public class TestActionAsync : TestClass, IActionAsync<SimpleClass>
     {

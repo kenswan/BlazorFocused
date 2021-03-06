@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Net.Http;
-using BlazorFocused.Core.Test.Utility;
+using BlazorFocused.Test.Utility;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 

@@ -4,7 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using BlazorFocused.Core.Test.Model;
+using BlazorFocused.Test.Model;
 using Bogus;
 using FluentAssertions;
 using Xunit;

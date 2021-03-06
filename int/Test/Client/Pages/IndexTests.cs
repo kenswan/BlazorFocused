@@ -1,9 +1,9 @@
-﻿using ClientPage = BlazorFocused.Integration.Client.Pages;
-using Bunit;
+﻿using Bunit;
 using Xunit;
-using BlazorFocused.Integration.Test.Utility;
+using Integration.Test.Utility;
+using ClientPage = Integration.Pages;
 
-namespace BlazorFocused.Integration.Test.Client.Pages
+namespace Integration.Test.Client.Pages
 {
     public class IndexTests
     {
@@ -19,7 +19,7 @@ namespace BlazorFocused.Integration.Test.Client.Pages
         public void ShouldRenderWelcome()
         {
             var component = context.RenderComponent<ClientPage.Index>();
-            
+
             component.Find("h1").MarkupMatches("<h1>Integration Overview</h1>");
         }
     }

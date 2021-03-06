@@ -2,7 +2,7 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using BlazorFocused.Core.Test.Model;
+using BlazorFocused.Test.Model;
 using FluentAssertions;
 using Xunit;
 

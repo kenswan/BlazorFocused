@@ -1,13 +1,13 @@
 ﻿using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using BlazorFocused.Integration.Server;
-using BlazorFocused.Integration.Test.Utility;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Xunit;
+using Integration.Server;
+using Integration.Test.Utility;
 
-namespace BlazorFocused.Integration.Test.Server.Controllers
+namespace Integration.Test.Server.Controllers
 {
     public class UserControllerTests : IClassFixture<WebApplicationFactory<Startup>>
     {

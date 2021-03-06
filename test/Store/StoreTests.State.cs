@@ -1,4 +1,4 @@
-﻿using BlazorFocused.Core.Test.Model;
+﻿using BlazorFocused.Test.Model;
 using FluentAssertions;
 using Xunit;
 

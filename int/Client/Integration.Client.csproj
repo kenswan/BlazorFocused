@@ -2,9 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Integration</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'BlazorFocused.Integration' ">
+    <ExternalConsole>true</ExternalConsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'BlazorFocused.Integration.Client' ">
     <ExternalConsole>true</ExternalConsole>
   </PropertyGroup>
   <ItemGroup>
@@ -14,14 +18,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\BlazorFocused.Integration.Shared.csproj" />
-    <ProjectReference Include="..\..\src\BlazorFocused.Core.csproj">
+    <ProjectReference Include="..\Shared\Integration.Shared.csproj" />
+    <ProjectReference Include="..\..\src\BlazorFocused.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Actions\" />
-    <Folder Include="Reducers\" />
+    <Folder Include="Users\" />
+    <Folder Include="ToDo\" />
+    <Folder Include="ToDo\Actions\" />
+    <Folder Include="ToDo\Models\" />
+    <Folder Include="ToDo\Pages\" />
+    <Folder Include="ToDo\Reducers\" />
+    <Folder Include="Users\Actions\" />
+    <Folder Include="Pages\" />
   </ItemGroup>
 </Project>

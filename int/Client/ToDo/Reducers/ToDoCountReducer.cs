@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
-using BlazorFocused.Integration.Client.Models;
+﻿using System.Linq;
 using BlazorFocused.Store;
+using Integration.ToDo.Models;
 
-namespace BlazorFocused.Integration.Client.Reducers
+namespace Integration.ToDo.Reducers
 {
     public class ToDoCountReducer : IReducer<ToDoStore, ToDoCounter>
     {

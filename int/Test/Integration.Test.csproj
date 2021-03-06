@@ -32,8 +32,8 @@
     <Folder Include="Server\Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Client\BlazorFocused.Integration.Client.csproj" />
-    <ProjectReference Include="..\Server\BlazorFocused.Integration.Server.csproj" />
-    <ProjectReference Include="..\Shared\BlazorFocused.Integration.Shared.csproj" />
+    <ProjectReference Include="..\Client\Integration.Client.csproj" />
+    <ProjectReference Include="..\Server\Integration.Server.csproj" />
+    <ProjectReference Include="..\Shared\Integration.Shared.csproj" />
   </ItemGroup>
 </Project>

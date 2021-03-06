@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace BlazorFocused.Integration.Client.Models
+namespace Integration.ToDo.Models
 {
     public class ToDoStore
     {
