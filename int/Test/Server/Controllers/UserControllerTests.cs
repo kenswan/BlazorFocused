@@ -20,7 +20,7 @@ namespace Integration.Test.Server.Controllers
 
         [Trait(nameof(Category), nameof(Category.Integration))]
         [Fact(DisplayName = "Should Get Default User")]
-        public async ValueTask ShouldGetDefaultUser()
+        public async Task ShouldGetDefaultUser()
         {
             HttpClient client = webApplicationFactory.CreateClient();
             string url = "api/user";

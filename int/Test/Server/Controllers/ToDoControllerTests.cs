@@ -25,10 +25,10 @@ namespace Integration.Test.Server.Controllers
 
         [Trait(nameof(Category), nameof(Category.Integration))]
         [Fact(DisplayName = "Should Get ToDo Items")]
-        public async ValueTask ShouldGetToDoItems()
+        public async Task ShouldGetToDoItems()
         {
             HttpClient client = webApplicationFactory.CreateClient();
-            string url = "api/todo";
+            string url = "/api/todo";
 
             HttpResponseMessage response = await client.GetAsync(url);
             var content = await GetObjectFromResponse<IEnumerable<ToDoItem>>(response);
@@ -43,7 +43,7 @@ namespace Integration.Test.Server.Controllers
         {
             var responseString = await httpResponseMessage.Content.ReadAsStringAsync();
 
-            return JsonSerializer.Deserialize<T>(responseString);
+            return JsonSerializer.Deserialize<T>(responseString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
         }
     }
 }
