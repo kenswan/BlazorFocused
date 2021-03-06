@@ -1,14 +1,12 @@
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Linq;
-using BlazorFocused.Integration.Server.Services;
+using Microsoft.OpenApi.Models;
+using Integration.Server.Services;
 
-namespace BlazorFocused.Integration.Server
+namespace Integration.Server
 {
     public class Startup
     {
@@ -27,6 +25,11 @@ namespace BlazorFocused.Integration.Server
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BlazorFocused.Integration", Version = "v1" });
+            });
+
             services.AddTransient<IUserService, UserService>();
         }
 
@@ -37,6 +40,9 @@ namespace BlazorFocused.Integration.Server
             {
                 app.UseDeveloperExceptionPage();
                 app.UseWebAssemblyDebugging();
+
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BlazorFocused.Integration v1"));
             }
             else
             {

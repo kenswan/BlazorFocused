@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using BlazorFocused.Integration.Shared.Models;
+using Integration.Shared.Models;
 
-namespace BlazorFocused.Integration.Server.Services
+namespace Integration.Server.Services
 {
     public interface IUserService
     {

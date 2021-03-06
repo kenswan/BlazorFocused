@@ -3,13 +3,14 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using BlazorFocused.Client;
 using BlazorFocused.Store;
-using BlazorFocused.Integration.Client.Models;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using BlazorFocused.Integration.Client.Actions;
-using BlazorFocused.Integration.Client.Reducers;
+using Integration.ToDo.Actions;
+using Integration.ToDo.Reducers;
+using Integration.ToDo.Models;
+using Integration.Shared.Models;
 
-namespace BlazorFocused.Integration.Client
+namespace Integration.Client
 {
     public class Program
     {
@@ -21,6 +22,9 @@ namespace BlazorFocused.Integration.Client
 
             builder.Services.AddScoped(sp =>
                 new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            builder.Services.AddStore(
+                new User { FirstName = "Default", LastName = "User", UserName = "DefaultUser" });
 
             builder.Services.AddStore<ToDoStore>(storeBuilder =>
             {

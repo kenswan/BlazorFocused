@@ -1,5 +1,4 @@
-﻿using System;
-namespace BlazorFocused.Integration.Client.Models
+﻿namespace Integration.ToDo.Models
 {
     public class ToDoItem
     {

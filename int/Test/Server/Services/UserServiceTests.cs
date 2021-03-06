@@ -1,11 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using BlazorFocused.Integration.Server.Services;
-using BlazorFocused.Integration.Test.Utility;
+﻿using System.Threading.Tasks;
 using FluentAssertions;
 using Xunit;
+using Integration.Server.Services;
+using Integration.Test.Utility;
 
-namespace BlazorFocused.Integration.Test.Server.Services
+namespace Integration.Test.Server.Services
 {
     public class UserServiceTests
     {

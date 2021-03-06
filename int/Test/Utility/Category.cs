@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BlazorFocused.Integration.Test.Utility
+namespace Integration.Test.Utility
 {
     public enum Category
     {

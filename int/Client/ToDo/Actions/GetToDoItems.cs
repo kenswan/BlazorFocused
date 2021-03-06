@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BlazorFocused.Client;
-using BlazorFocused.Integration.Client.Models;
 using BlazorFocused.Store;
+using Integration.ToDo.Models;
 
-namespace BlazorFocused.Integration.Client.Actions
+namespace Integration.ToDo.Actions
 {
     public class GetToDoItems : IActionAsync<ToDoStore>
     {

@@ -1,4 +1,4 @@
-﻿namespace BlazorFocused.Integration.Shared.Models
+﻿namespace Integration.Shared.Models
 {
     public class User
     {

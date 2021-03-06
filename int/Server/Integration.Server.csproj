@@ -4,14 +4,16 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'BlazorFocused.Integration.Server' " />
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.3" />
-    <PackageReference Include="Bogus" Version="33.0.1" />
+    <PackageReference Include="Bogus" Version="33.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Client\BlazorFocused.Integration.Client.csproj" />
-    <ProjectReference Include="..\Shared\BlazorFocused.Integration.Shared.csproj" />
+    <ProjectReference Include="..\Client\Integration.Client.csproj" />
+    <ProjectReference Include="..\Shared\Integration.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

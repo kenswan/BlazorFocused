@@ -1,8 +1,8 @@
 ﻿@inherits LayoutComponentBase
-@using BlazorFocused.Client;
-@using BlazorFocused.Integration.Shared.Models;
+@using BlazorFocused.Store;
+@using Integration.Shared.Models;
 
-@inject IRestClient restClient;
+@inject IStore<User> userStore;
 
 <div class="page">
     <div class="sidebar">
@@ -18,7 +18,10 @@
             else
             {
                 <div>
-                    <b>@user.LastName, @user.FirstName</b><text>&nbsp;</text>
+                    <b>@user.LastName, @user.FirstName</b>
+                    <text>&nbsp;</text>
+                    <i>(@user.UserName)</i>
+                    <text>&nbsp;</text>
                     <a href="" @onclick="GetUserOnClickAsync">Change User</a>
                 </div>
             }
@@ -34,8 +37,13 @@
 
     protected User user = null;
 
-    private async Task GetUserOnClickAsync(MouseEventArgs e)
+    protected override void OnInitialized()
     {
-        user = await restClient.GetAsync<User>("api/user");
+        user = userStore.GetState();
+    }
+
+    private void GetUserOnClickAsync(MouseEventArgs e)
+    {
+        user = userStore.GetState();
     }
 }
