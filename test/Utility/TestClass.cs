@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BlazorFocused.Core.Test.Utility
+namespace BlazorFocused.Test.Utility
 {
     public abstract class TestClass
     {

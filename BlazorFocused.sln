@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFocused.Core", "src\BlazorFocused.Core.csproj", "{486505D3-B23F-4188-98A0-FB0F4CD5F5CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFocused", "src\BlazorFocused.csproj", "{486505D3-B23F-4188-98A0-FB0F4CD5F5CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFocused.Core.Test", "test\BlazorFocused.Core.Test.csproj", "{1917E2FD-F47D-415E-B5B4-07ECAE5E2C39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFocused.Test", "test\BlazorFocused.Test.csproj", "{1917E2FD-F47D-415E-B5B4-07ECAE5E2C39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Integration.Server", "int\Server\Integration.Server.csproj", "{99D7FCB3-9E12-4751-B617-B2CDBEBF8FED}"
 EndProject

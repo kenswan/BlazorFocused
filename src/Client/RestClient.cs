@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-[assembly: InternalsVisibleTo("BlazorFocused.Core.Test")]
+[assembly: InternalsVisibleTo("BlazorFocused.Test")]
 
 namespace BlazorFocused.Client
 {

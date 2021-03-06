@@ -1,4 +1,4 @@
-﻿using BlazorFocused.Core.Test.Model;
+﻿using BlazorFocused.Test.Model;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 

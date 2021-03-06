@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace BlazorFocused.Core.Test.Utility
+namespace BlazorFocused.Test.Utility
 {
     public class TestService : TestClass
     {

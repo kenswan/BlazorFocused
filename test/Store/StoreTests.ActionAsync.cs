@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using BlazorFocused.Core.Test.Model;
-using BlazorFocused.Core.Test.Utility;
+using BlazorFocused.Test.Model;
+using BlazorFocused.Test.Utility;
 using FluentAssertions;
 using Moq;
 using Xunit;
