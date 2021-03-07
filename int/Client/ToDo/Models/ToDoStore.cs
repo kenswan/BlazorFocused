@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Integration.Shared.Models;
 
 namespace Integration.ToDo.Models
 {
@@ -11,5 +12,9 @@ namespace Integration.ToDo.Models
         {
             Items = Enumerable.Empty<ToDoItem>();
         }
+
+        public static ToDoStore GetInitialState() =>
+            new() { Items = Enumerable.Empty<ToDoItem>() };
+
     }
 }

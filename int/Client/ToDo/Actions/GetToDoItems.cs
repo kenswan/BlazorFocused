@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using BlazorFocused.Client;
 using BlazorFocused.Store;
+using Integration.Shared.Models;
 using Integration.ToDo.Models;
 
 namespace Integration.ToDo.Actions
@@ -17,7 +18,7 @@ namespace Integration.ToDo.Actions
 
         public async ValueTask<ToDoStore> ExecuteAsync(ToDoStore state)
         {
-            var items = await restClient.GetAsync<IEnumerable<ToDoItem>>("api/todo");
+            var items = await restClient.GetAsync<IEnumerable<ToDoItem>>("/api/todo");
 
             state.Items = items;
 
