@@ -2,6 +2,9 @@
 
 <h3>ToDo Application</h3>
 
-@code {
-
-}
+<div>
+    @foreach (var item in toDoItems)
+    {
+        <p>@item.Title - @item.Description</p>
+    }
+</div>

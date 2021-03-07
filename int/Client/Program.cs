@@ -31,6 +31,7 @@ namespace Integration.Client
                 storeBuilder.RegisterAsyncAction<GetToDoItems>();
                 storeBuilder.RegisterReducer<ToDoCountReducer, ToDoCounter>();
                 storeBuilder.RegisterRestClient(builder.HostEnvironment.BaseAddress);
+                storeBuilder.SetInitialState(ToDoStore.GetInitialState());
             });
 
             await builder.Build().RunAsync();

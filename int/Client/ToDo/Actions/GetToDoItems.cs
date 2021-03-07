@@ -18,7 +18,7 @@ namespace Integration.ToDo.Actions
 
         public async ValueTask<ToDoStore> ExecuteAsync(ToDoStore state)
         {
-            var items = await restClient.GetAsync<IEnumerable<ToDoItem>>("api/todo");
+            var items = await restClient.GetAsync<IEnumerable<ToDoItem>>("/api/todo");
 
             state.Items = items;
 

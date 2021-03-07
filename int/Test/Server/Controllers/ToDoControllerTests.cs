@@ -31,12 +31,13 @@ namespace Integration.Test.Server.Controllers
             string url = "/api/todo";
 
             HttpResponseMessage response = await client.GetAsync(url);
-            var content = await GetObjectFromResponse<IEnumerable<ToDoItem>>(response);
 
             response.Should().NotBeNull()
                 .And.Match<HttpResponseMessage>(message => message.StatusCode == HttpStatusCode.OK);
 
-            Assert.Equal(ToDoController.INITIAL_TODO_COUNT, content.Count());
+            var items = await GetObjectFromResponse<IEnumerable<ToDoItem>>(response);
+
+            items.Should().HaveCount(ToDoController.INITIAL_TODO_COUNT);
         }
 
         private async Task<T> GetObjectFromResponse<T>(HttpResponseMessage httpResponseMessage)
