@@ -11,5 +11,10 @@ namespace BlazorFocused.Test.Utility
         {
             return new ValueTask<T>(default(T));
         }
+
+        public virtual ValueTask<TOutput> GetValueAsync<TInput, TOutput>(TInput input)
+        {
+            return new ValueTask<TOutput>(default(TOutput));
+        }
     }
 }

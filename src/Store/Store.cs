@@ -45,9 +45,11 @@ namespace BlazorFocused.Store
 
             logger?.LogDebug($"Found action {actionName}");
 
+            action.State = state.Value;
+
             logger?.LogInformation($"Executing action {actionName}");
 
-            state.OnNext(action.Execute(state.Value));
+            state.OnNext(action.Execute());
         }
 
         public async ValueTask DispatchAsync<TActionAsync>() where TActionAsync : IActionAsync<TState>
@@ -60,9 +62,11 @@ namespace BlazorFocused.Store
 
             logger?.LogDebug($"Found action {actionName}");
 
+            action.State = state.Value;
+
             logger?.LogInformation($"Executing action {actionName}");
 
-            var value = await action.ExecuteAsync(state.Value);
+            var value = await action.ExecuteAsync();
 
             state.OnNext(value);
         }

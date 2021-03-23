@@ -20,32 +20,19 @@ namespace BlazorFocused.Store
             serviceCollection = new ServiceCollection();
         }
 
-        public void RegisterAction(IAction<TState> action)
+        public void RegisterAction(IStoreAction<TState> action)
         {
             serviceCollection.AddTransient(action.GetType(), _ => action);
         }
 
         public void RegisterAction<TAction>()
-            where TAction : IAction<TState>
+            where TAction : IStoreAction<TState>
         {
             Type type = typeof(TAction);
 
             serviceCollection.AddTransient(type);
         }
-
-        public void RegisterAsyncAction(IActionAsync<TState> action)
-        {
-            serviceCollection.AddTransient(action.GetType(), _ => action);
-        }
-
-        public void RegisterAsyncAction<TAction>()
-            where TAction : IActionAsync<TState>
-        {
-            Type type = typeof(TAction);
-
-            serviceCollection.AddTransient(type);
-        }
-
+       
         public void RegisterHttpClient()
         {
             serviceCollection.AddHttpClient();
@@ -78,11 +65,6 @@ namespace BlazorFocused.Store
             serviceCollection.AddTransient<IReducer<TState, TOutput>, TReducer>();
         }
 
-        public IServiceProvider BuildServices()
-        {
-            return serviceCollection.BuildServiceProvider();
-        }
-
         public void RegisterService<TService>() where TService : class
         {
             Type type = typeof(TService);
@@ -98,6 +80,11 @@ namespace BlazorFocused.Store
         public void SetInitialState(TState state)
         {
             InitialState = state;
+        }
+
+        public IServiceProvider BuildServices()
+        {
+            return serviceCollection.BuildServiceProvider();
         }
     }
 }

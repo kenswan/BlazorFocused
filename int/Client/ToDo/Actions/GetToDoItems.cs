@@ -16,13 +16,15 @@ namespace Integration.ToDo.Actions
             this.restClient = restClient;
         }
 
-        public async ValueTask<ToDoStore> ExecuteAsync(ToDoStore state)
+        public ToDoStore State { get; set; }
+
+        public async ValueTask<ToDoStore> ExecuteAsync()
         {
             var items = await restClient.GetAsync<IEnumerable<ToDoItem>>("/api/todo");
 
-            state.Items = items;
+            State.Items = items;
 
-            return state;
+            return State;
         }
     }
 }

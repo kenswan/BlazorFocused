@@ -18,32 +18,19 @@ namespace BlazorFocused.Store
         /// <summary>
         /// Registers action (by type) that can operate within store.
         /// See <see cref="IAction{TState}"/>
+        /// See <see cref="IActionAsync{TState}"/>
         /// </summary>
         /// <typeparam name="TAction">Type of action being registered</typeparam>
         void RegisterAction<TAction>()
-            where TAction : IAction<TState>;
+            where TAction : IStoreAction<TState>;
 
         /// <summary>
         /// Registers action (by instance) that can operate within store.
         /// See <see cref="IAction{TState}"/>
-        /// </summary>
-        /// <param name="action">Initialized instance of action registered</param>
-        void RegisterAction(IAction<TState> action);
-
-        /// <summary>
-        /// Registers async action (by type) that can operate within store.
-        /// See <see cref="IActionAsync{TState}"/>
-        /// </summary>
-        /// <typeparam name="TAction">Type of asynchronous action being registered</typeparam>
-        void RegisterAsyncAction<TAction>()
-            where TAction : IActionAsync<TState>;
-
-        /// <summary>
-        /// Registers async action (by instance) that can operate within store.
         /// See <see cref="IActionAsync{TState}"/>
         /// </summary>
         /// <param name="action">Initialized instance of action registered</param>
-        void RegisterAsyncAction(IActionAsync<TState> action);
+        void RegisterAction(IStoreAction<TState> action);
 
         /// <summary>
         /// Registers HttpClient that can be injected into services and async actions

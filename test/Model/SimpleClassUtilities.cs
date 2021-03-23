@@ -11,6 +11,12 @@ namespace BlazorFocused.Test.Model
                 .RuleForType(typeof(string), fake => fake.Random.AlphaNumeric(GetRandomInteger()));
         }
 
+        public static SimpleClass GetRandomSimpleClass(string input)
+        {
+            return new Faker<SimpleClass>()
+                .RuleForType(typeof(string), _ => input);
+        }
+
         public static int GetRandomInteger() =>
             new Random().Next(5, 20);
     }

@@ -28,7 +28,7 @@ namespace Integration.Client
 
             builder.Services.AddStore<ToDoStore>(storeBuilder =>
             {
-                storeBuilder.RegisterAsyncAction<GetToDoItems>();
+                storeBuilder.RegisterAction<GetToDoItems>();
                 storeBuilder.RegisterReducer<ToDoCountReducer, ToDoCounter>();
                 storeBuilder.RegisterRestClient(builder.HostEnvironment.BaseAddress);
                 storeBuilder.SetInitialState(ToDoStore.GetInitialState());

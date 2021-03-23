@@ -23,7 +23,7 @@ namespace BlazorFocused.Store.Test
             var store = new Store<SimpleClass>(builder =>
             {
                 builder.SetInitialState(originalClass);
-                builder.RegisterAsyncAction(new TestActionAsync(testServiceMock.Object));
+                builder.RegisterAction(new TestActionAsync(testServiceMock.Object));
             });
 
             await store.DispatchAsync<TestActionAsync>();
@@ -47,7 +47,7 @@ namespace BlazorFocused.Store.Test
             var store = new Store<SimpleClass>(builder =>
             {
                 builder.SetInitialState(originalClass);
-                builder.RegisterAsyncAction<TestActionAsync>();
+                builder.RegisterAction<TestActionAsync>();
                 builder.RegisterService(testServiceMock.Object);
             });
 
