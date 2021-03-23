@@ -8,13 +8,15 @@ namespace BlazorFocused.Test.Model
         public static SimpleClass GetRandomSimpleClass()
         {
             return new Faker<SimpleClass>()
-                .RuleForType(typeof(string), fake => fake.Random.AlphaNumeric(GetRandomInteger()));
+                .RuleForType(typeof(string), fake => fake.Random.AlphaNumeric(GetRandomInteger()))
+                .Generate();
         }
 
-        public static SimpleClass GetRandomSimpleClass(string input)
+        public static SimpleClass GetStaticSimpleClass(string input)
         {
             return new Faker<SimpleClass>()
-                .RuleForType(typeof(string), _ => input);
+                .RuleForType(typeof(string), _ => input)
+                .Generate();
         }
 
         public static int GetRandomInteger() =>

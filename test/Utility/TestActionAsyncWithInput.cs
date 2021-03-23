@@ -17,7 +17,7 @@ namespace BlazorFocused.Test.Utility
 
         public async ValueTask<SimpleClass> ExecuteAsync(string input)
         {
-            return await testService.GetValueAsync<SimpleClass>();
+            return await testService.GetValueAsync<string, SimpleClass>(input);
         }
     }
 }

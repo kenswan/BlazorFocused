@@ -7,7 +7,7 @@ namespace BlazorFocused.Test.Utility
     { 
         public SimpleClass Execute(string input)
         {
-            return SimpleClassUtilities.GetRandomSimpleClass(input);
+            return SimpleClassUtilities.GetStaticSimpleClass(input);
         }
     }
 }

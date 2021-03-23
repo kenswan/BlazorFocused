@@ -20,17 +20,17 @@ namespace BlazorFocused.Store
             serviceCollection = new ServiceCollection();
         }
 
-        public void RegisterAction(IStoreAction<TState> action)
-        {
-            serviceCollection.AddTransient(action.GetType(), _ => action);
-        }
-
         public void RegisterAction<TAction>()
             where TAction : IStoreAction<TState>
         {
             Type type = typeof(TAction);
 
             serviceCollection.AddTransient(type);
+        }
+
+        public void RegisterAction(IStoreAction<TState> action)
+        {
+            serviceCollection.AddTransient(action.GetType(), _ => action);
         }
        
         public void RegisterHttpClient()
@@ -52,17 +52,17 @@ namespace BlazorFocused.Store
             serviceCollection.AddHttpClient<TInterface, TImplementation>(configureHttpClient);
         }
 
-        public void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)
-            where TOutput : class
-        {
-            serviceCollection.AddTransient(_ => reducer);
-        }
-
         public void RegisterReducer<TReducer, TOutput>()
             where TOutput : class
             where TReducer : class, IReducer<TState, TOutput>
         {
             serviceCollection.AddTransient<IReducer<TState, TOutput>, TReducer>();
+        }
+
+        public void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)
+            where TOutput : class
+        {
+            serviceCollection.AddTransient(_ => reducer);
         }
 
         public void RegisterService<TService>() where TService : class
