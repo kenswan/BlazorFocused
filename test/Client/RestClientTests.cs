@@ -12,7 +12,6 @@ namespace BlazorFocused.Client.Test
         private readonly string baseAddress;
         private readonly ISimulatedHttp simulatedHttp;
         private readonly ILogger<RestClient> nullLogger;
-        private readonly IParameterBuilder parameterBuilder;
         private readonly IRestClient restClient;
 
         public RestClientTests()
@@ -20,8 +19,7 @@ namespace BlazorFocused.Client.Test
             baseAddress = new Faker().Internet.Url();
             simulatedHttp = new SimulatedHttp(baseAddress);
             nullLogger = NullLogger<RestClient>.Instance;
-            parameterBuilder = new ParameterBuilder();
-            restClient = new RestClient(simulatedHttp.Client(), parameterBuilder, nullLogger);
+            restClient = new RestClient(simulatedHttp.Client(), nullLogger);
         }
 
         private static string GetRandomRelativeUrl() =>

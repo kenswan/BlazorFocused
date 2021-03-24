@@ -8,7 +8,7 @@ namespace BlazorFocused.Client
     {
         public static void AddRestClient(this IServiceCollection services, string baseUrl) 
         {
-            services.AddTransient<IParameterBuilder, ParameterBuilder>();
+            services.AddTransient<IParameterBuilder, UrlParameterBuilder>();
 
             services.AddHttpClient<IRestClient, RestClient>(client =>
                 client.BaseAddress = new Uri(baseUrl));
@@ -19,7 +19,7 @@ namespace BlazorFocused.Client
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
         {
-            services.AddTransient<IParameterBuilder, ParameterBuilder>();
+            services.AddTransient<IParameterBuilder, UrlParameterBuilder>();
 
             if (configureClient is null)
             {

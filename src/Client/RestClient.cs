@@ -17,66 +17,64 @@ namespace BlazorFocused.Client
     internal class RestClient : IRestClient
     {
         private readonly HttpClient client;
-        private readonly IParameterBuilder parameterBuilder;
         private readonly ILogger<RestClient> logger;
 
         public RestClient(
             HttpClient client,
-            IParameterBuilder parameterBuilder,
             ILogger<RestClient> logger)
         {
             this.client = client ?? throw new ArgumentNullException(nameof(client));
-            this.parameterBuilder = parameterBuilder ?? throw new ArgumentNullException(nameof(parameterBuilder));
             this.logger = logger ?? NullLogger<RestClient>.Instance;
         }
 
-        public async Task<T> DeleteAsync<T>(string relativeUrl, object[] parameters = null) =>
-            ExtractOrThrowResponse<T>(await TryDeleteAsync<T>(relativeUrl, parameters));
+        public async Task<T> DeleteAsync<T>(string relativeUrl) =>
+            ExtractOrThrowResponse<T>(await TryDeleteAsync<T>(relativeUrl));
 
-        public async Task<T> GetAsync<T>(string relativeUrl, object[] parameters = null) =>
-            ExtractOrThrowResponse<T>(await TryGetAsync<T>(relativeUrl, parameters));
+        public async Task<T> GetAsync<T>(string relativeUrl) =>
+            ExtractOrThrowResponse<T>(await TryGetAsync<T>(relativeUrl));
 
-        public async Task<T> PostAsync<T>(string relativeUrl, object data, object[] parameters = null) =>
-            ExtractOrThrowResponse<T>(await TryPostAsync<T>(relativeUrl, data, parameters));
+        public async Task<T> PatchAsync<T>(string relativeUrl, object data) =>
+            ExtractOrThrowResponse<T>(await TryPatchAsync<T>(relativeUrl, data));
 
-        public async Task<T> PutAsync<T>(string relativeUrl, object data, object[] parameters = null) =>
-            ExtractOrThrowResponse<T>(await TryPutAsync<T>(relativeUrl, data, parameters));
+        public async Task<T> PostAsync<T>(string relativeUrl, object data) =>
+            ExtractOrThrowResponse<T>(await TryPostAsync<T>(relativeUrl, data));
 
-        public async Task<RestClientResponse<T>> TryDeleteAsync<T>(string relativeUrl, object[] parameters = null)
-        {
-            return await SendAsync<T>(HttpMethod.Delete, GetUrl(relativeUrl, parameters));
-        }
+        public async Task<T> PutAsync<T>(string relativeUrl, object data) =>
+            ExtractOrThrowResponse<T>(await TryPutAsync<T>(relativeUrl, data));
 
-        public async Task<RestClientResponse<T>> TryGetAsync<T>(string relativeUrl, object[] parameters = null)
-        {
-            return await SendAsync<T>(HttpMethod.Get, GetUrl(relativeUrl, parameters));
-        }
+        public async Task<RestClientResponse<T>> TryDeleteAsync<T>(string relativeUrl) =>
+            await SendAsync<T>(HttpMethod.Delete, relativeUrl);
 
-        public async Task<RestClientResponse<T>> TryPostAsync<T>(string relativeUrl, object data, object[] parameters = null)
-        {
-            return await SendAsync<T>(HttpMethod.Post, GetUrl(relativeUrl, parameters), data);
-        }
+        public async Task<RestClientResponse<T>> TryGetAsync<T>(string relativeUrl) =>
+            await SendAsync<T>(HttpMethod.Get, relativeUrl);
 
-        public async Task<RestClientResponse<T>> TryPutAsync<T>(string relativeUrl, object data, object[] parameters = null)
-        {
-            return await SendAsync<T>(HttpMethod.Put, GetUrl(relativeUrl, parameters), data);
-        }
+        public async Task<RestClientResponse<T>> TryPatchAsync<T>(string relativeUrl, object data) =>
+            await SendAsync<T>(HttpMethod.Patch, relativeUrl, data);
+
+        public async Task<RestClientResponse<T>> TryPostAsync<T>(string relativeUrl, object data) =>
+            await SendAsync<T>(HttpMethod.Post, relativeUrl, data);
+
+        public async Task<RestClientResponse<T>> TryPutAsync<T>(string relativeUrl, object data) =>
+            await SendAsync<T>(HttpMethod.Put, relativeUrl, data);
 
         private HttpContent ConvertToHttpContent(object data)
         {
+            logger.LogDebug("Creating HttpContent for request");
+
             return new StringContent(JsonSerializer.Serialize(data), Encoding.UTF8, "application/json");
         }
 
         private async Task<T> Deserialize<T>(HttpContent content)
         {
+            logger.LogDebug("Deserializing response content");
+
             return await content.ReadFromJsonAsync<T>();
         }
 
-        private bool GetStatusCodeValidation(HttpStatusCode? httpStatusCode) =>
-            httpStatusCode.HasValue ? new HttpResponseMessage(httpStatusCode.Value).IsSuccessStatusCode : false;
+        private static bool GetStatusCodeValidation(HttpStatusCode? httpStatusCode) =>
+            httpStatusCode.HasValue && new HttpResponseMessage(httpStatusCode.Value).IsSuccessStatusCode;
 
-
-        private T ExtractOrThrowResponse<T>(RestClientResponse<T> response)
+        private static T ExtractOrThrowResponse<T>(RestClientResponse<T> response)
         {
             if (response.IsValid)
                 return response.Value;
@@ -86,6 +84,8 @@ namespace BlazorFocused.Client
 
         private RestClientResponse<T> GetRestClientResponse<T>(T value, HttpStatusCode? httpStatusCode, Exception exception)
         {
+            logger.LogDebug($"Creating rest client response for {(int)httpStatusCode} status code");
+
             return new RestClientResponse<T>
             {
                 Exception = exception,
@@ -94,19 +94,17 @@ namespace BlazorFocused.Client
                 Value = value
             };
         }
-        private Uri GetUri(string relativeUrl) =>
-            new Uri(client.BaseAddress, relativeUrl);
 
-        private string GetUrl(string relativeUrl, object[] parameters)
-        {
-            return relativeUrl;
-        }
+        private Uri GetUri(string relativeUrl) =>
+            new(client.BaseAddress, relativeUrl);
 
         private async Task<RestClientResponse<T>> SendAsync<T>(HttpMethod method, string url, object data = null)
         {
             var value = default(T);
             Exception exception = default;
             HttpStatusCode? httpStatusCode = default;
+
+            logger.LogDebug($"Starting {method} - {url} Request");
 
             try
             {
@@ -120,8 +118,12 @@ namespace BlazorFocused.Client
                     RequestUri = GetUri(url)
                 };
 
+                logger.LogDebug($"Constructed HttpRequestMessage");
+
                 HttpResponseMessage httpResponseMessage = await client.SendAsync(httpRequestMessage);
                 httpStatusCode = httpResponseMessage.StatusCode;
+
+                logger.LogDebug($"HttpResponse returned from request with status code {(int)httpStatusCode}");
 
                 if (httpResponseMessage.IsSuccessStatusCode)
                     value = await Deserialize<T>(httpResponseMessage.Content);
@@ -133,7 +135,7 @@ namespace BlazorFocused.Client
                 exception = ex;
             }
 
-            return GetRestClientResponse<T>(value, httpStatusCode, exception);
+            return GetRestClientResponse(value, httpStatusCode, exception);
         }
     }
 }
