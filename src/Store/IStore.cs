@@ -20,6 +20,16 @@ namespace BlazorFocused.Store
             where TAction : IAction<TState>;
 
         /// <summary>
+        /// Sends registered action to the store to operate on current state
+        /// </summary>
+        /// <typeparam name="TAction">Action registered in store
+        /// <typeparam name="TInput">Input object sent at time of execution</typeparam>
+        /// See <see cref="IAction{TState,TInput}"/>
+        /// </typeparam>
+        void Dispatch<TAction, TInput>(TInput input)
+            where TAction : IAction<TState, TInput>;
+
+        /// <summary>
         /// Sends registered asynchronous action to the store to operate on current state
         /// </summary>
         /// <typeparam name="TActionAsync">Asynchronous action registered in store
@@ -27,6 +37,16 @@ namespace BlazorFocused.Store
         /// <returns>Awaitable task</returns>
         ValueTask DispatchAsync<TActionAsync>()
             where TActionAsync : IActionAsync<TState>;
+
+        /// <summary>
+        /// Sends registered asynchronous action to the store to operate on current state
+        /// </summary>
+        /// <typeparam name="TActionAsync">Asynchronous action registered in store</typeparam>
+        /// <typeparam name="TInput">Input object sent at time of execution</typeparam>
+        /// See <see cref="IActionAsync{TState,TInput}"/></typeparam>
+        /// <returns>Awaitable task</returns>
+        ValueTask DispatchAsync<TActionAsync, TInput>(TInput input)
+            where TActionAsync : IActionAsync<TState, TInput>;
 
         /// <summary>
         /// Returns current value of the state within the current store

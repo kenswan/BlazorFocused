@@ -45,9 +45,29 @@ namespace BlazorFocused.Store
 
             logger?.LogDebug($"Found action {actionName}");
 
+            action.State = state.Value;
+
             logger?.LogInformation($"Executing action {actionName}");
 
-            state.OnNext(action.Execute(state.Value));
+            state.OnNext(action.Execute());
+        }
+
+        public void Dispatch<TAction, TInput>(TInput input) 
+            where TAction : IAction<TState, TInput>
+        {
+            var actionName = typeof(TAction);
+
+            logger?.LogDebug($"Retrieving action {actionName}");
+
+            var action = internalServiceProvider.GetRequiredService<TAction>();
+
+            logger?.LogDebug($"Found action {actionName}");
+
+            action.State = state.Value;
+
+            logger?.LogInformation($"Executing action {actionName}");
+
+            state.OnNext(action.Execute(input));
         }
 
         public async ValueTask DispatchAsync<TActionAsync>() where TActionAsync : IActionAsync<TState>
@@ -60,9 +80,30 @@ namespace BlazorFocused.Store
 
             logger?.LogDebug($"Found action {actionName}");
 
+            action.State = state.Value;
+
             logger?.LogInformation($"Executing action {actionName}");
 
-            var value = await action.ExecuteAsync(state.Value);
+            var value = await action.ExecuteAsync();
+
+            state.OnNext(value);
+        }
+        public async ValueTask DispatchAsync<TActionAsync, TInput>(TInput input) 
+            where TActionAsync : IActionAsync<TState, TInput>
+        {
+            var actionName = typeof(TActionAsync);
+
+            logger?.LogDebug($"Retrieving action {actionName}");
+
+            var action = internalServiceProvider.GetRequiredService<TActionAsync>();
+
+            logger?.LogDebug($"Found action {actionName}");
+
+            action.State = state.Value;
+
+            logger?.LogInformation($"Executing action {actionName}");
+
+            var value = await action.ExecuteAsync(input);
 
             state.OnNext(value);
         }

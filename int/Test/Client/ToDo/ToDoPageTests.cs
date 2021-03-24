@@ -39,7 +39,7 @@ namespace Integration.Test.Client.ToDo
 
             context.Services.AddStore<ToDoStore>(builder =>
             {
-                builder.RegisterAsyncAction<GetToDoItems>();
+                builder.RegisterAction<GetToDoItems>();
                 builder.RegisterService<IRestClient>(mockRestClient.Object);
                 builder.SetInitialState(initialState);
             });

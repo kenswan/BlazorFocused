@@ -20,32 +20,19 @@ namespace BlazorFocused.Store
             serviceCollection = new ServiceCollection();
         }
 
-        public void RegisterAction(IAction<TState> action)
-        {
-            serviceCollection.AddTransient(action.GetType(), _ => action);
-        }
-
         public void RegisterAction<TAction>()
-            where TAction : IAction<TState>
+            where TAction : IStoreAction<TState>
         {
             Type type = typeof(TAction);
 
             serviceCollection.AddTransient(type);
         }
 
-        public void RegisterAsyncAction(IActionAsync<TState> action)
+        public void RegisterAction(IStoreAction<TState> action)
         {
             serviceCollection.AddTransient(action.GetType(), _ => action);
         }
-
-        public void RegisterAsyncAction<TAction>()
-            where TAction : IActionAsync<TState>
-        {
-            Type type = typeof(TAction);
-
-            serviceCollection.AddTransient(type);
-        }
-
+       
         public void RegisterHttpClient()
         {
             serviceCollection.AddHttpClient();
@@ -65,12 +52,6 @@ namespace BlazorFocused.Store
             serviceCollection.AddHttpClient<TInterface, TImplementation>(configureHttpClient);
         }
 
-        public void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)
-            where TOutput : class
-        {
-            serviceCollection.AddTransient(_ => reducer);
-        }
-
         public void RegisterReducer<TReducer, TOutput>()
             where TOutput : class
             where TReducer : class, IReducer<TState, TOutput>
@@ -78,9 +59,10 @@ namespace BlazorFocused.Store
             serviceCollection.AddTransient<IReducer<TState, TOutput>, TReducer>();
         }
 
-        public IServiceProvider BuildServices()
+        public void RegisterReducer<TOutput>(IReducer<TState, TOutput> reducer)
+            where TOutput : class
         {
-            return serviceCollection.BuildServiceProvider();
+            serviceCollection.AddTransient(_ => reducer);
         }
 
         public void RegisterService<TService>() where TService : class
@@ -98,6 +80,11 @@ namespace BlazorFocused.Store
         public void SetInitialState(TState state)
         {
             InitialState = state;
+        }
+
+        public IServiceProvider BuildServices()
+        {
+            return serviceCollection.BuildServiceProvider();
         }
     }
 }
