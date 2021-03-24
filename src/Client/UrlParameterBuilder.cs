@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace BlazorFocused.Client
 {
-    /// <inheritdoc cref="IParameterBuilder"/>
+    /// <inheritdoc cref="IUrlParameterBuilder"/>
     internal class UrlParameterBuilder : IUrlParameterBuilder
     {
         public IUrlParameterBuilder AddParameter(string name, string value)
@@ -13,12 +13,12 @@ namespace BlazorFocused.Client
             throw new NotImplementedException();
         }
 
-        public IUrlParameterBuilder AddParameter(string parameter)
+        public string Build()
         {
             throw new NotImplementedException();
         }
 
-        public string Build()
+        public string Build(string url)
         {
             throw new NotImplementedException();
         }
