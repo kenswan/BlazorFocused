@@ -30,5 +30,17 @@ namespace BlazorFocused.Store.Test
 
             Assert.Equal(testService.CheckedPropertyId, providerService.CheckedPropertyId);
         }
+
+        [Fact]
+        public void ShouldRegisterServiceWithInterface()
+        {
+            storeBuilder.RegisterService<ITestService, TestService>();
+
+            var services = storeBuilder.BuildServices();
+
+            var providerService = services.GetRequiredService<ITestService>();
+
+            Assert.NotNull(providerService);
+        }
     }
 }

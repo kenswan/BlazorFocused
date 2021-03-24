@@ -34,7 +34,7 @@ namespace Integration.Test.Client.ToDo
             var apiToDoItems = GenerateToDoItems(apiToDoItemCount);
             var initialState = new ToDoStore { Items = Enumerable.Empty<ToDoItem>() };
 
-            mockRestClient.Setup(client => client.GetAsync<IEnumerable<ToDoItem>>("/api/todo"))
+            mockRestClient.Setup(client => client.GetAsync<IEnumerable<ToDoItem>>("/api/todo", null))
                 .ReturnsAsync(apiToDoItems);
 
             context.Services.AddStore<ToDoStore>(builder =>

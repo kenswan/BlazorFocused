@@ -4,12 +4,20 @@ namespace BlazorFocused.Client
 {
     public interface IRestClient
     {
-        ValueTask<T> GetAsync<T>(string relativeUrl);
+        Task<T> DeleteAsync<T>(string relativeUrl, object[] parameters = null);
 
-        ValueTask<T> PostAsync<T>(string relativeUrl, object data);
+        Task<T> GetAsync<T>(string relativeUrl, object[] parameters = null);
 
-        ValueTask<T> PutAsync<T>(string relativeUrl, object data);
+        Task<T> PostAsync<T>(string relativeUrl, object data, object[] parameters = null);
 
-        ValueTask<T> DeleteAsync<T>(string relativeUrl);
+        Task<T> PutAsync<T>(string relativeUrl, object data, object[] parameters = null);
+
+        Task<RestClientResponse<T>> TryDeleteAsync<T>(string relativeUrl, object[] parameters = null);
+
+        Task<RestClientResponse<T>> TryGetAsync<T>(string relativeUrl, object[] parameters = null);
+
+        Task<RestClientResponse<T>> TryPostAsync<T>(string relativeUrl, object data, object[] parameters = null);
+
+        Task<RestClientResponse<T>> TryPutAsync<T>(string relativeUrl, object data, object[] parameters = null);
     }
 }

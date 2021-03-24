@@ -102,6 +102,15 @@ namespace BlazorFocused.Store
             where TService : class;
 
         /// <summary>
+        /// Register service (with interface) that can operate within store actions
+        /// </summary>
+        /// <typeparam name="TInterface">Interface of service being registered</typeparam>
+        /// <typeparam name="TImplementation">Implementation Type of service being registered</typeparam>
+        void RegisterService<TInterface, TImplementation>()
+            where TInterface : class
+            where TImplementation : class, TInterface;
+
+        /// <summary>
         /// Set initial or default value of store state
         /// </summary>
         /// <param name="state">Store state</param>

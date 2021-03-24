@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using NativeHttpClient = System.Net.Http.HttpClient;
-
-[assembly: InternalsVisibleTo("BlazorFocused.Test")]
 
 namespace BlazorFocused.Testing
 {
