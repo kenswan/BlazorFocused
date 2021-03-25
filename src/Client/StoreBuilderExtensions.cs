@@ -7,21 +7,15 @@ namespace BlazorFocused.Client
     public static class StoreBuilderExtensions
     {
         public static void RegisterRestClient<TState>(this IStoreBuilder<TState> builder, string baseUrl)
-            where TState : class
-        {
-            builder.RegisterService<IUrlParameterBuilder, UrlParameterBuilder>();
-
+            where TState : class =>
             builder.RegisterHttpClient<IRestClient, RestClient>(client =>
                 client.BaseAddress = new Uri(baseUrl));
-        }
 
         public static void RegisterRestClient<TState>(
             this IStoreBuilder<TState> builder,
             Action<HttpClient> configureClient = null)
             where TState : class
         {
-            builder.RegisterService<IUrlParameterBuilder, UrlParameterBuilder>();
-
             if (configureClient is null)
             {
                 builder.RegisterHttpClient<IRestClient, RestClient>();

@@ -6,21 +6,14 @@ namespace BlazorFocused.Client
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddRestClient(this IServiceCollection services, string baseUrl) 
-        {
-            services.AddTransient<IUrlParameterBuilder, UrlParameterBuilder>();
-
+        public static void AddRestClient(this IServiceCollection services, string baseUrl) =>
             services.AddHttpClient<IRestClient, RestClient>(client =>
                 client.BaseAddress = new Uri(baseUrl));
-        }
-            
 
         public static void AddRestClient(
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
         {
-            services.AddTransient<IUrlParameterBuilder, UrlParameterBuilder>();
-
             if (configureClient is null)
             {
                 services.AddHttpClient<IRestClient, RestClient>();
