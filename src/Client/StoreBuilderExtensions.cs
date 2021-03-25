@@ -9,7 +9,7 @@ namespace BlazorFocused.Client
         public static void RegisterRestClient<TState>(this IStoreBuilder<TState> builder, string baseUrl)
             where TState : class
         {
-            builder.RegisterService<IParameterBuilder, UrlParameterBuilder>();
+            builder.RegisterService<IUrlParameterBuilder, UrlParameterBuilder>();
 
             builder.RegisterHttpClient<IRestClient, RestClient>(client =>
                 client.BaseAddress = new Uri(baseUrl));
@@ -20,7 +20,7 @@ namespace BlazorFocused.Client
             Action<HttpClient> configureClient = null)
             where TState : class
         {
-            builder.RegisterService<IParameterBuilder, UrlParameterBuilder>();
+            builder.RegisterService<IUrlParameterBuilder, UrlParameterBuilder>();
 
             if (configureClient is null)
             {
