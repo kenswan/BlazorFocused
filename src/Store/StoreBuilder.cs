@@ -77,6 +77,13 @@ namespace BlazorFocused.Store
             serviceCollection.AddScoped(_ => service);
         }
 
+        public void RegisterService<TInterface, TImplementation>()
+            where TInterface : class
+            where TImplementation : class, TInterface
+        {
+            serviceCollection.AddScoped<TInterface, TImplementation>();
+        }
+
         public void SetInitialState(TState state)
         {
             InitialState = state;

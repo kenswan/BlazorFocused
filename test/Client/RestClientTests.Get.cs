@@ -26,7 +26,7 @@ namespace BlazorFocused.Client.Test
         }
 
         [Fact]
-        public async Task ShouldReturnNullOnBadGetRequest()
+        public async Task ShouldReturnNullForBadGetRequestOnTry()
         {
             var url = GetRandomRelativeUrl();
             var invalidResponse = GetRandomResponseObject();
@@ -35,9 +35,13 @@ namespace BlazorFocused.Client.Test
                 .Setup(HttpMethod.Get, url)
                 .ReturnsAsync(HttpStatusCode.BadRequest, invalidResponse);
 
-            var actualResponse = await restClient.GetAsync<IEnumerable<SimpleClass>>(url);
+            var actualResponse = await restClient.TryGetAsync<IEnumerable<SimpleClass>>(url);
 
-            actualResponse.Should().BeNull();
+            actualResponse.Should().NotBeNull()
+                .And.Match<RestClientResponse<IEnumerable<SimpleClass>>>(response => 
+                    response.Value == default &&
+                    response.IsValid == false &&
+                    response.StatusCode == HttpStatusCode.BadRequest);
         }
     }
 }

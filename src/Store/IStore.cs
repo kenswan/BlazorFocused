@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 namespace BlazorFocused.Store
 {
     /// <summary>
-    /// This the interface for the store operating within the context of the application
-    /// The store can dispatch actions, store, update, and reduce state
+    /// Representation of a specific store operating within the context of the application.
+    /// The store can dispatch actions, store, update, and reduce state.
     /// </summary>
     /// <typeparam name="TState">Original state within the store</typeparam>
     public interface IStore<TState> where TState : class
