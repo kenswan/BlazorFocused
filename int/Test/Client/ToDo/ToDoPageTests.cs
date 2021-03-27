@@ -4,6 +4,7 @@ using BlazorFocused.Client;
 using BlazorFocused.Store;
 using Bogus;
 using Bunit;
+using FluentAssertions;
 using Integration.Shared.Models;
 using Integration.Test.Utility;
 using Integration.ToDo.Actions;
@@ -30,7 +31,7 @@ namespace Integration.Test.Client.ToDo
         [Fact(DisplayName = "Should render todo items on page")]
         public void ShouldRenderToDoItems()
         {
-            var apiToDoItemCount = 5;
+            var apiToDoItemCount = new Faker().Random.Int(3, 5);
             var apiToDoItems = GenerateToDoItems(apiToDoItemCount);
             var initialState = new ToDoStore { Items = Enumerable.Empty<ToDoItem>() };
 
@@ -50,6 +51,48 @@ namespace Integration.Test.Client.ToDo
 
             Assert.Equal(apiToDoItemCount, actualItemElements.Count);
         }
+
+        [Trait(nameof(Category), nameof(Category.Integration))]
+        [Fact(DisplayName = "Should add and render todo item on page")]
+        public void ShouldAddToDoItem()
+        {
+            var apiToDoItemCount = new Faker().Random.Int(3, 5); ;
+            var apiToDoItems = GenerateToDoItems(apiToDoItemCount);
+            var initialState = new ToDoStore { Items = Enumerable.Empty<ToDoItem>() };
+            var newToDoItem = GenerateToDoItem();
+            newToDoItem.Status = ToDoStatus.Created;
+
+            mockRestClient.Setup(client => client.GetAsync<IEnumerable<ToDoItem>>("/api/todo"))
+                .ReturnsAsync(apiToDoItems);
+
+            mockRestClient.Setup(client => client.PostAsync<ToDoItem>("/api/todo", It.Is<ToDoItem>(item =>
+                    item.Title == newToDoItem.Title && item.Description == newToDoItem.Description)))
+                .ReturnsAsync(newToDoItem);
+
+            context.Services.AddStore<ToDoStore>(builder =>
+            {
+                builder.RegisterAction<AddToDoItem>();
+                builder.RegisterAction<GetToDoItems>();
+                builder.RegisterService<IRestClient>(mockRestClient.Object);
+                builder.SetInitialState(initialState);
+            });
+
+            var component = context.RenderComponent<ClientPage.ToDo>();
+
+            component.Find("#title").Change(newToDoItem.Title);
+            component.Find("#description").Change(newToDoItem.Description);
+            component.Find("form").Submit();
+
+            var actualItemElements = component.FindAll("p");
+
+            actualItemElements.Should().HaveCount(apiToDoItemCount + 1)
+                .And.Contain(x =>
+                    x.InnerHtml.Contains(newToDoItem.Title) &&
+                    x.InnerHtml.Contains(newToDoItem.Description));
+        }
+
+        public ToDoItem GenerateToDoItem() =>
+            GetRandomToDo().Generate();
 
         public IEnumerable<ToDoItem> GenerateToDoItems(int count) =>
             GetRandomToDo().Generate(count);
