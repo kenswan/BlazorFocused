@@ -7,7 +7,7 @@
     <Authors>Kenneth Swan</Authors>
     <Copyright>Copyright (c) 2021 BlazorFocused</Copyright>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <IconUrl>https://raw.githubusercontent.com/BlazorFocused/blazorfocused.github.io/gh-pages/images/logo.png</IconUrl>
+    <PackageIcon>BlazorFocused.png</PackageIcon>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://www.blazorfocused.net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BlazorFocused/BlazorFocused.git</RepositoryUrl>
@@ -34,5 +34,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="BlazorFocused.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>
