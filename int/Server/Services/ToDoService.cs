@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Bogus;
 using Integration.Shared.Models;
 
@@ -7,6 +8,11 @@ namespace Integration.Server.Services
 {
     public class ToDoService : IToDoService
     {
+        public ValueTask<ToDoItem> AddToDoItem(ToDoItem toDoItem)
+        {
+            return new ValueTask<ToDoItem>(toDoItem);
+        }
+
         public IEnumerable<ToDoItem> GenerateToDoItems(int count) =>
             GetRandomToDo().Generate(count);
 

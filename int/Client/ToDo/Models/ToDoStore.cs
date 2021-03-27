@@ -15,6 +15,5 @@ namespace Integration.ToDo.Models
 
         public static ToDoStore GetInitialState() =>
             new() { Items = Enumerable.Empty<ToDoItem>() };
-
     }
 }

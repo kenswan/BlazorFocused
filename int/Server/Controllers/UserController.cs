@@ -6,7 +6,9 @@ using Integration.Shared.Models;
 namespace Integration.Server.Controllers
 {
     [Route("api/[controller]")]
-    public class UserController : Controller
+    [Produces("application/json")]
+    [ApiController]
+    public class UserController : ControllerBase
     {
         private readonly IUserService userService;
 

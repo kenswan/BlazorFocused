@@ -16,6 +16,8 @@ namespace Integration.ToDo.Pages
 
         private IEnumerable<ToDoItem> toDoItems { get; set; } = Enumerable.Empty<ToDoItem>();
 
+        private ToDoItem newToDoItem = InitializeToDoItem();
+
         protected override async Task OnInitializedAsync()
         {
             await todoStore.DispatchAsync<GetToDoItems>();
@@ -33,5 +35,15 @@ namespace Integration.ToDo.Pages
                 });
             }
         }
+
+        private async Task AddToDoItemAsync()
+        {
+            await todoStore.DispatchAsync<AddToDoItem, ToDoItem>(newToDoItem);
+
+            newToDoItem = InitializeToDoItem();
+        }
+
+        private static ToDoItem InitializeToDoItem() =>
+            new() { Status = ToDoStatus.Created };
     }
 }
