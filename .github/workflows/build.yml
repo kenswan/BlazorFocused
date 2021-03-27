@@ -7,6 +7,13 @@ on:
   pull_request:
     branches:
       - main
+  release:
+    types:
+      - created
+
+env:
+  DOTNET_VERSION: "5.0.x"
+  NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
 
 jobs:
   build-and-test:
@@ -15,10 +22,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install .NET 5
+      - name: Install .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 5.0.x
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Install Dependencies
         run: dotnet restore
@@ -28,3 +35,24 @@ jobs:
 
       - name: Test
         run: dotnet test --no-restore --verbosity normal
+
+  release:
+    needs: build-and-test
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Create Release Package
+        working-directory: ./src
+        run: dotnet pack -c Release -p:PackageVersion=${{ github.event.release.tag_name }}
+
+      - name: Push Release Package
+        working-directory: ./src/bin/Release
+        run: dotnet nuget push BlazorFocused.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source ${{ env.NUGET_SOURCE }}
