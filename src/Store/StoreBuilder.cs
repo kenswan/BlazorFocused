@@ -3,8 +3,6 @@ using System.Net.Http;
 using System.Runtime.CompilerServices;
 using Microsoft.Extensions.DependencyInjection;
 
-[assembly: InternalsVisibleTo("BlazorFocused.Test")]
-
 namespace BlazorFocused.Store
 {
     /// <inheritdoc cref="IStoreBuilder{TState}"/>

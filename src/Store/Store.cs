@@ -6,8 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
-[assembly: InternalsVisibleTo("BlazorFocused.Test")]
-
 namespace BlazorFocused.Store
 {
     /// <inheritdoc cref="IStore{TState}"/>

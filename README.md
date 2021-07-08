@@ -13,12 +13,41 @@ Install-Package BlazorFocused
 .NET CLI
 
 ```powershell
-dotnet add package BlazoFocused
+dotnet add package BlazorFocused
 ```
 
 ## Quick Start
 
-### Startup
+### WebAssembly Blazor Startup
+
+```csharp  
+public static async Task Main(string[] args)
+{
+    var builder = WebAssemblyHostBuilder.CreateDefault(args);
+
+    builder.RootComponents.Add<App>("#app");
+
+    builder.Services.AddScoped(sp =>
+        new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+    // add store in DI
+    builder.Services.AddStore<TestStore>(builder =>
+    {
+        builder.RegisterAction<TestAction>();
+        builder.RegisterAction<TestActionAsync>();
+        builder.RegisterReducer<TestReducer, TestStoreSubset>();
+
+        // Services within actions and reducers
+        builder.RegisterService<TestService>();
+        builder.RegisterHttpClient<ITestClient, TestClient>();
+
+        // Set initial state (optional)
+        builder.SetInitialState(new TestStore { FieldOne = "Test" });
+    });
+}
+```
+
+### Server-side Blazor Startup
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -27,18 +56,18 @@ public void ConfigureServices(IServiceCollection services)
     services.AddRazorPages();
 
     // add store in DI
-    serviceCollection.AddStore<TestClass>(builder =>
+    serviceCollection.AddStore<TestStore>(builder =>
     {
         builder.RegisterAction<TestAction>();
-        builder.RegisterActionAsync<TestActionAsync>();
-        builder.RegisterReducer<TestReducer, TestClassSubset>();
+        builder.RegisterAction<TestActionAsync>();
+        builder.RegisterReducer<TestReducer, TestStoreSubset>();
 
         // Services within actions and reducers
         builder.RegisterService<TestService>();
         builder.RegisterHttpClient<ITestClient, TestClient>();
 
         // Set initial state (optional)
-        builder.SetInitialState(new TestClass { FieldOne = "Test" });
+        builder.SetInitialState(new TestStore { FieldOne = "Test" });
     });
 }
 ```
@@ -48,7 +77,7 @@ public void ConfigureServices(IServiceCollection services)
 Retrieve static state value from store:
 
 ```csharp
-@inject IStore<TestClass> store;
+@inject IStore<TestStore> store;
 
 ...
 
@@ -59,10 +88,10 @@ store.GetState().FieldOne;
 Retrieve state value and subscribe to store updates:
 
 ```csharp
-@inject IStore<TestClass> store;
+@inject IStore<TestStore> store;
 
 ...
-TestClass currentState = default;
+TestStore currentState = default;
 
 store.Subscribe((newState) => {
     // update state used in page
@@ -79,14 +108,15 @@ store.Subscribe((newState) => {
 Subscribe to reduced value from store:
 
 ```csharp
-@inject IStore<TestClass> store;
+@inject IStore<TestStore> store;
 
 ...
-TestClassSubset currentState = default;
+TestStoreSubset subsetState = default;
 
-store.Reduce<TestClassSubset>(reducedState =>
+store.Reduce<TestStoreSubset>(reducedState =>
 {
-    currentState = reducedState;
+    // helpful if you do not care about the full state in your component
+    subsetState = reducedState;
 
     // inform blazor page to refresh with state update
     StateHasChanged();
@@ -98,12 +128,13 @@ store.Reduce<TestClassSubset>(reducedState =>
 Execute actions to update store:
 
 ```csharp
-@inject IStore<TestClass> store;
+@inject IStore<TestStore> store;
 
 ...
-TestClass currentState = default;
+TestStore currentState = default;
 
 // call action to be committed
+// if action updates state, component will update
 store.Dispatch<TestAction>();
 
 store.Subscribe((newState) => {

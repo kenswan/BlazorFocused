@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
-[assembly: InternalsVisibleTo("BlazorFocused.Test")]
-
 namespace BlazorFocused.Client
 {
     /// <inheritdoc cref="IRestClient"/>
