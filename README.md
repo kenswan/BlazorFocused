@@ -13,7 +13,7 @@ Install-Package BlazorFocused
 .NET CLI
 
 ```powershell
-dotnet add package BlazoFocused
+dotnet add package BlazorFocused
 ```
 
 ## Quick Start
