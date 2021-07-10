@@ -26,6 +26,25 @@ namespace BlazorFocused.Client.Test
         }
 
         [Fact]
+        public async Task ShouldThrowForBadGetRequest()
+        {
+            var url = GetRandomRelativeUrl();
+            var invalidResponse = GetRandomResponseObject();
+
+            simulatedHttp
+                .Setup(HttpMethod.Get, url)
+                .ReturnsAsync(HttpStatusCode.InternalServerError, invalidResponse);
+
+            var actualException = await Record.ExceptionAsync(() => restClient.GetAsync<IEnumerable<SimpleClass>>(url));
+
+            actualException.Should().BeOfType(typeof(RestClientException))
+                .And.Match<RestClientException>(exception =>
+                    exception.Message.Contains($"{HttpMethod.Get.Method}") &&
+                    exception.Message.Contains($"{HttpStatusCode.InternalServerError}") &&
+                    exception.Message.Contains(url));
+        }
+
+        [Fact]
         public async Task ShouldReturnNullForBadGetRequestOnTry()
         {
             var url = GetRandomRelativeUrl();

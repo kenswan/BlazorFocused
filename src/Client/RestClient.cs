@@ -126,7 +126,7 @@ namespace BlazorFocused.Client
                 if (httpResponseMessage.IsSuccessStatusCode)
                     value = await Deserialize<T>(httpResponseMessage.Content);
                 else
-                    exception = new RestClientException(HttpMethod.Delete, httpResponseMessage.StatusCode, url);
+                    exception = new RestClientException(method, httpResponseMessage.StatusCode, url);
             }
             catch (Exception ex)
             {
