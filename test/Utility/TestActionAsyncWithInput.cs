@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace BlazorFocused.Test.Utility
 {
-    public class TestActionAsyncWithInput : TestActionState<SimpleClass>, IActionAsync<SimpleClass, string>
+    public class TestActionAsyncWithInput : TestActionStateAsync<SimpleClass, string>
     {
         private readonly TestService testService;
 
@@ -15,7 +15,7 @@ namespace BlazorFocused.Test.Utility
             this.testService = testService;
         }
 
-        public async ValueTask<SimpleClass> ExecuteAsync(string input)
+        public override async ValueTask<SimpleClass> ExecuteAsync(string input)
         {
             return await testService.GetValueAsync<string, SimpleClass>(input);
         }
