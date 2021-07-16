@@ -34,7 +34,7 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test --filter (Category!=Integration) --no-restore --verbosity normal
+        run: dotnet test --filter Category!=Integration --no-restore --verbosity normal
 
   release:
     needs: build-and-test
