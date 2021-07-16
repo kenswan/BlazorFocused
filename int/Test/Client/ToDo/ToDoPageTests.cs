@@ -56,7 +56,7 @@ namespace Integration.Test.Client.ToDo
         [Fact(DisplayName = "Should add and render todo item on page")]
         public void ShouldAddToDoItem()
         {
-            var apiToDoItemCount = new Faker().Random.Int(3, 5); ;
+            var apiToDoItemCount = 2;
             var apiToDoItems = GenerateToDoItems(apiToDoItemCount);
             var initialState = new ToDoStore { Items = Enumerable.Empty<ToDoItem>() };
             var newToDoItem = GenerateToDoItem();
