@@ -4,7 +4,7 @@ using BlazorFocused.Store;
 
 namespace BlazorFocused.Test.Utility
 {
-    public class TestActionAsync : TestActionState<SimpleClass>, IActionAsync<SimpleClass>
+    public class TestActionAsync : TestActionStateAsync<SimpleClass>
     {
         private readonly TestService testService;
 
@@ -15,7 +15,7 @@ namespace BlazorFocused.Test.Utility
             this.testService = testService;
         }
 
-        public async ValueTask<SimpleClass> ExecuteAsync()
+        public override async ValueTask<SimpleClass> ExecuteAsync()
         {
             return await testService.GetValueAsync<SimpleClass>();
         }

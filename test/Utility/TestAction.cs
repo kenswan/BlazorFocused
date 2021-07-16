@@ -3,9 +3,9 @@ using BlazorFocused.Test.Model;
 
 namespace BlazorFocused.Test.Utility
 {
-    public class TestAction : TestActionState<SimpleClass>, IAction<SimpleClass>
+    public class TestAction : TestActionState<SimpleClass>
     {
-        public SimpleClass Execute()
+        public override SimpleClass Execute()
         {
             return SimpleClassUtilities.GetRandomSimpleClass();
         }
