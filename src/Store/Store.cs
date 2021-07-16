@@ -40,7 +40,9 @@ namespace BlazorFocused.Store
 
             logger.LogDebug($"Retrieving action {actionName}");
 
-            var action = internalServiceProvider.GetRequiredService<TAction>();
+            using var scope = internalServiceProvider.CreateScope();
+
+            var action = scope.ServiceProvider.GetRequiredService<TAction>();
 
             logger.LogDebug($"Found action {actionName}");
 
@@ -58,7 +60,9 @@ namespace BlazorFocused.Store
 
             logger.LogDebug($"Retrieving action {actionName}");
 
-            var action = internalServiceProvider.GetRequiredService<TAction>();
+            using var scope = internalServiceProvider.CreateScope();
+
+            var action = scope.ServiceProvider.GetRequiredService<TAction>();
 
             logger.LogDebug($"Found action {actionName}");
 
@@ -75,7 +79,9 @@ namespace BlazorFocused.Store
 
             logger.LogDebug($"Retrieving action {actionName}");
 
-            var action = internalServiceProvider.GetRequiredService<TActionAsync>();
+            using var scope = internalServiceProvider.CreateScope();
+
+            var action = scope.ServiceProvider.GetRequiredService<TActionAsync>();
 
             logger.LogDebug($"Found action {actionName}");
 
@@ -94,7 +100,9 @@ namespace BlazorFocused.Store
 
             logger.LogDebug($"Retrieving action {actionName}");
 
-            var action = internalServiceProvider.GetRequiredService<TActionAsync>();
+            using var scope = internalServiceProvider.CreateScope();
+
+            var action = scope.ServiceProvider.GetRequiredService<TActionAsync>();
 
             logger.LogDebug($"Found action {actionName}");
 
@@ -118,7 +126,9 @@ namespace BlazorFocused.Store
 
             logger.LogDebug($"Retrieving reducer {reducerName}");
 
-            var reducer = internalServiceProvider.GetRequiredService<IReducer<TState, TOutput>>();
+            using var scope = internalServiceProvider.CreateScope();
+
+            var reducer = scope.ServiceProvider.GetRequiredService<IReducer<TState, TOutput>>();
 
             logger.LogDebug($"Found reducer {reducerName}");
 
