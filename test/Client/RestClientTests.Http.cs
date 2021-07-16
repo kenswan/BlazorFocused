@@ -1,43 +1,33 @@
 ﻿using System;
-using BlazorFocused.Client;
+using System.Collections.Generic;
+using System.Linq;
 using Bogus;
-using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace BlazorFocused.Test.Client
+namespace BlazorFocused.Client.Test
 {
     public partial class RestClientTests
     {
         [Fact]
-        public void ShouldProvideHttpClientBaseAddress()
+        public void ShouldUpdateHttpProperties()
         {
             var url = new Faker().Internet.Url();
-            ServiceCollection services = new();
+            var headerKey = "X-PORT-NUMBER";
+            var headerValue = new Faker().Internet.Port().ToString();
 
-            services.AddRestClient(url);
-            var serviceProvider = services.BuildServiceProvider();
-            var restClient = serviceProvider.GetRequiredService<IRestClient>();
-
-            Assert.Equal(url, restClient.Settings.BaseAddress);
-        }
-
-        [Fact]
-        public void ShouldUpdateHttpClientUrl()
-        {
-            var originalUrl = new Faker().Internet.Url();
-            var newUrl = new Faker().Internet.Url();
-            ServiceCollection services = new();
-
-            services.AddRestClient(originalUrl);
-            var serviceProvider = services.BuildServiceProvider();
-
-            var restClient = serviceProvider.GetRequiredService<IRestClient>();
-
-            restClient.UpdateHttpClient(httpClient => {
-                httpClient.BaseAddress = new Uri(newUrl);
+            restClient.UpdateHttpClient(client =>
+            {
+                client.BaseAddress = new Uri(url);
+                client.DefaultRequestHeaders.Add(headerKey, headerValue);
             });
 
-            Assert.Equal(newUrl, restClient.Settings.BaseAddress);
+            restClient.UpdateHttpClient(client =>
+            {
+                Assert.True(client.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
+                Assert.Single(actualValues);
+                Assert.Equal(headerValue, actualValues.FirstOrDefault());
+                Assert.Equal(url, client.BaseAddress.OriginalString);
+            });
         }
     }
 }

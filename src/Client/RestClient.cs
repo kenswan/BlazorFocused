@@ -19,12 +19,6 @@ namespace BlazorFocused.Client
         private readonly HttpClient client;
         private readonly ILogger<RestClient> logger;
 
-        public RestClientSettings Settings =>
-            new() 
-            { 
-                BaseAddress = client.BaseAddress.OriginalString
-            };
-
         public RestClient(
             HttpClient client,
             ILogger<RestClient> logger)

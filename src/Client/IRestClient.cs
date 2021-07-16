@@ -10,11 +10,6 @@ namespace BlazorFocused.Client
     public interface IRestClient
     { 
         /// <summary>
-        /// Returns global/readonly settings for <see cref="RestClient"/>
-        /// </summary>
-        RestClientSettings Settings { get; }
-
-        /// <summary>
         /// Performs DELETE http request
         /// </summary>
         /// <typeparam name="T">Object type of response from http request</typeparam>
