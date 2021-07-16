@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -126,7 +128,7 @@ namespace BlazorFocused.Client
                 if (httpResponseMessage.IsSuccessStatusCode)
                     value = await Deserialize<T>(httpResponseMessage.Content);
                 else
-                    exception = new RestClientException(HttpMethod.Delete, httpResponseMessage.StatusCode, url);
+                    exception = new RestClientException(method, httpResponseMessage.StatusCode, url);
             }
             catch (Exception ex)
             {
@@ -134,6 +136,11 @@ namespace BlazorFocused.Client
             }
 
             return GetRestClientResponse(value, httpStatusCode, exception);
+        }
+
+        public void UpdateHttpClient(Action<HttpClient> updateHttpClient)
+        {
+            updateHttpClient(client);
         }
     }
 }

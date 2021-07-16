@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net.Http;
-using System.Runtime.CompilerServices;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorFocused.Store

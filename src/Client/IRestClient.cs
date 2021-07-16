@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace BlazorFocused.Client
 {
@@ -6,7 +8,7 @@ namespace BlazorFocused.Client
     /// Standardizes the handling of HTTP requests/responses within a given application.
     /// </summary>
     public interface IRestClient
-    {
+    { 
         /// <summary>
         /// Performs DELETE http request
         /// </summary>
@@ -152,5 +154,11 @@ namespace BlazorFocused.Client
         /// See <see cref="RestClientResponse{T}"/>
         /// </remarks>
         Task<RestClientResponse<T>> TryPutAsync<T>(string relativeUrl, object data);
+
+        /// <summary>
+        /// Updates HttpClient used within <see cref="IRestClient"/>
+        /// </summary>
+        /// <param name="updateHttpClient"></param>
+        void UpdateHttpClient(Action<HttpClient> updateHttpClient);
     }
 }

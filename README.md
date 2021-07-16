@@ -44,6 +44,8 @@ public static async Task Main(string[] args)
         // Set initial state (optional)
         builder.SetInitialState(new TestStore { FieldOne = "Test" });
     });
+
+    await builder.Build().RunAsync();
 }
 ```
 
@@ -56,7 +58,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddRazorPages();
 
     // add store in DI
-    serviceCollection.AddStore<TestStore>(builder =>
+    services.AddStore<TestStore>(builder =>
     {
         builder.RegisterAction<TestAction>();
         builder.RegisterAction<TestActionAsync>();
