@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using BlazorFocused.Test.Model;
+﻿using BlazorFocused.Test.Model;
 using BlazorFocused.Testing;
 using Bogus;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using System.Collections.Generic;
 
 namespace BlazorFocused.Client.Test
 {

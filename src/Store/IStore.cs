@@ -57,6 +57,7 @@ namespace BlazorFocused.Store
         /// <summary>
         /// Retrieves reduced/transformed version of original store state
         /// </summary>
+        /// <typeparam name="TReducer">Reducer class peforming the reduction</typeparam>
         /// <typeparam name="TOutput">Reduced/transformed state</typeparam>
         /// <param name="action">Performed when initial or future reduced value
         /// of state is received</param>
@@ -65,7 +66,9 @@ namespace BlazorFocused.Store
         /// to update consumer components dependent upon that state
         /// (ComponentBase.StateHasChanged)
         /// </remarks>
-        void Reduce<TOutput>(Action<TOutput> action);
+        void Reduce<TReducer, TOutput>(Action<TOutput> action)
+            where TOutput : class
+            where TReducer : class, IReducer<TState, TOutput>;
 
         /// <summary>
         /// Updates current state of store

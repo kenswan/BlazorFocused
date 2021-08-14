@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using FluentAssertions;
-using Xunit;
+﻿using FluentAssertions;
 using Integration.Server.Services;
 using Integration.Test.Utility;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace Integration.Test.Server.Services
 {

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Integration.Shared.Models;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Integration.Shared.Models;
 
 namespace Integration.Server.Services
 {

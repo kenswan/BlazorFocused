@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using BlazorFocused.Test.Model;
+using FluentAssertions;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using BlazorFocused.Test.Model;
-using FluentAssertions;
 using Xunit;
 
 namespace BlazorFocused.Client.Test
@@ -57,7 +57,7 @@ namespace BlazorFocused.Client.Test
             var actualResponse = await restClient.TryGetAsync<IEnumerable<SimpleClass>>(url);
 
             actualResponse.Should().NotBeNull()
-                .And.Match<RestClientResponse<IEnumerable<SimpleClass>>>(response => 
+                .And.Match<RestClientResponse<IEnumerable<SimpleClass>>>(response =>
                     response.Value == default &&
                     response.IsValid == false &&
                     response.StatusCode == HttpStatusCode.BadRequest);

@@ -1,6 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using Bogus;
 using Integration.Shared.Models;
-using Bogus;
+using System.Threading.Tasks;
 
 namespace Integration.Server.Services
 {

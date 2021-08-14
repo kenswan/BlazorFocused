@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Integration.Shared.Models;
+using System.Collections.Generic;
 using System.Linq;
-using Integration.Shared.Models;
 
 namespace Integration.ToDo.Models
 {

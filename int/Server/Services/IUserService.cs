@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Integration.Shared.Models;
+﻿using Integration.Shared.Models;
+using System.Threading.Tasks;
 
 namespace Integration.Server.Services
 {

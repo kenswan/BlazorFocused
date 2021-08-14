@@ -1,9 +1,9 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using BlazorFocused.Client;
+﻿using BlazorFocused.Client;
 using BlazorFocused.Store;
 using Integration.Shared.Models;
 using Integration.ToDo.Models;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Integration.ToDo.Actions
 {

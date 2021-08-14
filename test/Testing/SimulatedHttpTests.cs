@@ -1,12 +1,12 @@
-﻿using System;
+﻿using BlazorFocused.Test.Model;
+using Bogus;
+using FluentAssertions;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using BlazorFocused.Test.Model;
-using Bogus;
-using FluentAssertions;
 using Xunit;
 
 namespace BlazorFocused.Testing.Test

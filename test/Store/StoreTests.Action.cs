@@ -2,6 +2,7 @@
 using BlazorFocused.Test.Utility;
 using Bogus;
 using FluentAssertions;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace BlazorFocused.Store.Test
@@ -12,12 +13,9 @@ namespace BlazorFocused.Store.Test
         public void ShouldExecuteActionByInstance()
         {
             SimpleClass originalClass = default;
+            serviceCollection.AddTransient<TestAction>();
 
-            var store = new Store<SimpleClass>(builder =>
-            {
-                builder.SetInitialState(originalClass);
-                builder.RegisterAction(new TestAction());
-            });
+            var store = new Store<SimpleClass>(originalClass, serviceCollection.BuildServiceProvider());
 
             store.GetState().Should().BeNull();
 
@@ -33,11 +31,10 @@ namespace BlazorFocused.Store.Test
             SimpleClass originalClass = default;
             SimpleClass expectedClass = SimpleClassUtilities.GetStaticSimpleClass(input);
 
-            var store = new Store<SimpleClass>(builder =>
-            {
-                builder.SetInitialState(originalClass);
-                builder.RegisterAction(new TestActionWithInput());
-            });
+            var serviceProvider =
+                serviceCollection.AddTransient<TestActionWithInput>().BuildServiceProvider();
+
+            var store = new Store<SimpleClass>(originalClass, serviceProvider);
 
             store.GetState().Should().BeNull();
 
@@ -52,11 +49,10 @@ namespace BlazorFocused.Store.Test
         {
             SimpleClass originalClass = default;
 
-            var store = new Store<SimpleClass>(builder =>
-            {
-                builder.SetInitialState(originalClass);
-                builder.RegisterAction<TestAction>();
-            });
+            var serviceProvider =
+                serviceCollection.AddTransient<TestAction>().BuildServiceProvider();
+
+            var store = new Store<SimpleClass>(originalClass, serviceProvider);
 
             store.GetState().Should().BeNull();
 
@@ -72,11 +68,10 @@ namespace BlazorFocused.Store.Test
             SimpleClass originalClass = default;
             SimpleClass expectedClass = SimpleClassUtilities.GetStaticSimpleClass(input);
 
-            var store = new Store<SimpleClass>(builder =>
-            {
-                builder.SetInitialState(originalClass);
-                builder.RegisterAction<TestActionWithInput>();
-            });
+            var serviceProvider =
+                serviceCollection.AddTransient<TestActionWithInput>().BuildServiceProvider();
+
+            var store = new Store<SimpleClass>(originalClass, serviceProvider);
 
             store.GetState().Should().BeNull();
 

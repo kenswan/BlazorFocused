@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BlazorFocused.Store;
+﻿using BlazorFocused.Store;
 using Integration.Shared.Models;
 using Integration.ToDo.Actions;
 using Integration.ToDo.Models;
 using Microsoft.AspNetCore.Components;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Integration.ToDo.Pages
 {

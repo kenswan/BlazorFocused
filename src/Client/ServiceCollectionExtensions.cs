@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Net.Http;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorFocused.Client
 {

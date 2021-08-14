@@ -1,6 +1,6 @@
-﻿using System;
-using BlazorFocused.Store;
+﻿using BlazorFocused.Store;
 using Integration.Shared.Models;
+using System;
 
 namespace Integration.Users.Actions
 {

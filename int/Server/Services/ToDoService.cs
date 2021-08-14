@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Bogus;
+using Integration.Shared.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Bogus;
-using Integration.Shared.Models;
 
 namespace Integration.Server.Services
 {
