@@ -57,6 +57,7 @@ namespace BlazorFocused.Store
         /// <summary>
         /// Retrieves reduced/transformed version of original store state
         /// </summary>
+        /// <typeparam name="TReducer">Reducer class peforming the reduction</typeparam>
         /// <typeparam name="TOutput">Reduced/transformed state</typeparam>
         /// <param name="action">Performed when initial or future reduced value
         /// of state is received</param>
