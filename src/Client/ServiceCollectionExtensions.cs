@@ -30,7 +30,7 @@ namespace BlazorFocused.Client
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
         {
-            services.AddScoped(sp => new OAuthToken());
+            services.AddSingleton(sp => new OAuthToken());
 
             if (configureClient is null)
             {

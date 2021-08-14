@@ -17,7 +17,10 @@ namespace BlazorFocused.Client
 
         public void AddAuthorization(string scheme, string token)
         {
-            oAuthToken = new OAuthToken { Scheme = scheme, Token = token };
+            lock(oAuthToken)
+            {
+                oAuthToken = new OAuthToken { Scheme = scheme, Token = token };
+            }
         }
 
         protected override Task<RestClientResponse<T>> SendAsync<T>(HttpMethod method, string url, object data = null)
