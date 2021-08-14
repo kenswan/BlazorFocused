@@ -27,6 +27,7 @@ namespace Integration.Test.Client.ToDo
             mockRestClient = new Mock<IRestClient>();
         }
 
+        [Trait(nameof(Category), nameof(Category.Integration))]
         [Fact(DisplayName = "Should render todo items on page")]
         public void ShouldRenderToDoItems()
         {
@@ -43,11 +44,12 @@ namespace Integration.Test.Client.ToDo
 
             var component = context.RenderComponent<ClientPage.ToDo>();
 
-            var actualItemElements = component.FindAll("p");
+            var actualItemElements = component.FindAll(".items");
 
             Assert.Equal(apiToDoItemCount, actualItemElements.Count);
         }
 
+        [Trait(nameof(Category), nameof(Category.Integration))]
         [Fact(DisplayName = "Should add and render todo item on page")]
         public void ShouldAddToDoItem()
         {
