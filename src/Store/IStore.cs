@@ -65,7 +65,9 @@ namespace BlazorFocused.Store
         /// to update consumer components dependent upon that state
         /// (ComponentBase.StateHasChanged)
         /// </remarks>
-        void Reduce<TOutput>(Action<TOutput> action);
+        void Reduce<TReducer, TOutput>(Action<TOutput> action)
+            where TOutput : class
+            where TReducer : class, IReducer<TState, TOutput>;
 
         /// <summary>
         /// Updates current state of store

@@ -1,11 +1,11 @@
-﻿using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using FluentAssertions;
-using Microsoft.AspNetCore.Mvc.Testing;
-using Xunit;
+﻿using FluentAssertions;
 using Integration.Server;
 using Integration.Test.Utility;
+using Microsoft.AspNetCore.Mvc.Testing;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace Integration.Test.Server.Controllers
 {

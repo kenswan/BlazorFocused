@@ -1,6 +1,7 @@
 ﻿using BlazorFocused.Test.Model;
 using BlazorFocused.Test.Utility;
 using FluentAssertions;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace BlazorFocused.Store.Test
@@ -15,15 +16,15 @@ namespace BlazorFocused.Store.Test
             var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
             var updatedReducedClass = new TestReducer().Execute(updatedClass);
 
-            var store = new Store<SimpleClass>(builder =>
-            {
-                builder.SetInitialState(originalClass);
-                builder.RegisterReducer(new TestReducer());
-            });
+            var serviceProvider = serviceCollection
+                .AddTransient<TestReducer>()
+                .BuildServiceProvider();
+
+            var store = new Store<SimpleClass>(originalClass, serviceProvider);
 
             SimpleClassSubset actualReducedState = default;
 
-            store.Reduce<SimpleClassSubset>(reducedState =>
+            store.Reduce<TestReducer, SimpleClassSubset>(reducedState =>
             {
                 actualReducedState = reducedState;
             });
@@ -43,15 +44,14 @@ namespace BlazorFocused.Store.Test
             var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
             var updatedReducedClass = new TestReducer().Execute(updatedClass);
 
-            var store = new Store<SimpleClass>(builder =>
-            {
-                builder.SetInitialState(originalClass);
-                builder.RegisterReducer<TestReducer, SimpleClassSubset>();
-            });
+            var serviceProvider =
+                serviceCollection.AddTransient<TestReducer>().BuildServiceProvider();
+
+            var store = new Store<SimpleClass>(originalClass, serviceProvider);
 
             SimpleClassSubset actualReducedState = default;
 
-            store.Reduce<SimpleClassSubset>(reducedState =>
+            store.Reduce<TestReducer, SimpleClassSubset>(reducedState =>
             {
                 actualReducedState = reducedState;
             });

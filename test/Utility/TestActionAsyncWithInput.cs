@@ -1,5 +1,4 @@
-﻿using BlazorFocused.Store;
-using BlazorFocused.Test.Model;
+﻿using BlazorFocused.Test.Model;
 using System.Threading.Tasks;
 
 namespace BlazorFocused.Test.Utility

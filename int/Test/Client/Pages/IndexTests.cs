@@ -1,6 +1,6 @@
 ﻿using Bunit;
-using Xunit;
 using Integration.Test.Utility;
+using Xunit;
 using ClientPage = Integration.Pages;
 
 namespace Integration.Test.Client.Pages

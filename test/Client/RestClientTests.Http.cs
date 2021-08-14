@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Bogus;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Bogus;
 using Xunit;
 
 namespace BlazorFocused.Client.Test

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Reactive.Subjects;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using System;
+using System.Reactive.Subjects;
+using System.Threading.Tasks;
 
 namespace BlazorFocused.Store
 {
@@ -11,26 +11,19 @@ namespace BlazorFocused.Store
     internal class Store<TState> : IStore<TState>, IDisposable where TState : class
     {
         private readonly BehaviorSubject<TState> state;
-        private readonly IServiceProvider internalServiceProvider;
+        private readonly IServiceProvider serviceProvider;
         private readonly ILogger<Store<TState>> logger;
         private readonly string storeName;
 
-        public Store(Action<IStoreBuilder<TState>> storeBuilderAction)
+        public Store(TState initialState, IServiceProvider serviceProvider)
         {
             storeName = typeof(TState).ToString();
 
-            var storeBuilder = new StoreBuilder<TState>();
+            this.serviceProvider = serviceProvider;
 
-            if (storeBuilderAction is not null)
-            {
-                storeBuilderAction.Invoke(storeBuilder);
-            }
+            state = new BehaviorSubject<TState>(initialState);
 
-            state = new BehaviorSubject<TState>(storeBuilder.InitialState);
-
-            internalServiceProvider = storeBuilder.BuildServices();
-
-            logger = internalServiceProvider.GetService<ILogger<Store<TState>>>() ??
+            logger = serviceProvider.GetService<ILogger<Store<TState>>>() ??
                 NullLogger<Store<TState>>.Instance;
         }
 
@@ -40,7 +33,7 @@ namespace BlazorFocused.Store
 
             logger.LogDebug($"Retrieving action {actionName}");
 
-            using var scope = internalServiceProvider.CreateScope();
+            using var scope = serviceProvider.CreateScope();
 
             var action = scope.ServiceProvider.GetRequiredService<TAction>();
 
@@ -53,14 +46,14 @@ namespace BlazorFocused.Store
             state.OnNext(action.Execute());
         }
 
-        public void Dispatch<TAction, TInput>(TInput input) 
+        public void Dispatch<TAction, TInput>(TInput input)
             where TAction : IAction<TState, TInput>
         {
             var actionName = typeof(TAction);
 
             logger.LogDebug($"Retrieving action {actionName}");
 
-            using var scope = internalServiceProvider.CreateScope();
+            using var scope = serviceProvider.CreateScope();
 
             var action = scope.ServiceProvider.GetRequiredService<TAction>();
 
@@ -79,7 +72,7 @@ namespace BlazorFocused.Store
 
             logger.LogDebug($"Retrieving action {actionName}");
 
-            using var scope = internalServiceProvider.CreateScope();
+            using var scope = serviceProvider.CreateScope();
 
             var action = scope.ServiceProvider.GetRequiredService<TActionAsync>();
 
@@ -93,14 +86,14 @@ namespace BlazorFocused.Store
 
             state.OnNext(value);
         }
-        public async ValueTask DispatchAsync<TActionAsync, TInput>(TInput input) 
+        public async ValueTask DispatchAsync<TActionAsync, TInput>(TInput input)
             where TActionAsync : IActionAsync<TState, TInput>
         {
             var actionName = typeof(TActionAsync);
 
             logger.LogDebug($"Retrieving action {actionName}");
 
-            using var scope = internalServiceProvider.CreateScope();
+            using var scope = serviceProvider.CreateScope();
 
             var action = scope.ServiceProvider.GetRequiredService<TActionAsync>();
 
@@ -120,15 +113,17 @@ namespace BlazorFocused.Store
             return state.Value;
         }
 
-        public void Reduce<TOutput>(Action<TOutput> action)
+        public void Reduce<TReducer, TOutput>(Action<TOutput> action)
+            where TOutput : class
+            where TReducer : class, IReducer<TState, TOutput>
         {
             var reducerName = typeof(TOutput);
 
             logger.LogDebug($"Retrieving reducer {reducerName}");
 
-            using var scope = internalServiceProvider.CreateScope();
+            using var scope = serviceProvider.CreateScope();
 
-            var reducer = scope.ServiceProvider.GetRequiredService<IReducer<TState, TOutput>>();
+            var reducer = scope.ServiceProvider.GetRequiredService<TReducer>();
 
             logger.LogDebug($"Found reducer {reducerName}");
 

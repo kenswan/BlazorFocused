@@ -1,5 +1,4 @@
-﻿using System;
-namespace Integration.Test.Utility
+﻿namespace Integration.Test.Utility
 {
     public enum Category
     {

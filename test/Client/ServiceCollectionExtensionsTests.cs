@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using BlazorFocused.Client;
+﻿using BlazorFocused.Client;
 using Bogus;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace BlazorFocused.Test.Client

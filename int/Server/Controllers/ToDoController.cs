@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Integration.Server.Services;
+﻿using Integration.Server.Services;
 using Integration.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Integration.Server.Controllers
 {
