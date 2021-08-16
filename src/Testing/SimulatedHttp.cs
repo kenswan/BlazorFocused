@@ -17,12 +17,17 @@ namespace BlazorFocused.Testing
 
         private readonly List<SimulatedHttpRequest> requests;
         private readonly List<SimulatedHttpResponse> responses;
+        private NativeHttpClient httpClient;
 
         public SimulatedHttp(string baseAddress = "http://test-url.io")
         {
             BaseAddress = baseAddress;
             requests = new List<SimulatedHttpRequest>();
             responses = new List<SimulatedHttpResponse>();
+            httpClient = new NativeHttpClient(this)
+            {
+                BaseAddress = new Uri(BaseAddress)
+            };
         }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
@@ -46,13 +51,7 @@ namespace BlazorFocused.Testing
             };
         }
 
-        public NativeHttpClient Client()
-        {
-            return new NativeHttpClient(this)
-            {
-                BaseAddress = new Uri(BaseAddress)
-            };
-        }
+        public NativeHttpClient Client() => httpClient;
 
         public ISimulatedHttpSetup Setup(HttpMethod method, string url)
         {

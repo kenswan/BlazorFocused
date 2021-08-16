@@ -21,13 +21,11 @@ namespace BlazorFocused.Client.Test
                 client.DefaultRequestHeaders.Add(headerKey, headerValue);
             });
 
-            restClient.UpdateHttpClient(client =>
-            {
-                Assert.True(client.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
-                Assert.Single(actualValues);
-                Assert.Equal(headerValue, actualValues.FirstOrDefault());
-                Assert.Equal(url, client.BaseAddress.OriginalString);
-            });
+            var httpClient = simulatedHttp.Client();
+            Assert.True(httpClient.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
+            Assert.Single(actualValues);
+            Assert.Equal(headerValue, actualValues.FirstOrDefault());
+            Assert.Equal(url, httpClient.BaseAddress.OriginalString);
         }
     }
 }

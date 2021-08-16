@@ -7,19 +7,19 @@ namespace BlazorFocused.Client
 {
     internal class OAuthRestClient : RestClient, IOAuthRestClient
     {
-        private OAuthToken oAuthToken; 
+        private OAuthToken oAuthToken;
 
         public OAuthRestClient(OAuthToken oAuthToken, HttpClient httpClient, ILogger<OAuthRestClient> logger) :
-            base(httpClient, logger) 
-        { 
-            this.oAuthToken = oAuthToken; 
+            base(httpClient, logger)
+        {
+            this.oAuthToken = oAuthToken;
         }
 
         public void AddAuthorization(string scheme, string token)
         {
-            lock(oAuthToken)
+            lock (oAuthToken)
             {
-                oAuthToken = new OAuthToken { Scheme = scheme, Token = token };
+                oAuthToken.Update(scheme, token);
             }
         }
 

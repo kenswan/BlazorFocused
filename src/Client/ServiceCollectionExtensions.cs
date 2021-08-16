@@ -23,7 +23,7 @@ namespace BlazorFocused.Client
             }
         }
 
-        public static void AddOauthRestClient(this IServiceCollection services, string baseUrl) =>
+        public static void AddOAuthRestClient(this IServiceCollection services, string baseUrl) =>
             services.AddOAuthRestClient(client => client.BaseAddress = new Uri(baseUrl));
 
         public static void AddOAuthRestClient(
