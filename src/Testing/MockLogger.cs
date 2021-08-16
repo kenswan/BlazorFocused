@@ -40,7 +40,7 @@ namespace BlazorFocused.Testing
         }
 
         private class MockLog
-        { 
+        {
             public LogLevel LogLevel { get; set; }
 
             public string Message { get; set; }

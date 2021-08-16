@@ -67,7 +67,7 @@ namespace BlazorFocused.Testing.Test
 
             testServiceWithLogger.LogErrorWithMessage(actualMessage);
 
-            Assert.Throws<MockLoggerException>(() => 
+            Assert.Throws<MockLoggerException>(() =>
                 mockLogger.VerifyWasCalledWith(LogLevel.Error, expectedMessage));
         }
 
@@ -92,7 +92,7 @@ namespace BlazorFocused.Testing.Test
 
             testServiceWithLogger.LogErrorWithException(exceptionMessage, clientMessage);
 
-            Assert.Throws<MockLoggerException>(() => 
+            Assert.Throws<MockLoggerException>(() =>
                 mockLogger.VerifyWasCalledWith(LogLevel.Error, exception, clientMessage));
         }
 
@@ -125,7 +125,7 @@ namespace BlazorFocused.Testing.Test
             var exceptionMessage = "This is a test exception message for an error";
             var clientMessage = "This is a test client message for an error";
             var outputCount = 0;
-            var outputMockLogger = new MockLogger<TestServiceWithLogger>((logLevel, message, exception) => 
+            var outputMockLogger = new MockLogger<TestServiceWithLogger>((logLevel, message, exception) =>
             {
                 testOutputHelper.WriteLine($"{logLevel} : {message} : {exception}");
                 outputCount += 1;

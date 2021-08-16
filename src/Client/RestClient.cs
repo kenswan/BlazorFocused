@@ -13,14 +13,14 @@ namespace BlazorFocused.Client
     /// <inheritdoc cref="IRestClient"/>
     internal class RestClient : IRestClient
     {
-        private readonly HttpClient client;
-        private readonly ILogger<RestClient> logger;
+        protected readonly HttpClient httpClient;
+        protected readonly ILogger<RestClient> logger;
 
         public RestClient(
-            HttpClient client,
+            HttpClient httpClient,
             ILogger<RestClient> logger)
         {
-            this.client = client ?? throw new ArgumentNullException(nameof(client));
+            this.httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             this.logger = logger ?? NullLogger<RestClient>.Instance;
         }
 
@@ -93,9 +93,9 @@ namespace BlazorFocused.Client
         }
 
         private Uri GetUri(string relativeUrl) =>
-            new(client.BaseAddress, relativeUrl);
+            new(httpClient.BaseAddress, relativeUrl);
 
-        private async Task<RestClientResponse<T>> SendAsync<T>(HttpMethod method, string url, object data = null)
+        protected virtual async Task<RestClientResponse<T>> SendAsync<T>(HttpMethod method, string url, object data = null)
         {
             var value = default(T);
             Exception exception = default;
@@ -117,7 +117,7 @@ namespace BlazorFocused.Client
 
                 logger.LogDebug($"Constructed HttpRequestMessage");
 
-                HttpResponseMessage httpResponseMessage = await client.SendAsync(httpRequestMessage);
+                HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(httpRequestMessage);
                 httpStatusCode = httpResponseMessage.StatusCode;
 
                 logger.LogDebug($"HttpResponse returned from request with status code {(int)httpStatusCode}");
@@ -137,7 +137,7 @@ namespace BlazorFocused.Client
 
         public void UpdateHttpClient(Action<HttpClient> updateHttpClient)
         {
-            updateHttpClient(client);
+            updateHttpClient(httpClient);
         }
     }
 }

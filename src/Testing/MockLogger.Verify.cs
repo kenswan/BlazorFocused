@@ -34,7 +34,7 @@ namespace BlazorFocused.Testing
         public void VerifyWasCalledWith<TException>(LogLevel logLevel, TException exception, string message)
             where TException : Exception
         {
-            if (!logs.Where(log => log.LogLevel == logLevel && 
+            if (!logs.Where(log => log.LogLevel == logLevel &&
                                    log.Message.Contains(message) &&
                                    log.Exception.GetType() == exception.GetType() &&
                                    log.Exception.Message == exception.Message).Any())
