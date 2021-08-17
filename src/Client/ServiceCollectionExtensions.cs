@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
 
@@ -13,7 +14,8 @@ namespace BlazorFocused.Client
             this IServiceCollection services,
             Action<HttpClient> configureClient = null) =>
                 (configureClient is null) ? 
-                services.AddHttpClient<IRestClient, RestClient>() :
+                services.AddHttpClient<IRestClient, RestClient>((serviceProvider, httpClient) => 
+                    Configure(serviceProvider, httpClient)) :
                 services.AddHttpClient<IRestClient, RestClient>(configureClient);
 
         public static IHttpClientBuilder AddOAuthRestClient(this IServiceCollection services, string baseUrl) =>
@@ -27,11 +29,30 @@ namespace BlazorFocused.Client
 
             if (configureClient is null)
             {
-                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>();
+                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>((serviceProvider, httpClient) => 
+                    Configure(serviceProvider, httpClient));
             }
             else
             {
                 return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>(configureClient);
+            }
+        }
+
+        private static void Configure(IServiceProvider serviceProvider, HttpClient httpClient)
+        {
+            var configuration = serviceProvider.GetService<IConfiguration>();
+
+            if(configuration is not null && configuration.GetSection(nameof(RestClient)).Exists())
+            {
+                RestClientSettings restClientSettings = new();
+
+                configuration.GetSection(nameof(RestClient)).Bind(restClientSettings);
+
+                if (restClientSettings is not null)
+                {
+                    httpClient.ConfigureRestClientSettings(restClientSettings);
+                }
+                
             }
         }
     }
