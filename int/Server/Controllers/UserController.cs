@@ -22,7 +22,7 @@ namespace Integration.Server.Controllers
         private readonly UserManager<IntegrationUser> userManager;
 
         public UserController(
-            IHttpContextAccessor httpContextAccessor, 
+            IHttpContextAccessor httpContextAccessor,
             ITokenProvider tokenProvider,
             UserManager<IntegrationUser> userManager)
         {
@@ -45,7 +45,7 @@ namespace Integration.Server.Controllers
 
             var userId = tokenProvider.GetUserIdFromToken(token);
 
-            if(userId == Guid.Empty)
+            if (userId == Guid.Empty)
             {
                 return NotFound();
             }

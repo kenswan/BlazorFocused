@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Integration.Shared.Models
+﻿namespace Integration.Shared.Models
 {
     public class Register
     {
