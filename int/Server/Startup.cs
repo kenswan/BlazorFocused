@@ -1,10 +1,15 @@
+using Integration.Server.Extensions;
+using Integration.Server.Models;
+using Integration.Server.Providers;
 using Integration.Server.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Options;
 
 namespace Integration.Server
 {
@@ -17,25 +22,48 @@ namespace Integration.Server
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
 
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BlazorFocused.Integration", Version = "v1" });
-            });
+            services.AddSwaggerGen(options => options.AddSwaggerOptions());
 
+            services.AddDbContext<IntegrationDbContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DbConnection")));
+
+            services.AddIdentityCore<IntegrationUser>(options =>
+            {
+                options.Password.RequireDigit = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.User.RequireUniqueEmail = true;
+            })
+            .AddEntityFrameworkStores<IntegrationDbContext>();
+
+            services.Configure<SecurityOptions>(Configuration.GetSection(nameof(SecurityOptions)));
+
+            services
+                .AddAuthentication(authOptions =>
+                {
+                    authOptions.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    authOptions.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(jwtBearerOptions =>
+                {
+                    jwtBearerOptions.TokenValidationParameters =
+                        new TokenProvider(Configuration).GetTokenValidationParameters();
+                });
+
+            services.AddHttpContextAccessor();
             services.AddTransient<IToDoService, ToDoService>();
             services.AddTransient<IUserService, UserService>();
+
+            services.AddTransient<ITokenProvider, TokenProvider>(provider =>
+                new TokenProvider(provider.GetRequiredService<IOptions<SecurityOptions>>()));
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IntegrationDbContext integrationDbContext)
         {
             if (env.IsDevelopment())
             {
@@ -48,15 +76,18 @@ namespace Integration.Server
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            integrationDbContext.Database.Migrate();
 
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

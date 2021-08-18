@@ -18,6 +18,9 @@ docs/_site/
 # User-specific Development Settings (Integration)
 appSettings.Development.json
 
+# Sandbox DataStore (sqlite)
+*.db
+
 .DS_Store
 
 # Build results
@@ -60,7 +63,7 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
-**/Properties/launchSettings.json
+# **/Properties/launchSettings.json
 
 # StyleCop
 StyleCopReport.xml
