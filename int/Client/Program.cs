@@ -1,11 +1,14 @@
 using BlazorFocused.Client;
 using BlazorFocused.Store;
-using Integration.Shared.Models;
+using Integration.Services;
 using Integration.ToDo.Actions;
 using Integration.ToDo.Models;
 using Integration.ToDo.Reducers;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Integration.Client
@@ -17,19 +20,20 @@ namespace Integration.Client
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
             builder.RootComponents.Add<App>("#app");
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+            builder.Services.AddOptions();
+            builder.Services.AddAuthorizationCore();
 
             builder.Services
                 .AddTransient<AddToDoItem>()
                 .AddTransient<GetToDoItems>()
-                .AddTransient<ToDoCountReducer>();
+                .AddTransient<ToDoCountReducer>()
+                .AddStore(ToDoStore.GetInitialState());
 
+            builder.Services.AddScoped<AuthenticationStateProvider, UserAuthenticationProvider>();
             builder.Services.AddRestClient();
             builder.Services.AddOAuthRestClient();
-
-            builder.Services.AddStore(
-                new User { FirstName = "Default", LastName = "User", UserName = "DefaultUser" });
-
-            builder.Services.AddStore(ToDoStore.GetInitialState());
 
             await builder.Build().RunAsync();
         }

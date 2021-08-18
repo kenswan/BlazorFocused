@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Integration.ToDo.Actions
 {
-    public class AddToDoItem : IActionAsync<ToDoStore, ToDoItem>
+    public class AddToDoItem : StoreActionAsync<ToDoStore, ToDoItem>
     {
-        public ToDoStore State { get; set; }
-
         private readonly IRestClient restClient;
 
         public AddToDoItem(IRestClient restClient)
@@ -18,7 +16,7 @@ namespace Integration.ToDo.Actions
             this.restClient = restClient;
         }
 
-        public async ValueTask<ToDoStore> ExecuteAsync(ToDoItem input)
+        public override async ValueTask<ToDoStore> ExecuteAsync(ToDoItem input)
         {
             var toDoItem = await restClient.PostAsync<ToDoItem>("/api/todo", input);
 
