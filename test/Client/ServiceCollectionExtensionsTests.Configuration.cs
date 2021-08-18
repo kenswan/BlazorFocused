@@ -35,7 +35,7 @@ namespace BlazorFocused.Client.Test
 
             var restClient = host.Services.GetRequiredService<IRestClient>();
 
-            HttpClient httpClient = default; 
+            HttpClient httpClient = default;
 
             restClient.UpdateHttpClient(innerClient =>
             {
@@ -127,7 +127,7 @@ namespace BlazorFocused.Client.Test
             Assert.Equal(100000, httpClient.Timeout.TotalMilliseconds); // Default value
         }
 
-        private IHost GetRestClientHost(Dictionary<string, string> appSettings) =>
+        private static IHost GetRestClientHost(Dictionary<string, string> appSettings) =>
             Host.CreateDefaultBuilder()
                 .ConfigureAppConfiguration(configBuilder =>
                 {
@@ -139,7 +139,7 @@ namespace BlazorFocused.Client.Test
                 })
                 .Build();
 
-        private IHost GetOAuthRestClientHost(Dictionary<string, string> appSettings) =>
+        private static IHost GetOAuthRestClientHost(Dictionary<string, string> appSettings) =>
             Host.CreateDefaultBuilder()
                 .ConfigureAppConfiguration(configBuilder =>
                 {
