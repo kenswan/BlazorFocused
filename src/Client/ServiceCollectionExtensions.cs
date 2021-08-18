@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Net.Http;
 
@@ -6,27 +7,21 @@ namespace BlazorFocused.Client
 {
     public static class ServiceCollectionExtensions
     {
-        public static void AddRestClient(this IServiceCollection services, string baseUrl) =>
+        public static IHttpClientBuilder AddRestClient(this IServiceCollection services, string baseUrl) =>
             services.AddRestClient(client => client.BaseAddress = new Uri(baseUrl));
 
-        public static void AddRestClient(
+        public static IHttpClientBuilder AddRestClient(
             this IServiceCollection services,
-            Action<HttpClient> configureClient = null)
-        {
-            if (configureClient is null)
-            {
-                services.AddHttpClient<IRestClient, RestClient>();
-            }
-            else
-            {
+            Action<HttpClient> configureClient = null) =>
+                (configureClient is null) ? 
+                services.AddHttpClient<IRestClient, RestClient>((serviceProvider, httpClient) => 
+                    Configure(serviceProvider, httpClient)) :
                 services.AddHttpClient<IRestClient, RestClient>(configureClient);
-            }
-        }
 
-        public static void AddOAuthRestClient(this IServiceCollection services, string baseUrl) =>
+        public static IHttpClientBuilder AddOAuthRestClient(this IServiceCollection services, string baseUrl) =>
             services.AddOAuthRestClient(client => client.BaseAddress = new Uri(baseUrl));
 
-        public static void AddOAuthRestClient(
+        public static IHttpClientBuilder AddOAuthRestClient(
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
         {
@@ -34,11 +29,30 @@ namespace BlazorFocused.Client
 
             if (configureClient is null)
             {
-                services.AddHttpClient<IOAuthRestClient, OAuthRestClient>();
+                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>((serviceProvider, httpClient) => 
+                    Configure(serviceProvider, httpClient));
             }
             else
             {
-                services.AddHttpClient<IOAuthRestClient, OAuthRestClient>(configureClient);
+                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>(configureClient);
+            }
+        }
+
+        private static void Configure(IServiceProvider serviceProvider, HttpClient httpClient)
+        {
+            var configuration = serviceProvider.GetService<IConfiguration>();
+
+            if(configuration is not null && configuration.GetSection(nameof(RestClient)).Exists())
+            {
+                RestClientSettings restClientSettings = new();
+
+                configuration.GetSection(nameof(RestClient)).Bind(restClientSettings);
+
+                if (restClientSettings is not null)
+                {
+                    httpClient.ConfigureRestClientSettings(restClientSettings);
+                }
+                
             }
         }
     }

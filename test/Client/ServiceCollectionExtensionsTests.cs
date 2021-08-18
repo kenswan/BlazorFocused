@@ -7,7 +7,7 @@ using Xunit;
 
 namespace BlazorFocused.Client.Test
 {
-    public class ServiceCollectionExtensionsTests
+    public partial class ServiceCollectionExtensionsTests
     {
         [Fact]
         public void ShouldProvideHttpClientBaseAddress()

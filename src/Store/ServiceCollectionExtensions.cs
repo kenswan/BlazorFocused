@@ -14,7 +14,7 @@ namespace BlazorFocused.Store
         /// <typeparam name="T">State being kept within store</typeparam>
         /// <param name="services">Service Collection being extended</param>
         /// <param name="initialData">Initial value of state within the store</param>
-        public static void AddStore<T>(
+        public static IServiceCollection AddStore<T>(
             this IServiceCollection services, T initialData) where T : class =>
                 services.AddScoped<IStore<T>, Store<T>>(serviceProvider =>
                     new Store<T>(initialData, serviceProvider)

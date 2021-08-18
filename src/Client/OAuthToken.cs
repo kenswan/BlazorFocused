@@ -14,5 +14,8 @@
 
         public bool IsEmpty() =>
             string.IsNullOrWhiteSpace(Scheme) || string.IsNullOrEmpty(Token);
+
+        public override string ToString() =>
+            (IsEmpty()) ? "" : $"{Scheme} {Token}";
     }
 }

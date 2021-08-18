@@ -23,6 +23,15 @@ namespace BlazorFocused.Client
             }
         }
 
+        public void ClearAuthorization() =>
+            oAuthToken.Update("", "");
+
+        public bool HasAuthorization() =>
+            !oAuthToken.IsEmpty();
+
+        public string RetrieveAuthorization() =>
+            oAuthToken.ToString();
+
         protected override Task<RestClientResponse<T>> SendAsync<T>(HttpMethod method, string url, object data = null)
         {
             if (!oAuthToken.IsEmpty())
