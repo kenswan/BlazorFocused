@@ -7,9 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.Client", "Clien
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.Server", "Server\Integration.Server.csproj", "{FF9E5CAF-00E9-47A3-8D42-1CE628E4D899}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.Shared", "Shared\Integration.Shared.csproj", "{197486A5-3632-499F-B911-B53B9E6BCF92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.Sdk", "Sdk\Integration.Sdk.csproj", "{197486A5-3632-499F-B911-B53B9E6BCF92}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Integration.Test", "Test\Integration.Test.csproj", "{98A595BE-C553-43BE-8208-7290FB298AD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{094F504E-CCE3-4730-8F89-2B25C0FFC280}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused", "..\src\BlazorFocused.csproj", "{BFD77A18-80B8-4A09-84BD-B60FA22287B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +37,16 @@ Global
 		{98A595BE-C553-43BE-8208-7290FB298AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98A595BE-C553-43BE-8208-7290FB298AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98A595BE-C553-43BE-8208-7290FB298AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFD77A18-80B8-4A09-84BD-B60FA22287B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFD77A18-80B8-4A09-84BD-B60FA22287B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFD77A18-80B8-4A09-84BD-B60FA22287B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFD77A18-80B8-4A09-84BD-B60FA22287B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BFD77A18-80B8-4A09-84BD-B60FA22287B2} = {094F504E-CCE3-4730-8F89-2B25C0FFC280}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {30AEAB0F-FC45-41C9-91B1-653154E4DA83}

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using System.Linq;
 
 namespace Integration.Server
 {
@@ -79,7 +80,10 @@ namespace Integration.Server
                 app.UseHsts();
             }
 
-            integrationDbContext.Database.Migrate();
+            if (integrationDbContext.Database.GetPendingMigrations().Count() > 0)
+            {
+                integrationDbContext.Database.Migrate();
+            }
 
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();

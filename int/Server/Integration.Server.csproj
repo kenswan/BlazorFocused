@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -21,7 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Client\Integration.Client.csproj" />
-    <ProjectReference Include="..\Shared\Integration.Shared.csproj" />
+    <ProjectReference Include="..\Sdk\Integration.Sdk.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

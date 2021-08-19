@@ -1,9 +1,9 @@
 using BlazorFocused.Client;
 using BlazorFocused.Store;
-using Integration.Services;
-using Integration.ToDo.Actions;
-using Integration.ToDo.Models;
-using Integration.ToDo.Reducers;
+using Integration.Client.Actions;
+using Integration.Client.Models;
+using Integration.Client.Reducers;
+using Integration.Client.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;

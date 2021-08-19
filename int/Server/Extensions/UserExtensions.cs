@@ -1,5 +1,5 @@
-﻿using Integration.Server.Models;
-using Integration.Shared.Models;
+﻿using Integration.Sdk.Models;
+using Integration.Server.Models;
 
 namespace Integration.Server.Extensions
 {

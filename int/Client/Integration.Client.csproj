@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>Integration</RootNamespace>
+    <RootNamespace>Integration.Client</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,16 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Shared\Integration.Shared.csproj" />
+    <ProjectReference Include="..\Sdk\Integration.Sdk.csproj" />
     <ProjectReference Include="..\..\src\BlazorFocused.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ToDo\" />
-    <Folder Include="ToDo\Actions\" />
-    <Folder Include="ToDo\Models\" />
-    <Folder Include="ToDo\Pages\" />
-    <Folder Include="ToDo\Reducers\" />
   </ItemGroup>
 </Project>

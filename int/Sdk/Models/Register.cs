@@ -1,4 +1,4 @@
-﻿namespace Integration.Shared.Models
+﻿namespace Integration.Sdk.Models
 {
     public class Register
     {

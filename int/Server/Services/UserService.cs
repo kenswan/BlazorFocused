@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using Integration.Shared.Models;
+using Integration.Sdk.Models;
 using System.Threading.Tasks;
 
 namespace Integration.Server.Services

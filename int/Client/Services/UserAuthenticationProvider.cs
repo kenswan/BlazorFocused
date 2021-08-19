@@ -1,12 +1,12 @@
 ﻿using BlazorFocused.Client;
-using Integration.Extensions;
-using Integration.Shared.Models;
+using Integration.Client.Extensions;
+using Integration.Sdk.Models;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Logging;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace Integration.Services
+namespace Integration.Client.Services
 {
     public class UserAuthenticationProvider : AuthenticationStateProvider
     {

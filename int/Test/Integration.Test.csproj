@@ -1,9 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <RootNamespace>Integration</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,17 +26,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Client\" />
     <Folder Include="Server\" />
-    <Folder Include="Client\Pages\" />
     <Folder Include="Server\Controllers\" />
     <Folder Include="Utility\" />
     <Folder Include="Server\Services\" />
-    <Folder Include="Client\ToDo\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Client\Integration.Client.csproj" />
+    <ProjectReference Include="..\Sdk\Integration.Sdk.csproj" />
     <ProjectReference Include="..\Server\Integration.Server.csproj" />
-    <ProjectReference Include="..\Shared\Integration.Shared.csproj" />
   </ItemGroup>
 </Project>

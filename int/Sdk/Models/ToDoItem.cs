@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Integration.Shared.Models
+namespace Integration.Sdk.Models
 {
     public class ToDoItem
     {

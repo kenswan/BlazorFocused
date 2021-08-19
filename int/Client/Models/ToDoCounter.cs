@@ -1,4 +1,4 @@
-﻿namespace Integration.ToDo.Models
+﻿namespace Integration.Client.Models
 {
     public class ToDoCounter
     {

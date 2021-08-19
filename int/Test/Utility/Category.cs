@@ -1,4 +1,4 @@
-﻿namespace Integration.Test.Utility
+﻿namespace Integration.Utility
 {
     public enum Category
     {

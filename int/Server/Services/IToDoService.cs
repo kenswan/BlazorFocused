@@ -1,4 +1,4 @@
-﻿using Integration.Shared.Models;
+﻿using Integration.Sdk.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

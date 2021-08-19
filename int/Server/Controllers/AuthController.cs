@@ -1,7 +1,7 @@
-﻿using Integration.Server.Extensions;
+﻿using Integration.Sdk.Models;
+using Integration.Server.Extensions;
 using Integration.Server.Models;
 using Integration.Server.Providers;
-using Integration.Shared.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

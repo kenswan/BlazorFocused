@@ -1,11 +1,11 @@
 ﻿using BlazorFocused.Client;
 using BlazorFocused.Store;
-using Integration.Shared.Models;
-using Integration.ToDo.Models;
+using Integration.Client.Models;
+using Integration.Sdk.Models;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Integration.ToDo.Actions
+namespace Integration.Client.Actions
 {
     public class AddToDoItem : StoreActionAsync<ToDoStore, ToDoItem>
     {

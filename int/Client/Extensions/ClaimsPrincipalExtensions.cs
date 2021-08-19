@@ -1,11 +1,7 @@
-﻿using Integration.Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Integration.Sdk.Models;
 using System.Security.Claims;
-using System.Threading.Tasks;
 
-namespace Integration.Extensions
+namespace Integration.Client.Extensions
 {
     public static class ClaimsPrincipalExtensions
     {

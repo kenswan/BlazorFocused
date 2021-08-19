@@ -1,8 +1,8 @@
-﻿using Integration.Shared.Models;
+﻿using Integration.Sdk.Models;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Integration.ToDo.Models
+namespace Integration.Client.Models
 {
     public class ToDoStore
     {
