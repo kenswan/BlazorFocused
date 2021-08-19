@@ -1,4 +1,4 @@
-﻿using BlazorFocused.Test.Utility;
+﻿using BlazorFocused.Utility;
 using BlazorFocused.Testing;
 using FluentAssertions;
 using System.Net;
@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace BlazorFocused.Client.Test
+namespace BlazorFocused.Client
 {
     public class OAuthRestClientTests
     {

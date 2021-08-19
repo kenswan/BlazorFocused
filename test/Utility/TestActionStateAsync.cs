@@ -1,6 +1,6 @@
 ﻿using BlazorFocused.Store;
 
-namespace BlazorFocused.Test.Utility
+namespace BlazorFocused.Utility
 {
     public abstract class TestActionStateAsync<TState> : StoreActionAsync<TState>
     {

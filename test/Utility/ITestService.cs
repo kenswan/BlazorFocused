@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace BlazorFocused.Test.Utility
+namespace BlazorFocused.Utility
 {
     public interface ITestService
     {

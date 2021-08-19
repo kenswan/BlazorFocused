@@ -1,4 +1,4 @@
-﻿using BlazorFocused.Test.Model;
+﻿using BlazorFocused.Model;
 using Bogus;
 using FluentAssertions;
 using System;
@@ -9,7 +9,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace BlazorFocused.Testing.Test
+namespace BlazorFocused.Testing
 {
     public class SimulatedHttpTests
     {

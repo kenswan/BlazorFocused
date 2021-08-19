@@ -1,7 +1,7 @@
-﻿using BlazorFocused.Test.Model;
+﻿using BlazorFocused.Model;
 using System.Threading.Tasks;
 
-namespace BlazorFocused.Test.Utility
+namespace BlazorFocused.Utility
 {
     public class TestActionAsync : TestActionStateAsync<SimpleClass>
     {

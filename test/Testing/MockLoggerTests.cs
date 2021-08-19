@@ -1,10 +1,10 @@
-﻿using BlazorFocused.Test.Utility;
+﻿using BlazorFocused.Utility;
 using Microsoft.Extensions.Logging;
 using System;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace BlazorFocused.Testing.Test
+namespace BlazorFocused.Testing
 {
     public class MockLoggerTests
     {

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using Xunit;
 
-namespace BlazorFocused.Client.Test
+namespace BlazorFocused.Client
 {
     public partial class ServiceCollectionExtensionsTests
     {
