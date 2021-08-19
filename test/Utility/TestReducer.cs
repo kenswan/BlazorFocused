@@ -1,5 +1,5 @@
-﻿using BlazorFocused.Store;
-using BlazorFocused.Model;
+﻿using BlazorFocused.Model;
+using BlazorFocused.Store;
 
 namespace BlazorFocused.Utility
 {

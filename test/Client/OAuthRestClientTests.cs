@@ -1,5 +1,5 @@
-﻿using BlazorFocused.Utility;
-using BlazorFocused.Testing;
+﻿using BlazorFocused.Testing;
+using BlazorFocused.Utility;
 using FluentAssertions;
 using System.Net;
 using System.Net.Http;
