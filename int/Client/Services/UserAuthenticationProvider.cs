@@ -57,7 +57,9 @@ namespace Integration.Client.Services
             if (restClientResponse.IsValid)
             {
                 var user = restClientResponse.Value;
+                
                 oAuthRestClient.AddAuthorization("Bearer", user.Token);
+                
                 CreateClaimsPrincipalFromUser(user);
             }
             else

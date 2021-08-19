@@ -3,17 +3,7 @@
 @using Integration.Client.Components
 @using Microsoft.AspNetCore.Authorization
 
-<AuthorizeView Roles="Admin">
-    <Authorized>
-        <p>Made it to the playoffs</p>
-    </Authorized>
-    <NotAuthorized>
-        <p>You are not allowed to update customers.</p>
-    </NotAuthorized>
-    <Authorizing>
-        <p>Please wait while we authorize you…</p>
-    </Authorizing>
-</AuthorizeView>
+@attribute [AllowAnonymous]
 
 <div>
     @if (isLogin == true)

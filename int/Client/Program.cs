@@ -31,7 +31,13 @@ namespace Integration.Client
                 .AddTransient<ToDoCountReducer>()
                 .AddStore(ToDoStore.GetInitialState());
 
-            builder.Services.AddScoped<AuthenticationStateProvider, UserAuthenticationProvider>();
+            // builder.Services.AddScoped<AuthenticationStateProvider, UserAuthenticationProvider>();
+
+            builder.Services.AddScoped<UserAuthenticationProvider>();
+
+            builder.Services.AddScoped<AuthenticationStateProvider>(provider => 
+                provider.GetRequiredService<UserAuthenticationProvider>());
+
             builder.Services.AddRestClient();
             builder.Services.AddOAuthRestClient();
 
