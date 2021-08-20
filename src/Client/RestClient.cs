@@ -146,5 +146,7 @@ namespace BlazorFocused.Client
         {
             updateHttpClient(httpClient);
         }
+
+        public HttpClient GetClient() => httpClient;
     }
 }

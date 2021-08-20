@@ -2,7 +2,6 @@
 using Bogus;
 using FluentAssertions;
 using System;
-using System.Net.Http;
 using Xunit;
 
 namespace BlazorFocused.Client
@@ -12,7 +11,6 @@ namespace BlazorFocused.Client
         private readonly IOAuthRestClient oAuthRestClient;
         private readonly ISimulatedHttp simulatedHttp;
         private readonly MockLogger<OAuthRestClient> mockLogger;
-        private readonly HttpClient httpClient;
         private readonly OAuthToken oAuthToken;
 
         public OAuthRestClientTests()
@@ -20,10 +18,9 @@ namespace BlazorFocused.Client
             oAuthToken = new();
             simulatedHttp = new SimulatedHttp();
             mockLogger = new();
-            httpClient = simulatedHttp.Client();
 
             oAuthRestClient =
-                new OAuthRestClient(oAuthToken, httpClient, default, mockLogger);
+                new OAuthRestClient(oAuthToken, simulatedHttp.Client(), default, mockLogger);
         }
 
         [Fact]

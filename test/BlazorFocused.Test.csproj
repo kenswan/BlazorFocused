@@ -30,6 +30,7 @@
     <Folder Include="Utility\" />
     <Folder Include="Testing\" />
     <Folder Include="Client\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\src\BlazorFocused.csproj" />

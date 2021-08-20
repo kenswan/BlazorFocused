@@ -1,9 +1,10 @@
-﻿using BlazorFocused.Utility;
+﻿using BlazorFocused.Extensions;
 using Bogus;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using Xunit;
 
 namespace BlazorFocused.Client
@@ -15,16 +16,14 @@ namespace BlazorFocused.Client
         {
             var url = new Faker().Internet.Url();
             ServiceCollection services = new();
-            services.AddEmptyConfiguration();
+            services.AddConfiguration();
             services.AddRestClient(url);
 
             var serviceProvider = services.BuildServiceProvider();
             var restClient = serviceProvider.GetRequiredService<IRestClient>();
+            HttpClient httpClient = (restClient as RestClient).GetClient();
 
-            restClient.UpdateHttpClient(client =>
-            {
-                Assert.Equal(url, client.BaseAddress.OriginalString);
-            });
+            Assert.Equal(url, httpClient.BaseAddress.OriginalString);
         }
 
         [Fact]
@@ -34,7 +33,7 @@ namespace BlazorFocused.Client
             var headerKey = "X-PORT-NUMBER";
             var headerValue = new Faker().Internet.Port().ToString();
             ServiceCollection services = new();
-            services.AddEmptyConfiguration();
+            services.AddConfiguration();
 
             services.AddRestClient(client =>
             {
@@ -44,14 +43,12 @@ namespace BlazorFocused.Client
 
             var serviceProvider = services.BuildServiceProvider();
             var restClient = serviceProvider.GetRequiredService<IRestClient>();
+            HttpClient httpClient = (restClient as RestClient).GetClient();
 
-            restClient.UpdateHttpClient(client =>
-            {
-                Assert.True(client.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
-                Assert.Single(actualValues);
-                Assert.Equal(headerValue, actualValues.FirstOrDefault());
-                Assert.Equal(url, client.BaseAddress.OriginalString);
-            });
+            Assert.True(httpClient.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
+            Assert.Single(actualValues);
+            Assert.Equal(headerValue, actualValues.FirstOrDefault());
+            Assert.Equal(url, httpClient.BaseAddress.OriginalString);
         }
 
         [Fact]
@@ -59,16 +56,14 @@ namespace BlazorFocused.Client
         {
             var url = new Faker().Internet.Url();
             ServiceCollection services = new();
-            services.AddEmptyConfiguration();
+            services.AddConfiguration();
             services.AddOAuthRestClient(url);
 
             var serviceProvider = services.BuildServiceProvider();
             var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+            HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
-            oAuthRestClient.UpdateHttpClient(client =>
-            {
-                Assert.Equal(url, client.BaseAddress.OriginalString);
-            });
+            Assert.Equal(url, httpClient.BaseAddress.OriginalString);
         }
 
         [Fact]
@@ -78,7 +73,7 @@ namespace BlazorFocused.Client
             var headerKey = "X-PORT-NUMBER";
             var headerValue = new Faker().Internet.Port().ToString();
             ServiceCollection services = new();
-            services.AddEmptyConfiguration();
+            services.AddConfiguration();
 
             services.AddOAuthRestClient(client =>
             {
@@ -88,21 +83,19 @@ namespace BlazorFocused.Client
 
             var serviceProvider = services.BuildServiceProvider();
             var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+            HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
-            oAuthRestClient.UpdateHttpClient(client =>
-            {
-                Assert.True(client.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
-                Assert.Single(actualValues);
-                Assert.Equal(headerValue, actualValues.FirstOrDefault());
-                Assert.Equal(url, client.BaseAddress.OriginalString);
-            });
+            Assert.True(httpClient.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
+            Assert.Single(actualValues);
+            Assert.Equal(headerValue, actualValues.FirstOrDefault());
+            Assert.Equal(url, httpClient.BaseAddress.OriginalString);
         }
 
         [Fact]
         public void ShouldConfigureOAuthTokenProperties()
         {
             ServiceCollection services = new();
-            services.AddEmptyConfiguration();
+            services.AddConfiguration();
             services.AddOAuthRestClient(new Faker().Internet.Url());
             var serviceProvider = services.BuildServiceProvider();
             var expectedScheme = "Bearer";
