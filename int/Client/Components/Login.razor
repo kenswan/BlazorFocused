@@ -1,0 +1,59 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using Integration.Client.Services
+@using UserLogin = Integration.Sdk.Models.Login
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.Extensions.Logging
+
+@inject NavigationManager navigationManager
+@inject AuthenticationStateProvider authenticationStateProvider
+@inject ILogger<Login> logger
+
+<h1 class="h2 font-weight-normal login-title">
+    Login
+</h1>
+
+<EditForm class="form-signin" OnValidSubmit="LoginOnSubmitAsync" Model="@userLogin">
+    <DataAnnotationsValidator />
+    <label for="inputUserName" class="sr-only">Username</label>
+    <InputText type="text" id="inputUserName" class="form-control" @bind-Value="@userLogin.UserName" autofocus placeholder="Username" />
+    <ValidationMessage For="@(() => userLogin.UserName)" />
+    <br />
+    <label for="inputPassword" class="sr-only">Password</label>
+    <InputText type="password" id="inputPassword" class="form-control" @bind-Value="@userLogin.Password" autofocus placeholder="Password" />
+    <ValidationMessage For="@(() => userLogin.Password)" />
+    <br />
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <label class="text-danger">@error</label>
+</EditForm>
+
+<button id="toggleAuthButton" class="nav-link btn btn-link" @onclick="toggleAuth">Create account</button>
+
+@code {
+
+    [Parameter]
+    public Action toggleAuth { get; set; }
+
+    string error { get; set; }
+
+    UserLogin userLogin { get; set; } = new();
+
+    async Task LoginOnSubmitAsync()
+    {
+        error = null;
+
+        try
+        {
+            if (authenticationStateProvider is UserAuthenticationProvider userAuthenticationProvider)
+            {
+                await userAuthenticationProvider.LoginAsync(userLogin.UserName, userLogin.Password);
+            }
+
+            navigationManager.NavigateTo("");
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message);
+            error = "Invalid username";
+        }
+    }
+}

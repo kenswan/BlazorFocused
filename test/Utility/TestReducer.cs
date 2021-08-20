@@ -1,7 +1,7 @@
-﻿using BlazorFocused.Store;
-using BlazorFocused.Test.Model;
+﻿using BlazorFocused.Model;
+using BlazorFocused.Store;
 
-namespace BlazorFocused.Test.Utility
+namespace BlazorFocused.Utility
 {
     public class TestReducer : TestClass, IReducer<SimpleClass, SimpleClassSubset>
     {

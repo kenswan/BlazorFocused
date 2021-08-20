@@ -1,8 +1,10 @@
 ﻿@inherits LayoutComponentBase
-@using BlazorFocused.Store;
-@using Integration.Shared.Models;
+@using Integration.Client.Extensions
+@using Integration.Sdk.Models
+@using Microsoft.AspNetCore.Components.Authorization 
 
-@inject IStore<User> userStore;
+@inject NavigationManager navigationManager
+@inject AuthenticationStateProvider authenticationStateProvider
 
 <div class="page">
     <div class="sidebar">
@@ -13,7 +15,9 @@
         <div class="top-row px-4">
             @if (user == null)
             {
-                <a href="" @onclick="GetUserOnClickAsync" class="ml-md-auto">Login</a>
+                <NavLink class="nav-link" href="authentication" Match="NavLinkMatch.All">
+                    <span class="oi oi-lock-locked" aria-hidden="true"></span> Login / Register
+                </NavLink>
             }
             else
             {
@@ -22,7 +26,7 @@
                     <text>&nbsp;</text>
                     <i>(@user.UserName)</i>
                     <text>&nbsp;</text>
-                    <a href="" @onclick="GetUserOnClickAsync">Change User</a>
+                    <a href="" @onclick="SignOutOnClick">Sign Out</a>
                 </div>
             }
         </div>
@@ -37,13 +41,19 @@
 
     protected User user = null;
 
-    protected override void OnInitialized()
+    protected override async void OnInitialized()
     {
-        user = userStore.GetState();
+        var authenticationState = await authenticationStateProvider.GetAuthenticationStateAsync();
+
+        var authenticationUser = authenticationState.User;
+        if (authenticationUser.Identity.IsAuthenticated)
+        {
+            user = authenticationUser.ToUser();
+        }
     }
 
-    private void GetUserOnClickAsync(MouseEventArgs e)
+    private void SignOutOnClick(MouseEventArgs e)
     {
-        user = userStore.GetState();
+        navigationManager.NavigateTo("/");
     }
 }

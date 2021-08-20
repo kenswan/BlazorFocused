@@ -1,11 +1,11 @@
-﻿using BlazorFocused.Test.Model;
+﻿using BlazorFocused.Model;
 using BlazorFocused.Testing;
 using Bogus;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using System.Collections.Generic;
 
-namespace BlazorFocused.Client.Test
+namespace BlazorFocused.Client
 {
     public partial class RestClientTests
     {

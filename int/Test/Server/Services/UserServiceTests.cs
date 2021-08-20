@@ -1,10 +1,9 @@
 ﻿using FluentAssertions;
-using Integration.Server.Services;
-using Integration.Test.Utility;
+using Integration.Utility;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Integration.Test.Server.Services
+namespace Integration.Server.Services
 {
     public class UserServiceTests
     {

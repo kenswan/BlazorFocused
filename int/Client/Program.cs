@@ -1,8 +1,10 @@
+using BlazorFocused.Client;
 using BlazorFocused.Store;
-using Integration.Shared.Models;
-using Integration.ToDo.Actions;
-using Integration.ToDo.Models;
-using Integration.ToDo.Reducers;
+using Integration.Client.Actions;
+using Integration.Client.Models;
+using Integration.Client.Reducers;
+using Integration.Client.Services;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -18,19 +20,26 @@ namespace Integration.Client
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
             builder.RootComponents.Add<App>("#app");
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            builder.Services.AddScoped(sp =>
-                new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddOptions();
+            builder.Services.AddAuthorizationCore();
 
             builder.Services
                 .AddTransient<AddToDoItem>()
                 .AddTransient<GetToDoItems>()
-                .AddTransient<ToDoCountReducer>();
+                .AddTransient<ToDoCountReducer>()
+                .AddStore(ToDoStore.GetInitialState());
 
-            builder.Services.AddStore(
-                new User { FirstName = "Default", LastName = "User", UserName = "DefaultUser" });
+            // builder.Services.AddScoped<AuthenticationStateProvider, UserAuthenticationProvider>();
 
-            builder.Services.AddStore(ToDoStore.GetInitialState());
+            builder.Services.AddScoped<UserAuthenticationProvider>();
+
+            builder.Services.AddScoped<AuthenticationStateProvider>(provider => 
+                provider.GetRequiredService<UserAuthenticationProvider>());
+
+            builder.Services.AddRestClient();
+            builder.Services.AddOAuthRestClient();
 
             await builder.Build().RunAsync();
         }

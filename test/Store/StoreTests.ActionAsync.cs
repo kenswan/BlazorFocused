@@ -1,5 +1,5 @@
-﻿using BlazorFocused.Test.Model;
-using BlazorFocused.Test.Utility;
+﻿using BlazorFocused.Model;
+using BlazorFocused.Utility;
 using Bogus;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,7 +7,7 @@ using Moq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace BlazorFocused.Store.Test
+namespace BlazorFocused.Store
 {
     public partial class StoreTests
     {

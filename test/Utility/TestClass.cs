@@ -1,4 +1,4 @@
-﻿namespace BlazorFocused.Test.Utility
+﻿namespace BlazorFocused.Utility
 {
     public abstract class TestClass
     {

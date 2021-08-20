@@ -1,0 +1,74 @@
+﻿@using Integration.Client.Services 
+@using UserRegister = Integration.Sdk.Models.Register 
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.Extensions.Logging
+
+@inject NavigationManager navigationManager
+@inject AuthenticationStateProvider authenticationStateProvider
+@inject ILogger<Register> logger
+
+<h1 class="h2 font-weight-normal login-title">
+    Register
+</h1>
+
+<EditForm class="form-signin" OnValidSubmit="OnSubmit" Model="newUser">
+    <DataAnnotationsValidator />
+    <label for="inputFirstName" class="sr-only">First Name</label>
+    <InputText type="text" id="inputFirstName" class="form-control" placeholder="First Name" autofocus @bind-Value="@newUser.FirstName" />
+    <ValidationMessage For="@(() => newUser.FirstName)" />
+    <label for="inputLastName" class="sr-only">Last Name</label>
+    <InputText type="text" id="inputLastName" class="form-control" placeholder="Last Name" autofocus @bind-Value="@newUser.LastName" />
+    <ValidationMessage For="@(() => newUser.LastName)" />
+    <label for="inputEmail" class="sr-only">Email</label>
+    <InputText type="text" id="inputEmail" class="form-control" placeholder="Email" autofocus @bind-Value="@newUser.Email" />
+    <ValidationMessage For="@(() => newUser.Email)" />
+    <label for="inputUserName" class="sr-only">Username</label>
+    <InputText type="text" id="inputUserName" class="form-control" placeholder="Username" autofocus @bind-Value="@newUser.UserName" />
+    <ValidationMessage For="@(() => newUser.UserName)" />
+    <label for="inputPassword" class="sr-only">Password</label>
+    <InputText type="password" id="inputPassword" class="form-control" placeholder="Password" autofocus @bind-Value="@newUser.Password" />
+    <ValidationMessage For="@(() => newUser.Password)" />
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Create account</button>
+    <label class="text-danger">@error</label>
+</EditForm>
+
+<button id="toggleAuthButton" class="nav-link btn btn-link" @onclick="toggleAuth">Already have an account? Click here to login</button>
+
+@code {
+
+    [Parameter]
+    public Action toggleAuth { get; set; }
+
+    UserRegister newUser { get; set; } = new();
+
+    string error { get; set; }
+
+    async Task OnSubmit()
+    {
+        error = null;
+
+        try
+        {
+            if (authenticationStateProvider is UserAuthenticationProvider userAuthStateProvider)
+            {
+                var userRegister = new UserRegister 
+                { 
+                    FirstName = newUser.FirstName,
+                    LastName = newUser.LastName,
+                    Email = newUser.Email,
+                    UserName = newUser.UserName, 
+                    Password = newUser.Password 
+                };
+
+                await userAuthStateProvider.RegisterAsync(userRegister);
+            }
+
+            navigationManager.NavigateTo("");
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex.Message);
+            error = "Player registration failed";
+        }
+    }
+}

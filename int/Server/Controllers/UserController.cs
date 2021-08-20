@@ -1,6 +1,13 @@
-﻿using Integration.Server.Services;
-using Integration.Shared.Models;
+﻿using Integration.Sdk.Models;
+using Integration.Server.Extensions;
+using Integration.Server.Models;
+using Integration.Server.Providers;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Integration.Server.Controllers
@@ -10,15 +17,42 @@ namespace Integration.Server.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserService userService;
+        private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly ITokenProvider tokenProvider;
+        private readonly UserManager<IntegrationUser> userManager;
 
-        public UserController(IUserService userService)
+        public UserController(
+            IHttpContextAccessor httpContextAccessor,
+            ITokenProvider tokenProvider,
+            UserManager<IntegrationUser> userManager)
         {
-            this.userService = userService;
+            this.httpContextAccessor = httpContextAccessor;
+            this.tokenProvider = tokenProvider;
+            this.userManager = userManager;
         }
 
+        [Authorize]
         [HttpGet]
-        public async ValueTask<User> GetDefaultUser() =>
-            await userService.GetDefaultUser();
+        public async Task<ActionResult<User>> GetUser()
+        {
+            var token = httpContextAccessor.
+                HttpContext.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
+
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                return Unauthorized();
+            }
+
+            var userId = tokenProvider.GetUserIdFromToken(token);
+
+            if (userId == Guid.Empty)
+            {
+                return NotFound();
+            }
+
+            var user = await userManager.FindByIdAsync(userId.ToString());
+
+            return (user is not null) ? Ok(user.ToUser()) : NotFound();
+        }
     }
 }

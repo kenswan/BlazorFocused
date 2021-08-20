@@ -1,11 +1,13 @@
-﻿using Integration.Server.Services;
-using Integration.Shared.Models;
+﻿using Integration.Sdk.Models;
+using Integration.Server.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Integration.Server.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [Produces("application/json")]
     [ApiController]

@@ -1,8 +1,6 @@
 ﻿using FluentAssertions;
-using Integration.Server;
-using Integration.Server.Controllers;
-using Integration.Shared.Models;
-using Integration.Test.Utility;
+using Integration.Sdk.Models;
+using Integration.Utility;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System.Collections.Generic;
 using System.Net;
@@ -11,7 +9,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Integration.Test.Server.Controllers
+namespace Integration.Server.Controllers
 {
     public class ToDoControllerTests : IClassFixture<WebApplicationFactory<Startup>>
     {

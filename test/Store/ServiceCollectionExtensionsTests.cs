@@ -1,8 +1,8 @@
-﻿using BlazorFocused.Test.Model;
+﻿using BlazorFocused.Model;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace BlazorFocused.Store.Test
+namespace BlazorFocused.Store
 {
     public class ServiceCollectionExtensionsTests
     {

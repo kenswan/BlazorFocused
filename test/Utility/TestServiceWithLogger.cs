@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace BlazorFocused.Test.Utility
+namespace BlazorFocused.Utility
 {
     public class TestServiceWithLogger
     {

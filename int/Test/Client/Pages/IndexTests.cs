@@ -1,9 +1,8 @@
 ﻿using Bunit;
-using Integration.Test.Utility;
+using Integration.Utility;
 using Xunit;
-using ClientPage = Integration.Pages;
 
-namespace Integration.Test.Client.Pages
+namespace Integration.Client.Pages
 {
     public class IndexTests
     {
@@ -18,7 +17,7 @@ namespace Integration.Test.Client.Pages
         [Fact(DisplayName = "Should render intro page")]
         public void ShouldRenderWelcome()
         {
-            var component = context.RenderComponent<ClientPage.Index>();
+            var component = context.RenderComponent<Index>();
 
             component.Find("h1").MarkupMatches("<h1>Integration Overview</h1>");
         }

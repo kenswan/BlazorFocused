@@ -13,8 +13,8 @@ namespace BlazorFocused.Client
         public static IHttpClientBuilder AddRestClient(
             this IServiceCollection services,
             Action<HttpClient> configureClient = null) =>
-                (configureClient is null) ? 
-                services.AddHttpClient<IRestClient, RestClient>((serviceProvider, httpClient) => 
+                (configureClient is null) ?
+                services.AddHttpClient<IRestClient, RestClient>((serviceProvider, httpClient) =>
                     Configure(serviceProvider, httpClient)) :
                 services.AddHttpClient<IRestClient, RestClient>(configureClient);
 
@@ -29,7 +29,7 @@ namespace BlazorFocused.Client
 
             if (configureClient is null)
             {
-                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>((serviceProvider, httpClient) => 
+                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>((serviceProvider, httpClient) =>
                     Configure(serviceProvider, httpClient));
             }
             else
@@ -42,7 +42,7 @@ namespace BlazorFocused.Client
         {
             var configuration = serviceProvider.GetService<IConfiguration>();
 
-            if(configuration is not null && configuration.GetSection(nameof(RestClient)).Exists())
+            if (configuration is not null && configuration.GetSection(nameof(RestClient)).Exists())
             {
                 RestClientSettings restClientSettings = new();
 
@@ -52,7 +52,7 @@ namespace BlazorFocused.Client
                 {
                     httpClient.ConfigureRestClientSettings(restClientSettings);
                 }
-                
+
             }
         }
     }

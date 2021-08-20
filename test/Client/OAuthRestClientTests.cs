@@ -1,12 +1,12 @@
-﻿using BlazorFocused.Test.Utility;
-using BlazorFocused.Testing;
+﻿using BlazorFocused.Testing;
+using BlazorFocused.Utility;
 using FluentAssertions;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace BlazorFocused.Client.Test
+namespace BlazorFocused.Client
 {
     public class OAuthRestClientTests
     {

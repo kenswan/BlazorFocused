@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace BlazorFocused.Client.Test
+namespace BlazorFocused.Client
 {
     public partial class ServiceCollectionExtensionsTests
     {

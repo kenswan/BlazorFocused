@@ -1,6 +1,6 @@
-﻿using BlazorFocused.Test.Model;
+﻿using BlazorFocused.Model;
 
-namespace BlazorFocused.Test.Utility
+namespace BlazorFocused.Utility
 {
     public class TestActionWithInput : TestActionState<SimpleClass, string>
     {
