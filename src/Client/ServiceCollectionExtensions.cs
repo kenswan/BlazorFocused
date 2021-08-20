@@ -12,11 +12,14 @@ namespace BlazorFocused.Client
 
         public static IHttpClientBuilder AddRestClient(
             this IServiceCollection services,
-            Action<HttpClient> configureClient = null) =>
-                (configureClient is null) ?
-                services.AddHttpClient<IRestClient, RestClient>((serviceProvider, httpClient) =>
-                    Configure(serviceProvider, httpClient)) :
+            Action<HttpClient> configureClient = null)
+        {
+            services.ConfigureRestClientOptions();
+
+            return (configureClient is null) ?
+                services.AddHttpClient<IRestClient, RestClient>() :
                 services.AddHttpClient<IRestClient, RestClient>(configureClient);
+        }
 
         public static IHttpClientBuilder AddOAuthRestClient(this IServiceCollection services, string baseUrl) =>
             services.AddOAuthRestClient(client => client.BaseAddress = new Uri(baseUrl));
@@ -25,12 +28,12 @@ namespace BlazorFocused.Client
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
         {
+            services.ConfigureRestClientOptions();
             services.AddSingleton(sp => new OAuthToken());
 
             if (configureClient is null)
             {
-                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>((serviceProvider, httpClient) =>
-                    Configure(serviceProvider, httpClient));
+                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>();
             }
             else
             {
@@ -38,22 +41,26 @@ namespace BlazorFocused.Client
             }
         }
 
-        private static void Configure(IServiceProvider serviceProvider, HttpClient httpClient)
+        private static void ConfigureRestClientOptions(this IServiceCollection services)
         {
-            var configuration = serviceProvider.GetService<IConfiguration>();
-
-            if (configuration is not null && configuration.GetSection(nameof(RestClient)).Exists())
-            {
-                RestClientSettings restClientSettings = new();
-
-                configuration.GetSection(nameof(RestClient)).Bind(restClientSettings);
-
-                if (restClientSettings is not null)
+            services
+                .AddOptions<RestClientOptions>()
+                .Configure<IConfiguration>((options, configuration) =>
                 {
-                    httpClient.ConfigureRestClientSettings(restClientSettings);
-                }
+                    configuration.GetSection(nameof(RestClient)).Bind(options);
+                })
+                .Validate(options =>
+                {
+                    if (!string.IsNullOrWhiteSpace(options.BaseAddress))
+                    {
+                        if (!Uri.TryCreate(options.BaseAddress, UriKind.Absolute, out _))
+                        {
+                            throw new RestClientException("BaseAddress in configuration is not a valid Uri");
+                        }
+                    }
 
-            }
+                    return true;
+                });
         }
     }
 }

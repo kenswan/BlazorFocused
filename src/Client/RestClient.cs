@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Microsoft.Extensions.Options;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -18,10 +19,16 @@ namespace BlazorFocused.Client
 
         public RestClient(
             HttpClient httpClient,
+            IOptions<RestClientOptions> restClientOptions,
             ILogger<RestClient> logger)
         {
             this.httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             this.logger = logger ?? NullLogger<RestClient>.Instance;
+
+            if(restClientOptions?.Value is not null)
+            {
+                this.httpClient.ConfigureRestClientOptions(restClientOptions.Value);
+            }
         }
 
         public async Task<T> DeleteAsync<T>(string relativeUrl) =>

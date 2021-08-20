@@ -1,4 +1,5 @@
-﻿using Bogus;
+﻿using BlazorFocused.Utility;
+using Bogus;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace BlazorFocused.Client
         {
             var url = new Faker().Internet.Url();
             ServiceCollection services = new();
+            services.AddConfigurationService();
             services.AddRestClient(url);
 
             var serviceProvider = services.BuildServiceProvider();
@@ -32,6 +34,8 @@ namespace BlazorFocused.Client
             var headerKey = "X-PORT-NUMBER";
             var headerValue = new Faker().Internet.Port().ToString();
             ServiceCollection services = new();
+            services.AddConfigurationService();
+
             services.AddRestClient(client =>
             {
                 client.BaseAddress = new Uri(url);
@@ -55,6 +59,7 @@ namespace BlazorFocused.Client
         {
             var url = new Faker().Internet.Url();
             ServiceCollection services = new();
+            services.AddConfigurationService();
             services.AddOAuthRestClient(url);
 
             var serviceProvider = services.BuildServiceProvider();
@@ -73,6 +78,8 @@ namespace BlazorFocused.Client
             var headerKey = "X-PORT-NUMBER";
             var headerValue = new Faker().Internet.Port().ToString();
             ServiceCollection services = new();
+            services.AddConfigurationService();
+
             services.AddOAuthRestClient(client =>
             {
                 client.BaseAddress = new Uri(url);
@@ -95,6 +102,7 @@ namespace BlazorFocused.Client
         public void ShouldConfigureOAuthTokenProperties()
         {
             ServiceCollection services = new();
+            services.AddConfigurationService();
             services.AddOAuthRestClient(new Faker().Internet.Url());
             var serviceProvider = services.BuildServiceProvider();
             var expectedScheme = "Bearer";

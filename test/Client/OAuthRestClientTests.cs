@@ -22,7 +22,8 @@ namespace BlazorFocused.Client
             simulatedHttp = new();
             mockLogger = new();
             httpClient = simulatedHttp.Client();
-            oAuthRestClient = new OAuthRestClient(oAuthToken, httpClient, mockLogger);
+            oAuthRestClient = 
+                new OAuthRestClient(oAuthToken, httpClient, default, mockLogger);
         }
 
         [Fact]

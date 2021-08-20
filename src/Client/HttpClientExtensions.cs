@@ -5,26 +5,26 @@ namespace BlazorFocused.Client
 {
     internal static class HttpClientExtensions
     {
-        public static void ConfigureRestClientSettings(this HttpClient httpClient, RestClientSettings restClientSettings)
+        public static void ConfigureRestClientOptions(this HttpClient httpClient, RestClientOptions restClientOptions)
         {
-            if (!string.IsNullOrWhiteSpace(restClientSettings.BaseAddress))
+            if (!string.IsNullOrWhiteSpace(restClientOptions.BaseAddress))
             {
-                httpClient.BaseAddress = new System.Uri(restClientSettings.BaseAddress);
+                httpClient.BaseAddress = new Uri(restClientOptions.BaseAddress);
             }
 
-            foreach (var header in restClientSettings.DefaultRequestHeaders)
+            foreach (var header in restClientOptions.DefaultRequestHeaders)
             {
                 httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
             }
 
-            if (restClientSettings.MaxResponseContentBufferSize.HasValue)
+            if (restClientOptions.MaxResponseContentBufferSize.HasValue)
             {
-                httpClient.MaxResponseContentBufferSize = restClientSettings.MaxResponseContentBufferSize.Value;
+                httpClient.MaxResponseContentBufferSize = restClientOptions.MaxResponseContentBufferSize.Value;
             }
 
-            if (restClientSettings.Timeout.HasValue)
+            if (restClientOptions.Timeout.HasValue)
             {
-                httpClient.Timeout = TimeSpan.FromMilliseconds(restClientSettings.Timeout.Value);
+                httpClient.Timeout = TimeSpan.FromMilliseconds(restClientOptions.Timeout.Value);
             }
         }
     }
