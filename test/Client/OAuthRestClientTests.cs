@@ -1,9 +1,7 @@
 ﻿using BlazorFocused.Testing;
-using BlazorFocused.Utility;
+using Bogus;
 using FluentAssertions;
-using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace BlazorFocused.Client
@@ -22,51 +20,48 @@ namespace BlazorFocused.Client
             simulatedHttp = new();
             mockLogger = new();
             httpClient = simulatedHttp.Client();
-            oAuthRestClient = 
+
+            oAuthRestClient =
                 new OAuthRestClient(oAuthToken, httpClient, default, mockLogger);
         }
 
         [Fact]
-        public async Task ShouldAddAuthToken()
+        public void ShouldAddAuthorization()
         {
-            var expectedScheme = "Bearer";
-            var expectedToken = "TestToken";
-            var apiUrl = "api/test";
-            var expectedResponse = new TestObject { CheckedPropertyId = "Testing" };
+            var scheme = "Bearer";
+            var token = GetRandomToken();
+            var expectedAuthorization = $"{scheme} {token}";
 
-            simulatedHttp.Setup(HttpMethod.Get, apiUrl)
-                .ReturnsAsync(HttpStatusCode.OK, expectedResponse);
+            oAuthRestClient.AddAuthorization(scheme, token);
 
-            oAuthRestClient.AddAuthorization(expectedScheme, expectedToken);
-            var actualResponse = await oAuthRestClient.GetAsync<TestObject>(apiUrl);
-
-            actualResponse.Should().BeEquivalentTo(expectedResponse);
-            Assert.Equal(expectedScheme, httpClient.DefaultRequestHeaders.Authorization.Scheme);
-            Assert.Equal(expectedToken, httpClient.DefaultRequestHeaders.Authorization.Parameter);
+            oAuthRestClient.RetrieveAuthorization().Should().BeEquivalentTo(expectedAuthorization);
+            Assert.True(oAuthRestClient.HasAuthorization());
         }
 
         [Fact]
         public void ShouldClearAuthorization()
         {
             var scheme = "Bearer";
-            var token = "TestToken";
+            var token = GetRandomToken();
             var addedAuthorization = $"{scheme} {token}";
             var clearedAuthorization = string.Empty;
 
             oAuthRestClient.AddAuthorization(scheme, token);
 
             Assert.Equal(addedAuthorization, oAuthRestClient.RetrieveAuthorization());
+            Assert.True(oAuthRestClient.HasAuthorization());
 
             oAuthRestClient.ClearAuthorization();
 
             Assert.Equal(clearedAuthorization, oAuthRestClient.RetrieveAuthorization());
+            Assert.False(oAuthRestClient.HasAuthorization());
         }
 
         [Fact]
         public void ShouldDetectAuthorization()
         {
             var scheme = "Bearer";
-            var token = "TestToken";
+            var token = GetRandomToken();
 
             oAuthRestClient.AddAuthorization(scheme, token);
 
@@ -81,16 +76,15 @@ namespace BlazorFocused.Client
         public void ShouldReturnAuthorization()
         {
             var scheme = "Bearer";
-            var token = "TestToken";
-            var expectedResponse = $"{scheme} {token}";
+            var token = GetRandomToken();
+            var expectedAuthorization = $"{scheme} {token}";
 
             oAuthRestClient.AddAuthorization(scheme, token);
 
-            var actualResponse = oAuthRestClient.RetrieveAuthorization();
-
-            Assert.Equal(expectedResponse, actualResponse);
+            Assert.Equal(expectedAuthorization, oAuthRestClient.RetrieveAuthorization());
         }
 
-        public class TestObject : TestClass { }
+        private static string GetRandomToken() =>
+            new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
     }
 }

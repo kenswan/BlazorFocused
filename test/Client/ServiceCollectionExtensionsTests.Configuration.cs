@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -137,7 +138,7 @@ namespace BlazorFocused.Client
 
             using var host = GetRestClientHost(appSettings);
 
-            Assert.Throws<RestClientException>(() => host.Services.GetRequiredService<IRestClient>());
+            Assert.Throws<OptionsValidationException>(() => host.Services.GetRequiredService<IRestClient>());
         }
 
         private static IHost GetRestClientHost(Dictionary<string, string> appSettings) =>

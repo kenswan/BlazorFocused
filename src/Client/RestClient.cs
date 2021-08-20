@@ -25,7 +25,7 @@ namespace BlazorFocused.Client
             this.httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             this.logger = logger ?? NullLogger<RestClient>.Instance;
 
-            if(restClientOptions?.Value is not null)
+            if (restClientOptions?.Value is not null)
             {
                 this.httpClient.ConfigureRestClientOptions(restClientOptions.Value);
             }

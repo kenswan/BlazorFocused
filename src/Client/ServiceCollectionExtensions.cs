@@ -14,7 +14,7 @@ namespace BlazorFocused.Client
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
         {
-            services.ConfigureRestClientOptions();
+            services.AddRestClientOptions();
 
             return (configureClient is null) ?
                 services.AddHttpClient<IRestClient, RestClient>() :
@@ -28,20 +28,23 @@ namespace BlazorFocused.Client
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
         {
-            services.ConfigureRestClientOptions();
+            services.AddRestClientOptions();
             services.AddSingleton(sp => new OAuthToken());
+            services.AddTransient<RestClientAuthHandler>();
 
             if (configureClient is null)
             {
-                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>();
+                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>()
+                    .AddHttpMessageHandler<RestClientAuthHandler>();
             }
             else
             {
-                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>(configureClient);
+                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>(configureClient)
+                    .AddHttpMessageHandler<RestClientAuthHandler>();
             }
         }
 
-        private static void ConfigureRestClientOptions(this IServiceCollection services)
+        private static void AddRestClientOptions(this IServiceCollection services)
         {
             services
                 .AddOptions<RestClientOptions>()
@@ -55,12 +58,12 @@ namespace BlazorFocused.Client
                     {
                         if (!Uri.TryCreate(options.BaseAddress, UriKind.Absolute, out _))
                         {
-                            throw new RestClientException("BaseAddress in configuration is not a valid Uri");
+                            return false;
                         }
                     }
 
                     return true;
-                });
+                }, "BaseAddress in configuration is not a valid Uri");
         }
     }
 }

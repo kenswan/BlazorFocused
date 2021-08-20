@@ -4,7 +4,6 @@ using Bogus;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
-using Moq;
 using System.Collections.Generic;
 
 namespace BlazorFocused.Client
@@ -23,7 +22,7 @@ namespace BlazorFocused.Client
             nullLogger = NullLogger<RestClient>.Instance;
             var restClientOptions = Options.Create<RestClientOptions>(default);
 
-            restClient = 
+            restClient =
                 new RestClient(simulatedHttp.Client(), restClientOptions, nullLogger);
         }
 

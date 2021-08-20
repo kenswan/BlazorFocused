@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
 
 namespace BlazorFocused.Client
 {
@@ -11,9 +9,9 @@ namespace BlazorFocused.Client
         private OAuthToken oAuthToken;
 
         public OAuthRestClient(
-            OAuthToken oAuthToken, 
-            HttpClient httpClient, 
-            IOptions<RestClientOptions> restClientOptions,
+            OAuthToken oAuthToken,
+            HttpClient httpClient,
+            IOptionsSnapshot<RestClientOptions> restClientOptions,
             ILogger<OAuthRestClient> logger) :
                 base(httpClient, restClientOptions, logger)
         {
@@ -36,20 +34,5 @@ namespace BlazorFocused.Client
 
         public string RetrieveAuthorization() =>
             oAuthToken.ToString();
-
-        protected override Task<RestClientResponse<T>> SendAsync<T>(HttpMethod method, string url, object data = null)
-        {
-            if (!oAuthToken.IsEmpty())
-            {
-                httpClient.DefaultRequestHeaders.Authorization =
-                    new AuthenticationHeaderValue(oAuthToken.Scheme, oAuthToken.Token);
-            }
-            else
-            {
-                logger.LogInformation("OAuth token has not been configured for rest client");
-            }
-
-            return base.SendAsync<T>(method, url, data);
-        }
     }
 }
