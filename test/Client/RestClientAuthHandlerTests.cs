@@ -10,13 +10,13 @@ namespace BlazorFocused.Client
     public class RestClientAuthHandlerTests : IDisposable
     {
         private readonly MockLogger<RestClientAuthHandler> mockLogger;
-        private readonly SimulatedHttp simulatedHttp;
+        private readonly ISimulatedHttp simulatedHttp;
         private readonly string baseAddress = new Faker().Internet.Url();
 
         public RestClientAuthHandlerTests()
         {
             mockLogger = new();
-            simulatedHttp = new(baseAddress);
+            simulatedHttp = new SimulatedHttp(baseAddress);
         }
 
         [Fact]
@@ -32,7 +32,7 @@ namespace BlazorFocused.Client
 
             var restClientAuthHandler = new RestClientAuthHandler(oAuthToken, mockLogger)
             {
-                InnerHandler = simulatedHttp
+                InnerHandler = simulatedHttp as SimulatedHttp
             };
 
             var httpClient = new HttpClient(restClientAuthHandler)
@@ -58,7 +58,7 @@ namespace BlazorFocused.Client
 
             var restClientAuthHandler = new RestClientAuthHandler(oAuthToken, mockLogger)
             {
-                InnerHandler = simulatedHttp
+                InnerHandler = simulatedHttp as SimulatedHttp
             };
 
             var httpClient = new HttpClient(restClientAuthHandler)
@@ -75,6 +75,6 @@ namespace BlazorFocused.Client
         private static string GetRandomToken() =>
             new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
 
-        public void Dispose() => simulatedHttp.Dispose();
+        public void Dispose() => (simulatedHttp as SimulatedHttp).Dispose();
     }
 }

@@ -4,11 +4,12 @@ using Bogus;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 
 namespace BlazorFocused.Client
 {
-    public partial class RestClientTests
+    public partial class RestClientTests : IDisposable
     {
         private readonly string baseAddress;
         private readonly ISimulatedHttp simulatedHttp;
@@ -41,5 +42,7 @@ namespace BlazorFocused.Client
 
         private static int GetRandomNumber() =>
             new Faker().Random.Int(2, 5);
+
+        public void Dispose() => (simulatedHttp as SimulatedHttp).Dispose();
     }
 }
