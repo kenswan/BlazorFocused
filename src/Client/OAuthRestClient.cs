@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -9,8 +10,12 @@ namespace BlazorFocused.Client
     {
         private OAuthToken oAuthToken;
 
-        public OAuthRestClient(OAuthToken oAuthToken, HttpClient httpClient, ILogger<OAuthRestClient> logger) :
-            base(httpClient, logger)
+        public OAuthRestClient(
+            OAuthToken oAuthToken, 
+            HttpClient httpClient, 
+            IOptions<RestClientOptions> restClientOptions,
+            ILogger<OAuthRestClient> logger) :
+                base(httpClient, restClientOptions, logger)
         {
             this.oAuthToken = oAuthToken;
         }

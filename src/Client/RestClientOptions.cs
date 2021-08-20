@@ -2,7 +2,7 @@
 
 namespace BlazorFocused.Client
 {
-    internal class RestClientSettings
+    internal class RestClientOptions
     {
         public string BaseAddress { get; set; }
 

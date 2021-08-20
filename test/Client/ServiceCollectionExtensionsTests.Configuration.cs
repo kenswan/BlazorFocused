@@ -127,6 +127,19 @@ namespace BlazorFocused.Client
             Assert.Equal(100000, httpClient.Timeout.TotalMilliseconds); // Default value
         }
 
+        [Fact]
+        public void ShouldThrowExceptionWithInvalidUri()
+        {
+            var appSettings = new Dictionary<string, string>()
+            {
+                ["restclient:baseAddress"] = "ThisIsTestingAFail",
+            };
+
+            using var host = GetRestClientHost(appSettings);
+
+            Assert.Throws<RestClientException>(() => host.Services.GetRequiredService<IRestClient>());
+        }
+
         private static IHost GetRestClientHost(Dictionary<string, string> appSettings) =>
             Host.CreateDefaultBuilder()
                 .ConfigureAppConfiguration(configBuilder =>
