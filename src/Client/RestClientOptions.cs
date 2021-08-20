@@ -11,5 +11,16 @@ namespace BlazorFocused.Client
         public long? MaxResponseContentBufferSize { get; set; }
 
         public double? Timeout { get; set; }
+
+        public bool IsConfigured
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(BaseAddress) ||
+                    DefaultRequestHeaders.Count > 0 ||
+                    MaxResponseContentBufferSize > 0 ||
+                    Timeout > 0;
+            }
+        }
     }
 }

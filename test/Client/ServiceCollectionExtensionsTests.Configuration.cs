@@ -1,7 +1,9 @@
-﻿using FluentAssertions;
+﻿using BlazorFocused.Extensions;
+using Bogus;
+using FluentAssertions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -14,6 +16,8 @@ namespace BlazorFocused.Client
         [Fact]
         public void ShouldUseRestClientConfiguration()
         {
+            var baseAddress = new Faker().Internet.Url();
+
             var expectedRequestHeaders = new Dictionary<string, string[]>()
             {
                 ["Accept"] = new string[] { "application/json" },
@@ -23,7 +27,7 @@ namespace BlazorFocused.Client
 
             var appSettings = new Dictionary<string, string>()
             {
-                ["restclient:baseAddress"] = "http://test.com",
+                ["restclient:baseAddress"] = baseAddress,
                 ["restclient:defaultRequestHeaders:Accept"] = "application/json",
                 ["restclient:defaultRequestHeaders:Accept-Enconding"] = "gzip",
                 ["restclient:defaultRequestHeaders:Cache-Control"] = "max-age=0",
@@ -31,18 +35,15 @@ namespace BlazorFocused.Client
                 ["restclient:timeout"] = "300000"
             };
 
-            using var host = GetRestClientHost(appSettings);
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddConfiguration(appSettings);
+            serviceCollection.AddRestClient();
 
-            var restClient = host.Services.GetRequiredService<IRestClient>();
+            using var serviceProvider = serviceCollection.BuildServiceProvider();
+            var restClient = serviceProvider.GetRequiredService<IRestClient>();
+            HttpClient httpClient = (restClient as RestClient).GetClient();
 
-            HttpClient httpClient = default;
-
-            restClient.UpdateHttpClient(innerClient =>
-            {
-                httpClient = innerClient;
-            });
-
-            Assert.Equal("http://test.com", httpClient.BaseAddress.OriginalString);
+            Assert.Equal(baseAddress, httpClient.BaseAddress.OriginalString);
             Assert.Equal(3, httpClient.DefaultRequestHeaders.Count());
             httpClient.DefaultRequestHeaders.Should().BeEquivalentTo(expectedRequestHeaders);
             Assert.Equal(500000, httpClient.MaxResponseContentBufferSize);
@@ -50,8 +51,10 @@ namespace BlazorFocused.Client
         }
 
         [Fact]
-        public void ShouldUseOAuthRestClientConfiguration()
+        public void ShouldUseRestClientConfigurationIfOAuthNotPresent()
         {
+            var baseAddress = new Faker().Internet.Url();
+
             var expectedRequestHeaders = new Dictionary<string, string[]>()
             {
                 ["Accept"] = new string[] { "application/json" },
@@ -61,7 +64,7 @@ namespace BlazorFocused.Client
 
             var appSettings = new Dictionary<string, string>()
             {
-                ["restclient:baseAddress"] = "http://test.com",
+                ["restclient:baseAddress"] = baseAddress,
                 ["restclient:defaultRequestHeaders:Accept"] = "application/json",
                 ["restclient:defaultRequestHeaders:Accept-Enconding"] = "gzip",
                 ["restclient:defaultRequestHeaders:Cache-Control"] = "max-age=0",
@@ -69,18 +72,15 @@ namespace BlazorFocused.Client
                 ["restclient:timeout"] = "300000"
             };
 
-            using var host = GetOAuthRestClientHost(appSettings);
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddConfiguration(appSettings);
+            serviceCollection.AddOAuthRestClient();
 
-            var oAuthRestClient = host.Services.GetRequiredService<IOAuthRestClient>();
+            using var serviceProvider = serviceCollection.BuildServiceProvider();
+            var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+            HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
-            HttpClient httpClient = default;
-
-            oAuthRestClient.UpdateHttpClient(innerClient =>
-            {
-                httpClient = innerClient;
-            });
-
-            Assert.Equal("http://test.com", httpClient.BaseAddress.OriginalString);
+            Assert.Equal(baseAddress, httpClient.BaseAddress.OriginalString);
             Assert.Equal(3, httpClient.DefaultRequestHeaders.Count());
             httpClient.DefaultRequestHeaders.Should().BeEquivalentTo(expectedRequestHeaders);
             Assert.Equal(500000, httpClient.MaxResponseContentBufferSize);
@@ -90,16 +90,13 @@ namespace BlazorFocused.Client
         [Fact]
         public void ShouldNotConfigureRestClientWithoutConfiguration()
         {
-            using var host = GetRestClientHost(new Dictionary<string, string>());
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddConfiguration(new Dictionary<string, string>());
+            serviceCollection.AddRestClient();
 
-            var restClient = host.Services.GetRequiredService<IRestClient>();
-
-            HttpClient httpClient = default;
-
-            restClient.UpdateHttpClient(innerClient =>
-            {
-                httpClient = innerClient;
-            });
+            using var serviceProvider = serviceCollection.BuildServiceProvider();
+            var restClient = serviceProvider.GetRequiredService<IRestClient>();
+            HttpClient httpClient = (restClient as RestClient).GetClient();
 
             Assert.Null(httpClient.BaseAddress);
             Assert.Empty(httpClient.DefaultRequestHeaders);
@@ -110,16 +107,13 @@ namespace BlazorFocused.Client
         [Fact]
         public void ShouldNotConfigureOAuthRestClientWithoutConfiguration()
         {
-            using var host = GetOAuthRestClientHost(new Dictionary<string, string>());
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddConfiguration(new Dictionary<string, string>());
+            serviceCollection.AddOAuthRestClient();
 
-            var oAuthRestClient = host.Services.GetRequiredService<IOAuthRestClient>();
-
-            HttpClient httpClient = default;
-
-            oAuthRestClient.UpdateHttpClient(innerClient =>
-            {
-                httpClient = innerClient;
-            });
+            using var serviceProvider = serviceCollection.BuildServiceProvider();
+            var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+            HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
             Assert.Null(httpClient.BaseAddress);
             Assert.Empty(httpClient.DefaultRequestHeaders);
@@ -135,33 +129,14 @@ namespace BlazorFocused.Client
                 ["restclient:baseAddress"] = "ThisIsTestingAFail",
             };
 
-            using var host = GetRestClientHost(appSettings);
+            var serviceCollection = new ServiceCollection();
+            serviceCollection.AddConfiguration(appSettings);
+            serviceCollection.AddRestClient();
 
-            Assert.Throws<RestClientException>(() => host.Services.GetRequiredService<IRestClient>());
+            using var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            Assert.Throws<OptionsValidationException>(() =>
+                serviceProvider.GetRequiredService<IRestClient>());
         }
-
-        private static IHost GetRestClientHost(Dictionary<string, string> appSettings) =>
-            Host.CreateDefaultBuilder()
-                .ConfigureAppConfiguration(configBuilder =>
-                {
-                    configBuilder.AddInMemoryCollection(appSettings);
-                })
-                .ConfigureServices(services =>
-                {
-                    services.AddRestClient();
-                })
-                .Build();
-
-        private static IHost GetOAuthRestClientHost(Dictionary<string, string> appSettings) =>
-            Host.CreateDefaultBuilder()
-                .ConfigureAppConfiguration(configBuilder =>
-                {
-                    configBuilder.AddInMemoryCollection(appSettings);
-                })
-                .ConfigureServices(services =>
-                {
-                    services.AddOAuthRestClient();
-                })
-                .Build();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 using System.Net.Http;
 
@@ -14,7 +15,7 @@ namespace BlazorFocused.Client
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
         {
-            services.ConfigureRestClientOptions();
+            services.AddRestClientOptions(nameof(RestClient));
 
             return (configureClient is null) ?
                 services.AddHttpClient<IRestClient, RestClient>() :
@@ -28,26 +29,40 @@ namespace BlazorFocused.Client
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
         {
-            services.ConfigureRestClientOptions();
-            services.AddSingleton(sp => new OAuthToken());
+            services.AddRestClientOptions(nameof(OAuthRestClient), nameof(OAuthRestClient));
+            services.TryAddSingleton(sp => new OAuthToken());
+            services.TryAddTransient<RestClientAuthHandler>();
 
             if (configureClient is null)
             {
-                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>();
+                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>()
+                    .AddHttpMessageHandler<RestClientAuthHandler>();
             }
             else
             {
-                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>(configureClient);
+                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>(configureClient)
+                    .AddHttpMessageHandler<RestClientAuthHandler>();
             }
         }
 
-        private static void ConfigureRestClientOptions(this IServiceCollection services)
+        private static void AddRestClientOptions(
+            this IServiceCollection services,
+            string configurationSection,
+            string namedOption = "")
         {
             services
-                .AddOptions<RestClientOptions>()
+                .AddOptions<RestClientOptions>(namedOption)
                 .Configure<IConfiguration>((options, configuration) =>
                 {
-                    configuration.GetSection(nameof(RestClient)).Bind(options);
+                    if(configuration.GetSection(configurationSection).Exists())
+                    {
+                        configuration.GetSection(configurationSection).Bind(options);
+                    }
+                    else
+                    {
+                        // Default to basic RestClient properties if not found
+                        configuration.GetSection(nameof(RestClient)).Bind(options);
+                    }
                 })
                 .Validate(options =>
                 {
@@ -55,12 +70,12 @@ namespace BlazorFocused.Client
                     {
                         if (!Uri.TryCreate(options.BaseAddress, UriKind.Absolute, out _))
                         {
-                            throw new RestClientException("BaseAddress in configuration is not a valid Uri");
+                            return false;
                         }
                     }
 
                     return true;
-                });
+                }, "BaseAddress in configuration is not a valid Uri");
         }
     }
 }

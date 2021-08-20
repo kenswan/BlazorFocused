@@ -11,7 +11,7 @@ using Xunit;
 
 namespace BlazorFocused.Testing
 {
-    public class SimulatedHttpTests
+    public class SimulatedHttpTests : IDisposable
     {
         private readonly ISimulatedHttp simulatedHttp;
         private readonly string baseAddress;
@@ -177,5 +177,7 @@ namespace BlazorFocused.Testing
 
         private static int GetRandomNumber() =>
             new Faker().Random.Int(4, 10);
+
+        public void Dispose() => (simulatedHttp as SimulatedHttp).Dispose();
     }
 }

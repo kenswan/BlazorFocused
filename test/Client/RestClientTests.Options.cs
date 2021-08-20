@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using Xunit;
 
@@ -32,19 +31,12 @@ namespace BlazorFocused.Client
                 }
             };
 
-            var clientWithOptions = 
-                new RestClient(new HttpClient(), Options.Create(restClientOptions), nullLogger);
-
-            HttpClient httpClient = default;
-
-            clientWithOptions.UpdateHttpClient(innerClient =>
-            {
-                httpClient = innerClient;
-            });
+            var httpClient =
+                new RestClient(new HttpClient(), Options.Create(restClientOptions), nullLogger).GetClient();
 
             Assert.Equal(expectedBaseAddress, httpClient.BaseAddress);
 
-            Assert.Equal(restClientOptions.MaxResponseContentBufferSize, 
+            Assert.Equal(restClientOptions.MaxResponseContentBufferSize,
                 httpClient.MaxResponseContentBufferSize);
 
             Assert.Equal(restClientOptions.Timeout, httpClient.Timeout.TotalMilliseconds);

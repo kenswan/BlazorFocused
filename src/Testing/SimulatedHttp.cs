@@ -47,7 +47,8 @@ namespace BlazorFocused.Testing
             return new HttpResponseMessage
             {
                 StatusCode = response is not null ? response.StatusCode : HttpStatusCode.NotImplemented,
-                Content = new StringContent(JsonSerializer.Serialize(response?.Response), Encoding.UTF8, "application/json")
+                Content = new StringContent(JsonSerializer.Serialize(response?.Response), Encoding.UTF8, "application/json"),
+                RequestMessage = request
             };
         }
 
