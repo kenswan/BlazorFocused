@@ -6,11 +6,26 @@ using System.Net.Http;
 
 namespace BlazorFocused.Client
 {
+    /// <summary>
+    /// Extensions used to initialize <see cref="IRestClient"/> and inherited members
+    /// </summary>
     public static class ServiceCollectionExtensions
     {
+        /// <summary>
+        /// Adds and configures <see cref="IRestClient"/> within service collection
+        /// </summary>
+        /// <param name="services">Current service collection</param>
+        /// <param name="baseUrl">Url for base address of inner http client </param>
+        /// <returns>Current service collection with <see cref="IRestClient"/></returns>
         public static IHttpClientBuilder AddRestClient(this IServiceCollection services, string baseUrl) =>
             services.AddRestClient(client => client.BaseAddress = new Uri(baseUrl));
 
+        /// <summary>
+        /// Adds and configures <see cref="IRestClient"/> within service collection 
+        /// </summary>
+        /// <param name="services">Current service collection</param>
+        /// <param name="configureClient">Inner HttpClient configurations</param>
+        /// <returns>Current service collection with <see cref="IRestClient"/></returns>
         public static IHttpClientBuilder AddRestClient(
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
@@ -22,9 +37,21 @@ namespace BlazorFocused.Client
                 services.AddHttpClient<IRestClient, RestClient>(configureClient);
         }
 
+        /// <summary>
+        /// Adds and configures <see cref="IOAuthRestClient"/> within service collection 
+        /// </summary>
+        /// <param name="services">Current service collection</param>
+        /// <param name="baseUrl">Url for base address of inner http client </param>
+        /// <returns>Current service collection with <see cref="IOAuthRestClient"/></returns>
         public static IHttpClientBuilder AddOAuthRestClient(this IServiceCollection services, string baseUrl) =>
             services.AddOAuthRestClient(client => client.BaseAddress = new Uri(baseUrl));
 
+        /// <summary>
+        /// Adds and configures <see cref="IOAuthRestClient"/> within service collection
+        /// </summary>
+        /// <param name="services">Current service collection</param>
+        /// <param name="configureClient">Inner HttpClient configurations</param>
+        /// <returns>Current service collection with <see cref="IOAuthRestClient"/></returns>
         public static IHttpClientBuilder AddOAuthRestClient(
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
