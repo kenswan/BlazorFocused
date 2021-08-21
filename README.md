@@ -30,20 +30,12 @@ public static async Task Main(string[] args)
     builder.Services.AddScoped(sp =>
         new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-    // add store in DI
-    builder.Services.AddStore<TestStore>(builder =>
-    {
-        builder.RegisterAction<TestAction>();
-        builder.RegisterAction<TestActionAsync>();
-        builder.RegisterReducer<TestReducer, TestStoreSubset>();
-
-        // Services within actions and reducers
-        builder.RegisterService<TestService>();
-        builder.RegisterHttpClient<ITestClient, TestClient>();
-
-        // Set initial state (optional)
-        builder.SetInitialState(new TestStore { FieldOne = "Test" });
-    });
+    builder.Services.AddStore<TestStore>(new TestStore { FieldOne = "Initialized" })
+        .AddTransient<TestAction>()
+        .AddTransient<TestActionAsync>()
+        .AddTransient<TestReducer>()
+        .AddScoped<TestService>()
+        .AddSingleton<TestSingletonService>();
 
     await builder.Build().RunAsync();
 }
@@ -57,20 +49,12 @@ public void ConfigureServices(IServiceCollection services)
     services.AddControllersWithViews();
     services.AddRazorPages();
 
-    // add store in DI
-    services.AddStore<TestStore>(builder =>
-    {
-        builder.RegisterAction<TestAction>();
-        builder.RegisterAction<TestActionAsync>();
-        builder.RegisterReducer<TestReducer, TestStoreSubset>();
-
-        // Services within actions and reducers
-        builder.RegisterService<TestService>();
-        builder.RegisterHttpClient<ITestClient, TestClient>();
-
-        // Set initial state (optional)
-        builder.SetInitialState(new TestStore { FieldOne = "Test" });
-    });
+    services.AddStore<TestStore>(new TestStore { FieldOne = "Initialized" })
+        .AddTransient<TestAction>()
+        .AddTransient<TestActionAsync>()
+        .AddTransient<TestReducer>()
+        .AddScoped<TestService>()
+        .AddSingleton<TestSingletonService>();
 }
 ```
 
@@ -115,7 +99,7 @@ Subscribe to reduced value from store:
 ...
 TestStoreSubset subsetState = default;
 
-store.Reduce<TestStoreSubset>(reducedState =>
+store.Reduce<TestReducer, TestStoreSubset>(reducedState =>
 {
     // helpful if you do not care about the full state in your component
     subsetState = reducedState;
@@ -146,5 +130,4 @@ store.Subscribe((newState) => {
     // inform blazor page to refresh with state update
     StateHasChanged();
 });
-
 ```
