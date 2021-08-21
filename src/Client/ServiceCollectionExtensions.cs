@@ -15,7 +15,7 @@ namespace BlazorFocused.Client
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
         {
-            services.AddRestClientOptions(nameof(RestClient));
+            services.AddRestClientOptions<RestClient>(registerDefault: true);
 
             return (configureClient is null) ?
                 services.AddHttpClient<IRestClient, RestClient>() :
@@ -29,53 +29,37 @@ namespace BlazorFocused.Client
             this IServiceCollection services,
             Action<HttpClient> configureClient = null)
         {
-            services.AddRestClientOptions(nameof(OAuthRestClient), nameof(OAuthRestClient));
+            services.AddRestClientOptions<OAuthRestClient>();
             services.TryAddSingleton(sp => new OAuthToken());
             services.TryAddTransient<RestClientAuthHandler>();
 
-            if (configureClient is null)
-            {
-                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>()
+            return (configureClient is null) ?
+                services.AddHttpClient<IOAuthRestClient, OAuthRestClient>()
+                    .AddHttpMessageHandler<RestClientAuthHandler>() :
+                services.AddHttpClient<IOAuthRestClient, OAuthRestClient>(configureClient)
                     .AddHttpMessageHandler<RestClientAuthHandler>();
-            }
-            else
-            {
-                return services.AddHttpClient<IOAuthRestClient, OAuthRestClient>(configureClient)
-                    .AddHttpMessageHandler<RestClientAuthHandler>();
-            }
         }
 
-        private static void AddRestClientOptions(
-            this IServiceCollection services,
-            string configurationSection,
-            string namedOption = "")
+        private static void AddRestClientOptions<T>(
+            this IServiceCollection services, bool registerDefault = false)
+            where T : IRestClient
         {
+            var configKey = typeof(T).Name;
+            var defaultKey = nameof(RestClient);
+            var namedOption = registerDefault == true ? "" : typeof(T).Name;
+
             services
                 .AddOptions<RestClientOptions>(namedOption)
                 .Configure<IConfiguration>((options, configuration) =>
-                {
-                    if(configuration.GetSection(configurationSection).Exists())
+                    (configuration.GetSection(configKey) switch
                     {
-                        configuration.GetSection(configurationSection).Bind(options);
-                    }
-                    else
-                    {
-                        // Default to basic RestClient properties if not found
-                        configuration.GetSection(nameof(RestClient)).Bind(options);
-                    }
-                })
+                        IConfigurationSection section when section.Exists() => section,
+                        _ => configuration.GetSection(defaultKey)
+                    }).Bind(options))
                 .Validate(options =>
-                {
-                    if (!string.IsNullOrWhiteSpace(options.BaseAddress))
-                    {
-                        if (!Uri.TryCreate(options.BaseAddress, UriKind.Absolute, out _))
-                        {
-                            return false;
-                        }
-                    }
-
-                    return true;
-                }, "BaseAddress in configuration is not a valid Uri");
+                    string.IsNullOrWhiteSpace(options.BaseAddress) ||
+                        Uri.TryCreate(options.BaseAddress, UriKind.Absolute, out _),
+                    "BaseAddress in configuration is not a valid Uri");
         }
     }
 }
