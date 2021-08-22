@@ -18,9 +18,9 @@ namespace BlazorFocused.Testing
 
         private readonly List<SimulatedHttpRequest> requests;
         private readonly List<SimulatedHttpResponse> responses;
-        private NativeHttpClient httpClient;
+        private readonly NativeHttpClient httpClient;
 
-        public SimulatedHttp(string baseAddress = "http://test-url.io")
+        public SimulatedHttp(string baseAddress = "https://blazorfocused.net")
         {
             BaseAddress = baseAddress;
             requests = new List<SimulatedHttpRequest>();
