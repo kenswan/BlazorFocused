@@ -4,6 +4,7 @@ using Integration.Client.Actions;
 using Integration.Client.Models;
 using Integration.Client.Reducers;
 using Integration.Client.Services;
+using Integration.Sdk.Models;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,15 +29,13 @@ namespace Integration.Client
             builder.Services
                 .AddTransient<AddToDoItem>()
                 .AddTransient<GetToDoItems>()
-                .AddTransient<ToDoCountReducer>()
-                .AddStore(ToDoStore.GetInitialState());
+                .AddTransient<ToDoCountReducer>();
 
-            // builder.Services.AddScoped<AuthenticationStateProvider, UserAuthenticationProvider>();
+            builder.Services
+                .AddStore(ToDoStore.GetInitialState())
+                .AddStore<User>(default);
 
-            builder.Services.AddScoped<UserAuthenticationProvider>();
-
-            builder.Services.AddScoped<AuthenticationStateProvider>(provider => 
-                provider.GetRequiredService<UserAuthenticationProvider>());
+            builder.Services.AddScoped<AuthenticationStateProvider, UserAuthenticationProvider>();
 
             builder.Services.AddRestClient();
             builder.Services.AddOAuthRestClient();

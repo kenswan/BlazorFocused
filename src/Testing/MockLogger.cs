@@ -4,13 +4,15 @@ using System.Collections.Generic;
 
 namespace BlazorFocused.Testing
 {
-    public partial class MockLogger<T> : ILogger<T>
+    /// <inheritdoc cref="IMockLogger{T}"/>
+    public partial class MockLogger<T> : ILogger<T>, IMockLogger<T>
     {
         private readonly List<MockLog> logs;
         private readonly Action<LogLevel, string, Exception> logAction;
+        private readonly List<LogScope> scopes;
 
         /// <summary>
-        /// Mock Logger used to capture/test logs within a given class
+        /// Initializes a new instance of Mock Logger used to capture/test logs
         /// </summary>
         /// <param name="logAction">Optional: execute this action every time a log occurs.
         /// This is useful when using test output helpers (i.e. XUnit ITestOutputHelper)
@@ -20,11 +22,14 @@ namespace BlazorFocused.Testing
         {
             this.logAction = logAction;
             logs = new();
+            scopes = new();
         }
 
         public IDisposable BeginScope<TState>(TState state)
         {
-            throw new NotImplementedException();
+            var scope = new LogScope(state);
+            scopes.Add(scope);
+            return scope;
         }
 
         public bool IsEnabled(LogLevel logLevel) => true;
@@ -46,6 +51,22 @@ namespace BlazorFocused.Testing
             public string Message { get; set; }
 
             public Exception Exception { get; set; }
+        }
+
+        public class LogScope : IDisposable
+        {
+            private object scope = default;
+
+            public LogScope(object scope)
+            {
+                this.scope = scope;
+            }
+
+            public void Dispose()
+            {
+                scope = default;
+                GC.SuppressFinalize(this);
+            }
         }
     }
 }

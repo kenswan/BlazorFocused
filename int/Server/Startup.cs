@@ -42,6 +42,7 @@ namespace Integration.Server
             })
             .AddEntityFrameworkStores<IntegrationDbContext>();
 
+            services.Configure<AdminOptions>(Configuration.GetSection(nameof(AdminOptions)));
             services.Configure<SecurityOptions>(Configuration.GetSection(nameof(SecurityOptions)));
 
             services

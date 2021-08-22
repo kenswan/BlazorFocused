@@ -61,6 +61,12 @@ namespace BlazorFocused.Client
         public async Task<RestClientResponse<T>> TryPutAsync<T>(string relativeUrl, object data) =>
             await SendAsync<T>(HttpMethod.Put, relativeUrl, data);
 
+        /// <summary>
+        /// Gets current instance of <see cref="HttpClient"/> being used for requests
+        /// </summary>
+        /// <returns>Current <see cref="HttpClient"/> from dependency injection</returns>
+        public HttpClient GetClient() => httpClient;
+
         private HttpContent ConvertToHttpContent(object data)
         {
             logger.LogDebug("Creating HttpContent for request");
@@ -146,7 +152,5 @@ namespace BlazorFocused.Client
         {
             updateHttpClient(httpClient);
         }
-
-        public HttpClient GetClient() => httpClient;
     }
 }

@@ -4,6 +4,7 @@ using System.Net.Http;
 
 namespace BlazorFocused.Client
 {
+    /// <inheritdoc cref="IOAuthRestClient"/>
     internal class OAuthRestClient : RestClient, IOAuthRestClient
     {
         private OAuthToken oAuthToken;
