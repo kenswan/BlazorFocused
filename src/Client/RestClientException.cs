@@ -33,6 +33,7 @@ namespace BlazorFocused.Client
         /// <param name="httpStatusCode">Status code of the response from failed request</param>
         /// <param name="url">Url of request that caused exception</param>
         public RestClientException(HttpMethod method, HttpStatusCode httpStatusCode, string url) :
-            base($"{method} request failed with {httpStatusCode} at {url}") { }
+            base($"{method} request failed with {httpStatusCode} at {url}")
+        { }
     }
 }

@@ -1,10 +1,13 @@
 ﻿@inherits LayoutComponentBase
-@using Integration.Client.Extensions
+
+@using BlazorFocused.Store
 @using Integration.Sdk.Models
+@using Integration.Client.Services 
 @using Microsoft.AspNetCore.Components.Authorization 
 
 @inject NavigationManager navigationManager
 @inject AuthenticationStateProvider authenticationStateProvider
+@inject IStore<User> userStore
 
 <div class="page">
     <div class="sidebar">
@@ -13,22 +16,22 @@
 
     <div class="main">
         <div class="top-row px-4">
-            @if (user == null)
-            {
-                <NavLink class="nav-link" href="authentication" Match="NavLinkMatch.All">
-                    <span class="oi oi-lock-locked" aria-hidden="true"></span> Login / Register
-                </NavLink>
-            }
-            else
-            {
-                <div>
-                    <b>@user.LastName, @user.FirstName</b>
-                    <text>&nbsp;</text>
-                    <i>(@user.UserName)</i>
-                    <text>&nbsp;</text>
-                    <a href="" @onclick="SignOutOnClick">Sign Out</a>
-                </div>
-            }
+            <AuthorizeView>
+                <Authorized>
+                    <div>
+                        <b>@user.LastName, @user.FirstName</b>
+                        <text>&nbsp;</text>
+                        <i>(@user.UserName)</i>
+                        <text>&nbsp;</text>
+                        <a href="" @onclick="SignOutOnClick">Sign Out</a>
+                    </div>
+                </Authorized>
+                <NotAuthorized>
+                    <NavLink class="nav-link" href="authentication" Match="NavLinkMatch.All">
+                        <span class="oi oi-lock-locked" aria-hidden="true"></span> Login / Register
+                    </NavLink>
+                </NotAuthorized>
+            </AuthorizeView>
         </div>
 
         <div class="content px-4">
@@ -39,21 +42,26 @@
 
 @code {
 
-    protected User user = null;
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
 
-    protected override async void OnInitialized()
+    protected User user = new User();
+
+    protected override void OnInitialized()
     {
-        var authenticationState = await authenticationStateProvider.GetAuthenticationStateAsync();
-
-        var authenticationUser = authenticationState.User;
-        if (authenticationUser.Identity.IsAuthenticated)
+        userStore.Subscribe(updatedUser =>
         {
-            user = authenticationUser.ToUser();
-        }
+            this.user = updatedUser;
+            this.StateHasChanged();
+        });
     }
 
     private void SignOutOnClick(MouseEventArgs e)
     {
+        var userAuthProvider = authenticationStateProvider as UserAuthenticationProvider;
+
+        userAuthProvider.Logout();
+
         navigationManager.NavigateTo("/");
     }
 }

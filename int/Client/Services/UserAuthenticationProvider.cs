@@ -1,4 +1,5 @@
 ﻿using BlazorFocused.Client;
+using BlazorFocused.Store;
 using Integration.Client.Extensions;
 using Integration.Sdk.Models;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -12,14 +13,17 @@ namespace Integration.Client.Services
     {
         protected ClaimsPrincipal claimsPrincipal;
         private readonly IOAuthRestClient oAuthRestClient;
+        private readonly IStore<User> userStore;
         private readonly ILogger<UserAuthenticationProvider> logger;
 
         public UserAuthenticationProvider(
             IOAuthRestClient oAuthRestClient,
+            IStore<User> userStore,
             ILogger<UserAuthenticationProvider> logger) : base()
         {
             claimsPrincipal = GetDefaultClaimsPrincipal();
             this.oAuthRestClient = oAuthRestClient;
+            this.userStore = userStore;
             this.logger = logger;
         }
 
@@ -57,10 +61,12 @@ namespace Integration.Client.Services
             if (restClientResponse.IsValid)
             {
                 var user = restClientResponse.Value;
-                
+
                 oAuthRestClient.AddAuthorization("Bearer", user.Token);
-                
+
                 CreateClaimsPrincipalFromUser(user);
+
+                userStore.SetState(user);
             }
             else
             {

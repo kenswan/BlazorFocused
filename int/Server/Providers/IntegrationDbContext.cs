@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System;
 
 namespace Integration.Server.Providers
@@ -11,10 +11,10 @@ namespace Integration.Server.Providers
     {
         private readonly AdminOptions adminOptions = new();
 
-        public IntegrationDbContext(DbContextOptions<IntegrationDbContext> options, IConfiguration configuration)
+        public IntegrationDbContext(DbContextOptions<IntegrationDbContext> options, IOptions<AdminOptions> adminOptions)
             : base(options)
         {
-            configuration.GetSection(nameof(AdminOptions)).Bind(adminOptions);
+            this.adminOptions = adminOptions?.Value ?? new();
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
