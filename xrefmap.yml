@@ -1144,49 +1144,6 @@ references:
   fullName.vb: BlazorFocused.Testing.MockLogger(Of T).Log(Of TState)(LogLevel, EventId, TState, System.Exception, System.Func(Of TState, System.Exception, System.String))
   nameWithType: MockLogger<T>.Log<TState>(LogLevel, EventId, TState, Exception, Func<TState, Exception, String>)
   nameWithType.vb: MockLogger(Of T).Log(Of TState)(LogLevel, EventId, TState, Exception, Func(Of TState, Exception, String))
-- uid: BlazorFocused.Testing.MockLogger`1.LogScope
-  name: MockLogger<T>.LogScope
-  href: api/BlazorFocused.Testing.MockLogger-1.LogScope.html
-  commentId: T:BlazorFocused.Testing.MockLogger`1.LogScope
-  name.vb: MockLogger(Of T).LogScope
-  fullName: BlazorFocused.Testing.MockLogger<T>.LogScope
-  fullName.vb: BlazorFocused.Testing.MockLogger(Of T).LogScope
-  nameWithType: MockLogger<T>.LogScope
-  nameWithType.vb: MockLogger(Of T).LogScope
-- uid: BlazorFocused.Testing.MockLogger`1.LogScope.#ctor(System.Object)
-  name: LogScope(Object)
-  href: api/BlazorFocused.Testing.MockLogger-1.LogScope.html#BlazorFocused_Testing_MockLogger_1_LogScope__ctor_System_Object_
-  commentId: M:BlazorFocused.Testing.MockLogger`1.LogScope.#ctor(System.Object)
-  fullName: BlazorFocused.Testing.MockLogger<T>.LogScope.LogScope(System.Object)
-  fullName.vb: BlazorFocused.Testing.MockLogger(Of T).LogScope.LogScope(System.Object)
-  nameWithType: MockLogger<T>.LogScope.LogScope(Object)
-  nameWithType.vb: MockLogger(Of T).LogScope.LogScope(Object)
-- uid: BlazorFocused.Testing.MockLogger`1.LogScope.#ctor*
-  name: LogScope
-  href: api/BlazorFocused.Testing.MockLogger-1.LogScope.html#BlazorFocused_Testing_MockLogger_1_LogScope__ctor_
-  commentId: Overload:BlazorFocused.Testing.MockLogger`1.LogScope.#ctor
-  isSpec: "True"
-  fullName: BlazorFocused.Testing.MockLogger<T>.LogScope.LogScope
-  fullName.vb: BlazorFocused.Testing.MockLogger(Of T).LogScope.LogScope
-  nameWithType: MockLogger<T>.LogScope.LogScope
-  nameWithType.vb: MockLogger(Of T).LogScope.LogScope
-- uid: BlazorFocused.Testing.MockLogger`1.LogScope.Dispose
-  name: Dispose()
-  href: api/BlazorFocused.Testing.MockLogger-1.LogScope.html#BlazorFocused_Testing_MockLogger_1_LogScope_Dispose
-  commentId: M:BlazorFocused.Testing.MockLogger`1.LogScope.Dispose
-  fullName: BlazorFocused.Testing.MockLogger<T>.LogScope.Dispose()
-  fullName.vb: BlazorFocused.Testing.MockLogger(Of T).LogScope.Dispose()
-  nameWithType: MockLogger<T>.LogScope.Dispose()
-  nameWithType.vb: MockLogger(Of T).LogScope.Dispose()
-- uid: BlazorFocused.Testing.MockLogger`1.LogScope.Dispose*
-  name: Dispose
-  href: api/BlazorFocused.Testing.MockLogger-1.LogScope.html#BlazorFocused_Testing_MockLogger_1_LogScope_Dispose_
-  commentId: Overload:BlazorFocused.Testing.MockLogger`1.LogScope.Dispose
-  isSpec: "True"
-  fullName: BlazorFocused.Testing.MockLogger<T>.LogScope.Dispose
-  fullName.vb: BlazorFocused.Testing.MockLogger(Of T).LogScope.Dispose
-  nameWithType: MockLogger<T>.LogScope.Dispose
-  nameWithType.vb: MockLogger(Of T).LogScope.Dispose
 - uid: BlazorFocused.Testing.MockLogger`1.VerifyWasCalled
   name: VerifyWasCalled()
   href: api/BlazorFocused.Testing.MockLogger-1.html#BlazorFocused_Testing_MockLogger_1_VerifyWasCalled
