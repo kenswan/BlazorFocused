@@ -1,19 +1,25 @@
+[![Nuget Version](https://img.shields.io/nuget/v/BlazorFocused?logo=nuget)](https://www.nuget.org/packages/BlazorFocused)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/BlazorFocused?logo=nuget)](https://www.nuget.org/packages/BlazorFocused)
+![Build & Test](https://github.com/kenswan/BlazorFocused/actions/workflows/build/badge.svg)
+
 # BlazorFocused
 
 Adding Flux Architecture and other utilities to Blazor Components
 
 ## Installation
 
-Package Manager
-
-```powershell
-Install-Package BlazorFocused
-```
-
-.NET CLI
+Install with .NET CLI
 
 ```powershell
 dotnet add package BlazorFocused
+```
+
+OR
+
+Add the following line in your csproj package references
+
+```xml
+<PackageReference Include="BlazorFocused" Version="1.2.0" />
 ```
 
 ## Quick Start
