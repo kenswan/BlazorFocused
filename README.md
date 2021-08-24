@@ -1,6 +1,6 @@
 [![Nuget Version](https://img.shields.io/nuget/v/BlazorFocused?logo=nuget)](https://www.nuget.org/packages/BlazorFocused)
 [![Nuget Downloads](https://img.shields.io/nuget/dt/BlazorFocused?logo=nuget)](https://www.nuget.org/packages/BlazorFocused)
-![Build & Test](https://github.com/kenswan/BlazorFocused/actions/workflows/continuous%20integration/badge.svg)
+![Build & Test](https://github.com/kenswan/BlazorFocused/actions/workflows/build.yml/badge.svg)
 
 # BlazorFocused
 
