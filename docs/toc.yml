@@ -1,6 +1,6 @@
 - name: Home
   href: index.md
-- name: Api Documentation
+- name: Api
   href: api/
   homepage: api/index.md
 - name: GitHub
