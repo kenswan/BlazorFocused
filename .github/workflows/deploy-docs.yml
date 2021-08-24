@@ -50,7 +50,7 @@ jobs:
 
       - name: Install DocFx
         shell: pwsh
-        run: choco install docfx -y
+        run: choco install docfx -y --version=2.58
 
       - name: Generate Metadata
         shell: pwsh
