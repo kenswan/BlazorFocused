@@ -4,9 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       version: 
-        description: 'BlazorFocused Package Version for API Documentation'     
+        description: 'Release Version'     
         required: true
-        default: '1.2.0'
 
 env:
   current-repo-directory: Docs

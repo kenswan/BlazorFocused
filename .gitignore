@@ -5,6 +5,7 @@
 
 #docfx local serve
 docs/_site/
+docs/build/
 
 # User-specific files
 *.suo

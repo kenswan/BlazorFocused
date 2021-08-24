@@ -6,10 +6,6 @@ Contains developer documentation and content hosted in BlazorFocused GitHub Page
 
 `docfx metadata`
 
-## Build Website
+## Build/Serve Local Web
 
-`docfx build`
-
-## Serve Local Web
-
-`docfx docfx.json --serve`
+`docfx build --serve`
