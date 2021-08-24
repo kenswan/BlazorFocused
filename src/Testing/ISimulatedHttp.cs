@@ -15,7 +15,7 @@ namespace BlazorFocused.Testing
         /// <summary>
         /// Returns inner <see cref="HttpClient"/> for inspection
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Inner <see cref="HttpClient"/></returns>
         HttpClient Client();
 
         /// <summary>

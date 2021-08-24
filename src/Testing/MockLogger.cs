@@ -53,7 +53,7 @@ namespace BlazorFocused.Testing
             public Exception Exception { get; set; }
         }
 
-        public class LogScope : IDisposable
+        private class LogScope : IDisposable
         {
             private object scope = default;
 
