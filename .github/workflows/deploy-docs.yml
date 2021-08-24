@@ -1,0 +1,83 @@
+name: Documentation Deploy
+
+on: 
+  workflow_dispatch:
+    inputs:
+      version: 
+        description: 'BlazorFocused Package Version for API Documentation'     
+        required: true
+        default: '1.2.0'
+
+env:
+  current-repo-directory: Docs
+  current-repo-docs: docs
+  github-pages-repo-branch: gh-pages
+  github-pages-repo-directory: gh-pages
+  github-user-email: blazorfocused@users.noreply.github.com
+  github-user-name: Automation
+  metadata-repo: BlazorFocused
+  metadata-repo-branch: ${{ github.event.inputs.version }}
+  metadata-repo-directory: blazorfocused
+  organization: kenswan
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Docs Repo
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.current-repo-directory }}
+
+      - name: Checkout Metadata Repo
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.metadata-repo-directory }}
+          ref: ${{ env.metadata-repo-branch}}
+          repository: ${{ env.organization }}/${{ env.metadata-repo }}
+
+      - name: Checkout GitHub Pages Branch
+        uses: actions/checkout@v2
+        with:
+          path: ${{ env.github-pages-repo-directory }}
+          ref: ${{ env.github-pages-repo-branch }}
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+
+      - name: Install DocFx
+        shell: pwsh
+        run: choco install docfx -y
+
+      - name: Generate Metadata
+        shell: pwsh
+        working-directory: ./${{ env.current-repo-directory }}/${{ env.current-repo-docs }}
+        run: docfx metadata
+
+      - name: Build Docs
+        shell: pwsh
+        working-directory: ./${{ env.current-repo-directory }}/${{ env.current-repo-docs }}
+        run: docfx build
+
+      - name: Copy New GitHub Pages
+        shell: bash
+        run: |
+          rm -r ${{ env.github-pages-repo-directory }}/*
+          cp -a ${{ env.current-repo-directory }}/${{ env.current-repo-docs }}/build/. ${{ env.github-pages-repo-directory }}
+      - name: Set GitHub User Configuration
+        shell: bash
+        if: github.event_name == 'workflow_dispatch'
+        run: |
+          git config --global user.name ${{ env.github-user-name }}
+          git config --global user.email ${{ env.github-user-email }}
+      - name: Push New GitHub Pages
+        shell: bash
+        if: github.event_name == 'workflow_dispatch'
+        working-directory: ./${{ env.github-pages-repo-directory }}
+        run: |
+          git add -A
+          git commit -m "commit sha -> ${{ github.sha }}"
+          git push
