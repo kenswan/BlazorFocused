@@ -1,8 +1,9 @@
 - name: Home
-  href: index.md
+  topicUid: home
+- name: Documentation
+  topicUid: guides/index
 - name: Api
-  href: api/
-  homepage: api/index.md
+  topicUid: api/index
 - name: GitHub
   href: https://github.com/kenswan/BlazorFocused
 - name: Nuget
