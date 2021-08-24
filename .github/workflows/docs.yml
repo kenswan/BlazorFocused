@@ -6,7 +6,6 @@ on:
       version: 
         description: 'BlazorFocused Package Version for API Documentation'     
         required: true
-        default: '1.2.0'
 
 env:
   current-repo-directory: Docs
