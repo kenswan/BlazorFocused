@@ -73,7 +73,8 @@
   
   <h1 id="BlazorFocused_Testing_ISimulatedHttp" data-uid="BlazorFocused.Testing.ISimulatedHttp" class="text-break">Interface ISimulatedHttp
   </h1>
-  <div class="markdown level0 summary"><p>Simulates <span class="xref">System.Net.Http.HttpClient</span> transactions for testing</p>
+  <div class="markdown level0 summary"><p>Simulates <a class="xref" href="BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_HttpClient">HttpClient</a> transactions for testing
+and providing mock data</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="BlazorFocused.Testing.html">BlazorFocused.Testing</a></h6>
@@ -86,19 +87,20 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ba9340b156f8007bb0183fc6236eb01b8e3983f7/apiSpec/new?filename=BlazorFocused_Testing_ISimulatedHttp_BaseAddress.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.ISimulatedHttp.BaseAddress%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/75a15a5384e43f2f30857e2c140909300a5d9e3b/apiSpec/new?filename=BlazorFocused_Testing_ISimulatedHttp_DelegatingHandler.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.ISimulatedHttp.DelegatingHandler%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ba9340b156f8007bb0183fc6236eb01b8e3983f7/src/Testing/ISimulatedHttp.cs/#L13">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/75a15a5384e43f2f30857e2c140909300a5d9e3b/src/Testing/ISimulatedHttp.cs/#L15">View Source</a>
   </span>
-  <a id="BlazorFocused_Testing_ISimulatedHttp_BaseAddress_" data-uid="BlazorFocused.Testing.ISimulatedHttp.BaseAddress*"></a>
-  <h4 id="BlazorFocused_Testing_ISimulatedHttp_BaseAddress" data-uid="BlazorFocused.Testing.ISimulatedHttp.BaseAddress">BaseAddress</h4>
-  <div class="markdown level1 summary"><p>Base address for inner <span class="xref">System.Net.Http.HttpClient</span></p>
+  <a id="BlazorFocused_Testing_ISimulatedHttp_DelegatingHandler_" data-uid="BlazorFocused.Testing.ISimulatedHttp.DelegatingHandler*"></a>
+  <h4 id="BlazorFocused_Testing_ISimulatedHttp_DelegatingHandler" data-uid="BlazorFocused.Testing.ISimulatedHttp.DelegatingHandler">DelegatingHandler</h4>
+  <div class="markdown level1 summary"><p>Handler that can be passed into <a class="xref" href="BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_HttpClient">HttpClient</a> for
+making simulated requests</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string BaseAddress { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">DelegatingHandler DelegatingHandler { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -110,30 +112,28 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Net.Http.DelegatingHandler</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
-  </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ba9340b156f8007bb0183fc6236eb01b8e3983f7/apiSpec/new?filename=BlazorFocused_Testing_ISimulatedHttp_Client.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.ISimulatedHttp.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/75a15a5384e43f2f30857e2c140909300a5d9e3b/apiSpec/new?filename=BlazorFocused_Testing_ISimulatedHttp_HttpClient.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.ISimulatedHttp.HttpClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ba9340b156f8007bb0183fc6236eb01b8e3983f7/src/Testing/ISimulatedHttp.cs/#L19">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/75a15a5384e43f2f30857e2c140909300a5d9e3b/src/Testing/ISimulatedHttp.cs/#L20">View Source</a>
   </span>
-  <a id="BlazorFocused_Testing_ISimulatedHttp_Client_" data-uid="BlazorFocused.Testing.ISimulatedHttp.Client*"></a>
-  <h4 id="BlazorFocused_Testing_ISimulatedHttp_Client" data-uid="BlazorFocused.Testing.ISimulatedHttp.Client">Client()</h4>
-  <div class="markdown level1 summary"><p>Returns inner <span class="xref">System.Net.Http.HttpClient</span> for inspection</p>
+  <a id="BlazorFocused_Testing_ISimulatedHttp_HttpClient_" data-uid="BlazorFocused.Testing.ISimulatedHttp.HttpClient*"></a>
+  <h4 id="BlazorFocused_Testing_ISimulatedHttp_HttpClient" data-uid="BlazorFocused.Testing.ISimulatedHttp.HttpClient">HttpClient</h4>
+  <div class="markdown level1 summary"><p>Returns <a class="xref" href="BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_HttpClient">HttpClient</a> to perform requests</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">HttpClient Client()</code></pre>
+    <pre><code class="lang-csharp hljs">HttpClient HttpClient { get; }</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -144,17 +144,18 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Net.Http.HttpClient</span></td>
-        <td><p>Inner <span class="xref">System.Net.Http.HttpClient</span></p>
-</td>
+        <td></td>
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ba9340b156f8007bb0183fc6236eb01b8e3983f7/apiSpec/new?filename=BlazorFocused_Testing_ISimulatedHttp_Setup_System_Net_Http_HttpMethod_System_String_.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.ISimulatedHttp.Setup(System.Net.Http.HttpMethod%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/75a15a5384e43f2f30857e2c140909300a5d9e3b/apiSpec/new?filename=BlazorFocused_Testing_ISimulatedHttp_Setup_System_Net_Http_HttpMethod_System_String_.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.ISimulatedHttp.Setup(System.Net.Http.HttpMethod%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ba9340b156f8007bb0183fc6236eb01b8e3983f7/src/Testing/ISimulatedHttp.cs/#L27">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/75a15a5384e43f2f30857e2c140909300a5d9e3b/src/Testing/ISimulatedHttp.cs/#L28">View Source</a>
   </span>
   <a id="BlazorFocused_Testing_ISimulatedHttp_Setup_" data-uid="BlazorFocused.Testing.ISimulatedHttp.Setup*"></a>
   <h4 id="BlazorFocused_Testing_ISimulatedHttp_Setup_System_Net_Http_HttpMethod_System_String_" data-uid="BlazorFocused.Testing.ISimulatedHttp.Setup(System.Net.Http.HttpMethod,System.String)">Setup(HttpMethod, String)</h4>
@@ -207,10 +208,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ba9340b156f8007bb0183fc6236eb01b8e3983f7/apiSpec/new?filename=BlazorFocused_Testing_ISimulatedHttp_VerifyWasCalled_System_Net_Http_HttpMethod_System_String_.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.ISimulatedHttp.VerifyWasCalled(System.Net.Http.HttpMethod%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/75a15a5384e43f2f30857e2c140909300a5d9e3b/apiSpec/new?filename=BlazorFocused_Testing_ISimulatedHttp_VerifyWasCalled_System_Net_Http_HttpMethod_System_String_.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.ISimulatedHttp.VerifyWasCalled(System.Net.Http.HttpMethod%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ba9340b156f8007bb0183fc6236eb01b8e3983f7/src/Testing/ISimulatedHttp.cs/#L37">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/75a15a5384e43f2f30857e2c140909300a5d9e3b/src/Testing/ISimulatedHttp.cs/#L38">View Source</a>
   </span>
   <a id="BlazorFocused_Testing_ISimulatedHttp_VerifyWasCalled_" data-uid="BlazorFocused.Testing.ISimulatedHttp.VerifyWasCalled*"></a>
   <h4 id="BlazorFocused_Testing_ISimulatedHttp_VerifyWasCalled_System_Net_Http_HttpMethod_System_String_" data-uid="BlazorFocused.Testing.ISimulatedHttp.VerifyWasCalled(System.Net.Http.HttpMethod,System.String)">VerifyWasCalled(HttpMethod, String)</h4>
@@ -269,10 +270,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/new/ba9340b156f8007bb0183fc6236eb01b8e3983f7/apiSpec/new?filename=BlazorFocused_Testing_ISimulatedHttp.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.ISimulatedHttp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/new/75a15a5384e43f2f30857e2c140909300a5d9e3b/apiSpec/new?filename=BlazorFocused_Testing_ISimulatedHttp.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.ISimulatedHttp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/blob/ba9340b156f8007bb0183fc6236eb01b8e3983f7/src/Testing/ISimulatedHttp.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/blob/75a15a5384e43f2f30857e2c140909300a5d9e3b/src/Testing/ISimulatedHttp.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

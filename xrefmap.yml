@@ -909,6 +909,25 @@ references:
   commentId: N:BlazorFocused.Testing
   fullName: BlazorFocused.Testing
   nameWithType: BlazorFocused.Testing
+- uid: BlazorFocused.Testing.HttpClientBuilderExtensions
+  name: HttpClientBuilderExtensions
+  href: api/BlazorFocused.Testing.HttpClientBuilderExtensions.html
+  commentId: T:BlazorFocused.Testing.HttpClientBuilderExtensions
+  fullName: BlazorFocused.Testing.HttpClientBuilderExtensions
+  nameWithType: HttpClientBuilderExtensions
+- uid: BlazorFocused.Testing.HttpClientBuilderExtensions.AddSimulatedHttp(IHttpClientBuilder,BlazorFocused.Testing.ISimulatedHttp)
+  name: AddSimulatedHttp(IHttpClientBuilder, ISimulatedHttp)
+  href: api/BlazorFocused.Testing.HttpClientBuilderExtensions.html#BlazorFocused_Testing_HttpClientBuilderExtensions_AddSimulatedHttp_IHttpClientBuilder_BlazorFocused_Testing_ISimulatedHttp_
+  commentId: M:BlazorFocused.Testing.HttpClientBuilderExtensions.AddSimulatedHttp(IHttpClientBuilder,BlazorFocused.Testing.ISimulatedHttp)
+  fullName: BlazorFocused.Testing.HttpClientBuilderExtensions.AddSimulatedHttp(IHttpClientBuilder, BlazorFocused.Testing.ISimulatedHttp)
+  nameWithType: HttpClientBuilderExtensions.AddSimulatedHttp(IHttpClientBuilder, ISimulatedHttp)
+- uid: BlazorFocused.Testing.HttpClientBuilderExtensions.AddSimulatedHttp*
+  name: AddSimulatedHttp
+  href: api/BlazorFocused.Testing.HttpClientBuilderExtensions.html#BlazorFocused_Testing_HttpClientBuilderExtensions_AddSimulatedHttp_
+  commentId: Overload:BlazorFocused.Testing.HttpClientBuilderExtensions.AddSimulatedHttp
+  isSpec: "True"
+  fullName: BlazorFocused.Testing.HttpClientBuilderExtensions.AddSimulatedHttp
+  nameWithType: HttpClientBuilderExtensions.AddSimulatedHttp
 - uid: BlazorFocused.Testing.IMockLogger`1
   name: IMockLogger<T>
   href: api/BlazorFocused.Testing.IMockLogger-1.html
@@ -993,32 +1012,32 @@ references:
   commentId: T:BlazorFocused.Testing.ISimulatedHttp
   fullName: BlazorFocused.Testing.ISimulatedHttp
   nameWithType: ISimulatedHttp
-- uid: BlazorFocused.Testing.ISimulatedHttp.BaseAddress
-  name: BaseAddress
-  href: api/BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_BaseAddress
-  commentId: P:BlazorFocused.Testing.ISimulatedHttp.BaseAddress
-  fullName: BlazorFocused.Testing.ISimulatedHttp.BaseAddress
-  nameWithType: ISimulatedHttp.BaseAddress
-- uid: BlazorFocused.Testing.ISimulatedHttp.BaseAddress*
-  name: BaseAddress
-  href: api/BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_BaseAddress_
-  commentId: Overload:BlazorFocused.Testing.ISimulatedHttp.BaseAddress
+- uid: BlazorFocused.Testing.ISimulatedHttp.DelegatingHandler
+  name: DelegatingHandler
+  href: api/BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_DelegatingHandler
+  commentId: P:BlazorFocused.Testing.ISimulatedHttp.DelegatingHandler
+  fullName: BlazorFocused.Testing.ISimulatedHttp.DelegatingHandler
+  nameWithType: ISimulatedHttp.DelegatingHandler
+- uid: BlazorFocused.Testing.ISimulatedHttp.DelegatingHandler*
+  name: DelegatingHandler
+  href: api/BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_DelegatingHandler_
+  commentId: Overload:BlazorFocused.Testing.ISimulatedHttp.DelegatingHandler
   isSpec: "True"
-  fullName: BlazorFocused.Testing.ISimulatedHttp.BaseAddress
-  nameWithType: ISimulatedHttp.BaseAddress
-- uid: BlazorFocused.Testing.ISimulatedHttp.Client
-  name: Client()
-  href: api/BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_Client
-  commentId: M:BlazorFocused.Testing.ISimulatedHttp.Client
-  fullName: BlazorFocused.Testing.ISimulatedHttp.Client()
-  nameWithType: ISimulatedHttp.Client()
-- uid: BlazorFocused.Testing.ISimulatedHttp.Client*
-  name: Client
-  href: api/BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_Client_
-  commentId: Overload:BlazorFocused.Testing.ISimulatedHttp.Client
+  fullName: BlazorFocused.Testing.ISimulatedHttp.DelegatingHandler
+  nameWithType: ISimulatedHttp.DelegatingHandler
+- uid: BlazorFocused.Testing.ISimulatedHttp.HttpClient
+  name: HttpClient
+  href: api/BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_HttpClient
+  commentId: P:BlazorFocused.Testing.ISimulatedHttp.HttpClient
+  fullName: BlazorFocused.Testing.ISimulatedHttp.HttpClient
+  nameWithType: ISimulatedHttp.HttpClient
+- uid: BlazorFocused.Testing.ISimulatedHttp.HttpClient*
+  name: HttpClient
+  href: api/BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_HttpClient_
+  commentId: Overload:BlazorFocused.Testing.ISimulatedHttp.HttpClient
   isSpec: "True"
-  fullName: BlazorFocused.Testing.ISimulatedHttp.Client
-  nameWithType: ISimulatedHttp.Client
+  fullName: BlazorFocused.Testing.ISimulatedHttp.HttpClient
+  nameWithType: ISimulatedHttp.HttpClient
 - uid: BlazorFocused.Testing.ISimulatedHttp.Setup(System.Net.Http.HttpMethod,System.String)
   name: Setup(HttpMethod, String)
   href: api/BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_Setup_System_Net_Http_HttpMethod_System_String_
@@ -1257,45 +1276,32 @@ references:
   isSpec: "True"
   fullName: BlazorFocused.Testing.SimulatedHttp.SimulatedHttp
   nameWithType: SimulatedHttp.SimulatedHttp
-- uid: BlazorFocused.Testing.SimulatedHttp.BaseAddress
-  name: BaseAddress
-  href: api/BlazorFocused.Testing.SimulatedHttp.html#BlazorFocused_Testing_SimulatedHttp_BaseAddress
-  commentId: P:BlazorFocused.Testing.SimulatedHttp.BaseAddress
-  fullName: BlazorFocused.Testing.SimulatedHttp.BaseAddress
-  nameWithType: SimulatedHttp.BaseAddress
-- uid: BlazorFocused.Testing.SimulatedHttp.BaseAddress*
-  name: BaseAddress
-  href: api/BlazorFocused.Testing.SimulatedHttp.html#BlazorFocused_Testing_SimulatedHttp_BaseAddress_
-  commentId: Overload:BlazorFocused.Testing.SimulatedHttp.BaseAddress
+- uid: BlazorFocused.Testing.SimulatedHttp.DelegatingHandler
+  name: DelegatingHandler
+  href: api/BlazorFocused.Testing.SimulatedHttp.html#BlazorFocused_Testing_SimulatedHttp_DelegatingHandler
+  commentId: P:BlazorFocused.Testing.SimulatedHttp.DelegatingHandler
+  fullName: BlazorFocused.Testing.SimulatedHttp.DelegatingHandler
+  nameWithType: SimulatedHttp.DelegatingHandler
+- uid: BlazorFocused.Testing.SimulatedHttp.DelegatingHandler*
+  name: DelegatingHandler
+  href: api/BlazorFocused.Testing.SimulatedHttp.html#BlazorFocused_Testing_SimulatedHttp_DelegatingHandler_
+  commentId: Overload:BlazorFocused.Testing.SimulatedHttp.DelegatingHandler
   isSpec: "True"
-  fullName: BlazorFocused.Testing.SimulatedHttp.BaseAddress
-  nameWithType: SimulatedHttp.BaseAddress
-- uid: BlazorFocused.Testing.SimulatedHttp.Client
-  name: Client()
-  href: api/BlazorFocused.Testing.SimulatedHttp.html#BlazorFocused_Testing_SimulatedHttp_Client
-  commentId: M:BlazorFocused.Testing.SimulatedHttp.Client
-  fullName: BlazorFocused.Testing.SimulatedHttp.Client()
-  nameWithType: SimulatedHttp.Client()
-- uid: BlazorFocused.Testing.SimulatedHttp.Client*
-  name: Client
-  href: api/BlazorFocused.Testing.SimulatedHttp.html#BlazorFocused_Testing_SimulatedHttp_Client_
-  commentId: Overload:BlazorFocused.Testing.SimulatedHttp.Client
+  fullName: BlazorFocused.Testing.SimulatedHttp.DelegatingHandler
+  nameWithType: SimulatedHttp.DelegatingHandler
+- uid: BlazorFocused.Testing.SimulatedHttp.HttpClient
+  name: HttpClient
+  href: api/BlazorFocused.Testing.SimulatedHttp.html#BlazorFocused_Testing_SimulatedHttp_HttpClient
+  commentId: P:BlazorFocused.Testing.SimulatedHttp.HttpClient
+  fullName: BlazorFocused.Testing.SimulatedHttp.HttpClient
+  nameWithType: SimulatedHttp.HttpClient
+- uid: BlazorFocused.Testing.SimulatedHttp.HttpClient*
+  name: HttpClient
+  href: api/BlazorFocused.Testing.SimulatedHttp.html#BlazorFocused_Testing_SimulatedHttp_HttpClient_
+  commentId: Overload:BlazorFocused.Testing.SimulatedHttp.HttpClient
   isSpec: "True"
-  fullName: BlazorFocused.Testing.SimulatedHttp.Client
-  nameWithType: SimulatedHttp.Client
-- uid: BlazorFocused.Testing.SimulatedHttp.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)
-  name: SendAsync(HttpRequestMessage, CancellationToken)
-  href: api/BlazorFocused.Testing.SimulatedHttp.html#BlazorFocused_Testing_SimulatedHttp_SendAsync_System_Net_Http_HttpRequestMessage_System_Threading_CancellationToken_
-  commentId: M:BlazorFocused.Testing.SimulatedHttp.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)
-  fullName: BlazorFocused.Testing.SimulatedHttp.SendAsync(System.Net.Http.HttpRequestMessage, System.Threading.CancellationToken)
-  nameWithType: SimulatedHttp.SendAsync(HttpRequestMessage, CancellationToken)
-- uid: BlazorFocused.Testing.SimulatedHttp.SendAsync*
-  name: SendAsync
-  href: api/BlazorFocused.Testing.SimulatedHttp.html#BlazorFocused_Testing_SimulatedHttp_SendAsync_
-  commentId: Overload:BlazorFocused.Testing.SimulatedHttp.SendAsync
-  isSpec: "True"
-  fullName: BlazorFocused.Testing.SimulatedHttp.SendAsync
-  nameWithType: SimulatedHttp.SendAsync
+  fullName: BlazorFocused.Testing.SimulatedHttp.HttpClient
+  nameWithType: SimulatedHttp.HttpClient
 - uid: BlazorFocused.Testing.SimulatedHttp.Setup(System.Net.Http.HttpMethod,System.String)
   name: Setup(HttpMethod, String)
   href: api/BlazorFocused.Testing.SimulatedHttp.html#BlazorFocused_Testing_SimulatedHttp_Setup_System_Net_Http_HttpMethod_System_String_

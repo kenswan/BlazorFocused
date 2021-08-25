@@ -73,31 +73,21 @@
   
   <h1 id="BlazorFocused_Testing_SimulatedHttp" data-uid="BlazorFocused.Testing.SimulatedHttp" class="text-break">Class SimulatedHttp
   </h1>
-  <div class="markdown level0 summary"><p>Simulates <span class="xref">System.Net.Http.HttpClient</span> transactions for testing</p>
+  <div class="markdown level0 summary"><p>Simulates <a class="xref" href="BlazorFocused.Testing.ISimulatedHttp.html#BlazorFocused_Testing_ISimulatedHttp_HttpClient">HttpClient</a> transactions for testing
+and providing mock data</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">System.Net.Http.HttpMessageHandler</span></div>
-    <div class="level2"><span class="xref">SimulatedHttp</span></div>
+    <div class="level1"><span class="xref">SimulatedHttp</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><span class="xref">System.IDisposable</span></div>
     <div><a class="xref" href="BlazorFocused.Testing.ISimulatedHttp.html">ISimulatedHttp</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
-    <div>
-      <span class="xref">System.Net.Http.HttpMessageHandler.Dispose()</span>
-    </div>
-    <div>
-      <span class="xref">System.Net.Http.HttpMessageHandler.Dispose(System.Boolean)</span>
-    </div>
-    <div>
-      <span class="xref">System.Net.Http.HttpMessageHandler.Send(System.Net.Http.HttpRequestMessage, System.Threading.CancellationToken)</span>
-    </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
     </div>
@@ -124,16 +114,16 @@
   <h6><strong>Assembly</strong>: BlazorFocused.dll</h6>
   <h5 id="BlazorFocused_Testing_SimulatedHttp_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SimulatedHttp : HttpMessageHandler, IDisposable, ISimulatedHttp</code></pre>
+    <pre><code class="lang-csharp hljs">public class SimulatedHttp : ISimulatedHttp</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ba9340b156f8007bb0183fc6236eb01b8e3983f7/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp__ctor_System_String_.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/75a15a5384e43f2f30857e2c140909300a5d9e3b/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp__ctor_System_String_.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp.%23ctor(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ba9340b156f8007bb0183fc6236eb01b8e3983f7/src/Testing/SimulatedHttp.cs/#L23">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/75a15a5384e43f2f30857e2c140909300a5d9e3b/src/Testing/SimulatedHttp.cs/#L24">View Source</a>
   </span>
   <a id="BlazorFocused_Testing_SimulatedHttp__ctor_" data-uid="BlazorFocused.Testing.SimulatedHttp.#ctor*"></a>
   <h4 id="BlazorFocused_Testing_SimulatedHttp__ctor_System_String_" data-uid="BlazorFocused.Testing.SimulatedHttp.#ctor(System.String)">SimulatedHttp(String)</h4>
@@ -141,7 +131,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public SimulatedHttp(string baseAddress = &quot;https://blazorfocused.net&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public SimulatedHttp(string baseAddress = &quot;https://dev.blazorfocused.net&quot;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -164,18 +154,18 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ba9340b156f8007bb0183fc6236eb01b8e3983f7/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp_BaseAddress.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp.BaseAddress%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/75a15a5384e43f2f30857e2c140909300a5d9e3b/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp_DelegatingHandler.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp.DelegatingHandler%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ba9340b156f8007bb0183fc6236eb01b8e3983f7/src/Testing/SimulatedHttp.cs/#L17">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/75a15a5384e43f2f30857e2c140909300a5d9e3b/src/Testing/SimulatedHttp.cs/#L12">View Source</a>
   </span>
-  <a id="BlazorFocused_Testing_SimulatedHttp_BaseAddress_" data-uid="BlazorFocused.Testing.SimulatedHttp.BaseAddress*"></a>
-  <h4 id="BlazorFocused_Testing_SimulatedHttp_BaseAddress" data-uid="BlazorFocused.Testing.SimulatedHttp.BaseAddress">BaseAddress</h4>
+  <a id="BlazorFocused_Testing_SimulatedHttp_DelegatingHandler_" data-uid="BlazorFocused.Testing.SimulatedHttp.DelegatingHandler*"></a>
+  <h4 id="BlazorFocused_Testing_SimulatedHttp_DelegatingHandler" data-uid="BlazorFocused.Testing.SimulatedHttp.DelegatingHandler">DelegatingHandler</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string BaseAddress { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public DelegatingHandler DelegatingHandler { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -187,29 +177,27 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Net.Http.DelegatingHandler</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
-  </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ba9340b156f8007bb0183fc6236eb01b8e3983f7/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp_Client.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/75a15a5384e43f2f30857e2c140909300a5d9e3b/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp_HttpClient.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp.HttpClient%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ba9340b156f8007bb0183fc6236eb01b8e3983f7/src/Testing/SimulatedHttp.cs/#L56">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/75a15a5384e43f2f30857e2c140909300a5d9e3b/src/Testing/SimulatedHttp.cs/#L14">View Source</a>
   </span>
-  <a id="BlazorFocused_Testing_SimulatedHttp_Client_" data-uid="BlazorFocused.Testing.SimulatedHttp.Client*"></a>
-  <h4 id="BlazorFocused_Testing_SimulatedHttp_Client" data-uid="BlazorFocused.Testing.SimulatedHttp.Client">Client()</h4>
+  <a id="BlazorFocused_Testing_SimulatedHttp_HttpClient_" data-uid="BlazorFocused.Testing.SimulatedHttp.HttpClient*"></a>
+  <h4 id="BlazorFocused_Testing_SimulatedHttp_HttpClient" data-uid="BlazorFocused.Testing.SimulatedHttp.HttpClient">HttpClient</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public HttpClient Client()</code></pre>
+    <pre><code class="lang-csharp hljs">public HttpClient HttpClient { get; }</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -224,66 +212,14 @@
       </tr>
     </tbody>
   </table>
+  <h3 id="methods">Methods
+  </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ba9340b156f8007bb0183fc6236eb01b8e3983f7/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp_SendAsync_System_Net_Http_HttpRequestMessage_System_Threading_CancellationToken_.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp.SendAsync(System.Net.Http.HttpRequestMessage%2CSystem.Threading.CancellationToken)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/75a15a5384e43f2f30857e2c140909300a5d9e3b/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp_Setup_System_Net_Http_HttpMethod_System_String_.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp.Setup(System.Net.Http.HttpMethod%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ba9340b156f8007bb0183fc6236eb01b8e3983f7/src/Testing/SimulatedHttp.cs/#L34">View Source</a>
-  </span>
-  <a id="BlazorFocused_Testing_SimulatedHttp_SendAsync_" data-uid="BlazorFocused.Testing.SimulatedHttp.SendAsync*"></a>
-  <h4 id="BlazorFocused_Testing_SimulatedHttp_SendAsync_System_Net_Http_HttpRequestMessage_System_Threading_CancellationToken_" data-uid="BlazorFocused.Testing.SimulatedHttp.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">SendAsync(HttpRequestMessage, CancellationToken)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override async Task&lt;HttpResponseMessage&gt; SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Net.Http.HttpRequestMessage</span></td>
-        <td><span class="parametername">request</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Threading.CancellationToken</span></td>
-        <td><span class="parametername">cancellationToken</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Net.Http.HttpResponseMessage</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">System.Net.Http.HttpMessageHandler.SendAsync(System.Net.Http.HttpRequestMessage, System.Threading.CancellationToken)</span></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ba9340b156f8007bb0183fc6236eb01b8e3983f7/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp_Setup_System_Net_Http_HttpMethod_System_String_.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp.Setup(System.Net.Http.HttpMethod%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ba9340b156f8007bb0183fc6236eb01b8e3983f7/src/Testing/SimulatedHttp.cs/#L58">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/75a15a5384e43f2f30857e2c140909300a5d9e3b/src/Testing/SimulatedHttp.cs/#L40">View Source</a>
   </span>
   <a id="BlazorFocused_Testing_SimulatedHttp_Setup_" data-uid="BlazorFocused.Testing.SimulatedHttp.Setup*"></a>
   <h4 id="BlazorFocused_Testing_SimulatedHttp_Setup_System_Net_Http_HttpMethod_System_String_" data-uid="BlazorFocused.Testing.SimulatedHttp.Setup(System.Net.Http.HttpMethod,System.String)">Setup(HttpMethod, String)</h4>
@@ -332,10 +268,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ba9340b156f8007bb0183fc6236eb01b8e3983f7/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp_VerifyWasCalled_System_Net_Http_HttpMethod_System_String_.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp.VerifyWasCalled(System.Net.Http.HttpMethod%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/75a15a5384e43f2f30857e2c140909300a5d9e3b/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp_VerifyWasCalled_System_Net_Http_HttpMethod_System_String_.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp.VerifyWasCalled(System.Net.Http.HttpMethod%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ba9340b156f8007bb0183fc6236eb01b8e3983f7/src/Testing/SimulatedHttp.cs/#L78">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/75a15a5384e43f2f30857e2c140909300a5d9e3b/src/Testing/SimulatedHttp.cs/#L47">View Source</a>
   </span>
   <a id="BlazorFocused_Testing_SimulatedHttp_VerifyWasCalled_" data-uid="BlazorFocused.Testing.SimulatedHttp.VerifyWasCalled*"></a>
   <h4 id="BlazorFocused_Testing_SimulatedHttp_VerifyWasCalled_System_Net_Http_HttpMethod_System_String_" data-uid="BlazorFocused.Testing.SimulatedHttp.VerifyWasCalled(System.Net.Http.HttpMethod,System.String)">VerifyWasCalled(HttpMethod, String)</h4>
@@ -369,9 +305,6 @@
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <span class="xref">System.IDisposable</span>
-  </div>
-  <div>
       <a class="xref" href="BlazorFocused.Testing.ISimulatedHttp.html">ISimulatedHttp</a>
   </div>
 </article>
@@ -382,10 +315,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/new/ba9340b156f8007bb0183fc6236eb01b8e3983f7/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/new/75a15a5384e43f2f30857e2c140909300a5d9e3b/apiSpec/new?filename=BlazorFocused_Testing_SimulatedHttp.md&amp;value=---%0Auid%3A%20BlazorFocused.Testing.SimulatedHttp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/blob/ba9340b156f8007bb0183fc6236eb01b8e3983f7/src/Testing/SimulatedHttp.cs/#L15" class="contribution-link">View Source</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/blob/75a15a5384e43f2f30857e2c140909300a5d9e3b/src/Testing/SimulatedHttp.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
