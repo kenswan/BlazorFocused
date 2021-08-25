@@ -3,76 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Text;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
-using NativeHttpClient = System.Net.Http.HttpClient;
 
 namespace BlazorFocused.Testing
 {
     /// <inheritdoc cref="ISimulatedHttp"/>
-    public class SimulatedHttp : HttpMessageHandler, ISimulatedHttp
+    public class SimulatedHttp : ISimulatedHttp
     {
-        public string BaseAddress { get; private set; }
+        public DelegatingHandler DelegatingHandler => GetDelegatingHandler();
+        public HttpClient HttpClient =>
+            new(GetDelegatingHandler()) { BaseAddress = baseAddressUri };
 
         private readonly List<SimulatedHttpRequest> requests;
         private readonly List<SimulatedHttpResponse> responses;
-        private readonly NativeHttpClient httpClient;
+        private readonly string baseAddress;
+        private readonly Uri baseAddressUri;
 
-        public SimulatedHttp(string baseAddress = "https://blazorfocused.net")
+        public SimulatedHttp(string baseAddress = "https://dev.blazorfocused.net")
         {
-            BaseAddress = baseAddress;
             requests = new List<SimulatedHttpRequest>();
             responses = new List<SimulatedHttpResponse>();
-            httpClient = new NativeHttpClient(this)
+
+            if (Uri.TryCreate(baseAddress, UriKind.Absolute, out Uri uri))
             {
-                BaseAddress = new Uri(BaseAddress)
-            };
-        }
-
-        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-        {
-            var method = request.Method;
-            var url = request.RequestUri.OriginalString;
-            var content = (request.Content is not null) ?
-                await request.Content.ReadAsStringAsync(cancellationToken) : string.Empty;
-
-            requests.Add(new SimulatedHttpRequest { Method = method, Content = content, Url = url });
-
-            var response = responses.Where(request =>
-                request.Method == method &&
-                string.Equals(request.Url, url, StringComparison.OrdinalIgnoreCase))
-                    .FirstOrDefault();
-
-            return new HttpResponseMessage
+                this.baseAddress = baseAddress;
+                baseAddressUri = uri;
+            }
+            else
             {
-                StatusCode = response is not null ? response.StatusCode : HttpStatusCode.NotImplemented,
-                Content = new StringContent(JsonSerializer.Serialize(response?.Response), Encoding.UTF8, "application/json"),
-                RequestMessage = request
-            };
+                throw new SimulatedHttpTestException("Invalid base address was given");
+            }
         }
-
-        public NativeHttpClient Client() => httpClient;
 
         public ISimulatedHttpSetup Setup(HttpMethod method, string url)
         {
             var request = new SimulatedHttpRequest { Method = method, Url = url };
 
             return new SimulatedHttpSetup(request, Resolve);
-        }
-
-        private void Resolve(SimulatedHttpRequest request, HttpStatusCode statusCode, object response)
-        {
-            var setupResponse = new SimulatedHttpResponse
-            {
-                Method = request.Method,
-                Url = GetFullUrl(request.Url),
-                StatusCode = statusCode,
-                Response = response
-            };
-
-            responses.Add(setupResponse);
         }
 
         public void VerifyWasCalled(HttpMethod method = default, string url = default)
@@ -101,7 +67,34 @@ namespace BlazorFocused.Testing
             }
         }
 
+        private void Resolve(SimulatedHttpRequest request, HttpStatusCode statusCode, object response)
+        {
+            var setupResponse = new SimulatedHttpResponse
+            {
+                Method = request.Method,
+                Url = GetFullUrl(request.Url),
+                StatusCode = statusCode,
+                Response = response
+            };
+
+            responses.Add(setupResponse);
+        }
+
+        private void AddRequest(SimulatedHttpRequest request)
+        {
+            requests.Add(request);
+        }
+
+        private DelegatingHandler GetDelegatingHandler() =>
+            new SimulatedVerificationHandler()
+            {
+                InnerHandler = new SimulatedRequestHandler(AddRequest)
+                {
+                    InnerHandler = new SimulatedResponseHandler(responses)
+                }
+            };
+
         private string GetFullUrl(string relativeUrl) =>
-            new Uri(new Uri(BaseAddress), relativeUrl).ToString();
+            new Uri(new Uri(baseAddress), relativeUrl).ToString();
     }
 }
