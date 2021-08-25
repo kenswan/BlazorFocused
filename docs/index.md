@@ -1,3 +1,7 @@
+---
+uid: home
+_disableBreadcrumb: true
+---
 # BlazorFocused
 
 [![Nuget Version](https://img.shields.io/nuget/v/BlazorFocused?logo=nuget)](https://www.nuget.org/packages/BlazorFocused)
