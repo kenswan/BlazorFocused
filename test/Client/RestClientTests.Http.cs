@@ -21,7 +21,8 @@ namespace BlazorFocused.Client
                 client.DefaultRequestHeaders.Add(headerKey, headerValue);
             });
 
-            var httpClient = simulatedHttp.Client();
+            using var httpClient = (restClient as RestClient).GetClient();
+
             Assert.True(httpClient.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
             Assert.Single(actualValues);
             Assert.Equal(headerValue, actualValues.FirstOrDefault());

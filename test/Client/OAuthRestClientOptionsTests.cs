@@ -1,21 +1,17 @@
 ﻿using BlazorFocused.Extensions;
-using BlazorFocused.Testing;
 using Bogus;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Collections.Generic;
 using Xunit;
 
 namespace BlazorFocused.Client
 {
-    public class OAuthRestClientOptionsTests : IDisposable
+    public class OAuthRestClientOptionsTests
     {
         private readonly IServiceCollection serviceCollection;
-        private readonly ISimulatedHttp simulatedHttp;
 
         public OAuthRestClientOptionsTests()
         {
-            simulatedHttp = new SimulatedHttp();
             serviceCollection = new ServiceCollection();
         }
 
@@ -76,8 +72,5 @@ namespace BlazorFocused.Client
             Assert.Equal(restClientBaseAddress, actualRestClientAddress);
             Assert.Equal(restClientBaseAddress, actualOAuthAddress);
         }
-
-
-        public void Dispose() => (simulatedHttp as SimulatedHttp).Dispose();
     }
 }
