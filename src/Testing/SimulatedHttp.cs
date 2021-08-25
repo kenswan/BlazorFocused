@@ -10,8 +10,11 @@ namespace BlazorFocused.Testing
     public class SimulatedHttp : ISimulatedHttp
     {
         public DelegatingHandler DelegatingHandler => GetDelegatingHandler();
+
         public HttpClient HttpClient =>
             new(GetDelegatingHandler()) { BaseAddress = baseAddressUri };
+
+        internal List<SimulatedHttpResponse> Responses => responses;
 
         private readonly List<SimulatedHttpRequest> requests;
         private readonly List<SimulatedHttpResponse> responses;
@@ -67,6 +70,11 @@ namespace BlazorFocused.Testing
             }
         }
 
+        internal void AddRequest(SimulatedHttpRequest request)
+        {
+            requests.Add(request);
+        }
+
         private void Resolve(SimulatedHttpRequest request, HttpStatusCode statusCode, object response)
         {
             var setupResponse = new SimulatedHttpResponse
@@ -78,11 +86,6 @@ namespace BlazorFocused.Testing
             };
 
             responses.Add(setupResponse);
-        }
-
-        private void AddRequest(SimulatedHttpRequest request)
-        {
-            requests.Add(request);
         }
 
         private DelegatingHandler GetDelegatingHandler() =>
