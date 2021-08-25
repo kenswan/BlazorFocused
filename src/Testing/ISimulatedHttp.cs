@@ -4,19 +4,20 @@ namespace BlazorFocused.Testing
 {
     /// <summary>
     /// Simulates <see cref="HttpClient"/> transactions for testing
+    /// and providing mock data
     /// </summary>
     public interface ISimulatedHttp
     {
         /// <summary>
-        /// Base address for inner <see cref="HttpClient"/>
+        /// Handler that can be passed into <see cref="HttpClient"/> for
+        /// making simulated requests
         /// </summary>
-        string BaseAddress { get; }
+        DelegatingHandler DelegatingHandler { get; }
 
         /// <summary>
-        /// Returns inner <see cref="HttpClient"/> for inspection
+        /// Returns <see cref="HttpClient"/> to perform requests
         /// </summary>
-        /// <returns>Inner <see cref="HttpClient"/></returns>
-        HttpClient Client();
+        HttpClient HttpClient { get; }
 
         /// <summary>
         /// Begin setup for an expected request that will be used
