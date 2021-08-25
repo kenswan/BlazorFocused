@@ -2,8 +2,17 @@
 
 namespace BlazorFocused.Testing
 {
-    public static class IHttpClientBuilderExtensions
+    /// <summary>
+    /// Extensions that allow Typed Clients to return mock data
+    /// </summary>
+    public static class HttpClientBuilderExtensions
     {
+        /// <summary>
+        /// Adds mock data contained withing <see cref="ISimulatedHttp"/> to Typed Clients
+        /// </summary>
+        /// <param name="httpClientBuilder">Current <see cref="IHttpClientBuilder"/> in service registration</param>
+        /// <param name="simulatedHttp">Provides mock data based on method requests</param>
+        /// <returns>Current IHttpClientBuilder with newly registered <see cref="ISimulatedHttp"/></returns>
         public static IHttpClientBuilder AddSimulatedHttp(this IHttpClientBuilder httpClientBuilder, ISimulatedHttp simulatedHttp)
         {
             httpClientBuilder
