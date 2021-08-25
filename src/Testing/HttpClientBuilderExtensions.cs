@@ -3,7 +3,7 @@
 namespace BlazorFocused.Testing
 {
     /// <summary>
-    /// Extensions that allow Typed Clients to return mock data
+    /// <see cref="IHttpClientBuilder"/> extensions that allow Typed Clients to return mock data
     /// </summary>
     public static class HttpClientBuilderExtensions
     {
