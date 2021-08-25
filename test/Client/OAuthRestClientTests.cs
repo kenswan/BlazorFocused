@@ -1,12 +1,11 @@
 ﻿using BlazorFocused.Testing;
 using Bogus;
 using FluentAssertions;
-using System;
 using Xunit;
 
 namespace BlazorFocused.Client
 {
-    public class OAuthRestClientTests : IDisposable
+    public class OAuthRestClientTests
     {
         private readonly IOAuthRestClient oAuthRestClient;
         private readonly ISimulatedHttp simulatedHttp;
@@ -20,7 +19,7 @@ namespace BlazorFocused.Client
             mockLogger = new();
 
             oAuthRestClient =
-                new OAuthRestClient(oAuthToken, simulatedHttp.Client(), default, mockLogger);
+                new OAuthRestClient(oAuthToken, simulatedHttp.HttpClient, default, mockLogger);
         }
 
         [Fact]
@@ -84,7 +83,5 @@ namespace BlazorFocused.Client
 
         private static string GetRandomToken() =>
             new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
-
-        public void Dispose() => (simulatedHttp as SimulatedHttp).Dispose();
     }
 }

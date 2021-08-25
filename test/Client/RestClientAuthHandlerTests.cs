@@ -7,7 +7,7 @@ using Xunit;
 
 namespace BlazorFocused.Client
 {
-    public class RestClientAuthHandlerTests : IDisposable
+    public class RestClientAuthHandlerTests
     {
         private readonly MockLogger<RestClientAuthHandler> mockLogger;
         private readonly ISimulatedHttp simulatedHttp;
@@ -32,7 +32,7 @@ namespace BlazorFocused.Client
 
             var restClientAuthHandler = new RestClientAuthHandler(oAuthToken, mockLogger)
             {
-                InnerHandler = simulatedHttp as SimulatedHttp
+                InnerHandler = simulatedHttp.DelegatingHandler
             };
 
             var httpClient = new HttpClient(restClientAuthHandler)
@@ -58,7 +58,7 @@ namespace BlazorFocused.Client
 
             var restClientAuthHandler = new RestClientAuthHandler(oAuthToken, mockLogger)
             {
-                InnerHandler = simulatedHttp as SimulatedHttp
+                InnerHandler = simulatedHttp.DelegatingHandler
             };
 
             var httpClient = new HttpClient(restClientAuthHandler)
@@ -74,7 +74,5 @@ namespace BlazorFocused.Client
 
         private static string GetRandomToken() =>
             new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
-
-        public void Dispose() => (simulatedHttp as SimulatedHttp).Dispose();
     }
 }
