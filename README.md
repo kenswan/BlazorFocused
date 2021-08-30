@@ -4,7 +4,7 @@
 
 # BlazorFocused
 
-Adding Flux Architecture and other utilities to Blazor Components
+Providing flux architecture and other tools for Blazor components and .NET development.
 
 ## Installation
 
