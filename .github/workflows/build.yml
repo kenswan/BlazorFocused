@@ -12,7 +12,7 @@ on:
       - published
 
 env:
-  DOTNET_VERSION: "5.0.x"
+  DOTNET_VERSION: "6.0.x"
   NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
 
 jobs:
