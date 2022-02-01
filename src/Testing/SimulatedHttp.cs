@@ -1,4 +1,6 @@
 ﻿using System.Net;
+using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace BlazorFocused.Testing
 {
@@ -58,28 +60,24 @@ namespace BlazorFocused.Testing
 
         public void VerifyWasCalled(HttpMethod method = default, string url = default, object content = default)
         {
-            if (method is not null && url is not null)
+            SimulatedHttpRequest simulatedRequest = new()
             {
-                var match = requests
-                    .Where(request => request.Method == method && request.Url == GetFullUrl(url))
-                    .FirstOrDefault();
+                Method = method,
+                Url = url,
+                RequestContent = content
+            };
 
-                if (match is null)
-                    throw new SimulatedHttpTestException($"{method} - {url} was not requested");
-            }
-            else if (method is not null)
+            var invalidCheck = simulatedRequest switch
             {
-                var match = requests
-                    .Where(request => request.Method == method).FirstOrDefault();
+                { Method: null, Url: null, RequestContent: null } => CheckAny(),
+                { Url: null, RequestContent: null } => CheckMethod(simulatedRequest),
+                { RequestContent: null } => CheckMethodAndUrl(simulatedRequest),
+                { } when simulatedRequest is not null => CheckFullRequest(simulatedRequest),
+                _ => throw new SimulatedHttpTestException("Improper type of validation request")
+            };
 
-                if (match is null)
-                    throw new SimulatedHttpTestException($"{method} was not requested");
-            }
-            else
-            {
-                if (!requests.Any())
-                    throw new SimulatedHttpTestException($"No request was made");
-            }
+            if (!string.IsNullOrEmpty(invalidCheck))
+                throw new SimulatedHttpTestException($"{invalidCheck} was not requested");
         }
 
         private ISimulatedHttpSetup Setup(HttpMethod method, string url, object content = null)
@@ -119,5 +117,64 @@ namespace BlazorFocused.Testing
 
         private string GetFullUrl(string relativeUrl) =>
             new Uri(baseAddressUri, relativeUrl).ToString();
+
+        private string CheckFullRequest(SimulatedHttpRequest simulatedHttpRequest)
+        {
+            var method = simulatedHttpRequest.Method;
+            var url = simulatedHttpRequest.Url;
+
+            var matches = requests
+                    .Where(request => request.Method == method && request.Url == GetFullUrl(url));
+
+            if (!matches.Any())
+                return $"Method {method} & Url {url}";
+
+            var serializationOptions = new JsonSerializerOptions { WriteIndented = true  };
+
+            var expectedRequestContent = JsonSerializer.Serialize(
+                simulatedHttpRequest.RequestContent,
+                serializationOptions);
+
+            foreach (var match in matches)
+            {
+                var actualRequestContent = JsonSerializer.Serialize(
+                    match.RequestContent,
+                    serializationOptions);
+
+                var compareEquals = string.Compare(
+                    expectedRequestContent,
+                    actualRequestContent,
+                    StringComparison.InvariantCultureIgnoreCase) == 0;
+
+                if (compareEquals)
+                    return string.Empty;
+            }
+
+            return "Request Object";
+        }
+
+        private string CheckMethodAndUrl(SimulatedHttpRequest simulatedHttpRequest)
+        {
+            var method = simulatedHttpRequest.Method;
+            var url = simulatedHttpRequest.Url;
+
+            var match = requests
+                    .Where(request => request.Method == method && request.Url == GetFullUrl(url))
+                    .FirstOrDefault();
+
+            return match is not null ? string.Empty : $"Method {method} & Url {url}";
+        }
+
+        private string CheckMethod(SimulatedHttpRequest simulatedHttpRequest)
+        {
+            var method = simulatedHttpRequest.Method;
+
+            var match = requests.Where(request => request.Method == method).FirstOrDefault();
+
+            return match is not null ? String.Empty : $"Method {method}";
+        }
+
+        private string CheckAny() =>
+            !requests.Any() ? "Generic (Any) Request" : string.Empty;
     }
 }

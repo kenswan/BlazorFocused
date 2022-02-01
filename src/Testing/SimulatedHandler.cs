@@ -7,6 +7,7 @@
         {
             var method = request.Method;
             var url = request.RequestUri.OriginalString;
+
             var content = (request.Content is not null) ?
                 await request.Content.ReadAsStringAsync(cancellationToken) : default;
 
