@@ -5,8 +5,6 @@ using Bogus;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace BlazorFocused.Testing
@@ -28,7 +26,7 @@ namespace BlazorFocused.Testing
             using var serviceProvider = serviceCollection.BuildServiceProvider();
             var restClient = serviceProvider.GetRequiredService<IRestClient>();
 
-            simulatedHttp.Setup(HttpMethod.Get, relativeUrl)
+            simulatedHttp.SetupGET(relativeUrl)
                 .ReturnsAsync(HttpStatusCode.OK, expectedResponse);
 
             var actualResponse = await restClient.GetAsync<SimpleClass>(relativeUrl);

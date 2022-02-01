@@ -1,6 +1,4 @@
-﻿using System.Net.Http;
-
-namespace BlazorFocused.Testing
+﻿namespace BlazorFocused.Testing
 {
     internal class SimulatedHttpRequest
     {
@@ -8,6 +6,6 @@ namespace BlazorFocused.Testing
 
         public string Url { get; set; }
 
-        public string Content { get; set; }
+        public object RequestContent { get; set; }
     }
 }

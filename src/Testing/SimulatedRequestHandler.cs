@@ -1,9 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace BlazorFocused.Testing
+﻿namespace BlazorFocused.Testing
 {
     internal class SimulatedRequestHandler : DelegatingHandler
     {
@@ -16,9 +11,9 @@ namespace BlazorFocused.Testing
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            (HttpMethod method, string url, string content) = await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
+            (HttpMethod method, string url, object content) = await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
-            addRequest(new SimulatedHttpRequest { Method = method, Content = content, Url = url });
+            addRequest(new SimulatedHttpRequest { Method = method, Url = url, Content = content });
 
             return await base.SendAsync(request, cancellationToken);
         }

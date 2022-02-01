@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Net;
 
 namespace BlazorFocused.Testing
 {
@@ -18,7 +14,6 @@ namespace BlazorFocused.Testing
 
         private readonly List<SimulatedHttpRequest> requests;
         private readonly List<SimulatedHttpResponse> responses;
-        private readonly string baseAddress;
         private readonly Uri baseAddressUri;
 
         public SimulatedHttp(string baseAddress = "https://dev.blazorfocused.net")
@@ -28,7 +23,6 @@ namespace BlazorFocused.Testing
 
             if (Uri.TryCreate(baseAddress, UriKind.Absolute, out Uri uri))
             {
-                this.baseAddress = baseAddress;
                 baseAddressUri = uri;
             }
             else
@@ -37,14 +31,32 @@ namespace BlazorFocused.Testing
             }
         }
 
-        public ISimulatedHttpSetup Setup(HttpMethod method, string url)
+        public ISimulatedHttpSetup SetupGET(string url)
         {
-            var request = new SimulatedHttpRequest { Method = method, Url = url };
-
-            return new SimulatedHttpSetup(request, Resolve);
+            return Setup(HttpMethod.Get, url);
         }
 
-        public void VerifyWasCalled(HttpMethod method = default, string url = default)
+        public ISimulatedHttpSetup SetupDELETE(string url)
+        {
+            return Setup(HttpMethod.Delete, url);
+        }
+
+        public ISimulatedHttpSetup SetupPOST(string url, object content = null)
+        {
+            return Setup(HttpMethod.Post, url, content);
+        }
+
+        public ISimulatedHttpSetup SetupPATCH(string url, object content = null)
+        {
+            return Setup(HttpMethod.Patch, url, content);
+        }
+
+        public ISimulatedHttpSetup SetupPUT(string url, object content = null)
+        {
+            return Setup(HttpMethod.Put, url, content);
+        }
+
+        public void VerifyWasCalled(HttpMethod method = default, string url = default, object content = default)
         {
             if (method is not null && url is not null)
             {
@@ -70,6 +82,13 @@ namespace BlazorFocused.Testing
             }
         }
 
+        private ISimulatedHttpSetup Setup(HttpMethod method, string url, object content = null)
+        {
+            var request = new SimulatedHttpRequest { Method = method, Url = url, RequestContent = content };
+
+            return new SimulatedHttpSetup(request, Resolve);
+        }
+
         internal void AddRequest(SimulatedHttpRequest request)
         {
             requests.Add(request);
@@ -82,7 +101,8 @@ namespace BlazorFocused.Testing
                 Method = request.Method,
                 Url = GetFullUrl(request.Url),
                 StatusCode = statusCode,
-                Response = response
+                RequestContent = request?.RequestContent,
+                ResponseContent = response
             };
 
             responses.Add(setupResponse);
@@ -98,6 +118,6 @@ namespace BlazorFocused.Testing
             };
 
         private string GetFullUrl(string relativeUrl) =>
-            new Uri(new Uri(baseAddress), relativeUrl).ToString();
+            new Uri(baseAddressUri, relativeUrl).ToString();
     }
 }

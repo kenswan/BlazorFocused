@@ -1,15 +1,10 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace BlazorFocused.Testing
+﻿namespace BlazorFocused.Testing
 {
     internal class SimulatedVerificationHandler : DelegatingHandler
     {
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            (HttpMethod _, string url, string _) =
+            (HttpMethod _, string url, object _) =
                 await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
             if (!Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out Uri _))

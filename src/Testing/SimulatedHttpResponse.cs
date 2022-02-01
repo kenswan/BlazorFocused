@@ -6,6 +6,6 @@ namespace BlazorFocused.Testing
     {
         public HttpStatusCode StatusCode { get; set; }
 
-        public object Response { get; set; }
+        public object ResponseContent { get; set; }
     }
 }
