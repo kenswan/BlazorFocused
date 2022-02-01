@@ -27,7 +27,7 @@ namespace BlazorFocused.Client
             var oAuthToken = new OAuthToken { Scheme = scheme, Token = token };
             var relativePath = new Faker().Internet.UrlRootedPath();
 
-            simulatedHttp.Setup(HttpMethod.Get, relativePath)
+            simulatedHttp.SetupGET(relativePath)
                 .ReturnsAsync(System.Net.HttpStatusCode.OK, string.Empty);
 
             var restClientAuthHandler = new RestClientAuthHandler(oAuthToken, mockLogger)
@@ -53,7 +53,7 @@ namespace BlazorFocused.Client
             var oAuthToken = new OAuthToken();
             var relativePath = new Faker().Internet.UrlRootedPath();
 
-            simulatedHttp.Setup(HttpMethod.Get, relativePath)
+            simulatedHttp.SetupGET(relativePath)
                 .ReturnsAsync(System.Net.HttpStatusCode.OK, string.Empty);
 
             var restClientAuthHandler = new RestClientAuthHandler(oAuthToken, mockLogger)

@@ -16,15 +16,15 @@ namespace BlazorFocused.Testing
             HttpMethod httpMethod,
             HttpStatusCode httpStatusCode,
             string relativeRequestUrl,
+            SimpleClass requestObject,
             SimpleClass responseObject)
         {
-            simulatedHttp
-                .Setup(httpMethod, relativeRequestUrl)
-                .ReturnsAsync(httpStatusCode, responseObject);
+            ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
+            setup.ReturnsAsync(httpStatusCode, responseObject);
 
             using var client = simulatedHttp.HttpClient;
 
-            await MakeRequest(client, httpMethod, relativeRequestUrl);
+            await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
 
             var calledException = Record.Exception(() => simulatedHttp.VerifyWasCalled());
 
@@ -48,22 +48,12 @@ namespace BlazorFocused.Testing
             SimpleClass requestObject,
             SimpleClass responseObject)
         {
-            // simulatedHttp
-            //     .Setup(httpMethod, relativeRequestUrl)
-
-            ISimulatedHttpSetup setup = httpMethod switch
-            {
-                { } when httpMethod == HttpMethod.Delete => simulatedHttp.SetupDELETE(relativeRequestUrl),
-                { } when httpMethod == HttpMethod.Get => simulatedHttp.SetupGET(relativeRequestUrl),
-                { } when httpMethod == HttpMethod.Patch => simulatedHttp.SetupPATCH(relativeRequestUrl, responseObject),
-                { } when httpMethod == HttpMethod.Post => simulatedHttp.SetupPOST(relativeRequestUrl),
-                { } when httpMethod == HttpMethod.Put => simulatedHttp.SetupPUT(relativeRequestUrl),
-                _ => null
-            };
-                // .ReturnsAsync(httpStatusCode, responseObject);
+            ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
+            setup.ReturnsAsync(httpStatusCode, responseObject);
 
             using var client = simulatedHttp.HttpClient;
-            await MakeRequest(client, httpMethod, relativeRequestUrl);
+            await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
+
             var differentHttpMethod = PickDifferentMethod(httpMethod);
             var differentRelativeUrl = GetRandomRelativeUrl();
 
@@ -84,11 +74,11 @@ namespace BlazorFocused.Testing
             HttpMethod httpMethod,
             HttpStatusCode httpStatusCode,
             string relativeRequestUrl,
+            SimpleClass requestObject,
             SimpleClass responseObject)
         {
-            simulatedHttp
-                .Setup(httpMethod, relativeRequestUrl)
-                .ReturnsAsync(httpStatusCode, responseObject);
+            ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
+            setup.ReturnsAsync(httpStatusCode, responseObject);
 
             Action action = () => simulatedHttp.VerifyWasCalled();
 

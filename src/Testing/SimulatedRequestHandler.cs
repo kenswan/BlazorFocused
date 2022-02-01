@@ -13,7 +13,7 @@
         {
             (HttpMethod method, string url, object content) = await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
-            addRequest(new SimulatedHttpRequest { Method = method, Url = url, Content = content });
+            addRequest(new SimulatedHttpRequest { Method = method, Url = url, RequestContent = content });
 
             return await base.SendAsync(request, cancellationToken);
         }

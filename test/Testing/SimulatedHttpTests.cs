@@ -1,9 +1,7 @@
 ﻿using BlazorFocused.Model;
 using Bogus;
-using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
+using System.Net.Http.Json;
 using Xunit;
 
 namespace BlazorFocused.Testing
@@ -19,28 +17,80 @@ namespace BlazorFocused.Testing
             simulatedHttp = new SimulatedHttp(baseAddress);
         }
 
-        public static TheoryData<HttpMethod, HttpStatusCode, string, SimpleClass> HttpData =>
+        public static TheoryData<HttpMethod, HttpStatusCode, string, SimpleClass, SimpleClass> HttpData =>
             new()
             {
-                { HttpMethod.Delete, GetRandomStatusCode(), GetRandomRelativeUrl(), GetRandomSimpleClass() },
-                { HttpMethod.Get, GetRandomStatusCode(), GetRandomRelativeUrl(), GetRandomSimpleClass() },
-                { HttpMethod.Patch, GetRandomStatusCode(), GetRandomRelativeUrl(), GetRandomSimpleClass() },
-                { HttpMethod.Post, GetRandomStatusCode(), GetRandomRelativeUrl(), GetRandomSimpleClass() },
-                { HttpMethod.Put, GetRandomStatusCode(), GetRandomRelativeUrl(), GetRandomSimpleClass() }
+                { 
+                    HttpMethod.Delete,
+                    GetRandomStatusCode(),
+                    GetRandomRelativeUrl(),
+                    null,                    // Request
+                    GetRandomSimpleClass() // Response
+                },
+                { 
+                    HttpMethod.Get,
+                    GetRandomStatusCode(),
+                    GetRandomRelativeUrl(),
+                    null,                  
+                    GetRandomSimpleClass()
+                },
+                { 
+                    HttpMethod.Patch,
+                    GetRandomStatusCode(),
+                    GetRandomRelativeUrl(),
+                    GetRandomSimpleClass(),
+                    GetRandomSimpleClass() 
+                },
+                { 
+                    HttpMethod.Post,
+                    GetRandomStatusCode(),
+                    GetRandomRelativeUrl(),
+                    GetRandomSimpleClass(),
+                    GetRandomSimpleClass()
+                },
+                { 
+                    HttpMethod.Put,
+                    GetRandomStatusCode(),
+                    GetRandomRelativeUrl(),
+                    GetRandomSimpleClass(),
+                    GetRandomSimpleClass()
+                }
             };
 
-        private static Task<HttpResponseMessage> MakeRequest(HttpClient client, HttpMethod httpMethod, string url)
+        private ISimulatedHttpSetup GetHttpSetup(HttpMethod httpMethod, string url, object request) =>
+            httpMethod switch
+            {
+                { } when httpMethod == HttpMethod.Delete => simulatedHttp.SetupDELETE(url),
+                { } when httpMethod == HttpMethod.Get => simulatedHttp.SetupGET(url),
+                { } when httpMethod == HttpMethod.Patch => simulatedHttp.SetupPATCH(url, request),
+                { } when httpMethod == HttpMethod.Post => simulatedHttp.SetupPOST(url, request),
+                { } when httpMethod == HttpMethod.Put => simulatedHttp.SetupPUT(url, request),
+                _ => null
+            };
+
+        private static Task<HttpResponseMessage> MakeRequest(
+            HttpClient client, HttpMethod httpMethod, string url, object request)
         {
             return httpMethod switch
             {
                 HttpMethod method when method == HttpMethod.Delete => client.DeleteAsync(url),
                 HttpMethod method when method == HttpMethod.Get => client.GetAsync(url),
-                HttpMethod method when method == HttpMethod.Patch => client.PatchAsync(url, null),
-                HttpMethod method when method == HttpMethod.Post => client.PostAsync(url, null),
-                HttpMethod method when method == HttpMethod.Put => client.PutAsync(url, null),
+
+                HttpMethod method when method == HttpMethod.Patch => 
+                    client.PatchAsync(url, GetHttpContent(request)),
+
+                HttpMethod method when method == HttpMethod.Post =>
+                    client.PostAsync(url, GetHttpContent(request)),
+
+                HttpMethod method when method == HttpMethod.Put =>
+                    client.PutAsync(url, GetHttpContent(request)),
+
                 _ => throw new SimulatedHttpTestException($"{httpMethod} not supported"),
             };
         }
+
+        private static HttpContent GetHttpContent(object content) =>
+            content is not null ? JsonContent.Create(content) : default;
 
         private static HttpMethod PickDifferentMethod(HttpMethod httpMethod)
         {
@@ -71,7 +121,6 @@ namespace BlazorFocused.Testing
             new Faker<SimpleClass>()
                 .RuleForType(typeof(string), fake => fake.Lorem.Sentence(GetRandomNumber()))
                 .Generate();
-
         private static int GetRandomNumber() =>
             new Faker().Random.Int(4, 10);
     }
