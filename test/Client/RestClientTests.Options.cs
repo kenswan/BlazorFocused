@@ -1,8 +1,5 @@
 ﻿using FluentAssertions;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
 using Xunit;
 
 namespace BlazorFocused.Client

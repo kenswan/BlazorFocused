@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace BlazorFocused.Store
+﻿namespace BlazorFocused.Store
 {
     /// <summary>
     /// Representation of a specific store operating within the context of the application.

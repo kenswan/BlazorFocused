@@ -1,9 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
-using System;
 using System.Reactive.Subjects;
-using System.Threading.Tasks;
 
 namespace BlazorFocused.Store
 {

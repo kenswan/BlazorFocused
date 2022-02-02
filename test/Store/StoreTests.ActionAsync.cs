@@ -4,7 +4,6 @@ using Bogus;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace BlazorFocused.Store

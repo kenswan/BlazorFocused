@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace BlazorFocused.Store
+﻿namespace BlazorFocused.Store
 {
     /// <summary>
     /// Performs an asynchronous action that can be triggered by the store

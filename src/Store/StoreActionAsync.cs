@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace BlazorFocused.Store
+﻿namespace BlazorFocused.Store
 {
     /// <inheritdoc cref="IActionAsync{TState}"/>
     public abstract class StoreActionAsync<TState> : IActionAsync<TState>

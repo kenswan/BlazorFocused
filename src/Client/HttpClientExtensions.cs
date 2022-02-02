@@ -1,7 +1,4 @@
-﻿using System;
-using System.Net.Http;
-
-namespace BlazorFocused.Client
+﻿namespace BlazorFocused.Client
 {
     internal static class HttpClientExtensions
     {

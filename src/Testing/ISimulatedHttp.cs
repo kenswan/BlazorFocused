@@ -63,6 +63,6 @@
         /// <exception cref="SimulatedHttpTestException">
         /// Exception will be thrown if expected request was not performed
         /// </exception>
-        void VerifyWasCalled(HttpMethod method = default, string url = default, object content = null);
+        void VerifyWasCalled(HttpMethod method = default, string url = default, object content = default);
     }
 }

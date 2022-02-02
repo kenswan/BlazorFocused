@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BlazorFocused.Testing
+﻿namespace BlazorFocused.Testing
 {
     /// <summary>
     /// Exception given when request was not verified with

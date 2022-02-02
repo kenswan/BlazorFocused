@@ -1,7 +1,6 @@
 ﻿using BlazorFocused.Extensions;
 using Bogus;
 using Microsoft.Extensions.DependencyInjection;
-using System.Collections.Generic;
 using Xunit;
 
 namespace BlazorFocused.Client

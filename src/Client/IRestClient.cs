@@ -1,8 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-
-namespace BlazorFocused.Client
+﻿namespace BlazorFocused.Client
 {
     /// <summary>
     /// Standardizes the handling of HTTP requests/responses within a given application.
