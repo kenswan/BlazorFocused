@@ -137,12 +137,12 @@ namespace BlazorFocused.Testing
 
             foreach (var match in matches)
             {
-                var compareEquals = string.Equals(
+                var requestMatchesExpected = string.Equals(
                     match.RequestContent,
                     simulatedHttpRequest.RequestContent,
                     StringComparison.InvariantCultureIgnoreCase);
 
-                if (compareEquals)
+                if (requestMatchesExpected)
                     return string.Empty;
             }
 

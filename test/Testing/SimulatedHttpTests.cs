@@ -94,7 +94,6 @@ namespace BlazorFocused.Testing
         private static HttpContent GetHttpContent(object content)
         {
             var contentString = JsonSerializer.Serialize(content);
-            // content is not null ? JsonContent.Create(content) : default;
 
             return content is not null ?
                 new StringContent(contentString, Encoding.UTF8, "application/json") : default;
