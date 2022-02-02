@@ -15,7 +15,7 @@ namespace BlazorFocused.Testing
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            (HttpMethod method, string url, object content) =
+            (HttpMethod method, string url, string content) =
                 await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
             var response = responses.Where(request =>
@@ -26,7 +26,7 @@ namespace BlazorFocused.Testing
             return new HttpResponseMessage
             {
                 StatusCode = response is not null ? response.StatusCode : HttpStatusCode.NotImplemented,
-                Content = new StringContent(JsonSerializer.Serialize(response?.ResponseContent), Encoding.UTF8, "application/json"),
+                Content = new StringContent(response?.ResponseContent, Encoding.UTF8, "application/json"),
                 RequestMessage = request
             };
         }

@@ -4,7 +4,7 @@
     {
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            (HttpMethod _, string url, object _) =
+            (HttpMethod _, string url, string _) =
                 await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
             if (!Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out Uri _))

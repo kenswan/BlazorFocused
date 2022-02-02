@@ -11,7 +11,8 @@
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            (HttpMethod method, string url, object content) = await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
+            (HttpMethod method, string url, string content) =
+                await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
             addRequest(new SimulatedHttpRequest { Method = method, Url = url, RequestContent = content });
 

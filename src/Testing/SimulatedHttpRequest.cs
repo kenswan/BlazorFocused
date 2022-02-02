@@ -6,6 +6,6 @@
 
         public string Url { get; set; }
 
-        public object RequestContent { get; set; }
+        public string RequestContent { get; set; }
     }
 }

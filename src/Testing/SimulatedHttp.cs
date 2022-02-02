@@ -60,11 +60,13 @@ namespace BlazorFocused.Testing
 
         public void VerifyWasCalled(HttpMethod method = default, string url = default, object content = default)
         {
+            var requestString = content is not null ? JsonSerializer.Serialize(content) : null;
+
             SimulatedHttpRequest simulatedRequest = new()
             {
                 Method = method,
                 Url = url,
-                RequestContent = content
+                RequestContent = requestString
             };
 
             var invalidCheck = simulatedRequest switch
@@ -82,7 +84,9 @@ namespace BlazorFocused.Testing
 
         private ISimulatedHttpSetup Setup(HttpMethod method, string url, object content = null)
         {
-            var request = new SimulatedHttpRequest { Method = method, Url = url, RequestContent = content };
+            var requestString = content is not null ? JsonSerializer.Serialize(content) : null;
+
+            var request = new SimulatedHttpRequest { Method = method, Url = url, RequestContent = requestString };
 
             return new SimulatedHttpSetup(request, Resolve);
         }
@@ -94,13 +98,15 @@ namespace BlazorFocused.Testing
 
         private void Resolve(SimulatedHttpRequest request, HttpStatusCode statusCode, object response)
         {
+            var responseString = response is not null ? JsonSerializer.Serialize(response) : null;
+
             var setupResponse = new SimulatedHttpResponse
             {
                 Method = request.Method,
                 Url = GetFullUrl(request.Url),
                 StatusCode = statusCode,
                 RequestContent = request?.RequestContent,
-                ResponseContent = response
+                ResponseContent = responseString
             };
 
             responses.Add(setupResponse);
@@ -129,22 +135,12 @@ namespace BlazorFocused.Testing
             if (!matches.Any())
                 return $"Method {method} & Url {url}";
 
-            var serializationOptions = new JsonSerializerOptions { WriteIndented = true  };
-
-            var expectedRequestContent = JsonSerializer.Serialize(
-                simulatedHttpRequest.RequestContent,
-                serializationOptions);
-
             foreach (var match in matches)
             {
-                var actualRequestContent = JsonSerializer.Serialize(
+                var compareEquals = string.Equals(
                     match.RequestContent,
-                    serializationOptions);
-
-                var compareEquals = string.Compare(
-                    expectedRequestContent,
-                    actualRequestContent,
-                    StringComparison.InvariantCultureIgnoreCase) == 0;
+                    simulatedHttpRequest.RequestContent,
+                    StringComparison.InvariantCultureIgnoreCase);
 
                 if (compareEquals)
                     return string.Empty;

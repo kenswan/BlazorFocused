@@ -2,7 +2,7 @@
 {
     internal class SimulatedHandler
     {
-        public static async Task<(HttpMethod method, string url, object content)> GetRequestMessageContents(
+        public static async Task<(HttpMethod method, string url, string content)> GetRequestMessageContents(
             HttpRequestMessage request, CancellationToken cancellationToken)
         {
             var method = request.Method;

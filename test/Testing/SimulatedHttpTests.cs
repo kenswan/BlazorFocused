@@ -2,6 +2,8 @@
 using Bogus;
 using System.Net;
 using System.Net.Http.Json;
+using System.Text;
+using System.Text.Json;
 using Xunit;
 
 namespace BlazorFocused.Testing
@@ -89,9 +91,14 @@ namespace BlazorFocused.Testing
             };
         }
 
-        private static HttpContent GetHttpContent(object content) =>
-            content is not null ? JsonContent.Create(content) : default;
+        private static HttpContent GetHttpContent(object content)
+        {
+            var contentString = JsonSerializer.Serialize(content);
+            // content is not null ? JsonContent.Create(content) : default;
 
+            return content is not null ?
+                new StringContent(contentString, Encoding.UTF8, "application/json") : default;
+        }
         private static HttpMethod PickDifferentMethod(HttpMethod httpMethod)
         {
             var methods = new List<HttpMethod>
@@ -121,6 +128,7 @@ namespace BlazorFocused.Testing
             new Faker<SimpleClass>()
                 .RuleForType(typeof(string), fake => fake.Lorem.Sentence(GetRandomNumber()))
                 .Generate();
+
         private static int GetRandomNumber() =>
             new Faker().Random.Int(4, 10);
     }
