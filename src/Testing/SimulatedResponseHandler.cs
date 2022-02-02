@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Net;
 using System.Text;
 using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace BlazorFocused.Testing
 {
@@ -32,7 +26,7 @@ namespace BlazorFocused.Testing
             return new HttpResponseMessage
             {
                 StatusCode = response is not null ? response.StatusCode : HttpStatusCode.NotImplemented,
-                Content = new StringContent(JsonSerializer.Serialize(response?.Response), Encoding.UTF8, "application/json"),
+                Content = new StringContent(response?.ResponseContent, Encoding.UTF8, "application/json"),
                 RequestMessage = request
             };
         }

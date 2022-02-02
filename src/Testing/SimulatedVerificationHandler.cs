@@ -1,9 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace BlazorFocused.Testing
+﻿namespace BlazorFocused.Testing
 {
     internal class SimulatedVerificationHandler : DelegatingHandler
     {

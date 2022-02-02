@@ -1,6 +1,4 @@
-﻿using System.Net.Http;
-
-namespace BlazorFocused.Testing
+﻿namespace BlazorFocused.Testing
 {
     /// <summary>
     /// Simulates <see cref="HttpClient"/> transactions for testing
@@ -20,12 +18,42 @@ namespace BlazorFocused.Testing
         HttpClient HttpClient { get; }
 
         /// <summary>
-        /// Begin setup for an expected request that will be used
+        /// Begin setup for an expected DELETE request that will be used
         /// </summary>
-        /// <param name="method"><see cref="HttpMethod"/> of expected request</param>
         /// <param name="url">Relative or full url expected request</param>
         /// <returns>Further configuration to handle simulated response object</returns>
-        ISimulatedHttpSetup Setup(HttpMethod method, string url);
+        ISimulatedHttpSetup SetupDELETE(string url);
+
+        /// <summary>
+        /// Begin setup for an expected GET request that will be used
+        /// </summary>
+        /// <param name="url">Relative or full url expected request</param>
+        /// <returns>Further configuration to handle simulated response object</returns>
+        ISimulatedHttpSetup SetupGET(string url);
+
+        /// <summary>
+        /// Begin setup for an expected PATCH request that will be used
+        /// </summary>
+        /// <param name="url">Relative or full url expected request</param>
+        /// <param name="content">Request body of expected request (will not compare if null)</param>
+        /// <returns>Further configuration to handle simulated response object</returns>
+        ISimulatedHttpSetup SetupPATCH(string url, object content = null);
+
+        /// <summary>
+        /// Begin setup for an expected POST request that will be used
+        /// </summary>
+        /// <param name="url">Relative or full url expected request</param>
+        /// <param name="content">Request body of expected request (will not compare if null)</param>
+        /// <returns>Further configuration to handle simulated response object</returns>
+        ISimulatedHttpSetup SetupPOST(string url, object content = null);
+
+        /// <summary>
+        /// Begin setup for an expected PUT request that will be used
+        /// </summary>
+        /// <param name="url">Relative or full url expected request</param>
+        /// <param name="content">Request body of expected request (will not compare if null)</param>
+        /// <returns>Further configuration to handle simulated response object</returns>
+        ISimulatedHttpSetup SetupPUT(string url, object content = null);
 
         /// <summary>
         /// Verify a request was made
@@ -35,6 +63,6 @@ namespace BlazorFocused.Testing
         /// <exception cref="SimulatedHttpTestException">
         /// Exception will be thrown if expected request was not performed
         /// </exception>
-        void VerifyWasCalled(HttpMethod method = default, string url = default);
+        void VerifyWasCalled(HttpMethod method = default, string url = default, object content = null);
     }
 }

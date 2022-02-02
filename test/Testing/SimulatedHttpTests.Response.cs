@@ -24,14 +24,17 @@ namespace BlazorFocused.Testing
             HttpMethod httpMethod,
             HttpStatusCode httpStatusCode,
             string relativeRequestUrl,
+            SimpleClass requestObject,
             SimpleClass responseObject)
         {
-            simulatedHttp
-                .Setup(httpMethod, relativeRequestUrl)
-                .ReturnsAsync(httpStatusCode, responseObject);
+            ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
+            setup.ReturnsAsync(httpStatusCode, responseObject);
 
             using var client = simulatedHttp.HttpClient;
-            HttpResponseMessage actualResponse = await MakeRequest(client, httpMethod, relativeRequestUrl);
+
+            HttpResponseMessage actualResponse =
+                await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
+
             var actualResponseString = await actualResponse.Content.ReadAsStringAsync();
             var actualResponseObject = JsonSerializer.Deserialize<SimpleClass>(actualResponseString);
 

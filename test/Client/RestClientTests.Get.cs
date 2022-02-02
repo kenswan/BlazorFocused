@@ -16,8 +16,7 @@ namespace BlazorFocused.Client
             var url = GetRandomRelativeUrl();
             var expectedResponse = GetRandomResponseObjects();
 
-            simulatedHttp
-                .Setup(HttpMethod.Get, url)
+            simulatedHttp.SetupGET(url)
                 .ReturnsAsync(HttpStatusCode.OK, expectedResponse);
 
             var actualResponse = await restClient.GetAsync<IEnumerable<SimpleClass>>(url);
@@ -31,11 +30,11 @@ namespace BlazorFocused.Client
             var url = GetRandomRelativeUrl();
             var invalidResponse = GetRandomResponseObject();
 
-            simulatedHttp
-                .Setup(HttpMethod.Get, url)
+            simulatedHttp.SetupGET(url)
                 .ReturnsAsync(HttpStatusCode.InternalServerError, invalidResponse);
 
-            var actualException = await Record.ExceptionAsync(() => restClient.GetAsync<IEnumerable<SimpleClass>>(url));
+            var actualException = await Record.ExceptionAsync(() =>
+                restClient.GetAsync<IEnumerable<SimpleClass>>(url));
 
             actualException.Should().BeOfType(typeof(RestClientException))
                 .And.Match<RestClientException>(exception =>
@@ -51,7 +50,7 @@ namespace BlazorFocused.Client
             var invalidResponse = GetRandomResponseObject();
 
             simulatedHttp
-                .Setup(HttpMethod.Get, url)
+                .SetupGET(url)
                 .ReturnsAsync(HttpStatusCode.BadRequest, invalidResponse);
 
             var actualResponse = await restClient.TryGetAsync<IEnumerable<SimpleClass>>(url);
