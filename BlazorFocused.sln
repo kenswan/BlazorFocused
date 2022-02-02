@@ -1,10 +1,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29418.71
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused", "src\BlazorFocused.csproj", "{486505D3-B23F-4188-98A0-FB0F4CD5F5CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused.Core", "src\core\BlazorFocused.Core.csproj", "{486505D3-B23F-4188-98A0-FB0F4CD5F5CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused.Test", "test\BlazorFocused.Test.csproj", "{1917E2FD-F47D-415E-B5B4-07ECAE5E2C39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused.Core.Test", "test\core\BlazorFocused.Core.Test.csproj", "{1917E2FD-F47D-415E-B5B4-07ECAE5E2C39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFocused.Tools", "src\tools\BlazorFocused.Tools.csproj", "{4CCB8265-1325-4076-BCD5-EA846F9E8DBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFocused.Tools.Test", "test\tools\BlazorFocused.Tools.Test.csproj", "{EB52246B-91BA-4854-9D5B-4D97B77175B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +24,14 @@ Global
 		{1917E2FD-F47D-415E-B5B4-07ECAE5E2C39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1917E2FD-F47D-415E-B5B4-07ECAE5E2C39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1917E2FD-F47D-415E-B5B4-07ECAE5E2C39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CCB8265-1325-4076-BCD5-EA846F9E8DBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CCB8265-1325-4076-BCD5-EA846F9E8DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CCB8265-1325-4076-BCD5-EA846F9E8DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CCB8265-1325-4076-BCD5-EA846F9E8DBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB52246B-91BA-4854-9D5B-4D97B77175B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB52246B-91BA-4854-9D5B-4D97B77175B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB52246B-91BA-4854-9D5B-4D97B77175B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB52246B-91BA-4854-9D5B-4D97B77175B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
