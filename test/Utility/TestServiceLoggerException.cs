@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BlazorFocused.Utility
+﻿namespace BlazorFocused.Utility
 {
     public class TestServiceLoggerException : Exception
     {

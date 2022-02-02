@@ -1,6 +1,5 @@
 ﻿using BlazorFocused.Utility;
 using Microsoft.Extensions.Logging;
-using System;
 using Xunit;
 using Xunit.Abstractions;
 

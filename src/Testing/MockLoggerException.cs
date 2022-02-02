@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace BlazorFocused.Testing
+﻿namespace BlazorFocused.Testing
 {
     /// <summary>
     /// Exception returned when log entry from <see cref="IMockLogger{T}"/>

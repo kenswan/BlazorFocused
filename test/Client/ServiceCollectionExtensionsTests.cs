@@ -1,10 +1,6 @@
 ﻿using BlazorFocused.Extensions;
 using Bogus;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using Xunit;
 
 namespace BlazorFocused.Client

@@ -1,7 +1,6 @@
 ﻿using BlazorFocused.Model;
 using Bogus;
 using System.Net;
-using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using Xunit;
@@ -22,35 +21,35 @@ namespace BlazorFocused.Testing
         public static TheoryData<HttpMethod, HttpStatusCode, string, SimpleClass, SimpleClass> HttpData =>
             new()
             {
-                { 
+                {
                     HttpMethod.Delete,
                     GetRandomStatusCode(),
                     GetRandomRelativeUrl(),
                     null,                    // Request
                     GetRandomSimpleClass() // Response
                 },
-                { 
+                {
                     HttpMethod.Get,
                     GetRandomStatusCode(),
                     GetRandomRelativeUrl(),
-                    null,                  
+                    null,
                     GetRandomSimpleClass()
                 },
-                { 
+                {
                     HttpMethod.Patch,
                     GetRandomStatusCode(),
                     GetRandomRelativeUrl(),
                     GetRandomSimpleClass(),
-                    GetRandomSimpleClass() 
+                    GetRandomSimpleClass()
                 },
-                { 
+                {
                     HttpMethod.Post,
                     GetRandomStatusCode(),
                     GetRandomRelativeUrl(),
                     GetRandomSimpleClass(),
                     GetRandomSimpleClass()
                 },
-                { 
+                {
                     HttpMethod.Put,
                     GetRandomStatusCode(),
                     GetRandomRelativeUrl(),
@@ -78,7 +77,7 @@ namespace BlazorFocused.Testing
                 HttpMethod method when method == HttpMethod.Delete => client.DeleteAsync(url),
                 HttpMethod method when method == HttpMethod.Get => client.GetAsync(url),
 
-                HttpMethod method when method == HttpMethod.Patch => 
+                HttpMethod method when method == HttpMethod.Patch =>
                     client.PatchAsync(url, GetHttpContent(request)),
 
                 HttpMethod method when method == HttpMethod.Post =>

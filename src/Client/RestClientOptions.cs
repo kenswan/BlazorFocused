@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BlazorFocused.Client
+﻿namespace BlazorFocused.Client
 {
     internal class RestClientOptions
     {

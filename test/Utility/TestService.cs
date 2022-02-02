@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace BlazorFocused.Utility
+﻿namespace BlazorFocused.Utility
 {
     public class TestService : TestClass, ITestService
     {

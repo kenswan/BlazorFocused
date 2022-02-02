@@ -1,7 +1,4 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-
-namespace BlazorFocused.Utility
+﻿namespace BlazorFocused.Utility
 {
     public class TestHttpService : ITestHttpService
     {
