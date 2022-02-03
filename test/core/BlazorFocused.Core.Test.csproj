@@ -30,4 +30,3 @@
     <ProjectReference Include="..\tools\BlazorFocused.Tools.Test.csproj" />
   </ItemGroup>
 </Project>
-
