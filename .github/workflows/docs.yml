@@ -1,10 +1,10 @@
 name: Deploy Documentation
 
-on: 
+on:
   workflow_dispatch:
     inputs:
-      version: 
-        description: 'Release Version'     
+      version:
+        description: "Release Version"
         required: true
 
 env:
@@ -49,7 +49,7 @@ jobs:
 
       - name: Install DocFx
         shell: pwsh
-        run: choco install docfx -y --version=2.58
+        run: choco install docfx -y --version=2.59
 
       - name: Generate Metadata
         shell: pwsh
