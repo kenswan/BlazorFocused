@@ -1,6 +1,6 @@
 [![Nuget Version](https://img.shields.io/nuget/v/BlazorFocused?logo=nuget)](https://www.nuget.org/packages/BlazorFocused)
 [![Nuget Downloads](https://img.shields.io/nuget/dt/BlazorFocused?logo=nuget)](https://www.nuget.org/packages/BlazorFocused)
-![Build & Test](https://github.com/kenswan/BlazorFocused/actions/workflows/build.yml/badge.svg)
+[![Continuous Integration](https://github.com/kenswan/BlazorFocused/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/kenswan/BlazorFocused/actions/workflows/continuous-integration.yml)
 
 # BlazorFocused
 
@@ -26,7 +26,7 @@ Add the following line in your csproj package references
 
 ### WebAssembly Blazor Startup
 
-```csharp  
+```csharp
 public static async Task Main(string[] args)
 {
     var builder = WebAssemblyHostBuilder.CreateDefault(args);
