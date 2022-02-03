@@ -36,3 +36,4 @@
     <None Include="..\..\BlazorFocused.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 </Project>
+

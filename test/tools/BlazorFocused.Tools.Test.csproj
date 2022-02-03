@@ -29,3 +29,4 @@
     <ProjectReference Include="..\..\src\tools\BlazorFocused.Tools.csproj" />
   </ItemGroup>
 </Project>
+
