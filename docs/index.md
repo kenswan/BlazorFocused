@@ -2,11 +2,12 @@
 uid: home
 _disableBreadcrumb: true
 ---
+
 # BlazorFocused
 
 [![Nuget Version](https://img.shields.io/nuget/v/BlazorFocused?logo=nuget)](https://www.nuget.org/packages/BlazorFocused)
 [![Nuget Downloads](https://img.shields.io/nuget/dt/BlazorFocused?logo=nuget)](https://www.nuget.org/packages/BlazorFocused)
-![Build & Test](https://github.com/kenswan/BlazorFocused/actions/workflows/build.yml/badge.svg)
+[![Continuous Integration](https://github.com/kenswan/BlazorFocused/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/kenswan/BlazorFocused/actions/workflows/continuous-integration.yml)
 
 Adding Flux Architecture and other utilities to Blazor Components.
 
