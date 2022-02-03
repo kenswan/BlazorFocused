@@ -1,11 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<Sdk Name="Microsoft.Build.CentralPackageVersions" Version="2.1.3" />
-	
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>annotations</Nullable>
-	  
     <RootNamespace>BlazorFocused</RootNamespace>
     <PackageId>BlazorFocused</PackageId>
     <Authors>Kenneth Swan</Authors>
