@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace BlazorFocused.Tools.Testing
+namespace BlazorFocused.Tools.Client
 {
     internal class SimulatedHttpSetup : ISimulatedHttpSetup
     {

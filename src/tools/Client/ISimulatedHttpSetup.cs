@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace BlazorFocused.Tools.Testing
+namespace BlazorFocused.Tools.Client
 {
     /// <summary>
     /// Handles configuration/simulated response returned for a request from <see cref="ISimulatedHttp"/>

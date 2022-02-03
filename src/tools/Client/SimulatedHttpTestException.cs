@@ -1,4 +1,4 @@
-﻿namespace BlazorFocused.Tools.Testing
+﻿namespace BlazorFocused.Tools.Client
 {
     /// <summary>
     /// Exception given when request was not verified with

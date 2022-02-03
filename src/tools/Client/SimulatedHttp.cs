@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Text.Json;
 
-namespace BlazorFocused.Tools.Testing
+namespace BlazorFocused.Tools.Client
 {
     /// <inheritdoc cref="ISimulatedHttp"/>
     public class SimulatedHttp : ISimulatedHttp

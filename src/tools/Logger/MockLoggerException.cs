@@ -1,4 +1,4 @@
-﻿namespace BlazorFocused.Tools.Testing
+﻿namespace BlazorFocused.Tools.Logger
 {
     /// <summary>
     /// Exception returned when log entry from <see cref="IMockLogger{T}"/>

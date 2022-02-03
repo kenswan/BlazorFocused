@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -30,5 +30,5 @@
     <ProjectReference Include="..\..\src\core\BlazorFocused.Core.csproj" />
     <ProjectReference Include="..\..\src\tools\BlazorFocused.Tools.csproj" />
   </ItemGroup>
-
+	
 </Project>

@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace BlazorFocused.Tools.Testing
+namespace BlazorFocused.Tools.Logger
 {
     public class MockLoggerTests
     {

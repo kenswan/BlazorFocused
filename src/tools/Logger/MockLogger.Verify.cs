@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace BlazorFocused.Tools.Testing
+namespace BlazorFocused.Tools.Logger
 {
     public partial class MockLogger<T>
     {

@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Text;
 
-namespace BlazorFocused.Tools.Testing
+namespace BlazorFocused.Tools.Client
 {
     internal class SimulatedResponseHandler : DelegatingHandler
     {
