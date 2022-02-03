@@ -1,0 +1,41 @@
+﻿@using BlazorFocused.Store
+@using ToDoListSample.Actions
+@using ToDoListSample.Models 
+@using ToDoListSample.Reducers
+@using ToDoListSample.Stores
+
+@inject IStore<ToDoStore> toDoStore
+
+<h5>Stats</h5>
+
+<table cellpadding="10">
+    <thead>
+        <tr>
+            <th>Complete</th>
+            <th>Incomplete</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@toDoCount.Complete</td>
+            <td>@toDoCount.InComplete</td>
+            <td>@toDoCount.Total</td>
+        </tr>
+    </tbody>
+</table>
+
+@code {
+
+    ToDoCount toDoCount = new();
+
+    protected override void OnInitialized()
+    {
+        toDoStore.Reduce<ToDoCountReducer, ToDoCount>(count =>
+        {
+            toDoCount = count;
+
+            StateHasChanged();
+        });
+    }
+}
