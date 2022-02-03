@@ -3,15 +3,19 @@
     {
       "src": [
         {
-          "files": ["BlazorFocused.csproj"],
-          "src": "../../BlazorFocused/src"
+          "files": ["BlazorFocused.Core.csproj"],
+          "src": "../../BlazorFocused/src/core"
+        },
+        {
+          "files": ["BlazorFocused.Tools.csproj"],
+          "src": "../../BlazorFocused/src/tools"
         }
       ],
       "dest": "api",
       "disableGitFeatures": false,
       "disableDefaultFilter": false,
       "properties": {
-        "TargetFramework": "net5.0"
+        "TargetFramework": "net6.0"
       }
     }
   ],

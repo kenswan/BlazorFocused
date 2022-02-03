@@ -1,5 +1,5 @@
 ---
-uid: testing/mocklogger
+uid: tools/mocklogger
 ---
 
 # Mock Logger

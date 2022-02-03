@@ -11,8 +11,8 @@
   items:
     - topicUid: client/restclient
     - topicUid: client/oauthrestclient
-- name: Testing Utilities
-  topicUid: testing/simulatedhttp
+- name: Tool Components
+  topicUid: tools/simulatedhttp
   items:
-    - topicUid: testing/simulatedhttp
-    - topicUid: testing/mocklogger
+    - topicUid: tools/simulatedhttp
+    - topicUid: tools/mocklogger

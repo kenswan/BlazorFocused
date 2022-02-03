@@ -8,7 +8,7 @@ namespace BlazorFocused.Tools.Client
     public interface ISimulatedHttpSetup
     {
         /// <summary>
-        /// Configures the expected results of <see cref="ISimulatedHttp.Setup(System.Net.Http.HttpMethod, string)"/>
+        /// Configures the expected results of "Setup" request/>
         /// </summary>
         /// <param name="statusCode">Simulated http response status</param>
         /// <param name="responseObject">Simulated deserialized object in http response body</param>

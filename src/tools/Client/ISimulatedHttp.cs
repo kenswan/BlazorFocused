@@ -7,13 +7,13 @@
     public interface ISimulatedHttp
     {
         /// <summary>
-        /// Handler that can be passed into <see cref="HttpClient"/> for
+        /// Handler that can be passed into <see cref="System.Net.Http.HttpClient"/> for
         /// making simulated requests
         /// </summary>
         DelegatingHandler DelegatingHandler { get; }
 
         /// <summary>
-        /// Returns <see cref="HttpClient"/> to perform requests
+        /// Returns <see cref="System.Net.Http.HttpClient"/> to perform requests
         /// </summary>
         HttpClient HttpClient { get; }
 
