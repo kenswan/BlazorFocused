@@ -1,5 +1,5 @@
-﻿using BlazorFocused.Tools.Model;
-using BlazorFocused.Store;
+﻿using BlazorFocused.Store;
+using BlazorFocused.Tools.Model;
 
 namespace BlazorFocused.Tools.Utility
 {

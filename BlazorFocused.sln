@@ -6,9 +6,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused.Core", "src\c
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused.Core.Test", "test\core\BlazorFocused.Core.Test.csproj", "{1917E2FD-F47D-415E-B5B4-07ECAE5E2C39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFocused.Tools", "src\tools\BlazorFocused.Tools.csproj", "{4CCB8265-1325-4076-BCD5-EA846F9E8DBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused.Tools", "src\tools\BlazorFocused.Tools.csproj", "{4CCB8265-1325-4076-BCD5-EA846F9E8DBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFocused.Tools.Test", "test\tools\BlazorFocused.Tools.Test.csproj", "{EB52246B-91BA-4854-9D5B-4D97B77175B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused.Tools.Test", "test\tools\BlazorFocused.Tools.Test.csproj", "{EB52246B-91BA-4854-9D5B-4D97B77175B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CD8A311A-5F51-4F65-B9B7-821FD95DBD37}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.targets = Directory.Build.targets
+		Packages.props = Packages.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

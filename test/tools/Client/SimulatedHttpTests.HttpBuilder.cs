@@ -3,8 +3,8 @@ using BlazorFocused.Tools.Extensions;
 using BlazorFocused.Tools.Model;
 using Bogus;
 using FluentAssertions;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System.Net;
 using Xunit;
 
