@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace BlazorFocused.Tools.Testing
+namespace BlazorFocused.Tools.Logger
 {
     /// <summary>
     /// Mock Logger used to capture/test logs within a given class

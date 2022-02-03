@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace BlazorFocused.Tools.Testing
+namespace BlazorFocused.Tools.Client
 {
     /// <summary>
     /// <see cref="IHttpClientBuilder"/> extensions that allow Typed Clients to return mock data

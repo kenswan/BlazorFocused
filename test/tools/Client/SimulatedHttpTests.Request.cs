@@ -3,7 +3,7 @@ using FluentAssertions;
 using System.Net;
 using Xunit;
 
-namespace BlazorFocused.Tools.Testing
+namespace BlazorFocused.Tools.Client
 {
     public partial class SimulatedHttpTests
     {

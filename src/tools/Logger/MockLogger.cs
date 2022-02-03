@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace BlazorFocused.Tools.Testing
+namespace BlazorFocused.Tools.Logger
 {
     /// <inheritdoc cref="IMockLogger{T}"/>
     public partial class MockLogger<T> : ILogger<T>, IMockLogger<T>

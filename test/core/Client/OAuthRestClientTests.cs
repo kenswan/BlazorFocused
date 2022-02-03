@@ -1,4 +1,5 @@
-﻿using BlazorFocused.Tools.Testing;
+﻿using BlazorFocused.Tools.Client;
+using BlazorFocused.Tools.Logger;
 using Bogus;
 using FluentAssertions;
 using Xunit;
