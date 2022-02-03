@@ -1,4 +1,5 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	
 	<ItemGroup Label="Microsoft NuGet Packages">
 		<!-- Source Packages -->
 		<PackageReference Update="Microsoft.Extensions.Configuration" Version="6.0.0" />
@@ -8,16 +9,28 @@
 		<PackageReference Update="Microsoft.Extensions.Http" Version="6.0.0" />
 		<PackageReference Update="Microsoft.Extensions.Logging" Version="6.0.0" />
 		<PackageReference Update="System.Reactive" Version="5.0.0" />
-
 		<!-- Test Runner -->
 		<PackageReference Update="coverlet.collector" Version="3.1.0" />
 		<PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.0.0" />
 		<PackageReference Update="xunit" Version="2.4.1" />
 		<PackageReference Update="xunit.runner.visualstudio" Version="2.4.3" />
 	</ItemGroup>
+	
 	<ItemGroup Label="External Testing Packages">
 		<PackageReference Update="Bogus" Version="34.0.1" />
 		<PackageReference Update="FluentAssertions" Version="6.4.0" />
 		<PackageReference Update="Moq" Version="4.16.1" />
 	</ItemGroup>
+
+	<ItemGroup Label="Sample Projects">
+		<PackageReference Update="BlazorFocused" Version="2.0.0-alpha1" />
+		<PackageReference Update="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.1" />
+		<PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0" />
+		<PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0" />
+		<PackageReference Update="Microsoft.EntityFrameworkCore.Design" Version="6.0.1" />
+		<PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.1" />
+		<PackageReference Update="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+		<PackageReference Update="Swashbuckle.AspNetCore" Version="6.2.3" />
+	</ItemGroup>
+	
 </Project>
