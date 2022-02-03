@@ -1,5 +1,5 @@
-﻿using BlazorFocused.Tools.Model;
-using BlazorFocused.Tools.Client;
+﻿using BlazorFocused.Tools.Client;
+using BlazorFocused.Tools.Model;
 using Bogus;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
