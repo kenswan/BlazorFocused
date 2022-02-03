@@ -1,0 +1,111 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  release:
+    types:
+      - published
+
+env:
+  DOTNET_VERSION: "6.0.x"
+  NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
+
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    env:
+      source-directory: ./src/core
+      source-project: BlazorFocused.Core.csproj
+      test-directory: ./test/core
+      test-project: BlazorFocused.Core.Test.csproj
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install Dependencies
+        run: |
+          dotnet restore ${{ env.source-directory }}/${{ env.source-project }}
+          dotnet restore ${{ env.test-directory }}/${{ env.test-project }}
+
+      - name: Build
+        working-directory: ${{ env.source-directory }}
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Test
+        working-directory: ${{ env.test-directory }}
+        run: dotnet test --no-restore --verbosity normal
+
+  tools:
+    runs-on: ubuntu-latest
+    env:
+      source-directory: ./src/tools
+      source-project: BlazorFocused.Tools.csproj
+      test-directory: ./test/tools
+      test-project: BlazorFocused.Tools.Test.csproj
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install Dependencies
+        run: |
+          dotnet restore ${{ env.source-directory }}/${{ env.source-project }}
+          dotnet restore ${{ env.test-directory }}/${{ env.test-project }}
+
+      - name: Build
+        working-directory: ${{ env.source-directory }}
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Test
+        working-directory: ${{ env.test-directory }}
+        run: dotnet test --no-restore --verbosity normal
+
+  release:
+    needs: [core, tools]
+    if: github.event_name == 'release'
+    runs-on: ubuntu-latest
+    env:
+      core-project: ./core/BlazorFocused.Core.csproj
+      core-release-path: ./core/bin/Release
+      tools-project: ./tools/BlazorFocused.Tools.csproj
+      tools-release-path: ./tools/bin/Release
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install Dependencies
+        working-directory: ./src
+        run: |
+          dotnet restore ${{ env.core-project }}
+          dotnet restore ${{ env.tools-project }}
+
+      - name: Create Release Packages
+        working-directory: ./src
+        run: |
+          dotnet pack ${{ env.core-project }} -c Release --no-restore -p:PackageVersion=${{ github.event.release.tag_name }}
+          dotnet pack ${{ env.tools-project }} -c Release --no-restore -p:PackageVersion=${{ github.event.release.tag_name }}
+
+      - name: Push Release Packages
+        working-directory: ./src
+        run: |
+          dotnet nuget push ${{ env.core-release-path }}/BlazorFocused.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source ${{ env.NUGET_SOURCE }}
+          dotnet nuget push ${{ env.tools-release-path }}/BlazorFocused.Tools.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source ${{ env.NUGET_SOURCE }}

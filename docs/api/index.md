@@ -15,6 +15,6 @@ Wrapped HttpClient interfaces that streamline normal usage
 
 Provides one single source of updating and retrieving data throughout entire application
 
-[BlazorFocused.Testing](BlazorFocused.Testing.yml)
+[BlazorFocused.Tools](BlazorFocused.Tools.Client.yml)
 
 Provides test utilities that make it easy test with lower construct dependencies

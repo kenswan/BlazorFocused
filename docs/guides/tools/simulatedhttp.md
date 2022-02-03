@@ -1,5 +1,5 @@
 ---
-uid: testing/simulatedhttp
+uid: tools/simulatedhttp
 ---
 
 # Simulated Http Client
