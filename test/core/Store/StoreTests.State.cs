@@ -1,4 +1,5 @@
-﻿using BlazorFocused.Tools.Model;
+﻿using BlazorFocused.Tools.Extensions;
+using BlazorFocused.Tools.Model;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
@@ -12,7 +13,10 @@ namespace BlazorFocused.Store
         {
             var originalState = new SimpleClass { FieldOne = "Original" };
             var expectedState = new SimpleClass { FieldOne = "Expected" };
-            var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            using var serviceProvider = serviceCollection
+                .BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
+
             var store = new Store<SimpleClass>(originalState, serviceProvider);
 
             store.SetState(expectedState);
@@ -27,7 +31,10 @@ namespace BlazorFocused.Store
         {
             var originalState = new SimpleClass { FieldOne = "Original" };
             var expectedState = new SimpleClass { FieldOne = "Expected" };
-            var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            using var serviceProvider = serviceCollection
+                .BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
+
             var store = new Store<SimpleClass>(originalState, serviceProvider);
 
             store.SetState(currentState =>
@@ -47,7 +54,10 @@ namespace BlazorFocused.Store
             var originalState = new SimpleClass { FieldOne = "Original" };
             var expectedState = new SimpleClass { FieldOne = "Expected" };
             SimpleClass updatedState = null;
-            var serviceProvider = serviceCollection.BuildServiceProvider();
+
+            using var serviceProvider = serviceCollection
+                .BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
+
             var store = new Store<SimpleClass>(originalState, serviceProvider);
 
             store.Subscribe((newState) => { updatedState = newState; });

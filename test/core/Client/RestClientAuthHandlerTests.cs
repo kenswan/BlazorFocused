@@ -33,7 +33,7 @@ namespace BlazorFocused.Client
                 InnerHandler = simulatedHttp.DelegatingHandler
             };
 
-            var httpClient = new HttpClient(restClientAuthHandler)
+            using var httpClient = new HttpClient(restClientAuthHandler)
             {
                 BaseAddress = new Uri(baseAddress)
             };
@@ -59,7 +59,7 @@ namespace BlazorFocused.Client
                 InnerHandler = simulatedHttp.DelegatingHandler
             };
 
-            var httpClient = new HttpClient(restClientAuthHandler)
+            using var httpClient = new HttpClient(restClientAuthHandler)
             {
                 BaseAddress = new Uri(baseAddress)
             };

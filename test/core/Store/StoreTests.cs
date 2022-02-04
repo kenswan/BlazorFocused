@@ -1,17 +1,21 @@
-﻿using BlazorFocused.Tools.Model;
+﻿using BlazorFocused.Tools.Extensions;
+using BlazorFocused.Tools.Model;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace BlazorFocused.Store
 {
     public partial class StoreTests
     {
         protected readonly ServiceCollection serviceCollection;
+        private readonly ITestOutputHelper testOutputHelper;
 
-        public StoreTests()
+        public StoreTests(ITestOutputHelper testOutputHelper)
         {
             serviceCollection = new();
+            this.testOutputHelper = testOutputHelper;
         }
 
         [Fact(DisplayName = "Should Store and Return Initial Value")]
@@ -19,7 +23,10 @@ namespace BlazorFocused.Store
         {
             SimpleClass inputSimpleClass = SimpleClassUtilities.GetRandomSimpleClass();
             SimpleClass expectedSimpleClass = inputSimpleClass;
-            var serviceProvider = new ServiceCollection().BuildServiceProvider();
+
+            using var serviceProvider = new ServiceCollection()
+                .BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
+
             var store = new Store<SimpleClass>(inputSimpleClass, serviceProvider);
 
             SimpleClass actualSimpleClass = store.GetState();
@@ -30,7 +37,9 @@ namespace BlazorFocused.Store
         [Fact(DisplayName = "Should Return 'null' when initialized as null")]
         public void ShouldReturnNullWhenInitializedAsNull()
         {
-            var serviceProvider = new ServiceCollection().BuildServiceProvider();
+            using var serviceProvider = new ServiceCollection()
+                .BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
+
             var store = new Store<SimpleClass>(null, serviceProvider);
 
             SimpleClass actualSimpleClass = store.GetState();

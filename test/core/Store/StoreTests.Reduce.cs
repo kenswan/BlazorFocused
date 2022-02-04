@@ -1,4 +1,5 @@
-﻿using BlazorFocused.Tools.Model;
+﻿using BlazorFocused.Tools.Extensions;
+using BlazorFocused.Tools.Model;
 using BlazorFocused.Tools.Utility;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,9 +17,9 @@ namespace BlazorFocused.Store
             var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
             var updatedReducedClass = new TestReducer().Execute(updatedClass);
 
-            var serviceProvider = serviceCollection
+            using var serviceProvider = serviceCollection
                 .AddTransient<TestReducer>()
-                .BuildServiceProvider();
+                .BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
 
             var store = new Store<SimpleClass>(originalClass, serviceProvider);
 
@@ -44,8 +45,9 @@ namespace BlazorFocused.Store
             var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
             var updatedReducedClass = new TestReducer().Execute(updatedClass);
 
-            var serviceProvider =
-                serviceCollection.AddTransient<TestReducer>().BuildServiceProvider();
+            using var serviceProvider =
+                serviceCollection.AddTransient<TestReducer>()
+                .BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
 
             var store = new Store<SimpleClass>(originalClass, serviceProvider);
 

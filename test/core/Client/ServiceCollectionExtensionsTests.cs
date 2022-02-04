@@ -15,9 +15,9 @@ namespace BlazorFocused.Client
             services.AddConfiguration();
             services.AddRestClient(url);
 
-            var serviceProvider = services.BuildServiceProvider();
+            using var serviceProvider = services.BuildServiceProvider();
             var restClient = serviceProvider.GetRequiredService<IRestClient>();
-            HttpClient httpClient = (restClient as RestClient).GetClient();
+            using HttpClient httpClient = (restClient as RestClient).GetClient();
 
             Assert.Equal(url, httpClient.BaseAddress.OriginalString);
         }
@@ -37,9 +37,9 @@ namespace BlazorFocused.Client
                 client.DefaultRequestHeaders.Add(headerKey, headerValue);
             });
 
-            var serviceProvider = services.BuildServiceProvider();
+            using var serviceProvider = services.BuildServiceProvider();
             var restClient = serviceProvider.GetRequiredService<IRestClient>();
-            HttpClient httpClient = (restClient as RestClient).GetClient();
+            using HttpClient httpClient = (restClient as RestClient).GetClient();
 
             Assert.True(httpClient.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
             Assert.Single(actualValues);
@@ -55,9 +55,9 @@ namespace BlazorFocused.Client
             services.AddConfiguration();
             services.AddOAuthRestClient(url);
 
-            var serviceProvider = services.BuildServiceProvider();
+            using var serviceProvider = services.BuildServiceProvider();
             var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
-            HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
+            using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
             Assert.Equal(url, httpClient.BaseAddress.OriginalString);
         }
@@ -77,9 +77,9 @@ namespace BlazorFocused.Client
                 client.DefaultRequestHeaders.Add(headerKey, headerValue);
             });
 
-            var serviceProvider = services.BuildServiceProvider();
+            using var serviceProvider = services.BuildServiceProvider();
             var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
-            HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
+            using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
             Assert.True(httpClient.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
             Assert.Single(actualValues);
@@ -93,7 +93,7 @@ namespace BlazorFocused.Client
             ServiceCollection services = new();
             services.AddConfiguration();
             services.AddOAuthRestClient(new Faker().Internet.Url());
-            var serviceProvider = services.BuildServiceProvider();
+            using var serviceProvider = services.BuildServiceProvider();
             var expectedScheme = "Bearer";
             var expectedToken = "TestToken";
 

@@ -78,12 +78,9 @@ namespace BlazorFocused.Client
             return await content.ReadFromJsonAsync<T>();
         }
 
-        private static bool GetStatusCodeValidation(HttpStatusCode? httpStatusCode) =>
-            httpStatusCode.HasValue && new HttpResponseMessage(httpStatusCode.Value).IsSuccessStatusCode;
-
         private static T ExtractOrThrowResponse<T>(RestClientResponse<T> response)
         {
-            if (response.IsValid)
+            if (response.IsSuccess)
                 return response.Value;
             else
                 throw response.Exception;
@@ -91,13 +88,12 @@ namespace BlazorFocused.Client
 
         private RestClientResponse<T> GetRestClientResponse<T>(T value, HttpStatusCode? httpStatusCode, Exception exception)
         {
-            logger.LogDebug($"Creating rest client response for {(int)httpStatusCode} status code");
+            logger.LogDebug("Creating rest client response for {HttpStatusCode} status code", (int)httpStatusCode);
 
             return new RestClientResponse<T>
             {
                 Exception = exception,
                 StatusCode = httpStatusCode.GetValueOrDefault(),
-                IsValid = GetStatusCodeValidation(httpStatusCode),
                 Value = value
             };
         }
@@ -111,7 +107,7 @@ namespace BlazorFocused.Client
             Exception exception = default;
             HttpStatusCode? httpStatusCode = default;
 
-            logger.LogDebug($"Starting {method} - {url} Request");
+            logger.LogDebug("Starting {Method} - {Url} Request", method, url);
 
             try
             {
@@ -125,12 +121,12 @@ namespace BlazorFocused.Client
                     RequestUri = GetUri(url)
                 };
 
-                logger.LogDebug($"Constructed HttpRequestMessage");
+                logger.LogDebug("Constructed HttpRequestMessage");
 
                 HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(httpRequestMessage);
                 httpStatusCode = httpResponseMessage.StatusCode;
 
-                logger.LogDebug($"HttpResponse returned from request with status code {(int)httpStatusCode}");
+                logger.LogDebug("HttpResponse returned from request with status code {HttpStatusCode}", (int)httpStatusCode);
 
                 if (httpResponseMessage.IsSuccessStatusCode)
                     value = await Deserialize<T>(httpResponseMessage.Content);

@@ -1,4 +1,5 @@
-﻿using BlazorFocused.Tools.Model;
+﻿using BlazorFocused.Tools.Extensions;
+using BlazorFocused.Tools.Model;
 using BlazorFocused.Tools.Utility;
 using Bogus;
 using FluentAssertions;
@@ -15,7 +16,9 @@ namespace BlazorFocused.Store
             SimpleClass originalClass = default;
             serviceCollection.AddTransient<TestAction>();
 
-            var store = new Store<SimpleClass>(originalClass, serviceCollection.BuildServiceProvider());
+            using var store = new Store<SimpleClass>(
+                originalClass, 
+                serviceCollection.BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper));
 
             store.GetState().Should().BeNull();
 
@@ -32,9 +35,10 @@ namespace BlazorFocused.Store
             SimpleClass expectedClass = SimpleClassUtilities.GetStaticSimpleClass(input);
 
             var serviceProvider =
-                serviceCollection.AddTransient<TestActionWithInput>().BuildServiceProvider();
+                serviceCollection.AddTransient<TestActionWithInput>()
+                .BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
 
-            var store = new Store<SimpleClass>(originalClass, serviceProvider);
+            using var store = new Store<SimpleClass>(originalClass, serviceProvider);
 
             store.GetState().Should().BeNull();
 
@@ -49,8 +53,9 @@ namespace BlazorFocused.Store
         {
             SimpleClass originalClass = default;
 
-            var serviceProvider =
-                serviceCollection.AddTransient<TestAction>().BuildServiceProvider();
+            using var serviceProvider =
+                serviceCollection.AddTransient<TestAction>()
+                .BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
 
             var store = new Store<SimpleClass>(originalClass, serviceProvider);
 
@@ -68,8 +73,9 @@ namespace BlazorFocused.Store
             SimpleClass originalClass = default;
             SimpleClass expectedClass = SimpleClassUtilities.GetStaticSimpleClass(input);
 
-            var serviceProvider =
-                serviceCollection.AddTransient<TestActionWithInput>().BuildServiceProvider();
+            using var serviceProvider =
+                serviceCollection.AddTransient<TestActionWithInput>()
+                .BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
 
             var store = new Store<SimpleClass>(originalClass, serviceProvider);
 

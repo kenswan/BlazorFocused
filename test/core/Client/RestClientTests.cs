@@ -1,9 +1,10 @@
 ﻿using BlazorFocused.Tools.Client;
+using BlazorFocused.Tools.Extensions;
+using BlazorFocused.Tools.Logger;
 using BlazorFocused.Tools.Model;
 using Bogus;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
+using Xunit.Abstractions;
 
 namespace BlazorFocused.Client
 {
@@ -11,18 +12,21 @@ namespace BlazorFocused.Client
     {
         private readonly string baseAddress;
         private readonly ISimulatedHttp simulatedHttp;
-        private readonly ILogger<RestClient> nullLogger;
+        private readonly IMockLogger<RestClient> logger;
         private readonly IRestClient restClient;
 
-        public RestClientTests()
+        public RestClientTests(ITestOutputHelper testOutputHelper)
         {
             baseAddress = new Faker().Internet.Url();
             simulatedHttp = new SimulatedHttp(baseAddress);
-            nullLogger = NullLogger<RestClient>.Instance;
+
+            logger = new MockLogger<RestClient>((level, message, exception) =>
+                testOutputHelper.WriteMockLoggerMessage(level, message, exception));
+
             var restClientOptions = Options.Create<RestClientOptions>(default);
 
             restClient =
-                new RestClient(simulatedHttp.HttpClient, restClientOptions, nullLogger);
+                new RestClient(simulatedHttp.HttpClient, restClientOptions, logger);
         }
 
         private static string GetRandomRelativeUrl() =>

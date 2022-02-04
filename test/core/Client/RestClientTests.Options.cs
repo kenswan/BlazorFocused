@@ -28,8 +28,8 @@ namespace BlazorFocused.Client
                 }
             };
 
-            var httpClient =
-                new RestClient(new HttpClient(), Options.Create(restClientOptions), nullLogger).GetClient();
+            using var httpClient =
+                new RestClient(new HttpClient(), Options.Create(restClientOptions), logger).GetClient();
 
             Assert.Equal(expectedBaseAddress, httpClient.BaseAddress);
 
