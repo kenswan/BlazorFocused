@@ -7,13 +7,23 @@ namespace BlazorFocused.Tools.Logger
 {
     public class MockLoggerTests
     {
-        private readonly MockLogger<TestServiceWithLogger> mockLogger;
+        private readonly IMockLogger<TestServiceWithLogger> mockLogger;
         private readonly TestServiceWithLogger testServiceWithLogger;
         private readonly ITestOutputHelper testOutputHelper;
 
         public MockLoggerTests(ITestOutputHelper testOutputHelper)
         {
-            mockLogger = new();
+            mockLogger = new MockLogger<TestServiceWithLogger>((level, message, exception) =>
+            {
+                var label = exception is null ?
+                    level.ToString() : exception.GetType().Name;
+
+                if (exception is not null)
+                    message += $" - {exception.Message}";
+
+                testOutputHelper.WriteLine($"{label}: {message}");
+            });
+
             testServiceWithLogger = new(mockLogger);
             this.testOutputHelper = testOutputHelper;
         }
