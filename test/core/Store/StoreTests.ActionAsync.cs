@@ -1,4 +1,5 @@
-﻿using BlazorFocused.Tools.Model;
+﻿using BlazorFocused.Tools.Extensions;
+using BlazorFocused.Tools.Model;
 using BlazorFocused.Tools.Utility;
 using Bogus;
 using FluentAssertions;
@@ -21,10 +22,10 @@ namespace BlazorFocused.Store
                 service.GetValueAsync<SimpleClass>())
                     .ReturnsAsync(updatedClass);
 
-            var serviceProvider = serviceCollection
+            using var serviceProvider = serviceCollection
                 .AddTransient<TestActionAsync>()
                 .AddTransient(sp => testServiceMock.Object)
-                .BuildServiceProvider();
+                .BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
 
             var store = new Store<SimpleClass>(originalClass, serviceProvider);
 
@@ -46,10 +47,10 @@ namespace BlazorFocused.Store
                 service.GetValueAsync<string, SimpleClass>(input))
                     .ReturnsAsync(updatedClass);
 
-            var serviceProvider = serviceCollection
+            using var serviceProvider = serviceCollection
                 .AddTransient<TestActionAsyncWithInput>()
                 .AddTransient(sp => testServiceMock.Object)
-                .BuildServiceProvider();
+                .BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
 
             var store = new Store<SimpleClass>(originalClass, serviceProvider);
 

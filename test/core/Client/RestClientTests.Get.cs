@@ -55,7 +55,7 @@ namespace BlazorFocused.Client
             actualResponse.Should().NotBeNull()
                 .And.Match<RestClientResponse<IEnumerable<SimpleClass>>>(response =>
                     response.Value == default &&
-                    response.IsValid == false &&
+                    response.IsSuccess == false &&
                     response.StatusCode == HttpStatusCode.BadRequest);
         }
     }

@@ -38,7 +38,7 @@ namespace BlazorFocused.Client
 
             using var serviceProvider = serviceCollection.BuildServiceProvider();
             var restClient = serviceProvider.GetRequiredService<IRestClient>();
-            HttpClient httpClient = (restClient as RestClient).GetClient();
+            using HttpClient httpClient = (restClient as RestClient).GetClient();
 
             Assert.Equal(baseAddress, httpClient.BaseAddress.OriginalString);
             Assert.Equal(3, httpClient.DefaultRequestHeaders.Count());
@@ -75,7 +75,7 @@ namespace BlazorFocused.Client
 
             using var serviceProvider = serviceCollection.BuildServiceProvider();
             var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
-            HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
+            using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
             Assert.Equal(baseAddress, httpClient.BaseAddress.OriginalString);
             Assert.Equal(3, httpClient.DefaultRequestHeaders.Count());
@@ -93,7 +93,7 @@ namespace BlazorFocused.Client
 
             using var serviceProvider = serviceCollection.BuildServiceProvider();
             var restClient = serviceProvider.GetRequiredService<IRestClient>();
-            HttpClient httpClient = (restClient as RestClient).GetClient();
+            using HttpClient httpClient = (restClient as RestClient).GetClient();
 
             Assert.Null(httpClient.BaseAddress);
             Assert.Empty(httpClient.DefaultRequestHeaders);
@@ -110,7 +110,7 @@ namespace BlazorFocused.Client
 
             using var serviceProvider = serviceCollection.BuildServiceProvider();
             var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
-            HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
+            using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
             Assert.Null(httpClient.BaseAddress);
             Assert.Empty(httpClient.DefaultRequestHeaders);

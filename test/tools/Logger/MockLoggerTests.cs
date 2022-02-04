@@ -1,4 +1,5 @@
-﻿using BlazorFocused.Tools.Utility;
+﻿using BlazorFocused.Tools.Extensions;
+using BlazorFocused.Tools.Utility;
 using Microsoft.Extensions.Logging;
 using Xunit;
 using Xunit.Abstractions;
@@ -14,15 +15,7 @@ namespace BlazorFocused.Tools.Logger
         public MockLoggerTests(ITestOutputHelper testOutputHelper)
         {
             mockLogger = new MockLogger<TestServiceWithLogger>((level, message, exception) =>
-            {
-                var label = exception is null ?
-                    level.ToString() : exception.GetType().Name;
-
-                if (exception is not null)
-                    message += $" - {exception.Message}";
-
-                testOutputHelper.WriteLine($"{label}: {message}");
-            });
+                testOutputHelper.WriteMockLoggerMessage(level, message, exception));
 
             testServiceWithLogger = new(mockLogger);
             this.testOutputHelper = testOutputHelper;
