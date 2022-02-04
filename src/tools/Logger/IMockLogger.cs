@@ -6,7 +6,7 @@ namespace BlazorFocused.Tools.Logger
     /// Mock Logger used to capture/test logs within a given class
     /// </summary>
     /// <typeparam name="T">Type of class utilizing logger</typeparam>
-    public interface IMockLogger<T>
+    public interface IMockLogger<T> : ILogger<T>
     {
         /// <summary>
         /// Verify logger was called at any level
