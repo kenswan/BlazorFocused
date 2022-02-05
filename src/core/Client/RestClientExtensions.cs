@@ -27,6 +27,11 @@ namespace BlazorFocused.Client
             catch (Exception ex)
             {
                 exception = ex;
+                
+                if (ex is RestClientException restClientException)
+                {
+                    // TODO: Add RestClientHttpException and provide status
+                }
             }
 
             return new RestClientResponse<T>
