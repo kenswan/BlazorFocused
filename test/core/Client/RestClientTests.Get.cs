@@ -1,4 +1,5 @@
-﻿using BlazorFocused.Tools.Model;
+﻿using BlazorFocused.Client.Extensions;
+using BlazorFocused.Tools.Model;
 using FluentAssertions;
 using System.Net;
 using Xunit;
@@ -33,8 +34,8 @@ namespace BlazorFocused.Client
             var actualException = await Record.ExceptionAsync(() =>
                 restClient.GetAsync<IEnumerable<SimpleClass>>(url));
 
-            actualException.Should().BeOfType(typeof(RestClientException))
-                .And.Match<RestClientException>(exception =>
+            actualException.Should().BeOfType(typeof(RestClientHttpException))
+                .And.Match<RestClientHttpException>(exception =>
                     exception.Message.Contains($"{HttpMethod.Get.Method}") &&
                     exception.Message.Contains($"{HttpStatusCode.InternalServerError}") &&
                     exception.Message.Contains(url));
@@ -54,9 +55,9 @@ namespace BlazorFocused.Client
 
             actualResponse.Should().NotBeNull()
                 .And.Match<RestClientResponse<IEnumerable<SimpleClass>>>(response =>
-                    response.Value == default &&
+                    response.Value == null &&
                     response.IsSuccess == false &&
-                    response.StatusCode == HttpStatusCode.BadRequest);
+                    response.StatusCode.Value == HttpStatusCode.BadRequest);
         }
     }
 }
