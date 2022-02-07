@@ -1,4 +1,4 @@
-﻿namespace BlazorFocused.Client
+﻿namespace BlazorFocused.Client.Extensions
 {
     public static partial class RestClientExtensions
     {

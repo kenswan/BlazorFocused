@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace BlazorFocused.Client
+namespace BlazorFocused.Client.Extensions
 {
     public static partial class RestClientExtensions
     {
@@ -14,24 +14,17 @@ namespace BlazorFocused.Client
             try
             {
                 if(restClient is BaseRestClient baseRestClient)
-                {
                     (httpStatusCode, value) =
                         await baseRestClient.SendAndDeserializeAsync<T>(method, url, data);
-                }
                 else
-                {
-                    throw new RestClientException(
-                        $"Operation not allowed by IRestClient of type {restClient.GetType().FullName}");
-                }
+                    ThrowUnqualifiedRestClient(restClient);
             }
             catch (Exception ex)
             {
                 exception = ex;
                 
-                if (ex is RestClientException restClientException)
-                {
-                    // TODO: Add RestClientHttpException and provide status
-                }
+                if (ex is RestClientHttpException restClientHttpException)
+                    httpStatusCode = restClientHttpException.StatusCode;
             }
 
             return new RestClientResponse<T>
@@ -53,12 +46,14 @@ namespace BlazorFocused.Client
                 if (restClient is BaseRestClient baseRestClient)
                     httpStatusCode = await baseRestClient.SendAndTaskAsync(method, url, data);
                 else
-                    throw new RestClientException(
-                        $"Operation not allowed by IRestClient of type {restClient.GetType().FullName}");
+                    ThrowUnqualifiedRestClient(restClient);
             }
             catch (Exception ex)
             {
                 exception = ex;
+
+                if (ex is RestClientHttpException restClientHttpException)
+                    httpStatusCode = restClientHttpException.StatusCode;
             }
 
             return new RestClientTask
@@ -66,6 +61,12 @@ namespace BlazorFocused.Client
                 Exception = exception,
                 StatusCode = httpStatusCode.GetValueOrDefault(),
             };
+        }
+
+        private static void ThrowUnqualifiedRestClient(IRestClient restClient)
+        {
+            throw new RestClientException(
+                        $"Operation not allowed by IRestClient of type {restClient.GetType().FullName}");
         }
     }
 }

@@ -45,7 +45,7 @@ namespace BlazorFocused.Client
 
         private void LogAndThrowFailure(HttpStatusCode code, HttpMethod method, string url)
         {
-            var exception = new RestClientException(method, code, url);
+            var exception = new RestClientHttpException(method, code, url);
 
             logger.LogError(exception, "FAILED Request: {Code} - {Method} - {Url} Request", code, method, url);
 
