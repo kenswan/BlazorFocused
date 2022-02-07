@@ -11,7 +11,7 @@
         /// <summary>
         /// Identifies whether request was successful or failed
         /// </summary>
-        public override bool IsSuccess 
+        public override bool IsSuccess
         {
             get => HasSuccessStatusCode() && Value is not null;
         }

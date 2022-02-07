@@ -5,7 +5,7 @@ namespace BlazorFocused.Client
     public class RestClientHttpException : Exception
     {
         public HttpMethod Method { get; private set; }
-        
+
         public HttpStatusCode StatusCode { get; private set; }
 
         public string Url { get; private set; }

@@ -13,7 +13,7 @@ namespace BlazorFocused.Client.Extensions
 
             try
             {
-                if(restClient is BaseRestClient baseRestClient)
+                if (restClient is BaseRestClient baseRestClient)
                     (httpStatusCode, value) =
                         await baseRestClient.SendAndDeserializeAsync<T>(method, url, data);
                 else
@@ -22,7 +22,7 @@ namespace BlazorFocused.Client.Extensions
             catch (Exception ex)
             {
                 exception = ex;
-                
+
                 if (ex is RestClientHttpException restClientHttpException)
                     httpStatusCode = restClientHttpException.StatusCode;
             }

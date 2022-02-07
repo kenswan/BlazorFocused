@@ -17,7 +17,7 @@ namespace BlazorFocused.Store
             serviceCollection.AddTransient<TestAction>();
 
             using var store = new Store<SimpleClass>(
-                originalClass, 
+                originalClass,
                 serviceCollection.BuildProviderWithMockLogger<Store<SimpleClass>>(testOutputHelper));
 
             store.GetState().Should().BeNull();
