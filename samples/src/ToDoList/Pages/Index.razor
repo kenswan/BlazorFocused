@@ -1,13 +1,13 @@
 ﻿@page "/"
 
 @using BlazorFocused.Store
-@using ToDoListSample.Actions
-@using ToDoListSample.Components 
-@using ToDoListSample.Stores 
+@using ToDoList.Actions
+@using ToDoList.Components 
+@using ToDoList.Stores 
 
 @inject IStore<ToDoStore> toDoStore
 
-<h1>To Do List Sample</h1>
+<h1>ToDo List Sample</h1>
 
 <div class="row top-separation">
     <div class="col-6">
@@ -19,10 +19,10 @@
 </div>
 <div class="row top-separation">
     <div class="col-6">
-        <InCompleteToDoList />
+        <IncompleteToDo />
     </div>
     <div class="col-6">
-        <CompletedToDoList />
+        <CompletedToDo />
     </div>
 </div>
 

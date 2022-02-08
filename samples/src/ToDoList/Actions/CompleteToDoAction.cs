@@ -1,9 +1,9 @@
 ﻿using BlazorFocused.Store;
 using Samples.Model;
-using ToDoListSample.Services;
-using ToDoListSample.Stores;
+using ToDoList.Services;
+using ToDoList.Stores;
 
-namespace ToDoListSample.Actions
+namespace ToDoList.Actions
 {
     public class CompleteToDoAction : StoreActionAsync<ToDoStore, ToDo>
     {

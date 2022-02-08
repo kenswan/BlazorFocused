@@ -1,6 +1,6 @@
 ﻿using Samples.Model;
 
-namespace ToDoListSample.Services
+namespace ToDoList.Services
 {
     public interface IToDoService
     {

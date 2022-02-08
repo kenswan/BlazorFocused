@@ -1,8 +1,8 @@
 ﻿using BlazorFocused.Store;
-using ToDoListSample.Models;
-using ToDoListSample.Stores;
+using ToDoList.Models;
+using ToDoList.Stores;
 
-namespace ToDoListSample.Reducers
+namespace ToDoList.Reducers
 {
     public class ToDoCountReducer : IReducer<ToDoStore, ToDoCount>
     {
