@@ -1,9 +1,9 @@
 ﻿using BlazorFocused.Store;
-using ToDoListSample.Services;
-using ToDoListSample.Stores;
+using ToDoList.Services;
+using ToDoList.Stores;
 
 
-namespace ToDoListSample.Actions
+namespace ToDoList.Actions
 {
     public class GetAllToDoAction : StoreActionAsync<ToDoStore>
     {

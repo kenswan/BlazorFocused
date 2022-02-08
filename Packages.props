@@ -19,6 +19,7 @@
 	
 	<ItemGroup Label="External Testing Packages">
 		<PackageReference Update="Bogus" Version="34.0.1" />
+		<PackageReference Update="bunit" Version="1.4.15" />
 		<PackageReference Update="FluentAssertions" Version="6.4.0" />
 		<PackageReference Update="Moq" Version="4.16.1" />
 	</ItemGroup>

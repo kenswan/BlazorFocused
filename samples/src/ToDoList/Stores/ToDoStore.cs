@@ -1,6 +1,6 @@
 ﻿using Samples.Model;
 
-namespace ToDoListSample.Stores
+namespace ToDoList.Stores
 {
     public class ToDoStore
     {

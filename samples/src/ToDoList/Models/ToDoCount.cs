@@ -1,4 +1,4 @@
-﻿namespace ToDoListSample.Models
+﻿namespace ToDoList.Models
 {
     public class ToDoCount
     {
