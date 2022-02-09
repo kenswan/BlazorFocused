@@ -6,6 +6,7 @@
         /// Performs DELETE http request
         /// </summary>
         /// <typeparam name="T">Object type of response from http request</typeparam>
+        /// <param name="restClient"><see cref="IRestClient"/> implementation being extended</param>
         /// <param name="relativeUrl">Relative url for http request</param>
         /// <returns>
         /// Http response attributes including value, status code, or any exceptions.
@@ -25,6 +26,7 @@
         /// Performs GET http request
         /// </summary>
         /// <typeparam name="T">Object type of response from http request</typeparam>
+        /// <param name="restClient"><see cref="IRestClient"/> implementation being extended</param>
         /// <param name="relativeUrl">Relative url for http request</param>
         /// <returns>
         /// Http response attributes including body, status code, or any exceptions that occurred.
@@ -43,6 +45,7 @@
         /// Performs PATCH http request
         /// </summary>
         /// <typeparam name="T">Object type of response from http request</typeparam>
+        /// <param name="restClient"><see cref="IRestClient"/> implementation being extended</param>
         /// <param name="relativeUrl">Relative url for http request</param>
         /// <param name="data">Http request object body</param>
         /// <returns>
@@ -56,12 +59,13 @@
         /// See <see cref="RestClientResponse{T}"/>
         /// </remarks>
         public static Task<RestClientResponse<T>> TryPatchAsync<T>(this IRestClient restClient, string relativeUrl, object data) =>
-            GetRestClientResponse<T>(restClient, HttpMethod.Patch, relativeUrl);
+            GetRestClientResponse<T>(restClient, HttpMethod.Patch, relativeUrl, data);
 
         /// <summary>
         /// Performs POST http request
         /// </summary>
         /// <typeparam name="T">Object type of response from http request</typeparam>
+        /// <param name="restClient"><see cref="IRestClient"/> implementation being extended</param>
         /// <param name="relativeUrl">Relative url for http request</param>
         /// <param name="data">Http request object body</param>
         /// <returns>
@@ -81,6 +85,7 @@
         /// Performs PUT http request
         /// </summary>
         /// <typeparam name="T">Object type of response from http request</typeparam>
+        /// <param name="restClient"><see cref="IRestClient"/> implementation being extended</param>
         /// <param name="relativeUrl">Relative url for http request</param>
         /// <param name="data">Http request object body</param>
         /// <returns>

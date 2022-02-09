@@ -23,6 +23,7 @@ namespace BlazorFocused.Client
         /// Gets current instance of <see cref="HttpClient"/> being used for requests
         /// </summary>
         /// <returns>Current <see cref="HttpClient"/> from dependency injection</returns>
+        /// <remarks>Primarily used for exposure/inspection in Test</remarks>
         public HttpClient GetClient() => httpClient;
 
         public async Task<T> DeleteAsync<T>(string relativeUrl) =>

@@ -4,6 +4,7 @@ using BlazorFocused.Tools.Logger;
 using BlazorFocused.Tools.Model;
 using Bogus;
 using Microsoft.Extensions.Options;
+using System.Net;
 using Xunit.Abstractions;
 
 namespace BlazorFocused.Client
@@ -28,6 +29,24 @@ namespace BlazorFocused.Client
             restClient =
                 new RestClient(simulatedHttp.HttpClient, restClientOptions, logger);
         }
+        private ISimulatedHttpSetup GetHttpSetup(HttpMethod httpMethod, string url, object request) =>
+            httpMethod switch
+            {
+                { } when httpMethod == HttpMethod.Delete => simulatedHttp.SetupDELETE(url),
+                { } when httpMethod == HttpMethod.Get => simulatedHttp.SetupGET(url),
+                { } when httpMethod == HttpMethod.Patch => simulatedHttp.SetupPATCH(url, request),
+                { } when httpMethod == HttpMethod.Post => simulatedHttp.SetupPOST(url, request),
+                { } when httpMethod == HttpMethod.Put => simulatedHttp.SetupPUT(url, request),
+                _ => null
+            };
+
+        private static HttpStatusCode GenerateSuccessStatusCode() =>
+            new Faker().PickRandom(
+                HttpStatusCode.OK, HttpStatusCode.Created, HttpStatusCode.Accepted);
+
+        private static HttpStatusCode GenerateErrorStatusCode() =>
+            new Faker().PickRandom(
+                HttpStatusCode.BadRequest, HttpStatusCode.NotFound, HttpStatusCode.InternalServerError);
 
         private static string GetRandomRelativeUrl() =>
             new Faker().Internet.UrlRootedPath();

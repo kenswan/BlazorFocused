@@ -29,17 +29,17 @@ namespace BlazorFocused.Store
         {
             var actionName = typeof(TAction);
 
-            logger.LogDebug($"Retrieving action {actionName}");
+            logger.LogDebug("Retrieving action {ActionName}", actionName);
 
             using var scope = serviceProvider.CreateScope();
 
             var action = scope.ServiceProvider.GetRequiredService<TAction>();
 
-            logger.LogDebug($"Found action {actionName}");
+            logger.LogDebug("Found action {ActionName}", actionName);
 
             action.State = state.Value;
 
-            logger.LogInformation($"Executing action {actionName}");
+            logger.LogInformation("Executing action {ActionName}", actionName);
 
             state.OnNext(action.Execute());
         }
@@ -49,17 +49,17 @@ namespace BlazorFocused.Store
         {
             var actionName = typeof(TAction);
 
-            logger.LogDebug($"Retrieving action {actionName}");
+            logger.LogDebug("Retrieving action {ActionName}", actionName);
 
             using var scope = serviceProvider.CreateScope();
 
             var action = scope.ServiceProvider.GetRequiredService<TAction>();
 
-            logger.LogDebug($"Found action {actionName}");
+            logger.LogDebug("Found action {ActionName}", actionName);
 
             action.State = state.Value;
 
-            logger.LogInformation($"Executing action {actionName}");
+            logger.LogInformation("Executing action {ActionName}", actionName);
 
             state.OnNext(action.Execute(input));
         }
@@ -68,17 +68,17 @@ namespace BlazorFocused.Store
         {
             var actionName = typeof(TActionAsync);
 
-            logger.LogDebug($"Retrieving action {actionName}");
+            logger.LogDebug("Retrieving action {ActionName}", actionName);
 
             using var scope = serviceProvider.CreateScope();
 
             var action = scope.ServiceProvider.GetRequiredService<TActionAsync>();
 
-            logger.LogDebug($"Found action {actionName}");
+            logger.LogDebug("Found action {ActionName}", actionName);
 
             action.State = state.Value;
 
-            logger.LogInformation($"Executing action {actionName}");
+            logger.LogInformation("Executing action {ActionName}", actionName);
 
             var value = await action.ExecuteAsync();
 
@@ -89,17 +89,17 @@ namespace BlazorFocused.Store
         {
             var actionName = typeof(TActionAsync);
 
-            logger.LogDebug($"Retrieving action {actionName}");
+            logger.LogDebug("Retrieving action {ActionName}", actionName);
 
             using var scope = serviceProvider.CreateScope();
 
             var action = scope.ServiceProvider.GetRequiredService<TActionAsync>();
 
-            logger.LogDebug($"Found action {actionName}");
+            logger.LogDebug("Found action {ActionName}", actionName);
 
             action.State = state.Value;
 
-            logger.LogInformation($"Executing action {actionName}");
+            logger.LogInformation("Executing action {ActionName}", actionName);
 
             var value = await action.ExecuteAsync(input);
 
@@ -117,19 +117,19 @@ namespace BlazorFocused.Store
         {
             var reducerName = typeof(TOutput);
 
-            logger.LogDebug($"Retrieving reducer {reducerName}");
+            logger.LogDebug("Retrieving reducer {ReducerName}", reducerName);
 
             using var scope = serviceProvider.CreateScope();
 
             var reducer = scope.ServiceProvider.GetRequiredService<TReducer>();
 
-            logger.LogDebug($"Found reducer {reducerName}");
+            logger.LogDebug("Found reducer {ReducerName}", reducerName);
 
-            logger.LogDebug($"Setting subscription for {reducerName}");
+            logger.LogDebug("Setting subscription for {ReducerName}", reducerName);
 
             state.Subscribe(data =>
             {
-                logger.LogInformation($"Executing reducer {reducerName}");
+                logger.LogInformation("Executing reducer {ReducerName}", reducerName);
 
                 action(reducer.Execute(data));
             });
@@ -137,21 +137,21 @@ namespace BlazorFocused.Store
 
         public void SetState(TState updatedState)
         {
-            logger.LogDebug($"Setting state for store {storeName}");
+            logger.LogDebug("Setting state for store {StoreName}", storeName);
 
             state.OnNext(updatedState);
         }
 
         public void SetState(Func<TState, TState> updateFunction)
         {
-            logger.LogDebug($"Setting state for store {storeName}");
+            logger.LogDebug("Setting state for store {StoreName}", storeName);
 
             state.OnNext(updateFunction(state.Value));
         }
 
         public void Subscribe(Action<TState> action)
         {
-            logger.LogDebug($"Subscribing to store {storeName}");
+            logger.LogDebug("Subscribing to store {StoreName}", storeName);
 
             state.Subscribe(data => action(data));
         }
