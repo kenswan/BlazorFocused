@@ -16,6 +16,14 @@
         /// </remarks>
         Task<T> DeleteAsync<T>(string relativeUrl);
 
+        /// <summary>
+        /// Performs DELETE http request
+        /// </summary>
+        /// <param name="relativeUrl">Relative url for http request</param>
+        /// <returns>Task for completion detection</returns>
+        /// <remarks>
+        /// This method will throw an exception for non-success status codes 
+        /// </remarks>
         Task DeleteTaskAsync(string relativeUrl);
 
         /// <summary>
@@ -41,6 +49,15 @@
         /// </remarks>
         Task<T> PatchAsync<T>(string relativeUrl, object data);
 
+        /// <summary>
+        /// Performs PATCH http request
+        /// </summary>
+        /// <param name="relativeUrl">Relative url for http request</param>
+        /// <param name="data">Http request object body</param>
+        /// <returns>Task for completion detection</returns>
+        /// <remarks>
+        /// This method will throw an exception for non-success status codes 
+        /// </remarks>
         Task PatchTaskAsync(string relativeUrl, object data);
 
         /// <summary>
@@ -55,6 +72,15 @@
         /// </remarks>
         Task<T> PostAsync<T>(string relativeUrl, object data);
 
+        /// <summary>
+        /// Performs POST http request
+        /// </summary>
+        /// <param name="relativeUrl">Relative url for http request</param>
+        /// <param name="data">Http request object body</param>
+        /// <returns>Task for completion detection</returns>
+        /// <remarks>
+        /// This method will throw an exception for non-success status codes 
+        /// </remarks>
         Task PostTaskAsync(string relativeUrl, object data);
 
         /// <summary>
@@ -69,6 +95,15 @@
         /// </remarks>
         Task<T> PutAsync<T>(string relativeUrl, object data);
 
+        /// <summary>
+        /// Performs PUT http request
+        /// </summary>
+        /// <param name="relativeUrl">Relative url for http request</param>
+        /// <param name="data">Http request object body</param>
+        /// <returns>Task for completion detection</returns>
+        /// <remarks>
+        /// This method will throw an exception for non-success status codes 
+        /// </remarks>
         Task PutTaskAsync(string relativeUrl, object data);
 
 
