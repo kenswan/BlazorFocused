@@ -138,7 +138,7 @@ jobs:
           dotnet pack ${{ env.client-project }} -c Release --no-restore -p:PackageVersion=${{ github.event.release.tag_name }}
           dotnet pack ${{ env.store-project }} -c Release --no-restore -p:PackageVersion=${{ github.event.release.tag_name }}
           dotnet pack ${{ env.tools-project }} -c Release --no-restore -p:PackageVersion=${{ github.event.release.tag_name }}
-          dotnet pack ${{ env.base-project }} -c Release --no-restore -p:PackageVersion=${{ github.event.release.tag_name }}
+          dotnet pack ${{ env.base-project }} -c Release -p:PackageVersion=${{ github.event.release.tag_name }}
 
       - name: Push Release Packages
         working-directory: ./src
