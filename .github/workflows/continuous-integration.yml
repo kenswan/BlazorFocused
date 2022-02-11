@@ -16,13 +16,42 @@ env:
   NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
 
 jobs:
-  core:
+  client:
     runs-on: ubuntu-latest
     env:
-      source-directory: ./src/core
-      source-project: BlazorFocused.Core.csproj
+      source-directory: ./src/client
+      source-project: BlazorFocused.Client.csproj
       test-directory: ./test/core
-      test-project: BlazorFocused.Core.Test.csproj
+      test-project: BlazorFocused.Client.Test.csproj
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Install Dependencies
+        run: |
+          dotnet restore ${{ env.source-directory }}/${{ env.source-project }}
+          dotnet restore ${{ env.test-directory }}/${{ env.test-project }}
+
+      - name: Build
+        working-directory: ${{ env.source-directory }}
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Test
+        working-directory: ${{ env.test-directory }}
+        run: dotnet test --no-restore --verbosity normal
+
+  store:
+    runs-on: ubuntu-latest
+    env:
+      source-directory: ./src/store
+      source-project: BlazorFocused.Store.csproj
+      test-directory: ./test/store
+      test-project: BlazorFocused.Store.Test.csproj
 
     steps:
       - uses: actions/checkout@v2
@@ -75,12 +104,16 @@ jobs:
         run: dotnet test --no-restore --verbosity normal
 
   release:
-    needs: [core, tools]
+    needs: [client, store, tools]
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
     env:
-      core-project: ./core/BlazorFocused.Core.csproj
-      core-release-path: ./core/bin/Release
+      base-project: ./blazorfocused/BlazorFocused.csproj
+      base-release-path: ./blazorfocused/bin/Release
+      client-project: ./client/BlazorFocused.Client.csproj
+      client-release-path: ./client/bin/Release
+      store-project: ./store/BlazorFocused.Store.csproj
+      store-release-path: ./store/bin/Release
       tools-project: ./tools/BlazorFocused.Tools.csproj
       tools-release-path: ./tools/bin/Release
 
@@ -95,17 +128,22 @@ jobs:
       - name: Install Dependencies
         working-directory: ./src
         run: |
-          dotnet restore ${{ env.core-project }}
+          dotnet restore ${{ env.client-project }}
+          dotnet restore ${{ env.store-project }}
           dotnet restore ${{ env.tools-project }}
 
       - name: Create Release Packages
         working-directory: ./src
         run: |
-          dotnet pack ${{ env.core-project }} -c Release --no-restore -p:PackageVersion=${{ github.event.release.tag_name }}
+          dotnet pack ${{ env.client-project }} -c Release --no-restore -p:PackageVersion=${{ github.event.release.tag_name }}
+          dotnet pack ${{ env.store-project }} -c Release --no-restore -p:PackageVersion=${{ github.event.release.tag_name }}
           dotnet pack ${{ env.tools-project }} -c Release --no-restore -p:PackageVersion=${{ github.event.release.tag_name }}
+          dotnet pack ${{ env.base-project }} -c Release --no-restore -p:PackageVersion=${{ github.event.release.tag_name }}
 
       - name: Push Release Packages
         working-directory: ./src
         run: |
-          dotnet nuget push ${{ env.core-release-path }}/BlazorFocused.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source ${{ env.NUGET_SOURCE }}
+          dotnet nuget push ${{ env.client-release-path }}/BlazorFocused.Client.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source ${{ env.NUGET_SOURCE }}
+          dotnet nuget push ${{ env.store-release-path }}/BlazorFocused.Store.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source ${{ env.NUGET_SOURCE }}
           dotnet nuget push ${{ env.tools-release-path }}/BlazorFocused.Tools.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source ${{ env.NUGET_SOURCE }}
+          dotnet nuget push ${{ env.base-release-path }}/BlazorFocused.${{ github.event.release.tag_name }}.nupkg --api-key ${{ secrets.NUGET_TOKEN }} --source ${{ env.NUGET_SOURCE }}

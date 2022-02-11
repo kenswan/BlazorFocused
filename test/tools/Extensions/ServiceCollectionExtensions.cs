@@ -22,7 +22,7 @@ namespace BlazorFocused.Tools.Extensions
             return services.AddSingleton<IConfiguration>(configurationBuilder.Build());
         }
 
-        public static IServiceProvider BuildProviderWithMockLogger<T>(
+        public static IServiceProvider BuildProviderWithTestLogger<T>(
             this IServiceCollection serviceCollection, ITestOutputHelper testOutputHelper)
         {
             var previousLogger = serviceCollection.FirstOrDefault(descriptor =>
@@ -30,8 +30,8 @@ namespace BlazorFocused.Tools.Extensions
 
             serviceCollection.Remove(previousLogger);
 
-            serviceCollection.AddSingleton<ILogger<T>>(new MockLogger<T>((level, message, exception) =>
-                testOutputHelper.WriteMockLoggerMessage(level, message, exception)));
+            serviceCollection.AddSingleton<ILogger<T>>(new TestLogger<T>((level, message, exception) =>
+                testOutputHelper.WriteTestLoggerMessage(level, message, exception)));
 
             return serviceCollection.BuildServiceProvider();
         }

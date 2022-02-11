@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>BlazorFocused</RootNamespace>
+		<AssemblyName>BlazorFocused.Store</AssemblyName>
+        <Title>BlazorFocused.Store</Title>
+        <PackageId>BlazorFocused.Store</PackageId>
+        <PackageTags>dotnet;blazor;c-sharp;flux-architecture</PackageTags>
+        <Description>Providing Flux Architecture pattern in Blazor Components</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.Reactive" />
+        <PackageReference Include="Microsoft.Extensions.Logging" />
+    </ItemGroup>
+	
+</Project>

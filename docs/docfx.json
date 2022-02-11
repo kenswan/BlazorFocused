@@ -3,8 +3,12 @@
     {
       "src": [
         {
-          "files": ["BlazorFocused.Core.csproj"],
-          "src": "../../BlazorFocused/src/core"
+          "files": ["BlazorFocused.Client.csproj"],
+          "src": "../../BlazorFocused/src/client"
+        },
+        {
+          "files": ["BlazorFocused.Store.csproj"],
+          "src": "../../BlazorFocused/src/store"
         },
         {
           "files": ["BlazorFocused.Tools.csproj"],

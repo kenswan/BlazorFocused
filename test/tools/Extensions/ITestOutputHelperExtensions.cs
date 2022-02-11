@@ -5,7 +5,7 @@ namespace BlazorFocused.Tools.Extensions
 {
     public static class ITestOutputHelperExtensions
     {
-        public static void WriteMockLoggerMessage(this ITestOutputHelper testOutputHelper,
+        public static void WriteTestLoggerMessage(this ITestOutputHelper testOutputHelper,
             LogLevel level, string message, Exception exception)
         {
             var label = exception is null ?
