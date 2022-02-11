@@ -1,11 +1,10 @@
-﻿using BlazorFocused.Tools.Http;
-using System.Net;
+﻿using System.Net;
 using System.Text.Json;
 
-namespace BlazorFocused.Tools
+namespace BlazorFocused.Tools.Http
 {
     /// <inheritdoc cref="ISimulatedHttp"/>
-    public class SimulatedHttp : ISimulatedHttp
+    internal class SimulatedHttp : ISimulatedHttp
     {
         public DelegatingHandler DelegatingHandler => GetDelegatingHandler();
 

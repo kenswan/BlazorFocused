@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace BlazorFocused.Tools
+namespace BlazorFocused.Tools.Logger
 {
     /// <inheritdoc cref="ITestLogger{T}"/>
-    public partial class TestLogger<T> : ILogger<T>, ITestLogger<T>
+    internal partial class TestLogger<T> : ITestLogger<T>
     {
         private readonly List<TestLog> logs;
         private readonly Action<LogLevel, string, Exception> logAction;

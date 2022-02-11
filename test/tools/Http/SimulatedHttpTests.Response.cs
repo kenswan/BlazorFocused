@@ -4,7 +4,7 @@ using System.Net;
 using System.Text.Json;
 using Xunit;
 
-namespace BlazorFocused.Tools.Client
+namespace BlazorFocused.Tools.Http
 {
     public partial class SimulatedHttpTests
     {

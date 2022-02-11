@@ -9,14 +9,14 @@ namespace BlazorFocused.Client
     {
         private readonly IOAuthRestClient oAuthRestClient;
         private readonly ISimulatedHttp simulatedHttp;
-        private readonly TestLogger<OAuthRestClient> testLogger;
+        private readonly ITestLogger<OAuthRestClient> testLogger;
         private readonly OAuthToken oAuthToken;
 
         public OAuthRestClientTests()
         {
             oAuthToken = new();
-            simulatedHttp = new SimulatedHttp();
-            testLogger = new();
+            simulatedHttp = ToolsBuilder.CreateSimulatedHttp();
+            testLogger = ToolsBuilder.CreateTestLogger<OAuthRestClient>();
 
             oAuthRestClient =
                 new OAuthRestClient(oAuthToken, simulatedHttp.HttpClient, default, testLogger);

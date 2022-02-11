@@ -4,7 +4,7 @@
     /// Exception given when request was not verified with
     /// <see cref="ISimulatedHttp"/>
     /// </summary>
-    public class SimulatedHttpTestException : Exception
+    internal class SimulatedHttpTestException : Exception
     {
         /// <summary>
         /// Initializes a new instance of <see cref="SimulatedHttpTestException"/>

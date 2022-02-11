@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace BlazorFocused.Tools
+namespace BlazorFocused.Tools.Logger
 {
-    public partial class TestLogger<T>
+    internal partial class TestLogger<T>
     {
         public void VerifyWasCalled()
         {

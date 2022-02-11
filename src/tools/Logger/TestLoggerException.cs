@@ -1,10 +1,10 @@
-﻿namespace BlazorFocused.Tools
+﻿namespace BlazorFocused.Tools.Logger
 {
     /// <summary>
     /// Exception returned when log entry from <see cref="ITestLogger{T}"/>
     /// was not verified
     /// </summary>
-    public class TestLoggerException : Exception
+    internal class TestLoggerException : Exception
     {
         /// <summary>
         /// Initializes a new instance of <see cref="ITestLogger{T}"/>

@@ -18,9 +18,9 @@ namespace BlazorFocused.Client
         public RestClientTests(ITestOutputHelper testOutputHelper)
         {
             baseAddress = new Faker().Internet.Url();
-            simulatedHttp = new SimulatedHttp(baseAddress);
+            simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
 
-            testLogger = new TestLogger<RestClient>((level, message, exception) =>
+            testLogger = ToolsBuilder.CreateTestLogger<RestClient>((level, message, exception) =>
                 testOutputHelper.WriteTestLoggerMessage(level, message, exception));
 
             var restClientOptions = Options.Create<RestClientOptions>(default);
@@ -28,6 +28,7 @@ namespace BlazorFocused.Client
             restClient =
                 new RestClient(simulatedHttp.HttpClient, restClientOptions, testLogger);
         }
+
         private ISimulatedHttpSetup GetHttpSetup(HttpMethod httpMethod, string url, object request) =>
             httpMethod switch
             {

@@ -6,14 +6,14 @@ namespace BlazorFocused.Client
 {
     public class RestClientAuthHandlerTests
     {
-        private readonly TestLogger<RestClientAuthHandler> testLogger;
         private readonly ISimulatedHttp simulatedHttp;
+        private readonly ITestLogger<RestClientAuthHandler> testLogger;
         private readonly string baseAddress = new Faker().Internet.Url();
 
         public RestClientAuthHandlerTests()
         {
-            testLogger = new();
-            simulatedHttp = new SimulatedHttp(baseAddress);
+            simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
+            testLogger = ToolsBuilder.CreateTestLogger<RestClientAuthHandler>(); ;
         }
 
         [Fact]

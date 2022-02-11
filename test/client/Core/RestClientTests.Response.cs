@@ -1,5 +1,4 @@
-﻿using BlazorFocused.Tools.Client;
-using BlazorFocused.Tools.Model;
+﻿using BlazorFocused.Tools.Model;
 using FluentAssertions;
 using Xunit;
 

@@ -1,4 +1,4 @@
-﻿namespace BlazorFocused
+﻿namespace BlazorFocused.Client
 {
     /// <summary>
     /// Exception returned with failed requests and operations within <see cref="IRestClient"/>
