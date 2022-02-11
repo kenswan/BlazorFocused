@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>annotations</Nullable>
     <IsPackable>false</IsPackable>
     <RootNamespace>BlazorFocused</RootNamespace>
   </PropertyGroup>
@@ -29,4 +28,5 @@
     <ProjectReference Include="..\..\src\tools\BlazorFocused.Tools.csproj" />
     <ProjectReference Include="..\tools\BlazorFocused.Tools.Test.csproj" />
   </ItemGroup>
+  
 </Project>

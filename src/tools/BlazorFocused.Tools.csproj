@@ -1,23 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>annotations</Nullable>
     <RootNamespace>BlazorFocused.Tools</RootNamespace>
+    <Title>BlazorFocused.Tools</Title>
     <PackageId>BlazorFocused.Tools</PackageId>
-    <Authors>Kenneth Swan</Authors>
-    <Copyright>Copyright (c) 2022 BlazorFocused</Copyright>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageIcon>BlazorFocused.png</PackageIcon>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://www.blazorfocused.net</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/kenswan/BlazorFocused.git</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
     <PackageTags>dotnet;blazor;c-sharp;http-client</PackageTags>
     <Description>Adding tooling for Blazor Components and the BlazorFocused library</Description>
-    <PackageReleaseNotes>See https://github.com/kenswan/BlazorFocused/releases</PackageReleaseNotes>
-    <SynchReleaseVersion>false</SynchReleaseVersion>
-    <Title>BlazorFocused.Tools</Title>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,8 +15,4 @@
     <PackageReference Include="Microsoft.Extensions.Http" />
   </ItemGroup>
 	
-  <ItemGroup>
-    <None Include="..\..\BlazorFocused.png" Pack="true" PackagePath="\" />
-    <None Include=".\README.md" Pack="true" PackagePath="\"/>
-  </ItemGroup>
 </Project>
