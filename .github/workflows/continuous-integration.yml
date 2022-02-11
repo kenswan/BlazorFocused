@@ -21,7 +21,7 @@ jobs:
     env:
       source-directory: ./src/client
       source-project: BlazorFocused.Client.csproj
-      test-directory: ./test/core
+      test-directory: ./test/client
       test-project: BlazorFocused.Client.Test.csproj
 
     steps:
