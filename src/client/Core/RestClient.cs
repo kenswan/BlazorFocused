@@ -24,7 +24,7 @@ namespace BlazorFocused.Client
         /// </summary>
         /// <returns>Current <see cref="HttpClient"/> from dependency injection</returns>
         /// <remarks>Primarily used for exposure/inspection in Test</remarks>
-        public HttpClient GetClient() => httpClient;
+        internal HttpClient GetClient() => httpClient;
 
         public async Task<T> DeleteAsync<T>(string relativeUrl) =>
             await GetResponseValue<T>(HttpMethod.Delete, relativeUrl);

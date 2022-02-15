@@ -1,34 +1,37 @@
-﻿using BlazorFocused.Client.Extensions;
-using BlazorFocused.Tools.Model;
+﻿using BlazorFocused.Tools.Model;
 using Bogus;
 using System.Net;
+using Xunit;
 
-namespace BlazorFocused.Client
+namespace BlazorFocused.Client.Extensions
 {
-    public partial class RestClientTests
+    public partial class RestClientExtensionsTests
     {
+        [Fact]
         public async Task ShouldFormatUrlResponseRequests()
         {
-            var relativeUrl = new Faker().Internet.UrlRootedPath();
-            var keyOne = GetRandomString();
-            var valueOne = GetRandomString();
-            var keyTwo = GetRandomString();
-            var valueTwo = GetRandomString();
-            var response = GetRandomResponseObject();
-            var expectedUrl = $"{relativeUrl}?{keyOne}={valueOne}&{keyTwo}={valueTwo}";
+            var relativeUrl = RestClientTestExtensions.GenerateRelativeUrl();
+            var requestVariableCount = new Faker().Random.Int(2, 5);
+            var requestVariables = GenerateRequestVariables(requestVariableCount);
+            var response = RestClientTestExtensions.GenerateResponseObject();
+
+            var expectedUrl = $"{relativeUrl}?" + 
+                string.Join("&", requestVariables.Select(kvp => $"{kvp.Key}={kvp.Value}"));
 
             var httpMethods = new HttpMethod[] {
                 HttpMethod.Delete, HttpMethod.Get, HttpMethod.Patch, HttpMethod.Post, HttpMethod.Put };
 
             void BuilderAction(IRestClientUrlBuilder builder)
             {
-                builder.SetPath(relativeUrl)
-                .WithParameter(keyOne, valueOne)
-                .WithParameter(keyTwo, valueTwo);
+                builder = builder.SetPath(relativeUrl);
+
+                foreach (var variableKey in requestVariables.Keys)
+                    builder = builder
+                        .WithParameter(variableKey, requestVariables[variableKey]);
             }
 
             foreach (var httpMethod in httpMethods)
-                GetHttpSetup(httpMethod, expectedUrl, null)
+                simulatedHttp.GetHttpSetup(httpMethod, expectedUrl, null)
                     .ReturnsAsync(HttpStatusCode.OK, response);
 
             foreach (var httpMethod in httpMethods)
@@ -52,7 +55,17 @@ namespace BlazorFocused.Client
             };
         }
 
-        private static string GetRandomString() =>
+        private static Dictionary<string, string> GenerateRequestVariables(int count)
+        {
+            var variables = new Dictionary<string, string>();
+
+            for (int i = 0; i < count; i++)
+                variables.Add(GenerateString(), GenerateString());
+
+            return variables;
+        }
+
+        private static string GenerateString() =>
             new Faker().Random.String2(new Faker().Random.Int(20, 30));
     }
 }
