@@ -68,5 +68,14 @@ namespace BlazorFocused.Client.Extensions
             throw new RestClientException(
                         $"Operation not allowed by IRestClient of type {restClient.GetType().FullName}");
         }
+
+        private static string GetUrlString(Action<IRestClientUrlBuilder> builderUrlAction)
+        {
+            var restClientUrlBuilder = new RestClientUrlBuilder();
+
+            builderUrlAction(restClientUrlBuilder);
+
+            return restClientUrlBuilder.Build();
+        }
     }
 }

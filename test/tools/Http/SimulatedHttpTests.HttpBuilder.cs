@@ -1,5 +1,4 @@
-﻿using BlazorFocused.Client;
-using BlazorFocused.Tools.Extensions;
+﻿using BlazorFocused.Tools.Extensions;
 using BlazorFocused.Tools.Model;
 using Bogus;
 using FluentAssertions;

@@ -2,18 +2,19 @@
 using BlazorFocused.Tools.Extensions;
 using Bogus;
 using Microsoft.Extensions.Options;
+using Xunit;
 using Xunit.Abstractions;
 
-namespace BlazorFocused.Client
+namespace BlazorFocused.Client.Extensions
 {
-    public partial class RestClientTests
+    public partial class RestClientExtensionsTests
     {
         private readonly string baseAddress;
         private readonly ISimulatedHttp simulatedHttp;
         private readonly ITestLogger<RestClient> testLogger;
         private readonly IRestClient restClient;
 
-        public RestClientTests(ITestOutputHelper testOutputHelper)
+        public RestClientExtensionsTests(ITestOutputHelper testOutputHelper)
         {
             baseAddress = new Faker().Internet.Url();
             simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
@@ -26,5 +27,24 @@ namespace BlazorFocused.Client
             restClient =
                 new RestClient(simulatedHttp.HttpClient, restClientOptions, testLogger);
         }
+
+        public static TheoryData<HttpMethod> HttpMethodsForResponse =>
+            new()
+            {
+                { HttpMethod.Delete },
+                { HttpMethod.Get },
+                { HttpMethod.Patch },
+                { HttpMethod.Post },
+                { HttpMethod.Put },
+            };
+
+        public static TheoryData<HttpMethod> HttpMethodsForTask =>
+            new()
+            {
+                { HttpMethod.Delete },
+                { HttpMethod.Patch },
+                { HttpMethod.Post },
+                { HttpMethod.Put },
+            };
     }
 }

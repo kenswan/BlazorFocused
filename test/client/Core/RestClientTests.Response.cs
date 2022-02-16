@@ -7,15 +7,15 @@ namespace BlazorFocused.Client
     public partial class RestClientTests
     {
         [Theory]
-        [MemberData(nameof(HttpMethodSelectionForResponse))]
+        [MemberData(nameof(HttpMethodsForResponse))]
         public async Task ShouldPerformHttpRequest(HttpMethod httpMethod)
         {
-            var url = GetRandomRelativeUrl();
-            var request = GetRandomResponseObjects();
-            var successStatusCode = GenerateSuccessStatusCode();
-            var expectedResponse = GetRandomResponseObjects();
+            var url = RestClientTestExtensions.GenerateRelativeUrl();
+            var request = RestClientTestExtensions.GenerateResponseObjects();
+            var successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
+            var expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
 
-            GetHttpSetup(httpMethod, url, request)
+            simulatedHttp.GetHttpSetup(httpMethod, url, request)
                 .ReturnsAsync(successStatusCode, expectedResponse);
 
             var actualResponse =
@@ -23,22 +23,22 @@ namespace BlazorFocused.Client
 
             actualResponse.Should().BeEquivalentTo(expectedResponse);
 
-            if(httpMethod == HttpMethod.Delete || httpMethod == HttpMethod.Get)
+            if (httpMethod == HttpMethod.Delete || httpMethod == HttpMethod.Get)
                 simulatedHttp.VerifyWasCalled(httpMethod, url);
             else
                 simulatedHttp.VerifyWasCalled(httpMethod, url, request);
         }
 
         [Theory]
-        [MemberData(nameof(HttpMethodSelectionForResponse))]
+        [MemberData(nameof(HttpMethodsForResponse))]
         public async Task ShouldThrowForNonSuccessStatusCodes(HttpMethod httpMethod)
         {
-            var url = GetRandomRelativeUrl();
-            var request = GetRandomResponseObjects();
-            var errorStatusCode = GenerateErrorStatusCode();
-            var invalidResponse = GetRandomResponseObject();
+            var url = RestClientTestExtensions.GenerateRelativeUrl();
+            var request = RestClientTestExtensions.GenerateResponseObjects();
+            var errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
+            var invalidResponse = RestClientTestExtensions.GenerateResponseObject();
 
-            GetHttpSetup(httpMethod, url, request)
+            simulatedHttp.GetHttpSetup(httpMethod, url, request)
                 .ReturnsAsync(errorStatusCode, invalidResponse);
 
             var actualException = await Record.ExceptionAsync(() =>
@@ -64,7 +64,7 @@ namespace BlazorFocused.Client
             };
         }
 
-        public static TheoryData<HttpMethod> HttpMethodSelectionForResponse =>
+        public static TheoryData<HttpMethod> HttpMethodsForResponse =>
             new()
             {
                 { HttpMethod.Delete },

@@ -1,21 +1,20 @@
-﻿using BlazorFocused.Client.Extensions;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
-namespace BlazorFocused.Client
+namespace BlazorFocused.Client.Extensions
 {
-    public partial class RestClientTests
+    public partial class RestClientExtensionsTests
     {
         [Theory]
-        [MemberData(nameof(HttpMethodSelectionForTask))]
+        [MemberData(nameof(HttpMethodsForTask))]
         public async Task ShouldTryHttpRequestTask(HttpMethod httpMethod)
         {
-            var url = GetRandomRelativeUrl();
-            var request = GetRandomResponseObjects();
-            var successStatusCode = GenerateSuccessStatusCode();
-            var expectedResponse = GetRandomResponseObjects();
+            var url = RestClientTestExtensions.GenerateRelativeUrl();
+            var request = RestClientTestExtensions.GenerateResponseObjects();
+            var successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
+            var expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
 
-            GetHttpSetup(httpMethod, url, request)
+            simulatedHttp.GetHttpSetup(httpMethod, url, request)
                 .ReturnsAsync(successStatusCode, expectedResponse);
 
             var actualTask = await MakeTryTaskRequest(httpMethod, url, request);
@@ -31,15 +30,15 @@ namespace BlazorFocused.Client
         }
 
         [Theory]
-        [MemberData(nameof(HttpMethodSelectionForTask))]
+        [MemberData(nameof(HttpMethodsForTask))]
         public async Task ShouldReturnInvalidTaskForNonSuccessStatusCodes(HttpMethod httpMethod)
         {
-            var url = GetRandomRelativeUrl();
-            var request = GetRandomResponseObjects();
-            var errorStatusCode = GenerateErrorStatusCode();
-            var invalidResponse = GetRandomResponseObject();
+            var url = RestClientTestExtensions.GenerateRelativeUrl();
+            var request = RestClientTestExtensions.GenerateResponseObjects();
+            var errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
+            var invalidResponse = RestClientTestExtensions.GenerateResponseObject();
 
-            GetHttpSetup(httpMethod, url, request)
+            simulatedHttp.GetHttpSetup(httpMethod, url, request)
                 .ReturnsAsync(errorStatusCode, invalidResponse);
 
             var actualTask = await MakeTryTaskRequest(httpMethod, url, request);
