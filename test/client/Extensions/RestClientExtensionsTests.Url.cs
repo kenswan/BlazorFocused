@@ -7,19 +7,49 @@ namespace BlazorFocused.Client.Extensions
 {
     public partial class RestClientExtensionsTests
     {
-        [Fact]
-        public async Task ShouldFormatUrlResponseRequests()
+        [Theory]
+        [MemberData(nameof(HttpMethodsForResponse))]
+        public async Task ShouldFormatUrlResponseRequests(HttpMethod httpMethod)
+        {
+            await SetupExecuteAndVerify(httpMethod, (BuilderAction) =>
+                MakeBuilderResponseRequest<SimpleClass>(httpMethod, BuilderAction, null));
+        }
+
+        [Theory]
+        [MemberData(nameof(HttpMethodsForTask))]
+        public async Task ShouldFormatUrlTaskRequests(HttpMethod httpMethod)
+        {
+            await SetupExecuteAndVerify(httpMethod, (BuilderAction) =>
+                MakeBuilderTaskRequest(httpMethod, BuilderAction, null));
+        }
+
+        [Theory]
+        [MemberData(nameof(HttpMethodsForResponse))]
+        public async Task ShouldFormatUrlTryResponseRequests(HttpMethod httpMethod)
+        {
+            await SetupExecuteAndVerify(httpMethod, (BuilderAction) =>
+                MakeBuilderTryResponseRequest<SimpleClass>(httpMethod, BuilderAction, null));
+        }
+
+        [Theory]
+        [MemberData(nameof(HttpMethodsForTask))]
+        public async Task ShouldFormatUrlTryTaskRequests(HttpMethod httpMethod)
+        {
+            await SetupExecuteAndVerify(httpMethod, (BuilderAction) =>
+                MakeBuilderTryTaskRequest(httpMethod, BuilderAction, null));
+        }
+
+        private async Task SetupExecuteAndVerify(
+            HttpMethod httpMethod,
+            Func<Action<IRestClientUrlBuilder>, Task> executeMethod)
         {
             var relativeUrl = RestClientTestExtensions.GenerateRelativeUrl();
             var requestVariableCount = new Faker().Random.Int(2, 5);
-            var requestVariables = GenerateRequestVariables(requestVariableCount);
+            var requestVariables = RestClientTestExtensions.GenerateRequestParameters(requestVariableCount);
             var response = RestClientTestExtensions.GenerateResponseObject();
 
-            var expectedUrl = $"{relativeUrl}?" + 
+            var expectedUrl = $"{relativeUrl}?" +
                 string.Join("&", requestVariables.Select(kvp => $"{kvp.Key}={kvp.Value}"));
-
-            var httpMethods = new HttpMethod[] {
-                HttpMethod.Delete, HttpMethod.Get, HttpMethod.Patch, HttpMethod.Post, HttpMethod.Put };
 
             void BuilderAction(IRestClientUrlBuilder builder)
             {
@@ -30,18 +60,15 @@ namespace BlazorFocused.Client.Extensions
                         .WithParameter(variableKey, requestVariables[variableKey]);
             }
 
-            foreach (var httpMethod in httpMethods)
-                simulatedHttp.GetHttpSetup(httpMethod, expectedUrl, null)
-                    .ReturnsAsync(HttpStatusCode.OK, response);
+            simulatedHttp.GetHttpSetup(httpMethod, expectedUrl, null)
+                .ReturnsAsync(HttpStatusCode.OK, response);
 
-            foreach (var httpMethod in httpMethods)
-                _ = await MakeBuilderRequest<SimpleClass>(httpMethod, BuilderAction, null);
+            await executeMethod(BuilderAction);
 
-            foreach (var httpMethod in httpMethods)
-                simulatedHttp.VerifyWasCalled(httpMethod, expectedUrl);
+            simulatedHttp.VerifyWasCalled(httpMethod, expectedUrl);
         }
 
-        private Task<T> MakeBuilderRequest<T>(
+        private Task<T> MakeBuilderResponseRequest<T>(
             HttpMethod httpMethod, Action<IRestClientUrlBuilder> action, object request)
         {
             return httpMethod switch
@@ -55,17 +82,44 @@ namespace BlazorFocused.Client.Extensions
             };
         }
 
-        private static Dictionary<string, string> GenerateRequestVariables(int count)
+        private Task MakeBuilderTaskRequest(
+            HttpMethod httpMethod, Action<IRestClientUrlBuilder> action, object request)
         {
-            var variables = new Dictionary<string, string>();
-
-            for (int i = 0; i < count; i++)
-                variables.Add(GenerateString(), GenerateString());
-
-            return variables;
+            return httpMethod switch
+            {
+                HttpMethod method when method == HttpMethod.Delete => restClient.DeleteTaskAsync(action),
+                HttpMethod method when method == HttpMethod.Patch => restClient.PatchTaskAsync(action, request),
+                HttpMethod method when method == HttpMethod.Post => restClient.PostTaskAsync(action, request),
+                HttpMethod method when method == HttpMethod.Put => restClient.PutTaskAsync(action, request),
+                _ => throw new ArgumentException($"{httpMethod} not supported"),
+            };
         }
 
-        private static string GenerateString() =>
-            new Faker().Random.String2(new Faker().Random.Int(20, 30));
+        private Task<RestClientResponse<T>> MakeBuilderTryResponseRequest<T>(
+            HttpMethod httpMethod, Action<IRestClientUrlBuilder> action, object request)
+        {
+            return httpMethod switch
+            {
+                HttpMethod method when method == HttpMethod.Delete => restClient.TryDeleteAsync<T>(action),
+                HttpMethod method when method == HttpMethod.Get => restClient.TryGetAsync<T>(action),
+                HttpMethod method when method == HttpMethod.Patch => restClient.TryPatchAsync<T>(action, request),
+                HttpMethod method when method == HttpMethod.Post => restClient.TryPostAsync<T>(action, request),
+                HttpMethod method when method == HttpMethod.Put => restClient.TryPutAsync<T>(action, request),
+                _ => throw new ArgumentException($"{httpMethod} not supported"),
+            };
+        }
+
+        private Task<RestClientTask> MakeBuilderTryTaskRequest(
+            HttpMethod httpMethod, Action<IRestClientUrlBuilder> action, object request)
+        {
+            return httpMethod switch
+            {
+                HttpMethod method when method == HttpMethod.Delete => restClient.TryDeleteTaskAsync(action),
+                HttpMethod method when method == HttpMethod.Patch => restClient.TryPatchTaskAsync(action, request),
+                HttpMethod method when method == HttpMethod.Post => restClient.TryPostTaskAsync(action, request),
+                HttpMethod method when method == HttpMethod.Put => restClient.TryPutTaskAsync(action, request),
+                _ => throw new ArgumentException($"{httpMethod} not supported"),
+            };
+        }
     }
 }

@@ -23,6 +23,19 @@ namespace BlazorFocused
         public static SimpleClass GenerateResponseObject() =>
             GetSimpleClassFaker().Generate();
 
+        public static Dictionary<string, string> GenerateRequestParameters(int count)
+        {
+            var parameters = new Dictionary<string, string>();
+
+            for (int i = 0; i < count; i++)
+                parameters.Add(GenerateParameter(), GenerateParameter());
+
+            return parameters;
+        }
+
+        public static string GenerateParameter() =>
+            new Faker().Random.String2(new Faker().Random.Int(20, 30));
+
         private static Faker<SimpleClass> GetSimpleClassFaker() =>
             new Faker<SimpleClass>()
                 .RuleForType(typeof(string), faker => faker.Lorem.Sentence());
