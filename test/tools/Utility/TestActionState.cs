@@ -1,6 +1,4 @@
-﻿using BlazorFocused.Store;
-
-namespace BlazorFocused.Tools.Utility
+﻿namespace BlazorFocused.Tools.Utility
 {
     public abstract class TestActionState<TState> : StoreAction<TState>
     {

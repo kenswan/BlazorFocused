@@ -23,7 +23,7 @@ namespace BlazorFocused.Client
 
             actualResponse.Should().BeEquivalentTo(expectedResponse);
 
-            if(httpMethod == HttpMethod.Delete || httpMethod == HttpMethod.Get)
+            if (httpMethod == HttpMethod.Delete || httpMethod == HttpMethod.Get)
                 simulatedHttp.VerifyWasCalled(httpMethod, url);
             else
                 simulatedHttp.VerifyWasCalled(httpMethod, url, request);

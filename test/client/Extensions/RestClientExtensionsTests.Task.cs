@@ -1,5 +1,4 @@
-﻿using BlazorFocused.Client.Extensions;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
 namespace BlazorFocused.Client.Extensions

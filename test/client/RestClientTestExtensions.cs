@@ -4,7 +4,7 @@ namespace BlazorFocused
 {
     internal static partial class RestClientTestExtensions
     {
-        public static ISimulatedHttpSetup GetHttpSetup(this ISimulatedHttp simulatedHttp, 
+        public static ISimulatedHttpSetup GetHttpSetup(this ISimulatedHttp simulatedHttp,
                 HttpMethod httpMethod, string url, object request) =>
             httpMethod switch
             {
