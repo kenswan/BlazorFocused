@@ -30,7 +30,7 @@ namespace BlazorFocused.Tools.Http
                 action.Invoke();
             });
 
-            var calledWithUrlException = Record.Exception(() => 
+            var calledWithUrlException = Record.Exception(() =>
             {
                 var action = GetVerifyActionGroup(httpMethod, relativeRequestUrl);
                 action.Invoke();
