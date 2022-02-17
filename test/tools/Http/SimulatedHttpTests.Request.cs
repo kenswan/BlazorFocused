@@ -16,28 +16,39 @@ namespace BlazorFocused.Tools.Http
             SimpleClass requestObject,
             SimpleClass responseObject)
         {
-            ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
-            setup.ReturnsAsync(httpStatusCode, responseObject);
+            GetHttpSetup(httpMethod, relativeRequestUrl, requestObject)
+                .ReturnsAsync(httpStatusCode, responseObject);
 
             using var client = simulatedHttp.HttpClient;
+            var internalSimulatedHttp = simulatedHttp as SimulatedHttp;
 
             await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
 
-            var calledException = Record.Exception(() => simulatedHttp.VerifyWasCalled());
+            var calledException = Record.Exception(() =>
+            {
+                var action = GetVerifyActionGroup(httpMethod);
+                action.Invoke();
+            });
 
-            var calledWithMethodException =
-                Record.Exception(() => simulatedHttp.VerifyWasCalled(httpMethod));
-
-            var calledWithMethodAndUrlException =
-                Record.Exception(() => simulatedHttp.VerifyWasCalled(httpMethod, relativeRequestUrl));
-
-            var calledWithMethodUrlContentException = Record.Exception(() =>
-                simulatedHttp.VerifyWasCalled(httpMethod, relativeRequestUrl, requestObject));
+            var calledWithUrlException = Record.Exception(() => 
+            {
+                var action = GetVerifyActionGroup(httpMethod, relativeRequestUrl);
+                action.Invoke();
+            });
 
             Assert.Null(calledException);
-            Assert.Null(calledWithMethodException);
-            Assert.Null(calledWithMethodAndUrlException);
-            Assert.Null(calledWithMethodUrlContentException);
+            Assert.Null(calledWithUrlException);
+
+            if (!IsMethodWithoutContent(httpMethod))
+            {
+                var calledWithUrlAndContentException = Record.Exception(() =>
+                {
+                    var action = GetVerifyActionGroup(httpMethod, relativeRequestUrl, requestObject);
+                    action.Invoke();
+                });
+
+                Assert.Null(calledWithUrlAndContentException);
+            }
         }
 
         [Theory]
@@ -49,20 +60,18 @@ namespace BlazorFocused.Tools.Http
             SimpleClass requestObject,
             SimpleClass responseObject)
         {
-            ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
-            setup.ReturnsAsync(httpStatusCode, responseObject);
+            GetHttpSetup(httpMethod, relativeRequestUrl, requestObject)
+                .ReturnsAsync(httpStatusCode, responseObject);
 
             using var client = simulatedHttp.HttpClient;
+            var internalSimulatedHttp = simulatedHttp as SimulatedHttp;
             await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
 
             var differentHttpMethod = PickDifferentMethod(httpMethod);
             var differentRelativeUrl = GetRandomRelativeUrl();
 
-            Action actWithMethod = () => simulatedHttp.VerifyWasCalled(differentHttpMethod);
-            Action actWithMethodAndUrl = () => simulatedHttp.VerifyWasCalled(httpMethod, differentRelativeUrl);
-
-            Action actWithMethodUrlContent = () =>
-                simulatedHttp.VerifyWasCalled(httpMethod, relativeRequestUrl, GetRandomSimpleClass());
+            Action actWithMethod = GetVerifyActionGroup(differentHttpMethod);
+            Action actWithMethodAndUrl = GetVerifyActionGroup(httpMethod, differentRelativeUrl);
 
             actWithMethod.Should().Throw<SimulatedHttpTestException>()
                 .Where(exception => exception.Message.Contains(differentHttpMethod.ToString()));
@@ -71,8 +80,14 @@ namespace BlazorFocused.Tools.Http
                 .Where(exception => exception.Message.Contains(httpMethod.ToString()) &&
                     exception.Message.Contains(differentRelativeUrl));
 
-            actWithMethodUrlContent.Should().Throw<SimulatedHttpTestException>()
-                .Where(exception => exception.Message.Contains("Request Object"));
+            if (!IsMethodWithoutContent(httpMethod))
+            {
+                Action actWithMethodUrlContent =
+                    GetVerifyActionGroup(httpMethod, relativeRequestUrl, GetRandomSimpleClass());
+
+                actWithMethodUrlContent.Should().Throw<SimulatedHttpTestException>()
+                    .Where(exception => exception.Message.Contains("Request Object"));
+            }
         }
 
         [Theory]
@@ -84,12 +99,54 @@ namespace BlazorFocused.Tools.Http
             SimpleClass requestObject,
             SimpleClass responseObject)
         {
-            ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
-            setup.ReturnsAsync(httpStatusCode, responseObject);
+            GetHttpSetup(httpMethod, relativeRequestUrl, requestObject)
+                .ReturnsAsync(httpStatusCode, responseObject);
 
-            Action action = () => simulatedHttp.VerifyWasCalled();
+            var internalSimulatedHttp = simulatedHttp as SimulatedHttp;
+
+            Action action = GetVerifyActionGroup(httpMethod);
 
             action.Should().Throw<SimulatedHttpTestException>();
         }
+
+        private Action GetVerifyActionGroup(HttpMethod httpMethod, string url = null, object content = null) =>
+            httpMethod switch
+            {
+                { } when httpMethod == HttpMethod.Delete && url is null =>
+                    () => simulatedHttp.VerifyDELETEWasCalled(),
+                { } when httpMethod == HttpMethod.Delete && url is not null =>
+                    () => simulatedHttp.VerifyDELETEWasCalled(url),
+
+                { } when httpMethod == HttpMethod.Get && url is null =>
+                    () => simulatedHttp.VerifyGETWasCalled(),
+                { } when httpMethod == HttpMethod.Get && url is not null =>
+                    () => simulatedHttp.VerifyGETWasCalled(url),
+
+                { } when httpMethod == HttpMethod.Patch && url is null =>
+                    () => simulatedHttp.VerifyPATCHWasCalled(),
+                { } when httpMethod == HttpMethod.Patch && url is not null && content is null =>
+                    () => simulatedHttp.VerifyPATCHWasCalled(url),
+                { } when httpMethod == HttpMethod.Patch && url is not null && content is not null =>
+                    () => simulatedHttp.VerifyPATCHWasCalled(url, content),
+
+                { } when httpMethod == HttpMethod.Post && url is null =>
+                    () => simulatedHttp.VerifyPOSTWasCalled(),
+                { } when httpMethod == HttpMethod.Post && url is not null && content is null =>
+                    () => simulatedHttp.VerifyPOSTWasCalled(url),
+                { } when httpMethod == HttpMethod.Post && url is not null && content is not null =>
+                    () => simulatedHttp.VerifyPOSTWasCalled(url, content),
+
+                { } when httpMethod == HttpMethod.Put && url is null =>
+                    () => simulatedHttp.VerifyPUTWasCalled(),
+                { } when httpMethod == HttpMethod.Put && url is not null && content is null =>
+                    () => simulatedHttp.VerifyPUTWasCalled(url),
+                { } when httpMethod == HttpMethod.Put && url is not null && content is not null =>
+                    () => simulatedHttp.VerifyPUTWasCalled(url, content),
+
+                _ => throw new NotImplementedException("Verify Action Group Not Implemented")
+            };
+
+        private static bool IsMethodWithoutContent(HttpMethod httpMethod) =>
+            httpMethod == HttpMethod.Delete || httpMethod == HttpMethod.Get;
     }
 }
