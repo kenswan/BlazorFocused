@@ -56,13 +56,51 @@
         ISimulatedHttpSetup SetupPUT(string url, object content = null);
 
         /// <summary>
-        /// Verify a request was made
+        /// Verify a DELETE request was made
         /// </summary>
-        /// <param name="method">Expected request</param>
         /// <param name="url">Expected relative or full url</param>
         /// <exception cref="SimulatedHttpTestException">
         /// Exception will be thrown if expected request was not performed
         /// </exception>
-        void VerifyWasCalled(HttpMethod method = default, string url = default, object content = default);
+        void VerifyDELETEWasCalled(string url = default);
+
+        /// <summary>
+        /// Verify a GET request was made
+        /// </summary>
+        /// <param name="url">Expected relative or full url</param>
+        /// <exception cref="SimulatedHttpTestException">
+        /// Exception will be thrown if expected request was not performed
+        /// </exception>
+        void VerifyGETWasCalled(string url = default);
+
+        /// <summary>
+        /// Verify PATCH request was made
+        /// </summary>
+        /// <param name="url">Expected relative or full url</param>
+        /// <param name="content">Expected request object</param>
+        /// <exception cref="SimulatedHttpTestException">
+        /// Exception will be thrown if expected request was not performed
+        /// </exception>
+        void VerifyPATCHWasCalled(string url = default, object content = default);
+
+        /// <summary>
+        /// Verify POST request was made
+        /// </summary>
+        /// <param name="url">Expected relative or full url</param>
+        /// <param name="content">Expected request object</param>
+        /// <exception cref="SimulatedHttpTestException">
+        /// Exception will be thrown if expected request was not performed
+        /// </exception>
+        void VerifyPOSTWasCalled(string url = default, object content = default);
+
+        /// <summary>
+        /// Verify PUT request was made
+        /// </summary>
+        /// <param name="url">Expected relative or full url</param>
+        /// <param name="content">Expected request object</param>
+        /// <exception cref="SimulatedHttpTestException">
+        /// Exception will be thrown if expected request was not performed
+        /// </exception>
+        void VerifyPUTWasCalled(string url = default, object content = default);
     }
 }
