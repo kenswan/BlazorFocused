@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IStoreAction&lt;TState&gt;
+    <title>Namespace BlazorFocused.Tools
    | Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IStoreAction&lt;TState&gt;
+    <meta name="title" content="Namespace BlazorFocused.Tools
    | Documentation ">
     <meta name="generator" content="docfx 2.59.0.0">
     
@@ -68,69 +68,33 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="BlazorFocused.Store.IStoreAction`1">
+            <article class="content wrap" id="_content" data-uid="BlazorFocused.Tools">
   
-  
-  <h1 id="BlazorFocused_Store_IStoreAction_1" data-uid="BlazorFocused.Store.IStoreAction`1" class="text-break">Interface IStoreAction&lt;TState&gt;
+  <h1 id="BlazorFocused_Tools" data-uid="BlazorFocused.Tools" class="text-break">Namespace BlazorFocused.Tools
   </h1>
-  <div class="markdown level0 summary"><p>Base interface of all store actions for interacting with store state</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="BlazorFocused.Store.html">BlazorFocused.Store</a></h6>
-  <h6><strong>Assembly</strong>: BlazorFocused.Core.dll</h6>
-  <h5 id="BlazorFocused_Store_IStoreAction_1_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IStoreAction&lt;TState&gt;</code></pre>
-  </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TState</span></td>
-        <td><p>Type of <a class="xref" href="BlazorFocused.Store.IStore-1.html">IStore&lt;TState&gt;</a> state</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
   </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Store_IStoreAction_1_State.md&amp;value=---%0Auid%3A%20BlazorFocused.Store.IStoreAction%601.State%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/core/Store/IStoreAction.cs/#L12">View Source</a>
-  </span>
-  <a id="BlazorFocused_Store_IStoreAction_1_State_" data-uid="BlazorFocused.Store.IStoreAction`1.State*"></a>
-  <h4 id="BlazorFocused_Store_IStoreAction_1_State" data-uid="BlazorFocused.Store.IStoreAction`1.State">State</h4>
-  <div class="markdown level1 summary"><p>Store State</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TState State { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TState</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+      <h4><a class="xref" href="BlazorFocused.Tools.HttpClientBuilderExtensions.html">HttpClientBuilderExtensions</a></h4>
+      <section><p><see cref="!:IHttpClientBuilder"></see> extensions that allow Typed Clients to return mock data</p>
+</section>
+      <h4><a class="xref" href="BlazorFocused.Tools.ToolsBuilder.html">ToolsBuilder</a></h4>
+      <section><p>Provides implementations of <a class="xref" href="BlazorFocused.Tools.ISimulatedHttp.html">ISimulatedHttp</a> and <a class="xref" href="BlazorFocused.Tools.ITestLogger-1.html">ITestLogger&lt;T&gt;</a> for testing</p>
+</section>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="BlazorFocused.Tools.ISimulatedHttp.html">ISimulatedHttp</a></h4>
+      <section><p>Simulates <a class="xref" href="BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_HttpClient">HttpClient</a> transactions for testing
+and providing mock data</p>
+</section>
+      <h4><a class="xref" href="BlazorFocused.Tools.ISimulatedHttpSetup.html">ISimulatedHttpSetup</a></h4>
+      <section><p>Handles configuration/simulated response returned for a request from <a class="xref" href="BlazorFocused.Tools.ISimulatedHttp.html">ISimulatedHttp</a></p>
+</section>
+      <h4><a class="xref" href="BlazorFocused.Tools.ITestLogger-1.html">ITestLogger&lt;T&gt;</a></h4>
+      <section><p>Mock Logger used to capture/test logs within a given class</p>
+</section>
 </article>
           </div>
           
@@ -138,12 +102,6 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Store_IStoreAction_1.md&amp;value=---%0Auid%3A%20BlazorFocused.Store.IStoreAction%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/core/Store/IStoreAction.cs/#L7" class="contribution-link">View Source</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ServiceCollectionExtensions
+    <title>Class StoreActionAsync&lt;TState, TInput&gt;
    | Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ServiceCollectionExtensions
+    <meta name="title" content="Class StoreActionAsync&lt;TState, TInput&gt;
    | Documentation ">
     <meta name="generator" content="docfx 2.59.0.0">
     
@@ -68,19 +68,23 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="BlazorFocused.Store.ServiceCollectionExtensions">
+            <article class="content wrap" id="_content" data-uid="BlazorFocused.StoreActionAsync`2">
   
   
-  <h1 id="BlazorFocused_Store_ServiceCollectionExtensions" data-uid="BlazorFocused.Store.ServiceCollectionExtensions" class="text-break">Class ServiceCollectionExtensions
+  <h1 id="BlazorFocused_StoreActionAsync_2" data-uid="BlazorFocused.StoreActionAsync`2" class="text-break">Class StoreActionAsync&lt;TState, TInput&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Service Collection extensions that provide store registration
-in Startup.cs - ConfigureServices</p>
+  <div class="markdown level0 summary"><p>Performs an asynchronous action that can be triggered by the store</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">ServiceCollectionExtensions</span></div>
+    <div class="level1"><span class="xref">StoreActionAsync&lt;TState, TInput&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="BlazorFocused.IActionAsync-2.html">IActionAsync</a>&lt;TState, TInput&gt;</div>
+    <div><a class="xref" href="BlazorFocused.IStoreAction-1.html">IStoreAction</a>&lt;TState&gt;</div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -106,30 +110,81 @@ in Startup.cs - ConfigureServices</p>
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="BlazorFocused.Store.html">BlazorFocused.Store</a></h6>
-  <h6><strong>Assembly</strong>: BlazorFocused.Core.dll</h6>
-  <h5 id="BlazorFocused_Store_ServiceCollectionExtensions_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlazorFocused.html">BlazorFocused</a></h6>
+  <h6><strong>Assembly</strong>: BlazorFocused.Store.dll</h6>
+  <h5 id="BlazorFocused_StoreActionAsync_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static class ServiceCollectionExtensions</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class StoreActionAsync&lt;TState, TInput&gt; : IActionAsync&lt;TState, TInput&gt;, IStoreAction&lt;TState&gt;</code></pre>
   </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TState</span></td>
+        <td><p>State of the store data</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TInput</span></td>
+        <td><p>Input object at time of execution</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_StoreActionAsync_2_State.md&amp;value=---%0Auid%3A%20BlazorFocused.StoreActionAsync%602.State%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/store/StoreActionAsync.cs/#L14">View Source</a>
+  </span>
+  <a id="BlazorFocused_StoreActionAsync_2_State_" data-uid="BlazorFocused.StoreActionAsync`2.State*"></a>
+  <h4 id="BlazorFocused_StoreActionAsync_2_State" data-uid="BlazorFocused.StoreActionAsync`2.State">State</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TState State { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TState</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Store_ServiceCollectionExtensions_AddStore__1_IServiceCollection___0_.md&amp;value=---%0Auid%3A%20BlazorFocused.Store.ServiceCollectionExtensions.AddStore%60%601(IServiceCollection%2C%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_StoreActionAsync_2_ExecuteAsync__1_.md&amp;value=---%0Auid%3A%20BlazorFocused.StoreActionAsync%602.ExecuteAsync(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/core/Store/ServiceCollectionExtensions.cs/#L17">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/store/StoreActionAsync.cs/#L16">View Source</a>
   </span>
-  <a id="BlazorFocused_Store_ServiceCollectionExtensions_AddStore_" data-uid="BlazorFocused.Store.ServiceCollectionExtensions.AddStore*"></a>
-  <h4 id="BlazorFocused_Store_ServiceCollectionExtensions_AddStore__1_IServiceCollection___0_" data-uid="BlazorFocused.Store.ServiceCollectionExtensions.AddStore``1(IServiceCollection,``0)">AddStore&lt;T&gt;(IServiceCollection, T)</h4>
-  <div class="markdown level1 summary"><p>Registers a new store within the current application</p>
-</div>
+  <a id="BlazorFocused_StoreActionAsync_2_ExecuteAsync_" data-uid="BlazorFocused.StoreActionAsync`2.ExecuteAsync*"></a>
+  <h4 id="BlazorFocused_StoreActionAsync_2_ExecuteAsync__1_" data-uid="BlazorFocused.StoreActionAsync`2.ExecuteAsync(`1)">ExecuteAsync(TInput)</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IServiceCollection AddStore&lt;T&gt;(this IServiceCollection services, T initialData)
-    where T : class</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract ValueTask&lt;TState&gt; ExecuteAsync(TInput input)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -142,16 +197,9 @@ in Startup.cs - ConfigureServices</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IServiceCollection</span></td>
-        <td><span class="parametername">services</span></td>
-        <td><p>Service Collection being extended</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">initialData</span></td>
-        <td><p>Initial value of state within the store</p>
-</td>
+        <td><span class="xref">TInput</span></td>
+        <td><span class="parametername">input</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -165,27 +213,18 @@ in Startup.cs - ConfigureServices</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">IServiceCollection</span></td>
+        <td><span class="xref">ValueTask</span>&lt;TState&gt;</td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td><p>State being kept within store</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="BlazorFocused.IActionAsync-2.html">IActionAsync&lt;TState, TInput&gt;</a>
+  </div>
+  <div>
+      <a class="xref" href="BlazorFocused.IStoreAction-1.html">IStoreAction&lt;TState&gt;</a>
+  </div>
 </article>
           </div>
           
@@ -194,10 +233,10 @@ in Startup.cs - ConfigureServices</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Store_ServiceCollectionExtensions.md&amp;value=---%0Auid%3A%20BlazorFocused.Store.ServiceCollectionExtensions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_StoreActionAsync_2.md&amp;value=---%0Auid%3A%20BlazorFocused.StoreActionAsync%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/core/Store/ServiceCollectionExtensions.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/store/StoreActionAsync.cs/#L12" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IAction&lt;TState&gt;
+    <title>Interface IActionAsync&lt;TState&gt;
    | Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IAction&lt;TState&gt;
+    <meta name="title" content="Interface IActionAsync&lt;TState&gt;
    | Documentation ">
     <meta name="generator" content="docfx 2.59.0.0">
     
@@ -68,25 +68,25 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="BlazorFocused.Store.IAction`1">
+            <article class="content wrap" id="_content" data-uid="BlazorFocused.IActionAsync`1">
   
   
-  <h1 id="BlazorFocused_Store_IAction_1" data-uid="BlazorFocused.Store.IAction`1" class="text-break">Interface IAction&lt;TState&gt;
+  <h1 id="BlazorFocused_IActionAsync_1" data-uid="BlazorFocused.IActionAsync`1" class="text-break">Interface IActionAsync&lt;TState&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Performs an action that can be triggered by the store</p>
+  <div class="markdown level0 summary"><p>Performs an asynchronous action that can be triggered by the store</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="BlazorFocused.Store.IStoreAction-1.html#BlazorFocused_Store_IStoreAction_1_State">IStoreAction&lt;TState&gt;.State</a>
+      <a class="xref" href="BlazorFocused.IStoreAction-1.html#BlazorFocused_IStoreAction_1_State">IStoreAction&lt;TState&gt;.State</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="BlazorFocused.Store.html">BlazorFocused.Store</a></h6>
-  <h6><strong>Assembly</strong>: BlazorFocused.Core.dll</h6>
-  <h5 id="BlazorFocused_Store_IAction_1_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlazorFocused.html">BlazorFocused</a></h6>
+  <h6><strong>Assembly</strong>: BlazorFocused.Store.dll</h6>
+  <h5 id="BlazorFocused_IActionAsync_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IAction&lt;TState&gt; : IStoreAction&lt;TState&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IActionAsync&lt;TState&gt; : IStoreAction&lt;TState&gt;</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -108,19 +108,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Store_IAction_1_Execute.md&amp;value=---%0Auid%3A%20BlazorFocused.Store.IAction%601.Execute%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_IActionAsync_1_ExecuteAsync.md&amp;value=---%0Auid%3A%20BlazorFocused.IActionAsync%601.ExecuteAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/core/Store/IAction.cs/#L13">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/store/IActionAsync.cs/#L13">View Source</a>
   </span>
-  <a id="BlazorFocused_Store_IAction_1_Execute_" data-uid="BlazorFocused.Store.IAction`1.Execute*"></a>
-  <h4 id="BlazorFocused_Store_IAction_1_Execute" data-uid="BlazorFocused.Store.IAction`1.Execute">Execute()</h4>
-  <div class="markdown level1 summary"><p>This method is executed by the store chain when dispatched</p>
+  <a id="BlazorFocused_IActionAsync_1_ExecuteAsync_" data-uid="BlazorFocused.IActionAsync`1.ExecuteAsync*"></a>
+  <h4 id="BlazorFocused_IActionAsync_1_ExecuteAsync" data-uid="BlazorFocused.IActionAsync`1.ExecuteAsync">ExecuteAsync()</h4>
+  <div class="markdown level1 summary"><p>This method is asynchronously executed by the store chain when dispatched</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">TState Execute()</code></pre>
+    <pre><code class="lang-csharp hljs">ValueTask&lt;TState&gt; ExecuteAsync()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -132,7 +132,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">TState</span></td>
+        <td><span class="xref">ValueTask</span>&lt;TState&gt;</td>
         <td><p>New state of store after action is complete</p>
 </td>
       </tr>
@@ -146,10 +146,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Store_IAction_1.md&amp;value=---%0Auid%3A%20BlazorFocused.Store.IAction%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_IActionAsync_1.md&amp;value=---%0Auid%3A%20BlazorFocused.IActionAsync%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/core/Store/IAction.cs/#L7" class="contribution-link">View Source</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/store/IActionAsync.cs/#L7" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

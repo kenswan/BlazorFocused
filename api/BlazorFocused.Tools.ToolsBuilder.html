@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class StoreAction&lt;TState, TInput&gt;
+    <title>Class ToolsBuilder
    | Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class StoreAction&lt;TState, TInput&gt;
+    <meta name="title" content="Class ToolsBuilder
    | Documentation ">
     <meta name="generator" content="docfx 2.59.0.0">
     
@@ -68,23 +68,18 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="BlazorFocused.Store.StoreAction`2">
+            <article class="content wrap" id="_content" data-uid="BlazorFocused.Tools.ToolsBuilder">
   
   
-  <h1 id="BlazorFocused_Store_StoreAction_2" data-uid="BlazorFocused.Store.StoreAction`2" class="text-break">Class StoreAction&lt;TState, TInput&gt;
+  <h1 id="BlazorFocused_Tools_ToolsBuilder" data-uid="BlazorFocused.Tools.ToolsBuilder" class="text-break">Class ToolsBuilder
   </h1>
-  <div class="markdown level0 summary"><p>Performs an action that can be triggered by the store</p>
+  <div class="markdown level0 summary"><p>Provides implementations of <a class="xref" href="BlazorFocused.Tools.ISimulatedHttp.html">ISimulatedHttp</a> and <a class="xref" href="BlazorFocused.Tools.ITestLogger-1.html">ITestLogger&lt;T&gt;</a> for testing</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">StoreAction&lt;TState, TInput&gt;</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="BlazorFocused.Store.IAction-2.html">IAction</a>&lt;TState, TInput&gt;</div>
-    <div><a class="xref" href="BlazorFocused.Store.IStoreAction-1.html">IStoreAction</a>&lt;TState&gt;</div>
+    <div class="level1"><span class="xref">ToolsBuilder</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -110,81 +105,29 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="BlazorFocused.Store.html">BlazorFocused.Store</a></h6>
-  <h6><strong>Assembly</strong>: BlazorFocused.Core.dll</h6>
-  <h5 id="BlazorFocused_Store_StoreAction_2_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlazorFocused.Tools.html">BlazorFocused.Tools</a></h6>
+  <h6><strong>Assembly</strong>: BlazorFocused.Tools.dll</h6>
+  <h5 id="BlazorFocused_Tools_ToolsBuilder_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class StoreAction&lt;TState, TInput&gt; : IAction&lt;TState, TInput&gt;, IStoreAction&lt;TState&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public static class ToolsBuilder</code></pre>
   </div>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">TState</span></td>
-        <td><p>State of the store data</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="parametername">TInput</span></td>
-        <td><p>Input object at time of execution</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Store_StoreAction_2_State.md&amp;value=---%0Auid%3A%20BlazorFocused.Store.StoreAction%602.State%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/core/Store/StoreAction.cs/#L14">View Source</a>
-  </span>
-  <a id="BlazorFocused_Store_StoreAction_2_State_" data-uid="BlazorFocused.Store.StoreAction`2.State*"></a>
-  <h4 id="BlazorFocused_Store_StoreAction_2_State" data-uid="BlazorFocused.Store.StoreAction`2.State">State</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TState State { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">TState</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Store_StoreAction_2_Execute__1_.md&amp;value=---%0Auid%3A%20BlazorFocused.Store.StoreAction%602.Execute(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_Tools_ToolsBuilder_CreateSimulatedHttp_System_String_.md&amp;value=---%0Auid%3A%20BlazorFocused.Tools.ToolsBuilder.CreateSimulatedHttp(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/core/Store/StoreAction.cs/#L16">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/tools/ToolsBuilder.cs/#L17">View Source</a>
   </span>
-  <a id="BlazorFocused_Store_StoreAction_2_Execute_" data-uid="BlazorFocused.Store.StoreAction`2.Execute*"></a>
-  <h4 id="BlazorFocused_Store_StoreAction_2_Execute__1_" data-uid="BlazorFocused.Store.StoreAction`2.Execute(`1)">Execute(TInput)</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="BlazorFocused_Tools_ToolsBuilder_CreateSimulatedHttp_" data-uid="BlazorFocused.Tools.ToolsBuilder.CreateSimulatedHttp*"></a>
+  <h4 id="BlazorFocused_Tools_ToolsBuilder_CreateSimulatedHttp_System_String_" data-uid="BlazorFocused.Tools.ToolsBuilder.CreateSimulatedHttp(System.String)">CreateSimulatedHttp(String)</h4>
+  <div class="markdown level1 summary"><p>Provides implementations of <a class="xref" href="BlazorFocused.Tools.ISimulatedHttp.html">ISimulatedHttp</a> for testing</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract TState Execute(TInput input)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ISimulatedHttp CreateSimulatedHttp(string baseAddress = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -197,8 +140,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">TInput</span></td>
-        <td><span class="parametername">input</span></td>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">baseAddress</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -213,18 +156,78 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">TState</span></td>
+        <td><a class="xref" href="BlazorFocused.Tools.ISimulatedHttp.html">ISimulatedHttp</a></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="BlazorFocused.Store.IAction-2.html">IAction&lt;TState, TInput&gt;</a>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_Tools_ToolsBuilder_CreateTestLogger__1_Action_LogLevel_System_String_Exception__.md&amp;value=---%0Auid%3A%20BlazorFocused.Tools.ToolsBuilder.CreateTestLogger%60%601(Action%7BLogLevel%2CSystem.String%2CException%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/tools/ToolsBuilder.cs/#L30">View Source</a>
+  </span>
+  <a id="BlazorFocused_Tools_ToolsBuilder_CreateTestLogger_" data-uid="BlazorFocused.Tools.ToolsBuilder.CreateTestLogger*"></a>
+  <h4 id="BlazorFocused_Tools_ToolsBuilder_CreateTestLogger__1_Action_LogLevel_System_String_Exception__" data-uid="BlazorFocused.Tools.ToolsBuilder.CreateTestLogger``1(Action{LogLevel,System.String,Exception})">CreateTestLogger&lt;T&gt;(Action&lt;LogLevel, String, Exception&gt;)</h4>
+  <div class="markdown level1 summary"><p>Provides implementations of <a class="xref" href="BlazorFocused.Tools.ITestLogger-1.html">ITestLogger&lt;T&gt;</a> for testing</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ITestLogger&lt;T&gt; CreateTestLogger&lt;T&gt;(Action&lt;LogLevel, string, Exception&gt; logAction = null)</code></pre>
   </div>
-  <div>
-      <a class="xref" href="BlazorFocused.Store.IStoreAction-1.html">IStoreAction&lt;TState&gt;</a>
-  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Action</span>&lt;<span class="xref">LogLevel</span>, <span class="xref">System.String</span>, <span class="xref">Exception</span>&gt;</td>
+        <td><span class="parametername">logAction</span></td>
+        <td><p>Optional: Execute this action every time a log occurs.
+This is useful when using test output helpers (i.e. XUnit ITestOutputHelper)
+or event tracking</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlazorFocused.Tools.ITestLogger-1.html">ITestLogger</a>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Logger class used in test (<see cref="!:ILogger&lt;T>"></see>)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -233,10 +236,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Store_StoreAction_2.md&amp;value=---%0Auid%3A%20BlazorFocused.Store.StoreAction%602%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_Tools_ToolsBuilder.md&amp;value=---%0Auid%3A%20BlazorFocused.Tools.ToolsBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/core/Store/StoreAction.cs/#L12" class="contribution-link">View Source</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/tools/ToolsBuilder.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

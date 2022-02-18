@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class StoreActionAsync&lt;TState&gt;
+    <title>Class RestClientResponse&lt;T&gt;
    | Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class StoreActionAsync&lt;TState&gt;
+    <meta name="title" content="Class RestClientResponse&lt;T&gt;
    | Documentation ">
     <meta name="generator" content="docfx 2.59.0.0">
     
@@ -68,26 +68,31 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="BlazorFocused.Store.StoreActionAsync`1">
+            <article class="content wrap" id="_content" data-uid="BlazorFocused.RestClientResponse`1">
   
   
-  <h1 id="BlazorFocused_Store_StoreActionAsync_1" data-uid="BlazorFocused.Store.StoreActionAsync`1" class="text-break">Class StoreActionAsync&lt;TState&gt;
+  <h1 id="BlazorFocused_RestClientResponse_1" data-uid="BlazorFocused.RestClientResponse`1" class="text-break">Class RestClientResponse&lt;T&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Performs an asynchronous action that can be triggered by the store</p>
+  <div class="markdown level0 summary"><p>Gives result of an http request using <a class="xref" href="BlazorFocused.IRestClient.html">IRestClient</a></p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">StoreActionAsync&lt;TState&gt;</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="BlazorFocused.Store.IActionAsync-1.html">IActionAsync</a>&lt;TState&gt;</div>
-    <div><a class="xref" href="BlazorFocused.Store.IStoreAction-1.html">IStoreAction</a>&lt;TState&gt;</div>
+    <div class="level1"><a class="xref" href="BlazorFocused.RestClientTask.html">RestClientTask</a></div>
+    <div class="level2"><span class="xref">RestClientResponse&lt;T&gt;</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="BlazorFocused.RestClientTask.html#BlazorFocused_RestClientTask_Exception">RestClientTask.Exception</a>
+    </div>
+    <div>
+      <a class="xref" href="BlazorFocused.RestClientTask.html#BlazorFocused_RestClientTask_StatusCode">RestClientTask.StatusCode</a>
+    </div>
+    <div>
+      <a class="xref" href="BlazorFocused.RestClientTask.html#BlazorFocused_RestClientTask_HasSuccessStatusCode">RestClientTask.HasSuccessStatusCode()</a>
+    </div>
     <div>
       <span class="xref">System.Object.Equals(System.Object)</span>
     </div>
@@ -110,11 +115,11 @@
       <span class="xref">System.Object.ToString()</span>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="BlazorFocused.Store.html">BlazorFocused.Store</a></h6>
-  <h6><strong>Assembly</strong>: BlazorFocused.Core.dll</h6>
-  <h5 id="BlazorFocused_Store_StoreActionAsync_1_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlazorFocused.html">BlazorFocused</a></h6>
+  <h6><strong>Assembly</strong>: BlazorFocused.Client.dll</h6>
+  <h5 id="BlazorFocused_RestClientResponse_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class StoreActionAsync&lt;TState&gt; : IActionAsync&lt;TState&gt;, IStoreAction&lt;TState&gt;</code></pre>
+    <pre><code class="lang-csharp hljs">public class RestClientResponse&lt;T&gt; : RestClientTask</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -126,8 +131,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="parametername">TState</span></td>
-        <td><p>State of the store data</p>
+        <td><span class="parametername">T</span></td>
+        <td><p>Value expected from <see cref="!:HttpResponseMessage.Content"></see> deserialization</p>
 </td>
       </tr>
     </tbody>
@@ -136,18 +141,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Store_StoreActionAsync_1_State.md&amp;value=---%0Auid%3A%20BlazorFocused.Store.StoreActionAsync%601.State%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_RestClientResponse_1_IsSuccess.md&amp;value=---%0Auid%3A%20BlazorFocused.RestClientResponse%601.IsSuccess%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/core/Store/StoreActionAsync.cs/#L6">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/client/RestClientResponse.cs/#L14">View Source</a>
   </span>
-  <a id="BlazorFocused_Store_StoreActionAsync_1_State_" data-uid="BlazorFocused.Store.StoreActionAsync`1.State*"></a>
-  <h4 id="BlazorFocused_Store_StoreActionAsync_1_State" data-uid="BlazorFocused.Store.StoreActionAsync`1.State">State</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="BlazorFocused_RestClientResponse_1_IsSuccess_" data-uid="BlazorFocused.RestClientResponse`1.IsSuccess*"></a>
+  <h4 id="BlazorFocused_RestClientResponse_1_IsSuccess" data-uid="BlazorFocused.RestClientResponse`1.IsSuccess">IsSuccess</h4>
+  <div class="markdown level1 summary"><p>Identifies whether request was successful or failed</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TState State { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override bool IsSuccess { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -159,29 +165,30 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">TState</span></td>
+        <td><span class="xref">System.Boolean</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
-  </h3>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="BlazorFocused.RestClientTask.html#BlazorFocused_RestClientTask_IsSuccess">RestClientTask.IsSuccess</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Store_StoreActionAsync_1_ExecuteAsync.md&amp;value=---%0Auid%3A%20BlazorFocused.Store.StoreActionAsync%601.ExecuteAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_RestClientResponse_1_Value.md&amp;value=---%0Auid%3A%20BlazorFocused.RestClientResponse%601.Value%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/core/Store/StoreActionAsync.cs/#L8">View Source</a>
+    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/client/RestClientResponse.cs/#L22">View Source</a>
   </span>
-  <a id="BlazorFocused_Store_StoreActionAsync_1_ExecuteAsync_" data-uid="BlazorFocused.Store.StoreActionAsync`1.ExecuteAsync*"></a>
-  <h4 id="BlazorFocused_Store_StoreActionAsync_1_ExecuteAsync" data-uid="BlazorFocused.Store.StoreActionAsync`1.ExecuteAsync">ExecuteAsync()</h4>
-  <div class="markdown level1 summary"></div>
+  <a id="BlazorFocused_RestClientResponse_1_Value_" data-uid="BlazorFocused.RestClientResponse`1.Value*"></a>
+  <h4 id="BlazorFocused_RestClientResponse_1_Value" data-uid="BlazorFocused.RestClientResponse`1.Value">Value</h4>
+  <div class="markdown level1 summary"><p>Value expected from <see cref="!:HttpResponseMessage.Content"></see> deserialization</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract ValueTask&lt;TState&gt; ExecuteAsync()</code></pre>
+    <pre><code class="lang-csharp hljs">public T Value { get; set; }</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -191,18 +198,11 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">ValueTask</span>&lt;TState&gt;</td>
+        <td><span class="xref">T</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="BlazorFocused.Store.IActionAsync-1.html">IActionAsync&lt;TState&gt;</a>
-  </div>
-  <div>
-      <a class="xref" href="BlazorFocused.Store.IStoreAction-1.html">IStoreAction&lt;TState&gt;</a>
-  </div>
 </article>
           </div>
           
@@ -211,10 +211,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Store_StoreActionAsync_1.md&amp;value=---%0Auid%3A%20BlazorFocused.Store.StoreActionAsync%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_RestClientResponse_1.md&amp;value=---%0Auid%3A%20BlazorFocused.RestClientResponse%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/core/Store/StoreActionAsync.cs/#L4" class="contribution-link">View Source</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/client/RestClientResponse.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

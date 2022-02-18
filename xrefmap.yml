@@ -4,1462 +4,1627 @@ references:
 - uid: api/index
   name: BlazorFocused API Documentation
   href: api/index.html
-- uid: BlazorFocused.Client
-  name: BlazorFocused.Client
-  href: api/BlazorFocused.Client.html
-  commentId: N:BlazorFocused.Client
-  fullName: BlazorFocused.Client
-  nameWithType: BlazorFocused.Client
-- uid: BlazorFocused.Client.IOAuthRestClient
-  name: IOAuthRestClient
-  href: api/BlazorFocused.Client.IOAuthRestClient.html
-  commentId: T:BlazorFocused.Client.IOAuthRestClient
-  fullName: BlazorFocused.Client.IOAuthRestClient
-  nameWithType: IOAuthRestClient
-- uid: BlazorFocused.Client.IOAuthRestClient.AddAuthorization(System.String,System.String)
-  name: AddAuthorization(String, String)
-  href: api/BlazorFocused.Client.IOAuthRestClient.html#BlazorFocused_Client_IOAuthRestClient_AddAuthorization_System_String_System_String_
-  commentId: M:BlazorFocused.Client.IOAuthRestClient.AddAuthorization(System.String,System.String)
-  fullName: BlazorFocused.Client.IOAuthRestClient.AddAuthorization(System.String, System.String)
-  nameWithType: IOAuthRestClient.AddAuthorization(String, String)
-- uid: BlazorFocused.Client.IOAuthRestClient.AddAuthorization*
-  name: AddAuthorization
-  href: api/BlazorFocused.Client.IOAuthRestClient.html#BlazorFocused_Client_IOAuthRestClient_AddAuthorization_
-  commentId: Overload:BlazorFocused.Client.IOAuthRestClient.AddAuthorization
-  isSpec: "True"
-  fullName: BlazorFocused.Client.IOAuthRestClient.AddAuthorization
-  nameWithType: IOAuthRestClient.AddAuthorization
-- uid: BlazorFocused.Client.IOAuthRestClient.ClearAuthorization
-  name: ClearAuthorization()
-  href: api/BlazorFocused.Client.IOAuthRestClient.html#BlazorFocused_Client_IOAuthRestClient_ClearAuthorization
-  commentId: M:BlazorFocused.Client.IOAuthRestClient.ClearAuthorization
-  fullName: BlazorFocused.Client.IOAuthRestClient.ClearAuthorization()
-  nameWithType: IOAuthRestClient.ClearAuthorization()
-- uid: BlazorFocused.Client.IOAuthRestClient.ClearAuthorization*
-  name: ClearAuthorization
-  href: api/BlazorFocused.Client.IOAuthRestClient.html#BlazorFocused_Client_IOAuthRestClient_ClearAuthorization_
-  commentId: Overload:BlazorFocused.Client.IOAuthRestClient.ClearAuthorization
-  isSpec: "True"
-  fullName: BlazorFocused.Client.IOAuthRestClient.ClearAuthorization
-  nameWithType: IOAuthRestClient.ClearAuthorization
-- uid: BlazorFocused.Client.IOAuthRestClient.HasAuthorization
-  name: HasAuthorization()
-  href: api/BlazorFocused.Client.IOAuthRestClient.html#BlazorFocused_Client_IOAuthRestClient_HasAuthorization
-  commentId: M:BlazorFocused.Client.IOAuthRestClient.HasAuthorization
-  fullName: BlazorFocused.Client.IOAuthRestClient.HasAuthorization()
-  nameWithType: IOAuthRestClient.HasAuthorization()
-- uid: BlazorFocused.Client.IOAuthRestClient.HasAuthorization*
-  name: HasAuthorization
-  href: api/BlazorFocused.Client.IOAuthRestClient.html#BlazorFocused_Client_IOAuthRestClient_HasAuthorization_
-  commentId: Overload:BlazorFocused.Client.IOAuthRestClient.HasAuthorization
-  isSpec: "True"
-  fullName: BlazorFocused.Client.IOAuthRestClient.HasAuthorization
-  nameWithType: IOAuthRestClient.HasAuthorization
-- uid: BlazorFocused.Client.IOAuthRestClient.RetrieveAuthorization
-  name: RetrieveAuthorization()
-  href: api/BlazorFocused.Client.IOAuthRestClient.html#BlazorFocused_Client_IOAuthRestClient_RetrieveAuthorization
-  commentId: M:BlazorFocused.Client.IOAuthRestClient.RetrieveAuthorization
-  fullName: BlazorFocused.Client.IOAuthRestClient.RetrieveAuthorization()
-  nameWithType: IOAuthRestClient.RetrieveAuthorization()
-- uid: BlazorFocused.Client.IOAuthRestClient.RetrieveAuthorization*
-  name: RetrieveAuthorization
-  href: api/BlazorFocused.Client.IOAuthRestClient.html#BlazorFocused_Client_IOAuthRestClient_RetrieveAuthorization_
-  commentId: Overload:BlazorFocused.Client.IOAuthRestClient.RetrieveAuthorization
-  isSpec: "True"
-  fullName: BlazorFocused.Client.IOAuthRestClient.RetrieveAuthorization
-  nameWithType: IOAuthRestClient.RetrieveAuthorization
-- uid: BlazorFocused.Client.IRestClient
-  name: IRestClient
-  href: api/BlazorFocused.Client.IRestClient.html
-  commentId: T:BlazorFocused.Client.IRestClient
-  fullName: BlazorFocused.Client.IRestClient
-  nameWithType: IRestClient
-- uid: BlazorFocused.Client.IRestClient.DeleteAsync*
+- uid: BlazorFocused
+  name: BlazorFocused
+  href: api/BlazorFocused.html
+  commentId: N:BlazorFocused
+  fullName: BlazorFocused
+  nameWithType: BlazorFocused
+- uid: BlazorFocused.Client.Extensions
+  name: BlazorFocused.Client.Extensions
+  href: api/BlazorFocused.Client.Extensions.html
+  commentId: N:BlazorFocused.Client.Extensions
+  fullName: BlazorFocused.Client.Extensions
+  nameWithType: BlazorFocused.Client.Extensions
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions
+  name: RestClientExtensions
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html
+  commentId: T:BlazorFocused.Client.Extensions.RestClientExtensions
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions
+  nameWithType: RestClientExtensions
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync*
   name: DeleteAsync
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_DeleteAsync_
-  commentId: Overload:BlazorFocused.Client.IRestClient.DeleteAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_DeleteAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.IRestClient.DeleteAsync
-  nameWithType: IRestClient.DeleteAsync
-- uid: BlazorFocused.Client.IRestClient.DeleteAsync``1(System.String)
-  name: DeleteAsync<T>(String)
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_DeleteAsync__1_System_String_
-  commentId: M:BlazorFocused.Client.IRestClient.DeleteAsync``1(System.String)
-  name.vb: DeleteAsync(Of T)(String)
-  fullName: BlazorFocused.Client.IRestClient.DeleteAsync<T>(System.String)
-  fullName.vb: BlazorFocused.Client.IRestClient.DeleteAsync(Of T)(System.String)
-  nameWithType: IRestClient.DeleteAsync<T>(String)
-  nameWithType.vb: IRestClient.DeleteAsync(Of T)(String)
-- uid: BlazorFocused.Client.IRestClient.GetAsync*
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync
+  nameWithType: RestClientExtensions.DeleteAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  name: DeleteAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_DeleteAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  name.vb: DeleteAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
+  nameWithType: RestClientExtensions.DeleteAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
+  nameWithType.vb: RestClientExtensions.DeleteAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  name: DeleteTaskAsync(IRestClient, Action<IRestClientUrlBuilder>)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_DeleteTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  name.vb: DeleteTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder))
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
+  nameWithType: RestClientExtensions.DeleteTaskAsync(IRestClient, Action<IRestClientUrlBuilder>)
+  nameWithType.vb: RestClientExtensions.DeleteTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder))
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync*
+  name: DeleteTaskAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_DeleteTaskAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync
+  isSpec: "True"
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync
+  nameWithType: RestClientExtensions.DeleteTaskAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync*
   name: GetAsync
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_GetAsync_
-  commentId: Overload:BlazorFocused.Client.IRestClient.GetAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_GetAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.IRestClient.GetAsync
-  nameWithType: IRestClient.GetAsync
-- uid: BlazorFocused.Client.IRestClient.GetAsync``1(System.String)
-  name: GetAsync<T>(String)
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_GetAsync__1_System_String_
-  commentId: M:BlazorFocused.Client.IRestClient.GetAsync``1(System.String)
-  name.vb: GetAsync(Of T)(String)
-  fullName: BlazorFocused.Client.IRestClient.GetAsync<T>(System.String)
-  fullName.vb: BlazorFocused.Client.IRestClient.GetAsync(Of T)(System.String)
-  nameWithType: IRestClient.GetAsync<T>(String)
-  nameWithType.vb: IRestClient.GetAsync(Of T)(String)
-- uid: BlazorFocused.Client.IRestClient.PatchAsync*
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync
+  nameWithType: RestClientExtensions.GetAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  name: GetAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_GetAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  name.vb: GetAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
+  nameWithType: RestClientExtensions.GetAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
+  nameWithType.vb: RestClientExtensions.GetAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync*
   name: PatchAsync
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_PatchAsync_
-  commentId: Overload:BlazorFocused.Client.IRestClient.PatchAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PatchAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.IRestClient.PatchAsync
-  nameWithType: IRestClient.PatchAsync
-- uid: BlazorFocused.Client.IRestClient.PatchAsync``1(System.String,System.Object)
-  name: PatchAsync<T>(String, Object)
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_PatchAsync__1_System_String_System_Object_
-  commentId: M:BlazorFocused.Client.IRestClient.PatchAsync``1(System.String,System.Object)
-  name.vb: PatchAsync(Of T)(String, Object)
-  fullName: BlazorFocused.Client.IRestClient.PatchAsync<T>(System.String, System.Object)
-  fullName.vb: BlazorFocused.Client.IRestClient.PatchAsync(Of T)(System.String, System.Object)
-  nameWithType: IRestClient.PatchAsync<T>(String, Object)
-  nameWithType.vb: IRestClient.PatchAsync(Of T)(String, Object)
-- uid: BlazorFocused.Client.IRestClient.PostAsync*
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync
+  nameWithType: RestClientExtensions.PatchAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name: PatchAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PatchAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name.vb: PatchAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  nameWithType: RestClientExtensions.PatchAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  nameWithType.vb: RestClientExtensions.PatchAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name: PatchTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PatchTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name.vb: PatchTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  nameWithType: RestClientExtensions.PatchTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  nameWithType.vb: RestClientExtensions.PatchTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync*
+  name: PatchTaskAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PatchTaskAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync
+  isSpec: "True"
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync
+  nameWithType: RestClientExtensions.PatchTaskAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync*
   name: PostAsync
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_PostAsync_
-  commentId: Overload:BlazorFocused.Client.IRestClient.PostAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PostAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.IRestClient.PostAsync
-  nameWithType: IRestClient.PostAsync
-- uid: BlazorFocused.Client.IRestClient.PostAsync``1(System.String,System.Object)
-  name: PostAsync<T>(String, Object)
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_PostAsync__1_System_String_System_Object_
-  commentId: M:BlazorFocused.Client.IRestClient.PostAsync``1(System.String,System.Object)
-  name.vb: PostAsync(Of T)(String, Object)
-  fullName: BlazorFocused.Client.IRestClient.PostAsync<T>(System.String, System.Object)
-  fullName.vb: BlazorFocused.Client.IRestClient.PostAsync(Of T)(System.String, System.Object)
-  nameWithType: IRestClient.PostAsync<T>(String, Object)
-  nameWithType.vb: IRestClient.PostAsync(Of T)(String, Object)
-- uid: BlazorFocused.Client.IRestClient.PutAsync*
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync
+  nameWithType: RestClientExtensions.PostAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name: PostAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PostAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name.vb: PostAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  nameWithType: RestClientExtensions.PostAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  nameWithType.vb: RestClientExtensions.PostAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name: PostTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PostTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name.vb: PostTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  nameWithType: RestClientExtensions.PostTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  nameWithType.vb: RestClientExtensions.PostTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync*
+  name: PostTaskAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PostTaskAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync
+  isSpec: "True"
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync
+  nameWithType: RestClientExtensions.PostTaskAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync*
   name: PutAsync
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_PutAsync_
-  commentId: Overload:BlazorFocused.Client.IRestClient.PutAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PutAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.IRestClient.PutAsync
-  nameWithType: IRestClient.PutAsync
-- uid: BlazorFocused.Client.IRestClient.PutAsync``1(System.String,System.Object)
-  name: PutAsync<T>(String, Object)
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_PutAsync__1_System_String_System_Object_
-  commentId: M:BlazorFocused.Client.IRestClient.PutAsync``1(System.String,System.Object)
-  name.vb: PutAsync(Of T)(String, Object)
-  fullName: BlazorFocused.Client.IRestClient.PutAsync<T>(System.String, System.Object)
-  fullName.vb: BlazorFocused.Client.IRestClient.PutAsync(Of T)(System.String, System.Object)
-  nameWithType: IRestClient.PutAsync<T>(String, Object)
-  nameWithType.vb: IRestClient.PutAsync(Of T)(String, Object)
-- uid: BlazorFocused.Client.IRestClient.TryDeleteAsync*
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync
+  nameWithType: RestClientExtensions.PutAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name: PutAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PutAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name.vb: PutAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  nameWithType: RestClientExtensions.PutAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  nameWithType.vb: RestClientExtensions.PutAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name: PutTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PutTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name.vb: PutTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  nameWithType: RestClientExtensions.PutTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  nameWithType.vb: RestClientExtensions.PutTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync*
+  name: PutTaskAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PutTaskAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync
+  isSpec: "True"
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync
+  nameWithType: RestClientExtensions.PutTaskAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync*
   name: TryDeleteAsync
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_TryDeleteAsync_
-  commentId: Overload:BlazorFocused.Client.IRestClient.TryDeleteAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryDeleteAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.IRestClient.TryDeleteAsync
-  nameWithType: IRestClient.TryDeleteAsync
-- uid: BlazorFocused.Client.IRestClient.TryDeleteAsync``1(System.String)
-  name: TryDeleteAsync<T>(String)
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_TryDeleteAsync__1_System_String_
-  commentId: M:BlazorFocused.Client.IRestClient.TryDeleteAsync``1(System.String)
-  name.vb: TryDeleteAsync(Of T)(String)
-  fullName: BlazorFocused.Client.IRestClient.TryDeleteAsync<T>(System.String)
-  fullName.vb: BlazorFocused.Client.IRestClient.TryDeleteAsync(Of T)(System.String)
-  nameWithType: IRestClient.TryDeleteAsync<T>(String)
-  nameWithType.vb: IRestClient.TryDeleteAsync(Of T)(String)
-- uid: BlazorFocused.Client.IRestClient.TryGetAsync*
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync
+  nameWithType: RestClientExtensions.TryDeleteAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  name: TryDeleteAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryDeleteAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  name.vb: TryDeleteAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
+  nameWithType: RestClientExtensions.TryDeleteAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
+  nameWithType.vb: RestClientExtensions.TryDeleteAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync``1(BlazorFocused.IRestClient,System.String)
+  name: TryDeleteAsync<T>(IRestClient, String)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryDeleteAsync__1_BlazorFocused_IRestClient_System_String_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync``1(BlazorFocused.IRestClient,System.String)
+  name.vb: TryDeleteAsync(Of T)(IRestClient, String)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync<T>(BlazorFocused.IRestClient, System.String)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync(Of T)(BlazorFocused.IRestClient, System.String)
+  nameWithType: RestClientExtensions.TryDeleteAsync<T>(IRestClient, String)
+  nameWithType.vb: RestClientExtensions.TryDeleteAsync(Of T)(IRestClient, String)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  name: TryDeleteTaskAsync(IRestClient, Action<IRestClientUrlBuilder>)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryDeleteTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  name.vb: TryDeleteTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder))
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
+  nameWithType: RestClientExtensions.TryDeleteTaskAsync(IRestClient, Action<IRestClientUrlBuilder>)
+  nameWithType.vb: RestClientExtensions.TryDeleteTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder))
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient,System.String)
+  name: TryDeleteTaskAsync(IRestClient, String)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryDeleteTaskAsync_BlazorFocused_IRestClient_System_String_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient,System.String)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient, System.String)
+  nameWithType: RestClientExtensions.TryDeleteTaskAsync(IRestClient, String)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync*
+  name: TryDeleteTaskAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryDeleteTaskAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync
+  isSpec: "True"
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync
+  nameWithType: RestClientExtensions.TryDeleteTaskAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync*
   name: TryGetAsync
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_TryGetAsync_
-  commentId: Overload:BlazorFocused.Client.IRestClient.TryGetAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryGetAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.IRestClient.TryGetAsync
-  nameWithType: IRestClient.TryGetAsync
-- uid: BlazorFocused.Client.IRestClient.TryGetAsync``1(System.String)
-  name: TryGetAsync<T>(String)
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_TryGetAsync__1_System_String_
-  commentId: M:BlazorFocused.Client.IRestClient.TryGetAsync``1(System.String)
-  name.vb: TryGetAsync(Of T)(String)
-  fullName: BlazorFocused.Client.IRestClient.TryGetAsync<T>(System.String)
-  fullName.vb: BlazorFocused.Client.IRestClient.TryGetAsync(Of T)(System.String)
-  nameWithType: IRestClient.TryGetAsync<T>(String)
-  nameWithType.vb: IRestClient.TryGetAsync(Of T)(String)
-- uid: BlazorFocused.Client.IRestClient.TryPatchAsync*
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync
+  nameWithType: RestClientExtensions.TryGetAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  name: TryGetAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryGetAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  name.vb: TryGetAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
+  nameWithType: RestClientExtensions.TryGetAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
+  nameWithType.vb: RestClientExtensions.TryGetAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync``1(BlazorFocused.IRestClient,System.String)
+  name: TryGetAsync<T>(IRestClient, String)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryGetAsync__1_BlazorFocused_IRestClient_System_String_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync``1(BlazorFocused.IRestClient,System.String)
+  name.vb: TryGetAsync(Of T)(IRestClient, String)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync<T>(BlazorFocused.IRestClient, System.String)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync(Of T)(BlazorFocused.IRestClient, System.String)
+  nameWithType: RestClientExtensions.TryGetAsync<T>(IRestClient, String)
+  nameWithType.vb: RestClientExtensions.TryGetAsync(Of T)(IRestClient, String)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync*
   name: TryPatchAsync
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_TryPatchAsync_
-  commentId: Overload:BlazorFocused.Client.IRestClient.TryPatchAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPatchAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.IRestClient.TryPatchAsync
-  nameWithType: IRestClient.TryPatchAsync
-- uid: BlazorFocused.Client.IRestClient.TryPatchAsync``1(System.String,System.Object)
-  name: TryPatchAsync<T>(String, Object)
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_TryPatchAsync__1_System_String_System_Object_
-  commentId: M:BlazorFocused.Client.IRestClient.TryPatchAsync``1(System.String,System.Object)
-  name.vb: TryPatchAsync(Of T)(String, Object)
-  fullName: BlazorFocused.Client.IRestClient.TryPatchAsync<T>(System.String, System.Object)
-  fullName.vb: BlazorFocused.Client.IRestClient.TryPatchAsync(Of T)(System.String, System.Object)
-  nameWithType: IRestClient.TryPatchAsync<T>(String, Object)
-  nameWithType.vb: IRestClient.TryPatchAsync(Of T)(String, Object)
-- uid: BlazorFocused.Client.IRestClient.TryPostAsync*
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync
+  nameWithType: RestClientExtensions.TryPatchAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name: TryPatchAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPatchAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name.vb: TryPatchAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  nameWithType: RestClientExtensions.TryPatchAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  nameWithType.vb: RestClientExtensions.TryPatchAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
+  name: TryPatchAsync<T>(IRestClient, String, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPatchAsync__1_BlazorFocused_IRestClient_System_String_System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
+  name.vb: TryPatchAsync(Of T)(IRestClient, String, Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync<T>(BlazorFocused.IRestClient, System.String, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync(Of T)(BlazorFocused.IRestClient, System.String, System.Object)
+  nameWithType: RestClientExtensions.TryPatchAsync<T>(IRestClient, String, Object)
+  nameWithType.vb: RestClientExtensions.TryPatchAsync(Of T)(IRestClient, String, Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name: TryPatchTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPatchTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name.vb: TryPatchTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  nameWithType: RestClientExtensions.TryPatchTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  nameWithType.vb: RestClientExtensions.TryPatchTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
+  name: TryPatchTaskAsync(IRestClient, String, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPatchTaskAsync_BlazorFocused_IRestClient_System_String_System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient, System.String, System.Object)
+  nameWithType: RestClientExtensions.TryPatchTaskAsync(IRestClient, String, Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync*
+  name: TryPatchTaskAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPatchTaskAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync
+  isSpec: "True"
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync
+  nameWithType: RestClientExtensions.TryPatchTaskAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync*
   name: TryPostAsync
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_TryPostAsync_
-  commentId: Overload:BlazorFocused.Client.IRestClient.TryPostAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPostAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.IRestClient.TryPostAsync
-  nameWithType: IRestClient.TryPostAsync
-- uid: BlazorFocused.Client.IRestClient.TryPostAsync``1(System.String,System.Object)
-  name: TryPostAsync<T>(String, Object)
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_TryPostAsync__1_System_String_System_Object_
-  commentId: M:BlazorFocused.Client.IRestClient.TryPostAsync``1(System.String,System.Object)
-  name.vb: TryPostAsync(Of T)(String, Object)
-  fullName: BlazorFocused.Client.IRestClient.TryPostAsync<T>(System.String, System.Object)
-  fullName.vb: BlazorFocused.Client.IRestClient.TryPostAsync(Of T)(System.String, System.Object)
-  nameWithType: IRestClient.TryPostAsync<T>(String, Object)
-  nameWithType.vb: IRestClient.TryPostAsync(Of T)(String, Object)
-- uid: BlazorFocused.Client.IRestClient.TryPutAsync*
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync
+  nameWithType: RestClientExtensions.TryPostAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name: TryPostAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPostAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name.vb: TryPostAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  nameWithType: RestClientExtensions.TryPostAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  nameWithType.vb: RestClientExtensions.TryPostAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
+  name: TryPostAsync<T>(IRestClient, String, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPostAsync__1_BlazorFocused_IRestClient_System_String_System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
+  name.vb: TryPostAsync(Of T)(IRestClient, String, Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync<T>(BlazorFocused.IRestClient, System.String, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync(Of T)(BlazorFocused.IRestClient, System.String, System.Object)
+  nameWithType: RestClientExtensions.TryPostAsync<T>(IRestClient, String, Object)
+  nameWithType.vb: RestClientExtensions.TryPostAsync(Of T)(IRestClient, String, Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name: TryPostTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPostTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name.vb: TryPostTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  nameWithType: RestClientExtensions.TryPostTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  nameWithType.vb: RestClientExtensions.TryPostTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
+  name: TryPostTaskAsync(IRestClient, String, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPostTaskAsync_BlazorFocused_IRestClient_System_String_System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient, System.String, System.Object)
+  nameWithType: RestClientExtensions.TryPostTaskAsync(IRestClient, String, Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync*
+  name: TryPostTaskAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPostTaskAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync
+  isSpec: "True"
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync
+  nameWithType: RestClientExtensions.TryPostTaskAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync*
   name: TryPutAsync
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_TryPutAsync_
-  commentId: Overload:BlazorFocused.Client.IRestClient.TryPutAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPutAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.IRestClient.TryPutAsync
-  nameWithType: IRestClient.TryPutAsync
-- uid: BlazorFocused.Client.IRestClient.TryPutAsync``1(System.String,System.Object)
-  name: TryPutAsync<T>(String, Object)
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_TryPutAsync__1_System_String_System_Object_
-  commentId: M:BlazorFocused.Client.IRestClient.TryPutAsync``1(System.String,System.Object)
-  name.vb: TryPutAsync(Of T)(String, Object)
-  fullName: BlazorFocused.Client.IRestClient.TryPutAsync<T>(System.String, System.Object)
-  fullName.vb: BlazorFocused.Client.IRestClient.TryPutAsync(Of T)(System.String, System.Object)
-  nameWithType: IRestClient.TryPutAsync<T>(String, Object)
-  nameWithType.vb: IRestClient.TryPutAsync(Of T)(String, Object)
-- uid: BlazorFocused.Client.IRestClient.UpdateHttpClient(Action{HttpClient})
-  name: UpdateHttpClient(Action<HttpClient>)
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_UpdateHttpClient_Action_HttpClient__
-  commentId: M:BlazorFocused.Client.IRestClient.UpdateHttpClient(Action{HttpClient})
-  name.vb: UpdateHttpClient(Action(Of HttpClient))
-  fullName: BlazorFocused.Client.IRestClient.UpdateHttpClient(Action<HttpClient>)
-  fullName.vb: BlazorFocused.Client.IRestClient.UpdateHttpClient(Action(Of HttpClient))
-  nameWithType: IRestClient.UpdateHttpClient(Action<HttpClient>)
-  nameWithType.vb: IRestClient.UpdateHttpClient(Action(Of HttpClient))
-- uid: BlazorFocused.Client.IRestClient.UpdateHttpClient*
-  name: UpdateHttpClient
-  href: api/BlazorFocused.Client.IRestClient.html#BlazorFocused_Client_IRestClient_UpdateHttpClient_
-  commentId: Overload:BlazorFocused.Client.IRestClient.UpdateHttpClient
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync
+  nameWithType: RestClientExtensions.TryPutAsync
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name: TryPutAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPutAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name.vb: TryPutAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  nameWithType: RestClientExtensions.TryPutAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  nameWithType.vb: RestClientExtensions.TryPutAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
+  name: TryPutAsync<T>(IRestClient, String, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPutAsync__1_BlazorFocused_IRestClient_System_String_System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
+  name.vb: TryPutAsync(Of T)(IRestClient, String, Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync<T>(BlazorFocused.IRestClient, System.String, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync(Of T)(BlazorFocused.IRestClient, System.String, System.Object)
+  nameWithType: RestClientExtensions.TryPutAsync<T>(IRestClient, String, Object)
+  nameWithType.vb: RestClientExtensions.TryPutAsync(Of T)(IRestClient, String, Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name: TryPutTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPutTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  name.vb: TryPutTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  nameWithType: RestClientExtensions.TryPutTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
+  nameWithType.vb: RestClientExtensions.TryPutTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
+  name: TryPutTaskAsync(IRestClient, String, Object)
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPutTaskAsync_BlazorFocused_IRestClient_System_String_System_Object_
+  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient, System.String, System.Object)
+  nameWithType: RestClientExtensions.TryPutTaskAsync(IRestClient, String, Object)
+- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync*
+  name: TryPutTaskAsync
+  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPutTaskAsync_
+  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.IRestClient.UpdateHttpClient
-  nameWithType: IRestClient.UpdateHttpClient
-- uid: BlazorFocused.Client.RestClientException
-  name: RestClientException
-  href: api/BlazorFocused.Client.RestClientException.html
-  commentId: T:BlazorFocused.Client.RestClientException
-  fullName: BlazorFocused.Client.RestClientException
-  nameWithType: RestClientException
-- uid: BlazorFocused.Client.RestClientException.#ctor(HttpMethod,System.Net.HttpStatusCode,System.String)
-  name: RestClientException(HttpMethod, HttpStatusCode, String)
-  href: api/BlazorFocused.Client.RestClientException.html#BlazorFocused_Client_RestClientException__ctor_HttpMethod_System_Net_HttpStatusCode_System_String_
-  commentId: M:BlazorFocused.Client.RestClientException.#ctor(HttpMethod,System.Net.HttpStatusCode,System.String)
-  fullName: BlazorFocused.Client.RestClientException.RestClientException(HttpMethod, System.Net.HttpStatusCode, System.String)
-  nameWithType: RestClientException.RestClientException(HttpMethod, HttpStatusCode, String)
-- uid: BlazorFocused.Client.RestClientException.#ctor(System.String)
-  name: RestClientException(String)
-  href: api/BlazorFocused.Client.RestClientException.html#BlazorFocused_Client_RestClientException__ctor_System_String_
-  commentId: M:BlazorFocused.Client.RestClientException.#ctor(System.String)
-  fullName: BlazorFocused.Client.RestClientException.RestClientException(System.String)
-  nameWithType: RestClientException.RestClientException(String)
-- uid: BlazorFocused.Client.RestClientException.#ctor(System.String,Exception)
-  name: RestClientException(String, Exception)
-  href: api/BlazorFocused.Client.RestClientException.html#BlazorFocused_Client_RestClientException__ctor_System_String_Exception_
-  commentId: M:BlazorFocused.Client.RestClientException.#ctor(System.String,Exception)
-  fullName: BlazorFocused.Client.RestClientException.RestClientException(System.String, Exception)
-  nameWithType: RestClientException.RestClientException(String, Exception)
-- uid: BlazorFocused.Client.RestClientException.#ctor*
-  name: RestClientException
-  href: api/BlazorFocused.Client.RestClientException.html#BlazorFocused_Client_RestClientException__ctor_
-  commentId: Overload:BlazorFocused.Client.RestClientException.#ctor
-  isSpec: "True"
-  fullName: BlazorFocused.Client.RestClientException.RestClientException
-  nameWithType: RestClientException.RestClientException
-- uid: BlazorFocused.Client.RestClientResponse`1
-  name: RestClientResponse<T>
-  href: api/BlazorFocused.Client.RestClientResponse-1.html
-  commentId: T:BlazorFocused.Client.RestClientResponse`1
-  name.vb: RestClientResponse(Of T)
-  fullName: BlazorFocused.Client.RestClientResponse<T>
-  fullName.vb: BlazorFocused.Client.RestClientResponse(Of T)
-  nameWithType: RestClientResponse<T>
-  nameWithType.vb: RestClientResponse(Of T)
-- uid: BlazorFocused.Client.RestClientResponse`1.Exception
-  name: Exception
-  href: api/BlazorFocused.Client.RestClientResponse-1.html#BlazorFocused_Client_RestClientResponse_1_Exception
-  commentId: P:BlazorFocused.Client.RestClientResponse`1.Exception
-  fullName: BlazorFocused.Client.RestClientResponse<T>.Exception
-  fullName.vb: BlazorFocused.Client.RestClientResponse(Of T).Exception
-  nameWithType: RestClientResponse<T>.Exception
-  nameWithType.vb: RestClientResponse(Of T).Exception
-- uid: BlazorFocused.Client.RestClientResponse`1.Exception*
-  name: Exception
-  href: api/BlazorFocused.Client.RestClientResponse-1.html#BlazorFocused_Client_RestClientResponse_1_Exception_
-  commentId: Overload:BlazorFocused.Client.RestClientResponse`1.Exception
-  isSpec: "True"
-  fullName: BlazorFocused.Client.RestClientResponse<T>.Exception
-  fullName.vb: BlazorFocused.Client.RestClientResponse(Of T).Exception
-  nameWithType: RestClientResponse<T>.Exception
-  nameWithType.vb: RestClientResponse(Of T).Exception
-- uid: BlazorFocused.Client.RestClientResponse`1.IsValid
-  name: IsValid
-  href: api/BlazorFocused.Client.RestClientResponse-1.html#BlazorFocused_Client_RestClientResponse_1_IsValid
-  commentId: P:BlazorFocused.Client.RestClientResponse`1.IsValid
-  fullName: BlazorFocused.Client.RestClientResponse<T>.IsValid
-  fullName.vb: BlazorFocused.Client.RestClientResponse(Of T).IsValid
-  nameWithType: RestClientResponse<T>.IsValid
-  nameWithType.vb: RestClientResponse(Of T).IsValid
-- uid: BlazorFocused.Client.RestClientResponse`1.IsValid*
-  name: IsValid
-  href: api/BlazorFocused.Client.RestClientResponse-1.html#BlazorFocused_Client_RestClientResponse_1_IsValid_
-  commentId: Overload:BlazorFocused.Client.RestClientResponse`1.IsValid
-  isSpec: "True"
-  fullName: BlazorFocused.Client.RestClientResponse<T>.IsValid
-  fullName.vb: BlazorFocused.Client.RestClientResponse(Of T).IsValid
-  nameWithType: RestClientResponse<T>.IsValid
-  nameWithType.vb: RestClientResponse(Of T).IsValid
-- uid: BlazorFocused.Client.RestClientResponse`1.StatusCode
-  name: StatusCode
-  href: api/BlazorFocused.Client.RestClientResponse-1.html#BlazorFocused_Client_RestClientResponse_1_StatusCode
-  commentId: P:BlazorFocused.Client.RestClientResponse`1.StatusCode
-  fullName: BlazorFocused.Client.RestClientResponse<T>.StatusCode
-  fullName.vb: BlazorFocused.Client.RestClientResponse(Of T).StatusCode
-  nameWithType: RestClientResponse<T>.StatusCode
-  nameWithType.vb: RestClientResponse(Of T).StatusCode
-- uid: BlazorFocused.Client.RestClientResponse`1.StatusCode*
-  name: StatusCode
-  href: api/BlazorFocused.Client.RestClientResponse-1.html#BlazorFocused_Client_RestClientResponse_1_StatusCode_
-  commentId: Overload:BlazorFocused.Client.RestClientResponse`1.StatusCode
-  isSpec: "True"
-  fullName: BlazorFocused.Client.RestClientResponse<T>.StatusCode
-  fullName.vb: BlazorFocused.Client.RestClientResponse(Of T).StatusCode
-  nameWithType: RestClientResponse<T>.StatusCode
-  nameWithType.vb: RestClientResponse(Of T).StatusCode
-- uid: BlazorFocused.Client.RestClientResponse`1.Value
-  name: Value
-  href: api/BlazorFocused.Client.RestClientResponse-1.html#BlazorFocused_Client_RestClientResponse_1_Value
-  commentId: P:BlazorFocused.Client.RestClientResponse`1.Value
-  fullName: BlazorFocused.Client.RestClientResponse<T>.Value
-  fullName.vb: BlazorFocused.Client.RestClientResponse(Of T).Value
-  nameWithType: RestClientResponse<T>.Value
-  nameWithType.vb: RestClientResponse(Of T).Value
-- uid: BlazorFocused.Client.RestClientResponse`1.Value*
-  name: Value
-  href: api/BlazorFocused.Client.RestClientResponse-1.html#BlazorFocused_Client_RestClientResponse_1_Value_
-  commentId: Overload:BlazorFocused.Client.RestClientResponse`1.Value
-  isSpec: "True"
-  fullName: BlazorFocused.Client.RestClientResponse<T>.Value
-  fullName.vb: BlazorFocused.Client.RestClientResponse(Of T).Value
-  nameWithType: RestClientResponse<T>.Value
-  nameWithType.vb: RestClientResponse(Of T).Value
-- uid: BlazorFocused.Client.ServiceCollectionExtensions
-  name: ServiceCollectionExtensions
-  href: api/BlazorFocused.Client.ServiceCollectionExtensions.html
-  commentId: T:BlazorFocused.Client.ServiceCollectionExtensions
-  fullName: BlazorFocused.Client.ServiceCollectionExtensions
-  nameWithType: ServiceCollectionExtensions
-- uid: BlazorFocused.Client.ServiceCollectionExtensions.AddOAuthRestClient(IServiceCollection,Action{HttpClient})
-  name: AddOAuthRestClient(IServiceCollection, Action<HttpClient>)
-  href: api/BlazorFocused.Client.ServiceCollectionExtensions.html#BlazorFocused_Client_ServiceCollectionExtensions_AddOAuthRestClient_IServiceCollection_Action_HttpClient__
-  commentId: M:BlazorFocused.Client.ServiceCollectionExtensions.AddOAuthRestClient(IServiceCollection,Action{HttpClient})
-  name.vb: AddOAuthRestClient(IServiceCollection, Action(Of HttpClient))
-  fullName: BlazorFocused.Client.ServiceCollectionExtensions.AddOAuthRestClient(IServiceCollection, Action<HttpClient>)
-  fullName.vb: BlazorFocused.Client.ServiceCollectionExtensions.AddOAuthRestClient(IServiceCollection, Action(Of HttpClient))
-  nameWithType: ServiceCollectionExtensions.AddOAuthRestClient(IServiceCollection, Action<HttpClient>)
-  nameWithType.vb: ServiceCollectionExtensions.AddOAuthRestClient(IServiceCollection, Action(Of HttpClient))
-- uid: BlazorFocused.Client.ServiceCollectionExtensions.AddOAuthRestClient(IServiceCollection,System.String)
-  name: AddOAuthRestClient(IServiceCollection, String)
-  href: api/BlazorFocused.Client.ServiceCollectionExtensions.html#BlazorFocused_Client_ServiceCollectionExtensions_AddOAuthRestClient_IServiceCollection_System_String_
-  commentId: M:BlazorFocused.Client.ServiceCollectionExtensions.AddOAuthRestClient(IServiceCollection,System.String)
-  fullName: BlazorFocused.Client.ServiceCollectionExtensions.AddOAuthRestClient(IServiceCollection, System.String)
-  nameWithType: ServiceCollectionExtensions.AddOAuthRestClient(IServiceCollection, String)
-- uid: BlazorFocused.Client.ServiceCollectionExtensions.AddOAuthRestClient*
-  name: AddOAuthRestClient
-  href: api/BlazorFocused.Client.ServiceCollectionExtensions.html#BlazorFocused_Client_ServiceCollectionExtensions_AddOAuthRestClient_
-  commentId: Overload:BlazorFocused.Client.ServiceCollectionExtensions.AddOAuthRestClient
-  isSpec: "True"
-  fullName: BlazorFocused.Client.ServiceCollectionExtensions.AddOAuthRestClient
-  nameWithType: ServiceCollectionExtensions.AddOAuthRestClient
-- uid: BlazorFocused.Client.ServiceCollectionExtensions.AddRestClient(IServiceCollection,Action{HttpClient})
-  name: AddRestClient(IServiceCollection, Action<HttpClient>)
-  href: api/BlazorFocused.Client.ServiceCollectionExtensions.html#BlazorFocused_Client_ServiceCollectionExtensions_AddRestClient_IServiceCollection_Action_HttpClient__
-  commentId: M:BlazorFocused.Client.ServiceCollectionExtensions.AddRestClient(IServiceCollection,Action{HttpClient})
-  name.vb: AddRestClient(IServiceCollection, Action(Of HttpClient))
-  fullName: BlazorFocused.Client.ServiceCollectionExtensions.AddRestClient(IServiceCollection, Action<HttpClient>)
-  fullName.vb: BlazorFocused.Client.ServiceCollectionExtensions.AddRestClient(IServiceCollection, Action(Of HttpClient))
-  nameWithType: ServiceCollectionExtensions.AddRestClient(IServiceCollection, Action<HttpClient>)
-  nameWithType.vb: ServiceCollectionExtensions.AddRestClient(IServiceCollection, Action(Of HttpClient))
-- uid: BlazorFocused.Client.ServiceCollectionExtensions.AddRestClient(IServiceCollection,System.String)
-  name: AddRestClient(IServiceCollection, String)
-  href: api/BlazorFocused.Client.ServiceCollectionExtensions.html#BlazorFocused_Client_ServiceCollectionExtensions_AddRestClient_IServiceCollection_System_String_
-  commentId: M:BlazorFocused.Client.ServiceCollectionExtensions.AddRestClient(IServiceCollection,System.String)
-  fullName: BlazorFocused.Client.ServiceCollectionExtensions.AddRestClient(IServiceCollection, System.String)
-  nameWithType: ServiceCollectionExtensions.AddRestClient(IServiceCollection, String)
-- uid: BlazorFocused.Client.ServiceCollectionExtensions.AddRestClient*
-  name: AddRestClient
-  href: api/BlazorFocused.Client.ServiceCollectionExtensions.html#BlazorFocused_Client_ServiceCollectionExtensions_AddRestClient_
-  commentId: Overload:BlazorFocused.Client.ServiceCollectionExtensions.AddRestClient
-  isSpec: "True"
-  fullName: BlazorFocused.Client.ServiceCollectionExtensions.AddRestClient
-  nameWithType: ServiceCollectionExtensions.AddRestClient
-- uid: BlazorFocused.Store
-  name: BlazorFocused.Store
-  href: api/BlazorFocused.Store.html
-  commentId: N:BlazorFocused.Store
-  fullName: BlazorFocused.Store
-  nameWithType: BlazorFocused.Store
-- uid: BlazorFocused.Store.IAction`1
+  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync
+  nameWithType: RestClientExtensions.TryPutTaskAsync
+- uid: BlazorFocused.IAction`1
   name: IAction<TState>
-  href: api/BlazorFocused.Store.IAction-1.html
-  commentId: T:BlazorFocused.Store.IAction`1
+  href: api/BlazorFocused.IAction-1.html
+  commentId: T:BlazorFocused.IAction`1
   name.vb: IAction(Of TState)
-  fullName: BlazorFocused.Store.IAction<TState>
-  fullName.vb: BlazorFocused.Store.IAction(Of TState)
+  fullName: BlazorFocused.IAction<TState>
+  fullName.vb: BlazorFocused.IAction(Of TState)
   nameWithType: IAction<TState>
   nameWithType.vb: IAction(Of TState)
-- uid: BlazorFocused.Store.IAction`1.Execute
+- uid: BlazorFocused.IAction`1.Execute
   name: Execute()
-  href: api/BlazorFocused.Store.IAction-1.html#BlazorFocused_Store_IAction_1_Execute
-  commentId: M:BlazorFocused.Store.IAction`1.Execute
-  fullName: BlazorFocused.Store.IAction<TState>.Execute()
-  fullName.vb: BlazorFocused.Store.IAction(Of TState).Execute()
+  href: api/BlazorFocused.IAction-1.html#BlazorFocused_IAction_1_Execute
+  commentId: M:BlazorFocused.IAction`1.Execute
+  fullName: BlazorFocused.IAction<TState>.Execute()
+  fullName.vb: BlazorFocused.IAction(Of TState).Execute()
   nameWithType: IAction<TState>.Execute()
   nameWithType.vb: IAction(Of TState).Execute()
-- uid: BlazorFocused.Store.IAction`1.Execute*
+- uid: BlazorFocused.IAction`1.Execute*
   name: Execute
-  href: api/BlazorFocused.Store.IAction-1.html#BlazorFocused_Store_IAction_1_Execute_
-  commentId: Overload:BlazorFocused.Store.IAction`1.Execute
+  href: api/BlazorFocused.IAction-1.html#BlazorFocused_IAction_1_Execute_
+  commentId: Overload:BlazorFocused.IAction`1.Execute
   isSpec: "True"
-  fullName: BlazorFocused.Store.IAction<TState>.Execute
-  fullName.vb: BlazorFocused.Store.IAction(Of TState).Execute
+  fullName: BlazorFocused.IAction<TState>.Execute
+  fullName.vb: BlazorFocused.IAction(Of TState).Execute
   nameWithType: IAction<TState>.Execute
   nameWithType.vb: IAction(Of TState).Execute
-- uid: BlazorFocused.Store.IAction`2
+- uid: BlazorFocused.IAction`2
   name: IAction<TState, TInput>
-  href: api/BlazorFocused.Store.IAction-2.html
-  commentId: T:BlazorFocused.Store.IAction`2
+  href: api/BlazorFocused.IAction-2.html
+  commentId: T:BlazorFocused.IAction`2
   name.vb: IAction(Of TState, TInput)
-  fullName: BlazorFocused.Store.IAction<TState, TInput>
-  fullName.vb: BlazorFocused.Store.IAction(Of TState, TInput)
+  fullName: BlazorFocused.IAction<TState, TInput>
+  fullName.vb: BlazorFocused.IAction(Of TState, TInput)
   nameWithType: IAction<TState, TInput>
   nameWithType.vb: IAction(Of TState, TInput)
-- uid: BlazorFocused.Store.IAction`2.Execute(`1)
+- uid: BlazorFocused.IAction`2.Execute(`1)
   name: Execute(TInput)
-  href: api/BlazorFocused.Store.IAction-2.html#BlazorFocused_Store_IAction_2_Execute__1_
-  commentId: M:BlazorFocused.Store.IAction`2.Execute(`1)
-  fullName: BlazorFocused.Store.IAction<TState, TInput>.Execute(TInput)
-  fullName.vb: BlazorFocused.Store.IAction(Of TState, TInput).Execute(TInput)
+  href: api/BlazorFocused.IAction-2.html#BlazorFocused_IAction_2_Execute__1_
+  commentId: M:BlazorFocused.IAction`2.Execute(`1)
+  fullName: BlazorFocused.IAction<TState, TInput>.Execute(TInput)
+  fullName.vb: BlazorFocused.IAction(Of TState, TInput).Execute(TInput)
   nameWithType: IAction<TState, TInput>.Execute(TInput)
   nameWithType.vb: IAction(Of TState, TInput).Execute(TInput)
-- uid: BlazorFocused.Store.IAction`2.Execute*
+- uid: BlazorFocused.IAction`2.Execute*
   name: Execute
-  href: api/BlazorFocused.Store.IAction-2.html#BlazorFocused_Store_IAction_2_Execute_
-  commentId: Overload:BlazorFocused.Store.IAction`2.Execute
+  href: api/BlazorFocused.IAction-2.html#BlazorFocused_IAction_2_Execute_
+  commentId: Overload:BlazorFocused.IAction`2.Execute
   isSpec: "True"
-  fullName: BlazorFocused.Store.IAction<TState, TInput>.Execute
-  fullName.vb: BlazorFocused.Store.IAction(Of TState, TInput).Execute
+  fullName: BlazorFocused.IAction<TState, TInput>.Execute
+  fullName.vb: BlazorFocused.IAction(Of TState, TInput).Execute
   nameWithType: IAction<TState, TInput>.Execute
   nameWithType.vb: IAction(Of TState, TInput).Execute
-- uid: BlazorFocused.Store.IActionAsync`1
+- uid: BlazorFocused.IActionAsync`1
   name: IActionAsync<TState>
-  href: api/BlazorFocused.Store.IActionAsync-1.html
-  commentId: T:BlazorFocused.Store.IActionAsync`1
+  href: api/BlazorFocused.IActionAsync-1.html
+  commentId: T:BlazorFocused.IActionAsync`1
   name.vb: IActionAsync(Of TState)
-  fullName: BlazorFocused.Store.IActionAsync<TState>
-  fullName.vb: BlazorFocused.Store.IActionAsync(Of TState)
+  fullName: BlazorFocused.IActionAsync<TState>
+  fullName.vb: BlazorFocused.IActionAsync(Of TState)
   nameWithType: IActionAsync<TState>
   nameWithType.vb: IActionAsync(Of TState)
-- uid: BlazorFocused.Store.IActionAsync`1.ExecuteAsync
+- uid: BlazorFocused.IActionAsync`1.ExecuteAsync
   name: ExecuteAsync()
-  href: api/BlazorFocused.Store.IActionAsync-1.html#BlazorFocused_Store_IActionAsync_1_ExecuteAsync
-  commentId: M:BlazorFocused.Store.IActionAsync`1.ExecuteAsync
-  fullName: BlazorFocused.Store.IActionAsync<TState>.ExecuteAsync()
-  fullName.vb: BlazorFocused.Store.IActionAsync(Of TState).ExecuteAsync()
+  href: api/BlazorFocused.IActionAsync-1.html#BlazorFocused_IActionAsync_1_ExecuteAsync
+  commentId: M:BlazorFocused.IActionAsync`1.ExecuteAsync
+  fullName: BlazorFocused.IActionAsync<TState>.ExecuteAsync()
+  fullName.vb: BlazorFocused.IActionAsync(Of TState).ExecuteAsync()
   nameWithType: IActionAsync<TState>.ExecuteAsync()
   nameWithType.vb: IActionAsync(Of TState).ExecuteAsync()
-- uid: BlazorFocused.Store.IActionAsync`1.ExecuteAsync*
+- uid: BlazorFocused.IActionAsync`1.ExecuteAsync*
   name: ExecuteAsync
-  href: api/BlazorFocused.Store.IActionAsync-1.html#BlazorFocused_Store_IActionAsync_1_ExecuteAsync_
-  commentId: Overload:BlazorFocused.Store.IActionAsync`1.ExecuteAsync
+  href: api/BlazorFocused.IActionAsync-1.html#BlazorFocused_IActionAsync_1_ExecuteAsync_
+  commentId: Overload:BlazorFocused.IActionAsync`1.ExecuteAsync
   isSpec: "True"
-  fullName: BlazorFocused.Store.IActionAsync<TState>.ExecuteAsync
-  fullName.vb: BlazorFocused.Store.IActionAsync(Of TState).ExecuteAsync
+  fullName: BlazorFocused.IActionAsync<TState>.ExecuteAsync
+  fullName.vb: BlazorFocused.IActionAsync(Of TState).ExecuteAsync
   nameWithType: IActionAsync<TState>.ExecuteAsync
   nameWithType.vb: IActionAsync(Of TState).ExecuteAsync
-- uid: BlazorFocused.Store.IActionAsync`2
+- uid: BlazorFocused.IActionAsync`2
   name: IActionAsync<TState, TInput>
-  href: api/BlazorFocused.Store.IActionAsync-2.html
-  commentId: T:BlazorFocused.Store.IActionAsync`2
+  href: api/BlazorFocused.IActionAsync-2.html
+  commentId: T:BlazorFocused.IActionAsync`2
   name.vb: IActionAsync(Of TState, TInput)
-  fullName: BlazorFocused.Store.IActionAsync<TState, TInput>
-  fullName.vb: BlazorFocused.Store.IActionAsync(Of TState, TInput)
+  fullName: BlazorFocused.IActionAsync<TState, TInput>
+  fullName.vb: BlazorFocused.IActionAsync(Of TState, TInput)
   nameWithType: IActionAsync<TState, TInput>
   nameWithType.vb: IActionAsync(Of TState, TInput)
-- uid: BlazorFocused.Store.IActionAsync`2.ExecuteAsync(`1)
+- uid: BlazorFocused.IActionAsync`2.ExecuteAsync(`1)
   name: ExecuteAsync(TInput)
-  href: api/BlazorFocused.Store.IActionAsync-2.html#BlazorFocused_Store_IActionAsync_2_ExecuteAsync__1_
-  commentId: M:BlazorFocused.Store.IActionAsync`2.ExecuteAsync(`1)
-  fullName: BlazorFocused.Store.IActionAsync<TState, TInput>.ExecuteAsync(TInput)
-  fullName.vb: BlazorFocused.Store.IActionAsync(Of TState, TInput).ExecuteAsync(TInput)
+  href: api/BlazorFocused.IActionAsync-2.html#BlazorFocused_IActionAsync_2_ExecuteAsync__1_
+  commentId: M:BlazorFocused.IActionAsync`2.ExecuteAsync(`1)
+  fullName: BlazorFocused.IActionAsync<TState, TInput>.ExecuteAsync(TInput)
+  fullName.vb: BlazorFocused.IActionAsync(Of TState, TInput).ExecuteAsync(TInput)
   nameWithType: IActionAsync<TState, TInput>.ExecuteAsync(TInput)
   nameWithType.vb: IActionAsync(Of TState, TInput).ExecuteAsync(TInput)
-- uid: BlazorFocused.Store.IActionAsync`2.ExecuteAsync*
+- uid: BlazorFocused.IActionAsync`2.ExecuteAsync*
   name: ExecuteAsync
-  href: api/BlazorFocused.Store.IActionAsync-2.html#BlazorFocused_Store_IActionAsync_2_ExecuteAsync_
-  commentId: Overload:BlazorFocused.Store.IActionAsync`2.ExecuteAsync
+  href: api/BlazorFocused.IActionAsync-2.html#BlazorFocused_IActionAsync_2_ExecuteAsync_
+  commentId: Overload:BlazorFocused.IActionAsync`2.ExecuteAsync
   isSpec: "True"
-  fullName: BlazorFocused.Store.IActionAsync<TState, TInput>.ExecuteAsync
-  fullName.vb: BlazorFocused.Store.IActionAsync(Of TState, TInput).ExecuteAsync
+  fullName: BlazorFocused.IActionAsync<TState, TInput>.ExecuteAsync
+  fullName.vb: BlazorFocused.IActionAsync(Of TState, TInput).ExecuteAsync
   nameWithType: IActionAsync<TState, TInput>.ExecuteAsync
   nameWithType.vb: IActionAsync(Of TState, TInput).ExecuteAsync
-- uid: BlazorFocused.Store.IReducer`2
+- uid: BlazorFocused.IOAuthRestClient
+  name: IOAuthRestClient
+  href: api/BlazorFocused.IOAuthRestClient.html
+  commentId: T:BlazorFocused.IOAuthRestClient
+  fullName: BlazorFocused.IOAuthRestClient
+  nameWithType: IOAuthRestClient
+- uid: BlazorFocused.IOAuthRestClient.AddAuthorization(System.String,System.String)
+  name: AddAuthorization(String, String)
+  href: api/BlazorFocused.IOAuthRestClient.html#BlazorFocused_IOAuthRestClient_AddAuthorization_System_String_System_String_
+  commentId: M:BlazorFocused.IOAuthRestClient.AddAuthorization(System.String,System.String)
+  fullName: BlazorFocused.IOAuthRestClient.AddAuthorization(System.String, System.String)
+  nameWithType: IOAuthRestClient.AddAuthorization(String, String)
+- uid: BlazorFocused.IOAuthRestClient.AddAuthorization*
+  name: AddAuthorization
+  href: api/BlazorFocused.IOAuthRestClient.html#BlazorFocused_IOAuthRestClient_AddAuthorization_
+  commentId: Overload:BlazorFocused.IOAuthRestClient.AddAuthorization
+  isSpec: "True"
+  fullName: BlazorFocused.IOAuthRestClient.AddAuthorization
+  nameWithType: IOAuthRestClient.AddAuthorization
+- uid: BlazorFocused.IOAuthRestClient.ClearAuthorization
+  name: ClearAuthorization()
+  href: api/BlazorFocused.IOAuthRestClient.html#BlazorFocused_IOAuthRestClient_ClearAuthorization
+  commentId: M:BlazorFocused.IOAuthRestClient.ClearAuthorization
+  fullName: BlazorFocused.IOAuthRestClient.ClearAuthorization()
+  nameWithType: IOAuthRestClient.ClearAuthorization()
+- uid: BlazorFocused.IOAuthRestClient.ClearAuthorization*
+  name: ClearAuthorization
+  href: api/BlazorFocused.IOAuthRestClient.html#BlazorFocused_IOAuthRestClient_ClearAuthorization_
+  commentId: Overload:BlazorFocused.IOAuthRestClient.ClearAuthorization
+  isSpec: "True"
+  fullName: BlazorFocused.IOAuthRestClient.ClearAuthorization
+  nameWithType: IOAuthRestClient.ClearAuthorization
+- uid: BlazorFocused.IOAuthRestClient.HasAuthorization
+  name: HasAuthorization()
+  href: api/BlazorFocused.IOAuthRestClient.html#BlazorFocused_IOAuthRestClient_HasAuthorization
+  commentId: M:BlazorFocused.IOAuthRestClient.HasAuthorization
+  fullName: BlazorFocused.IOAuthRestClient.HasAuthorization()
+  nameWithType: IOAuthRestClient.HasAuthorization()
+- uid: BlazorFocused.IOAuthRestClient.HasAuthorization*
+  name: HasAuthorization
+  href: api/BlazorFocused.IOAuthRestClient.html#BlazorFocused_IOAuthRestClient_HasAuthorization_
+  commentId: Overload:BlazorFocused.IOAuthRestClient.HasAuthorization
+  isSpec: "True"
+  fullName: BlazorFocused.IOAuthRestClient.HasAuthorization
+  nameWithType: IOAuthRestClient.HasAuthorization
+- uid: BlazorFocused.IOAuthRestClient.RetrieveAuthorization
+  name: RetrieveAuthorization()
+  href: api/BlazorFocused.IOAuthRestClient.html#BlazorFocused_IOAuthRestClient_RetrieveAuthorization
+  commentId: M:BlazorFocused.IOAuthRestClient.RetrieveAuthorization
+  fullName: BlazorFocused.IOAuthRestClient.RetrieveAuthorization()
+  nameWithType: IOAuthRestClient.RetrieveAuthorization()
+- uid: BlazorFocused.IOAuthRestClient.RetrieveAuthorization*
+  name: RetrieveAuthorization
+  href: api/BlazorFocused.IOAuthRestClient.html#BlazorFocused_IOAuthRestClient_RetrieveAuthorization_
+  commentId: Overload:BlazorFocused.IOAuthRestClient.RetrieveAuthorization
+  isSpec: "True"
+  fullName: BlazorFocused.IOAuthRestClient.RetrieveAuthorization
+  nameWithType: IOAuthRestClient.RetrieveAuthorization
+- uid: BlazorFocused.IReducer`2
   name: IReducer<TInput, TOutput>
-  href: api/BlazorFocused.Store.IReducer-2.html
-  commentId: T:BlazorFocused.Store.IReducer`2
+  href: api/BlazorFocused.IReducer-2.html
+  commentId: T:BlazorFocused.IReducer`2
   name.vb: IReducer(Of TInput, TOutput)
-  fullName: BlazorFocused.Store.IReducer<TInput, TOutput>
-  fullName.vb: BlazorFocused.Store.IReducer(Of TInput, TOutput)
+  fullName: BlazorFocused.IReducer<TInput, TOutput>
+  fullName.vb: BlazorFocused.IReducer(Of TInput, TOutput)
   nameWithType: IReducer<TInput, TOutput>
   nameWithType.vb: IReducer(Of TInput, TOutput)
-- uid: BlazorFocused.Store.IReducer`2.Execute(`0)
+- uid: BlazorFocused.IReducer`2.Execute(`0)
   name: Execute(TInput)
-  href: api/BlazorFocused.Store.IReducer-2.html#BlazorFocused_Store_IReducer_2_Execute__0_
-  commentId: M:BlazorFocused.Store.IReducer`2.Execute(`0)
-  fullName: BlazorFocused.Store.IReducer<TInput, TOutput>.Execute(TInput)
-  fullName.vb: BlazorFocused.Store.IReducer(Of TInput, TOutput).Execute(TInput)
+  href: api/BlazorFocused.IReducer-2.html#BlazorFocused_IReducer_2_Execute__0_
+  commentId: M:BlazorFocused.IReducer`2.Execute(`0)
+  fullName: BlazorFocused.IReducer<TInput, TOutput>.Execute(TInput)
+  fullName.vb: BlazorFocused.IReducer(Of TInput, TOutput).Execute(TInput)
   nameWithType: IReducer<TInput, TOutput>.Execute(TInput)
   nameWithType.vb: IReducer(Of TInput, TOutput).Execute(TInput)
-- uid: BlazorFocused.Store.IReducer`2.Execute*
+- uid: BlazorFocused.IReducer`2.Execute*
   name: Execute
-  href: api/BlazorFocused.Store.IReducer-2.html#BlazorFocused_Store_IReducer_2_Execute_
-  commentId: Overload:BlazorFocused.Store.IReducer`2.Execute
+  href: api/BlazorFocused.IReducer-2.html#BlazorFocused_IReducer_2_Execute_
+  commentId: Overload:BlazorFocused.IReducer`2.Execute
   isSpec: "True"
-  fullName: BlazorFocused.Store.IReducer<TInput, TOutput>.Execute
-  fullName.vb: BlazorFocused.Store.IReducer(Of TInput, TOutput).Execute
+  fullName: BlazorFocused.IReducer<TInput, TOutput>.Execute
+  fullName.vb: BlazorFocused.IReducer(Of TInput, TOutput).Execute
   nameWithType: IReducer<TInput, TOutput>.Execute
   nameWithType.vb: IReducer(Of TInput, TOutput).Execute
-- uid: BlazorFocused.Store.IStore`1
+- uid: BlazorFocused.IRestClient
+  name: IRestClient
+  href: api/BlazorFocused.IRestClient.html
+  commentId: T:BlazorFocused.IRestClient
+  fullName: BlazorFocused.IRestClient
+  nameWithType: IRestClient
+- uid: BlazorFocused.IRestClient.DeleteAsync*
+  name: DeleteAsync
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_DeleteAsync_
+  commentId: Overload:BlazorFocused.IRestClient.DeleteAsync
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClient.DeleteAsync
+  nameWithType: IRestClient.DeleteAsync
+- uid: BlazorFocused.IRestClient.DeleteAsync``1(System.String)
+  name: DeleteAsync<T>(String)
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_DeleteAsync__1_System_String_
+  commentId: M:BlazorFocused.IRestClient.DeleteAsync``1(System.String)
+  name.vb: DeleteAsync(Of T)(String)
+  fullName: BlazorFocused.IRestClient.DeleteAsync<T>(System.String)
+  fullName.vb: BlazorFocused.IRestClient.DeleteAsync(Of T)(System.String)
+  nameWithType: IRestClient.DeleteAsync<T>(String)
+  nameWithType.vb: IRestClient.DeleteAsync(Of T)(String)
+- uid: BlazorFocused.IRestClient.DeleteTaskAsync(System.String)
+  name: DeleteTaskAsync(String)
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_DeleteTaskAsync_System_String_
+  commentId: M:BlazorFocused.IRestClient.DeleteTaskAsync(System.String)
+  fullName: BlazorFocused.IRestClient.DeleteTaskAsync(System.String)
+  nameWithType: IRestClient.DeleteTaskAsync(String)
+- uid: BlazorFocused.IRestClient.DeleteTaskAsync*
+  name: DeleteTaskAsync
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_DeleteTaskAsync_
+  commentId: Overload:BlazorFocused.IRestClient.DeleteTaskAsync
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClient.DeleteTaskAsync
+  nameWithType: IRestClient.DeleteTaskAsync
+- uid: BlazorFocused.IRestClient.GetAsync*
+  name: GetAsync
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_GetAsync_
+  commentId: Overload:BlazorFocused.IRestClient.GetAsync
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClient.GetAsync
+  nameWithType: IRestClient.GetAsync
+- uid: BlazorFocused.IRestClient.GetAsync``1(System.String)
+  name: GetAsync<T>(String)
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_GetAsync__1_System_String_
+  commentId: M:BlazorFocused.IRestClient.GetAsync``1(System.String)
+  name.vb: GetAsync(Of T)(String)
+  fullName: BlazorFocused.IRestClient.GetAsync<T>(System.String)
+  fullName.vb: BlazorFocused.IRestClient.GetAsync(Of T)(System.String)
+  nameWithType: IRestClient.GetAsync<T>(String)
+  nameWithType.vb: IRestClient.GetAsync(Of T)(String)
+- uid: BlazorFocused.IRestClient.PatchAsync*
+  name: PatchAsync
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_PatchAsync_
+  commentId: Overload:BlazorFocused.IRestClient.PatchAsync
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClient.PatchAsync
+  nameWithType: IRestClient.PatchAsync
+- uid: BlazorFocused.IRestClient.PatchAsync``1(System.String,System.Object)
+  name: PatchAsync<T>(String, Object)
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_PatchAsync__1_System_String_System_Object_
+  commentId: M:BlazorFocused.IRestClient.PatchAsync``1(System.String,System.Object)
+  name.vb: PatchAsync(Of T)(String, Object)
+  fullName: BlazorFocused.IRestClient.PatchAsync<T>(System.String, System.Object)
+  fullName.vb: BlazorFocused.IRestClient.PatchAsync(Of T)(System.String, System.Object)
+  nameWithType: IRestClient.PatchAsync<T>(String, Object)
+  nameWithType.vb: IRestClient.PatchAsync(Of T)(String, Object)
+- uid: BlazorFocused.IRestClient.PatchTaskAsync(System.String,System.Object)
+  name: PatchTaskAsync(String, Object)
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_PatchTaskAsync_System_String_System_Object_
+  commentId: M:BlazorFocused.IRestClient.PatchTaskAsync(System.String,System.Object)
+  fullName: BlazorFocused.IRestClient.PatchTaskAsync(System.String, System.Object)
+  nameWithType: IRestClient.PatchTaskAsync(String, Object)
+- uid: BlazorFocused.IRestClient.PatchTaskAsync*
+  name: PatchTaskAsync
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_PatchTaskAsync_
+  commentId: Overload:BlazorFocused.IRestClient.PatchTaskAsync
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClient.PatchTaskAsync
+  nameWithType: IRestClient.PatchTaskAsync
+- uid: BlazorFocused.IRestClient.PostAsync*
+  name: PostAsync
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_PostAsync_
+  commentId: Overload:BlazorFocused.IRestClient.PostAsync
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClient.PostAsync
+  nameWithType: IRestClient.PostAsync
+- uid: BlazorFocused.IRestClient.PostAsync``1(System.String,System.Object)
+  name: PostAsync<T>(String, Object)
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_PostAsync__1_System_String_System_Object_
+  commentId: M:BlazorFocused.IRestClient.PostAsync``1(System.String,System.Object)
+  name.vb: PostAsync(Of T)(String, Object)
+  fullName: BlazorFocused.IRestClient.PostAsync<T>(System.String, System.Object)
+  fullName.vb: BlazorFocused.IRestClient.PostAsync(Of T)(System.String, System.Object)
+  nameWithType: IRestClient.PostAsync<T>(String, Object)
+  nameWithType.vb: IRestClient.PostAsync(Of T)(String, Object)
+- uid: BlazorFocused.IRestClient.PostTaskAsync(System.String,System.Object)
+  name: PostTaskAsync(String, Object)
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_PostTaskAsync_System_String_System_Object_
+  commentId: M:BlazorFocused.IRestClient.PostTaskAsync(System.String,System.Object)
+  fullName: BlazorFocused.IRestClient.PostTaskAsync(System.String, System.Object)
+  nameWithType: IRestClient.PostTaskAsync(String, Object)
+- uid: BlazorFocused.IRestClient.PostTaskAsync*
+  name: PostTaskAsync
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_PostTaskAsync_
+  commentId: Overload:BlazorFocused.IRestClient.PostTaskAsync
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClient.PostTaskAsync
+  nameWithType: IRestClient.PostTaskAsync
+- uid: BlazorFocused.IRestClient.PutAsync*
+  name: PutAsync
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_PutAsync_
+  commentId: Overload:BlazorFocused.IRestClient.PutAsync
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClient.PutAsync
+  nameWithType: IRestClient.PutAsync
+- uid: BlazorFocused.IRestClient.PutAsync``1(System.String,System.Object)
+  name: PutAsync<T>(String, Object)
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_PutAsync__1_System_String_System_Object_
+  commentId: M:BlazorFocused.IRestClient.PutAsync``1(System.String,System.Object)
+  name.vb: PutAsync(Of T)(String, Object)
+  fullName: BlazorFocused.IRestClient.PutAsync<T>(System.String, System.Object)
+  fullName.vb: BlazorFocused.IRestClient.PutAsync(Of T)(System.String, System.Object)
+  nameWithType: IRestClient.PutAsync<T>(String, Object)
+  nameWithType.vb: IRestClient.PutAsync(Of T)(String, Object)
+- uid: BlazorFocused.IRestClient.PutTaskAsync(System.String,System.Object)
+  name: PutTaskAsync(String, Object)
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_PutTaskAsync_System_String_System_Object_
+  commentId: M:BlazorFocused.IRestClient.PutTaskAsync(System.String,System.Object)
+  fullName: BlazorFocused.IRestClient.PutTaskAsync(System.String, System.Object)
+  nameWithType: IRestClient.PutTaskAsync(String, Object)
+- uid: BlazorFocused.IRestClient.PutTaskAsync*
+  name: PutTaskAsync
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_PutTaskAsync_
+  commentId: Overload:BlazorFocused.IRestClient.PutTaskAsync
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClient.PutTaskAsync
+  nameWithType: IRestClient.PutTaskAsync
+- uid: BlazorFocused.IRestClient.UpdateHttpClient(Action{HttpClient})
+  name: UpdateHttpClient(Action<HttpClient>)
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_UpdateHttpClient_Action_HttpClient__
+  commentId: M:BlazorFocused.IRestClient.UpdateHttpClient(Action{HttpClient})
+  name.vb: UpdateHttpClient(Action(Of HttpClient))
+  fullName: BlazorFocused.IRestClient.UpdateHttpClient(Action<HttpClient>)
+  fullName.vb: BlazorFocused.IRestClient.UpdateHttpClient(Action(Of HttpClient))
+  nameWithType: IRestClient.UpdateHttpClient(Action<HttpClient>)
+  nameWithType.vb: IRestClient.UpdateHttpClient(Action(Of HttpClient))
+- uid: BlazorFocused.IRestClient.UpdateHttpClient*
+  name: UpdateHttpClient
+  href: api/BlazorFocused.IRestClient.html#BlazorFocused_IRestClient_UpdateHttpClient_
+  commentId: Overload:BlazorFocused.IRestClient.UpdateHttpClient
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClient.UpdateHttpClient
+  nameWithType: IRestClient.UpdateHttpClient
+- uid: BlazorFocused.IRestClientUrlBuilder
+  name: IRestClientUrlBuilder
+  href: api/BlazorFocused.IRestClientUrlBuilder.html
+  commentId: T:BlazorFocused.IRestClientUrlBuilder
+  fullName: BlazorFocused.IRestClientUrlBuilder
+  nameWithType: IRestClientUrlBuilder
+- uid: BlazorFocused.IRestClientUrlBuilder.Build
+  name: Build()
+  href: api/BlazorFocused.IRestClientUrlBuilder.html#BlazorFocused_IRestClientUrlBuilder_Build
+  commentId: M:BlazorFocused.IRestClientUrlBuilder.Build
+  fullName: BlazorFocused.IRestClientUrlBuilder.Build()
+  nameWithType: IRestClientUrlBuilder.Build()
+- uid: BlazorFocused.IRestClientUrlBuilder.Build*
+  name: Build
+  href: api/BlazorFocused.IRestClientUrlBuilder.html#BlazorFocused_IRestClientUrlBuilder_Build_
+  commentId: Overload:BlazorFocused.IRestClientUrlBuilder.Build
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClientUrlBuilder.Build
+  nameWithType: IRestClientUrlBuilder.Build
+- uid: BlazorFocused.IRestClientUrlBuilder.SetPath(System.String)
+  name: SetPath(String)
+  href: api/BlazorFocused.IRestClientUrlBuilder.html#BlazorFocused_IRestClientUrlBuilder_SetPath_System_String_
+  commentId: M:BlazorFocused.IRestClientUrlBuilder.SetPath(System.String)
+  fullName: BlazorFocused.IRestClientUrlBuilder.SetPath(System.String)
+  nameWithType: IRestClientUrlBuilder.SetPath(String)
+- uid: BlazorFocused.IRestClientUrlBuilder.SetPath*
+  name: SetPath
+  href: api/BlazorFocused.IRestClientUrlBuilder.html#BlazorFocused_IRestClientUrlBuilder_SetPath_
+  commentId: Overload:BlazorFocused.IRestClientUrlBuilder.SetPath
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClientUrlBuilder.SetPath
+  nameWithType: IRestClientUrlBuilder.SetPath
+- uid: BlazorFocused.IRestClientUrlBuilder.WithParameter(System.String,System.String)
+  name: WithParameter(String, String)
+  href: api/BlazorFocused.IRestClientUrlBuilder.html#BlazorFocused_IRestClientUrlBuilder_WithParameter_System_String_System_String_
+  commentId: M:BlazorFocused.IRestClientUrlBuilder.WithParameter(System.String,System.String)
+  fullName: BlazorFocused.IRestClientUrlBuilder.WithParameter(System.String, System.String)
+  nameWithType: IRestClientUrlBuilder.WithParameter(String, String)
+- uid: BlazorFocused.IRestClientUrlBuilder.WithParameter*
+  name: WithParameter
+  href: api/BlazorFocused.IRestClientUrlBuilder.html#BlazorFocused_IRestClientUrlBuilder_WithParameter_
+  commentId: Overload:BlazorFocused.IRestClientUrlBuilder.WithParameter
+  isSpec: "True"
+  fullName: BlazorFocused.IRestClientUrlBuilder.WithParameter
+  nameWithType: IRestClientUrlBuilder.WithParameter
+- uid: BlazorFocused.IStore`1
   name: IStore<TState>
-  href: api/BlazorFocused.Store.IStore-1.html
-  commentId: T:BlazorFocused.Store.IStore`1
+  href: api/BlazorFocused.IStore-1.html
+  commentId: T:BlazorFocused.IStore`1
   name.vb: IStore(Of TState)
-  fullName: BlazorFocused.Store.IStore<TState>
-  fullName.vb: BlazorFocused.Store.IStore(Of TState)
+  fullName: BlazorFocused.IStore<TState>
+  fullName.vb: BlazorFocused.IStore(Of TState)
   nameWithType: IStore<TState>
   nameWithType.vb: IStore(Of TState)
-- uid: BlazorFocused.Store.IStore`1.Dispatch*
+- uid: BlazorFocused.IStore`1.Dispatch*
   name: Dispatch
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_Dispatch_
-  commentId: Overload:BlazorFocused.Store.IStore`1.Dispatch
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_Dispatch_
+  commentId: Overload:BlazorFocused.IStore`1.Dispatch
   isSpec: "True"
-  fullName: BlazorFocused.Store.IStore<TState>.Dispatch
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).Dispatch
+  fullName: BlazorFocused.IStore<TState>.Dispatch
+  fullName.vb: BlazorFocused.IStore(Of TState).Dispatch
   nameWithType: IStore<TState>.Dispatch
   nameWithType.vb: IStore(Of TState).Dispatch
-- uid: BlazorFocused.Store.IStore`1.Dispatch``1
+- uid: BlazorFocused.IStore`1.Dispatch``1
   name: Dispatch<TAction>()
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_Dispatch__1
-  commentId: M:BlazorFocused.Store.IStore`1.Dispatch``1
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_Dispatch__1
+  commentId: M:BlazorFocused.IStore`1.Dispatch``1
   name.vb: Dispatch(Of TAction)()
-  fullName: BlazorFocused.Store.IStore<TState>.Dispatch<TAction>()
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).Dispatch(Of TAction)()
+  fullName: BlazorFocused.IStore<TState>.Dispatch<TAction>()
+  fullName.vb: BlazorFocused.IStore(Of TState).Dispatch(Of TAction)()
   nameWithType: IStore<TState>.Dispatch<TAction>()
   nameWithType.vb: IStore(Of TState).Dispatch(Of TAction)()
-- uid: BlazorFocused.Store.IStore`1.Dispatch``2(``1)
+- uid: BlazorFocused.IStore`1.Dispatch``2(``1)
   name: Dispatch<TAction, TInput>(TInput)
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_Dispatch__2___1_
-  commentId: M:BlazorFocused.Store.IStore`1.Dispatch``2(``1)
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_Dispatch__2___1_
+  commentId: M:BlazorFocused.IStore`1.Dispatch``2(``1)
   name.vb: Dispatch(Of TAction, TInput)(TInput)
-  fullName: BlazorFocused.Store.IStore<TState>.Dispatch<TAction, TInput>(TInput)
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).Dispatch(Of TAction, TInput)(TInput)
+  fullName: BlazorFocused.IStore<TState>.Dispatch<TAction, TInput>(TInput)
+  fullName.vb: BlazorFocused.IStore(Of TState).Dispatch(Of TAction, TInput)(TInput)
   nameWithType: IStore<TState>.Dispatch<TAction, TInput>(TInput)
   nameWithType.vb: IStore(Of TState).Dispatch(Of TAction, TInput)(TInput)
-- uid: BlazorFocused.Store.IStore`1.DispatchAsync*
+- uid: BlazorFocused.IStore`1.DispatchAsync*
   name: DispatchAsync
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_DispatchAsync_
-  commentId: Overload:BlazorFocused.Store.IStore`1.DispatchAsync
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_DispatchAsync_
+  commentId: Overload:BlazorFocused.IStore`1.DispatchAsync
   isSpec: "True"
-  fullName: BlazorFocused.Store.IStore<TState>.DispatchAsync
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).DispatchAsync
+  fullName: BlazorFocused.IStore<TState>.DispatchAsync
+  fullName.vb: BlazorFocused.IStore(Of TState).DispatchAsync
   nameWithType: IStore<TState>.DispatchAsync
   nameWithType.vb: IStore(Of TState).DispatchAsync
-- uid: BlazorFocused.Store.IStore`1.DispatchAsync``1
+- uid: BlazorFocused.IStore`1.DispatchAsync``1
   name: DispatchAsync<TActionAsync>()
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_DispatchAsync__1
-  commentId: M:BlazorFocused.Store.IStore`1.DispatchAsync``1
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_DispatchAsync__1
+  commentId: M:BlazorFocused.IStore`1.DispatchAsync``1
   name.vb: DispatchAsync(Of TActionAsync)()
-  fullName: BlazorFocused.Store.IStore<TState>.DispatchAsync<TActionAsync>()
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).DispatchAsync(Of TActionAsync)()
+  fullName: BlazorFocused.IStore<TState>.DispatchAsync<TActionAsync>()
+  fullName.vb: BlazorFocused.IStore(Of TState).DispatchAsync(Of TActionAsync)()
   nameWithType: IStore<TState>.DispatchAsync<TActionAsync>()
   nameWithType.vb: IStore(Of TState).DispatchAsync(Of TActionAsync)()
-- uid: BlazorFocused.Store.IStore`1.DispatchAsync``2(``1)
+- uid: BlazorFocused.IStore`1.DispatchAsync``2(``1)
   name: DispatchAsync<TActionAsync, TInput>(TInput)
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_DispatchAsync__2___1_
-  commentId: M:BlazorFocused.Store.IStore`1.DispatchAsync``2(``1)
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_DispatchAsync__2___1_
+  commentId: M:BlazorFocused.IStore`1.DispatchAsync``2(``1)
   name.vb: DispatchAsync(Of TActionAsync, TInput)(TInput)
-  fullName: BlazorFocused.Store.IStore<TState>.DispatchAsync<TActionAsync, TInput>(TInput)
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).DispatchAsync(Of TActionAsync, TInput)(TInput)
+  fullName: BlazorFocused.IStore<TState>.DispatchAsync<TActionAsync, TInput>(TInput)
+  fullName.vb: BlazorFocused.IStore(Of TState).DispatchAsync(Of TActionAsync, TInput)(TInput)
   nameWithType: IStore<TState>.DispatchAsync<TActionAsync, TInput>(TInput)
   nameWithType.vb: IStore(Of TState).DispatchAsync(Of TActionAsync, TInput)(TInput)
-- uid: BlazorFocused.Store.IStore`1.GetState
+- uid: BlazorFocused.IStore`1.GetState
   name: GetState()
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_GetState
-  commentId: M:BlazorFocused.Store.IStore`1.GetState
-  fullName: BlazorFocused.Store.IStore<TState>.GetState()
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).GetState()
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_GetState
+  commentId: M:BlazorFocused.IStore`1.GetState
+  fullName: BlazorFocused.IStore<TState>.GetState()
+  fullName.vb: BlazorFocused.IStore(Of TState).GetState()
   nameWithType: IStore<TState>.GetState()
   nameWithType.vb: IStore(Of TState).GetState()
-- uid: BlazorFocused.Store.IStore`1.GetState*
+- uid: BlazorFocused.IStore`1.GetState*
   name: GetState
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_GetState_
-  commentId: Overload:BlazorFocused.Store.IStore`1.GetState
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_GetState_
+  commentId: Overload:BlazorFocused.IStore`1.GetState
   isSpec: "True"
-  fullName: BlazorFocused.Store.IStore<TState>.GetState
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).GetState
+  fullName: BlazorFocused.IStore<TState>.GetState
+  fullName.vb: BlazorFocused.IStore(Of TState).GetState
   nameWithType: IStore<TState>.GetState
   nameWithType.vb: IStore(Of TState).GetState
-- uid: BlazorFocused.Store.IStore`1.Reduce*
+- uid: BlazorFocused.IStore`1.Reduce*
   name: Reduce
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_Reduce_
-  commentId: Overload:BlazorFocused.Store.IStore`1.Reduce
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_Reduce_
+  commentId: Overload:BlazorFocused.IStore`1.Reduce
   isSpec: "True"
-  fullName: BlazorFocused.Store.IStore<TState>.Reduce
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).Reduce
+  fullName: BlazorFocused.IStore<TState>.Reduce
+  fullName.vb: BlazorFocused.IStore(Of TState).Reduce
   nameWithType: IStore<TState>.Reduce
   nameWithType.vb: IStore(Of TState).Reduce
-- uid: BlazorFocused.Store.IStore`1.Reduce``2(Action{``1})
+- uid: BlazorFocused.IStore`1.Reduce``2(Action{``1})
   name: Reduce<TReducer, TOutput>(Action<TOutput>)
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_Reduce__2_Action___1__
-  commentId: M:BlazorFocused.Store.IStore`1.Reduce``2(Action{``1})
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_Reduce__2_Action___1__
+  commentId: M:BlazorFocused.IStore`1.Reduce``2(Action{``1})
   name.vb: Reduce(Of TReducer, TOutput)(Action(Of TOutput))
-  fullName: BlazorFocused.Store.IStore<TState>.Reduce<TReducer, TOutput>(Action<TOutput>)
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).Reduce(Of TReducer, TOutput)(Action(Of TOutput))
+  fullName: BlazorFocused.IStore<TState>.Reduce<TReducer, TOutput>(Action<TOutput>)
+  fullName.vb: BlazorFocused.IStore(Of TState).Reduce(Of TReducer, TOutput)(Action(Of TOutput))
   nameWithType: IStore<TState>.Reduce<TReducer, TOutput>(Action<TOutput>)
   nameWithType.vb: IStore(Of TState).Reduce(Of TReducer, TOutput)(Action(Of TOutput))
-- uid: BlazorFocused.Store.IStore`1.SetState(`0)
+- uid: BlazorFocused.IStore`1.SetState(`0)
   name: SetState(TState)
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_SetState__0_
-  commentId: M:BlazorFocused.Store.IStore`1.SetState(`0)
-  fullName: BlazorFocused.Store.IStore<TState>.SetState(TState)
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).SetState(TState)
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_SetState__0_
+  commentId: M:BlazorFocused.IStore`1.SetState(`0)
+  fullName: BlazorFocused.IStore<TState>.SetState(TState)
+  fullName.vb: BlazorFocused.IStore(Of TState).SetState(TState)
   nameWithType: IStore<TState>.SetState(TState)
   nameWithType.vb: IStore(Of TState).SetState(TState)
-- uid: BlazorFocused.Store.IStore`1.SetState(Func{`0,`0})
+- uid: BlazorFocused.IStore`1.SetState(Func{`0,`0})
   name: SetState(Func<TState, TState>)
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_SetState_Func__0__0__
-  commentId: M:BlazorFocused.Store.IStore`1.SetState(Func{`0,`0})
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_SetState_Func__0__0__
+  commentId: M:BlazorFocused.IStore`1.SetState(Func{`0,`0})
   name.vb: SetState(Func(Of TState, TState))
-  fullName: BlazorFocused.Store.IStore<TState>.SetState(Func<TState, TState>)
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).SetState(Func(Of TState, TState))
+  fullName: BlazorFocused.IStore<TState>.SetState(Func<TState, TState>)
+  fullName.vb: BlazorFocused.IStore(Of TState).SetState(Func(Of TState, TState))
   nameWithType: IStore<TState>.SetState(Func<TState, TState>)
   nameWithType.vb: IStore(Of TState).SetState(Func(Of TState, TState))
-- uid: BlazorFocused.Store.IStore`1.SetState*
+- uid: BlazorFocused.IStore`1.SetState*
   name: SetState
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_SetState_
-  commentId: Overload:BlazorFocused.Store.IStore`1.SetState
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_SetState_
+  commentId: Overload:BlazorFocused.IStore`1.SetState
   isSpec: "True"
-  fullName: BlazorFocused.Store.IStore<TState>.SetState
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).SetState
+  fullName: BlazorFocused.IStore<TState>.SetState
+  fullName.vb: BlazorFocused.IStore(Of TState).SetState
   nameWithType: IStore<TState>.SetState
   nameWithType.vb: IStore(Of TState).SetState
-- uid: BlazorFocused.Store.IStore`1.Subscribe(Action{`0})
+- uid: BlazorFocused.IStore`1.Subscribe(Action{`0})
   name: Subscribe(Action<TState>)
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_Subscribe_Action__0__
-  commentId: M:BlazorFocused.Store.IStore`1.Subscribe(Action{`0})
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_Subscribe_Action__0__
+  commentId: M:BlazorFocused.IStore`1.Subscribe(Action{`0})
   name.vb: Subscribe(Action(Of TState))
-  fullName: BlazorFocused.Store.IStore<TState>.Subscribe(Action<TState>)
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).Subscribe(Action(Of TState))
+  fullName: BlazorFocused.IStore<TState>.Subscribe(Action<TState>)
+  fullName.vb: BlazorFocused.IStore(Of TState).Subscribe(Action(Of TState))
   nameWithType: IStore<TState>.Subscribe(Action<TState>)
   nameWithType.vb: IStore(Of TState).Subscribe(Action(Of TState))
-- uid: BlazorFocused.Store.IStore`1.Subscribe*
+- uid: BlazorFocused.IStore`1.Subscribe*
   name: Subscribe
-  href: api/BlazorFocused.Store.IStore-1.html#BlazorFocused_Store_IStore_1_Subscribe_
-  commentId: Overload:BlazorFocused.Store.IStore`1.Subscribe
+  href: api/BlazorFocused.IStore-1.html#BlazorFocused_IStore_1_Subscribe_
+  commentId: Overload:BlazorFocused.IStore`1.Subscribe
   isSpec: "True"
-  fullName: BlazorFocused.Store.IStore<TState>.Subscribe
-  fullName.vb: BlazorFocused.Store.IStore(Of TState).Subscribe
+  fullName: BlazorFocused.IStore<TState>.Subscribe
+  fullName.vb: BlazorFocused.IStore(Of TState).Subscribe
   nameWithType: IStore<TState>.Subscribe
   nameWithType.vb: IStore(Of TState).Subscribe
-- uid: BlazorFocused.Store.IStoreAction`1
+- uid: BlazorFocused.IStoreAction`1
   name: IStoreAction<TState>
-  href: api/BlazorFocused.Store.IStoreAction-1.html
-  commentId: T:BlazorFocused.Store.IStoreAction`1
+  href: api/BlazorFocused.IStoreAction-1.html
+  commentId: T:BlazorFocused.IStoreAction`1
   name.vb: IStoreAction(Of TState)
-  fullName: BlazorFocused.Store.IStoreAction<TState>
-  fullName.vb: BlazorFocused.Store.IStoreAction(Of TState)
+  fullName: BlazorFocused.IStoreAction<TState>
+  fullName.vb: BlazorFocused.IStoreAction(Of TState)
   nameWithType: IStoreAction<TState>
   nameWithType.vb: IStoreAction(Of TState)
-- uid: BlazorFocused.Store.IStoreAction`1.State
+- uid: BlazorFocused.IStoreAction`1.State
   name: State
-  href: api/BlazorFocused.Store.IStoreAction-1.html#BlazorFocused_Store_IStoreAction_1_State
-  commentId: P:BlazorFocused.Store.IStoreAction`1.State
-  fullName: BlazorFocused.Store.IStoreAction<TState>.State
-  fullName.vb: BlazorFocused.Store.IStoreAction(Of TState).State
+  href: api/BlazorFocused.IStoreAction-1.html#BlazorFocused_IStoreAction_1_State
+  commentId: P:BlazorFocused.IStoreAction`1.State
+  fullName: BlazorFocused.IStoreAction<TState>.State
+  fullName.vb: BlazorFocused.IStoreAction(Of TState).State
   nameWithType: IStoreAction<TState>.State
   nameWithType.vb: IStoreAction(Of TState).State
-- uid: BlazorFocused.Store.IStoreAction`1.State*
+- uid: BlazorFocused.IStoreAction`1.State*
   name: State
-  href: api/BlazorFocused.Store.IStoreAction-1.html#BlazorFocused_Store_IStoreAction_1_State_
-  commentId: Overload:BlazorFocused.Store.IStoreAction`1.State
+  href: api/BlazorFocused.IStoreAction-1.html#BlazorFocused_IStoreAction_1_State_
+  commentId: Overload:BlazorFocused.IStoreAction`1.State
   isSpec: "True"
-  fullName: BlazorFocused.Store.IStoreAction<TState>.State
-  fullName.vb: BlazorFocused.Store.IStoreAction(Of TState).State
+  fullName: BlazorFocused.IStoreAction<TState>.State
+  fullName.vb: BlazorFocused.IStoreAction(Of TState).State
   nameWithType: IStoreAction<TState>.State
   nameWithType.vb: IStoreAction(Of TState).State
-- uid: BlazorFocused.Store.ServiceCollectionExtensions
+- uid: BlazorFocused.RestClientHttpException
+  name: RestClientHttpException
+  href: api/BlazorFocused.RestClientHttpException.html
+  commentId: T:BlazorFocused.RestClientHttpException
+  fullName: BlazorFocused.RestClientHttpException
+  nameWithType: RestClientHttpException
+- uid: BlazorFocused.RestClientHttpException.#ctor(HttpMethod,System.Net.HttpStatusCode,System.String)
+  name: RestClientHttpException(HttpMethod, HttpStatusCode, String)
+  href: api/BlazorFocused.RestClientHttpException.html#BlazorFocused_RestClientHttpException__ctor_HttpMethod_System_Net_HttpStatusCode_System_String_
+  commentId: M:BlazorFocused.RestClientHttpException.#ctor(HttpMethod,System.Net.HttpStatusCode,System.String)
+  fullName: BlazorFocused.RestClientHttpException.RestClientHttpException(HttpMethod, System.Net.HttpStatusCode, System.String)
+  nameWithType: RestClientHttpException.RestClientHttpException(HttpMethod, HttpStatusCode, String)
+- uid: BlazorFocused.RestClientHttpException.#ctor*
+  name: RestClientHttpException
+  href: api/BlazorFocused.RestClientHttpException.html#BlazorFocused_RestClientHttpException__ctor_
+  commentId: Overload:BlazorFocused.RestClientHttpException.#ctor
+  isSpec: "True"
+  fullName: BlazorFocused.RestClientHttpException.RestClientHttpException
+  nameWithType: RestClientHttpException.RestClientHttpException
+- uid: BlazorFocused.RestClientHttpException.Method
+  name: Method
+  href: api/BlazorFocused.RestClientHttpException.html#BlazorFocused_RestClientHttpException_Method
+  commentId: P:BlazorFocused.RestClientHttpException.Method
+  fullName: BlazorFocused.RestClientHttpException.Method
+  nameWithType: RestClientHttpException.Method
+- uid: BlazorFocused.RestClientHttpException.Method*
+  name: Method
+  href: api/BlazorFocused.RestClientHttpException.html#BlazorFocused_RestClientHttpException_Method_
+  commentId: Overload:BlazorFocused.RestClientHttpException.Method
+  isSpec: "True"
+  fullName: BlazorFocused.RestClientHttpException.Method
+  nameWithType: RestClientHttpException.Method
+- uid: BlazorFocused.RestClientHttpException.StatusCode
+  name: StatusCode
+  href: api/BlazorFocused.RestClientHttpException.html#BlazorFocused_RestClientHttpException_StatusCode
+  commentId: P:BlazorFocused.RestClientHttpException.StatusCode
+  fullName: BlazorFocused.RestClientHttpException.StatusCode
+  nameWithType: RestClientHttpException.StatusCode
+- uid: BlazorFocused.RestClientHttpException.StatusCode*
+  name: StatusCode
+  href: api/BlazorFocused.RestClientHttpException.html#BlazorFocused_RestClientHttpException_StatusCode_
+  commentId: Overload:BlazorFocused.RestClientHttpException.StatusCode
+  isSpec: "True"
+  fullName: BlazorFocused.RestClientHttpException.StatusCode
+  nameWithType: RestClientHttpException.StatusCode
+- uid: BlazorFocused.RestClientHttpException.Url
+  name: Url
+  href: api/BlazorFocused.RestClientHttpException.html#BlazorFocused_RestClientHttpException_Url
+  commentId: P:BlazorFocused.RestClientHttpException.Url
+  fullName: BlazorFocused.RestClientHttpException.Url
+  nameWithType: RestClientHttpException.Url
+- uid: BlazorFocused.RestClientHttpException.Url*
+  name: Url
+  href: api/BlazorFocused.RestClientHttpException.html#BlazorFocused_RestClientHttpException_Url_
+  commentId: Overload:BlazorFocused.RestClientHttpException.Url
+  isSpec: "True"
+  fullName: BlazorFocused.RestClientHttpException.Url
+  nameWithType: RestClientHttpException.Url
+- uid: BlazorFocused.RestClientResponse`1
+  name: RestClientResponse<T>
+  href: api/BlazorFocused.RestClientResponse-1.html
+  commentId: T:BlazorFocused.RestClientResponse`1
+  name.vb: RestClientResponse(Of T)
+  fullName: BlazorFocused.RestClientResponse<T>
+  fullName.vb: BlazorFocused.RestClientResponse(Of T)
+  nameWithType: RestClientResponse<T>
+  nameWithType.vb: RestClientResponse(Of T)
+- uid: BlazorFocused.RestClientResponse`1.IsSuccess
+  name: IsSuccess
+  href: api/BlazorFocused.RestClientResponse-1.html#BlazorFocused_RestClientResponse_1_IsSuccess
+  commentId: P:BlazorFocused.RestClientResponse`1.IsSuccess
+  fullName: BlazorFocused.RestClientResponse<T>.IsSuccess
+  fullName.vb: BlazorFocused.RestClientResponse(Of T).IsSuccess
+  nameWithType: RestClientResponse<T>.IsSuccess
+  nameWithType.vb: RestClientResponse(Of T).IsSuccess
+- uid: BlazorFocused.RestClientResponse`1.IsSuccess*
+  name: IsSuccess
+  href: api/BlazorFocused.RestClientResponse-1.html#BlazorFocused_RestClientResponse_1_IsSuccess_
+  commentId: Overload:BlazorFocused.RestClientResponse`1.IsSuccess
+  isSpec: "True"
+  fullName: BlazorFocused.RestClientResponse<T>.IsSuccess
+  fullName.vb: BlazorFocused.RestClientResponse(Of T).IsSuccess
+  nameWithType: RestClientResponse<T>.IsSuccess
+  nameWithType.vb: RestClientResponse(Of T).IsSuccess
+- uid: BlazorFocused.RestClientResponse`1.Value
+  name: Value
+  href: api/BlazorFocused.RestClientResponse-1.html#BlazorFocused_RestClientResponse_1_Value
+  commentId: P:BlazorFocused.RestClientResponse`1.Value
+  fullName: BlazorFocused.RestClientResponse<T>.Value
+  fullName.vb: BlazorFocused.RestClientResponse(Of T).Value
+  nameWithType: RestClientResponse<T>.Value
+  nameWithType.vb: RestClientResponse(Of T).Value
+- uid: BlazorFocused.RestClientResponse`1.Value*
+  name: Value
+  href: api/BlazorFocused.RestClientResponse-1.html#BlazorFocused_RestClientResponse_1_Value_
+  commentId: Overload:BlazorFocused.RestClientResponse`1.Value
+  isSpec: "True"
+  fullName: BlazorFocused.RestClientResponse<T>.Value
+  fullName.vb: BlazorFocused.RestClientResponse(Of T).Value
+  nameWithType: RestClientResponse<T>.Value
+  nameWithType.vb: RestClientResponse(Of T).Value
+- uid: BlazorFocused.RestClientTask
+  name: RestClientTask
+  href: api/BlazorFocused.RestClientTask.html
+  commentId: T:BlazorFocused.RestClientTask
+  fullName: BlazorFocused.RestClientTask
+  nameWithType: RestClientTask
+- uid: BlazorFocused.RestClientTask.Exception
+  name: Exception
+  href: api/BlazorFocused.RestClientTask.html#BlazorFocused_RestClientTask_Exception
+  commentId: P:BlazorFocused.RestClientTask.Exception
+  fullName: BlazorFocused.RestClientTask.Exception
+  nameWithType: RestClientTask.Exception
+- uid: BlazorFocused.RestClientTask.Exception*
+  name: Exception
+  href: api/BlazorFocused.RestClientTask.html#BlazorFocused_RestClientTask_Exception_
+  commentId: Overload:BlazorFocused.RestClientTask.Exception
+  isSpec: "True"
+  fullName: BlazorFocused.RestClientTask.Exception
+  nameWithType: RestClientTask.Exception
+- uid: BlazorFocused.RestClientTask.HasSuccessStatusCode
+  name: HasSuccessStatusCode()
+  href: api/BlazorFocused.RestClientTask.html#BlazorFocused_RestClientTask_HasSuccessStatusCode
+  commentId: M:BlazorFocused.RestClientTask.HasSuccessStatusCode
+  fullName: BlazorFocused.RestClientTask.HasSuccessStatusCode()
+  nameWithType: RestClientTask.HasSuccessStatusCode()
+- uid: BlazorFocused.RestClientTask.HasSuccessStatusCode*
+  name: HasSuccessStatusCode
+  href: api/BlazorFocused.RestClientTask.html#BlazorFocused_RestClientTask_HasSuccessStatusCode_
+  commentId: Overload:BlazorFocused.RestClientTask.HasSuccessStatusCode
+  isSpec: "True"
+  fullName: BlazorFocused.RestClientTask.HasSuccessStatusCode
+  nameWithType: RestClientTask.HasSuccessStatusCode
+- uid: BlazorFocused.RestClientTask.IsSuccess
+  name: IsSuccess
+  href: api/BlazorFocused.RestClientTask.html#BlazorFocused_RestClientTask_IsSuccess
+  commentId: P:BlazorFocused.RestClientTask.IsSuccess
+  fullName: BlazorFocused.RestClientTask.IsSuccess
+  nameWithType: RestClientTask.IsSuccess
+- uid: BlazorFocused.RestClientTask.IsSuccess*
+  name: IsSuccess
+  href: api/BlazorFocused.RestClientTask.html#BlazorFocused_RestClientTask_IsSuccess_
+  commentId: Overload:BlazorFocused.RestClientTask.IsSuccess
+  isSpec: "True"
+  fullName: BlazorFocused.RestClientTask.IsSuccess
+  nameWithType: RestClientTask.IsSuccess
+- uid: BlazorFocused.RestClientTask.StatusCode
+  name: StatusCode
+  href: api/BlazorFocused.RestClientTask.html#BlazorFocused_RestClientTask_StatusCode
+  commentId: P:BlazorFocused.RestClientTask.StatusCode
+  fullName: BlazorFocused.RestClientTask.StatusCode
+  nameWithType: RestClientTask.StatusCode
+- uid: BlazorFocused.RestClientTask.StatusCode*
+  name: StatusCode
+  href: api/BlazorFocused.RestClientTask.html#BlazorFocused_RestClientTask_StatusCode_
+  commentId: Overload:BlazorFocused.RestClientTask.StatusCode
+  isSpec: "True"
+  fullName: BlazorFocused.RestClientTask.StatusCode
+  nameWithType: RestClientTask.StatusCode
+- uid: BlazorFocused.ServiceCollectionExtensions
   name: ServiceCollectionExtensions
-  href: api/BlazorFocused.Store.ServiceCollectionExtensions.html
-  commentId: T:BlazorFocused.Store.ServiceCollectionExtensions
-  fullName: BlazorFocused.Store.ServiceCollectionExtensions
+  href: api/BlazorFocused.ServiceCollectionExtensions.html
+  commentId: T:BlazorFocused.ServiceCollectionExtensions
+  fullName: BlazorFocused.ServiceCollectionExtensions
   nameWithType: ServiceCollectionExtensions
-- uid: BlazorFocused.Store.ServiceCollectionExtensions.AddStore*
+- uid: BlazorFocused.ServiceCollectionExtensions.AddStore*
   name: AddStore
-  href: api/BlazorFocused.Store.ServiceCollectionExtensions.html#BlazorFocused_Store_ServiceCollectionExtensions_AddStore_
-  commentId: Overload:BlazorFocused.Store.ServiceCollectionExtensions.AddStore
+  href: api/BlazorFocused.ServiceCollectionExtensions.html#BlazorFocused_ServiceCollectionExtensions_AddStore_
+  commentId: Overload:BlazorFocused.ServiceCollectionExtensions.AddStore
   isSpec: "True"
-  fullName: BlazorFocused.Store.ServiceCollectionExtensions.AddStore
+  fullName: BlazorFocused.ServiceCollectionExtensions.AddStore
   nameWithType: ServiceCollectionExtensions.AddStore
-- uid: BlazorFocused.Store.ServiceCollectionExtensions.AddStore``1(IServiceCollection,``0)
+- uid: BlazorFocused.ServiceCollectionExtensions.AddStore``1(IServiceCollection,``0)
   name: AddStore<T>(IServiceCollection, T)
-  href: api/BlazorFocused.Store.ServiceCollectionExtensions.html#BlazorFocused_Store_ServiceCollectionExtensions_AddStore__1_IServiceCollection___0_
-  commentId: M:BlazorFocused.Store.ServiceCollectionExtensions.AddStore``1(IServiceCollection,``0)
+  href: api/BlazorFocused.ServiceCollectionExtensions.html#BlazorFocused_ServiceCollectionExtensions_AddStore__1_IServiceCollection___0_
+  commentId: M:BlazorFocused.ServiceCollectionExtensions.AddStore``1(IServiceCollection,``0)
   name.vb: AddStore(Of T)(IServiceCollection, T)
-  fullName: BlazorFocused.Store.ServiceCollectionExtensions.AddStore<T>(IServiceCollection, T)
-  fullName.vb: BlazorFocused.Store.ServiceCollectionExtensions.AddStore(Of T)(IServiceCollection, T)
+  fullName: BlazorFocused.ServiceCollectionExtensions.AddStore<T>(IServiceCollection, T)
+  fullName.vb: BlazorFocused.ServiceCollectionExtensions.AddStore(Of T)(IServiceCollection, T)
   nameWithType: ServiceCollectionExtensions.AddStore<T>(IServiceCollection, T)
   nameWithType.vb: ServiceCollectionExtensions.AddStore(Of T)(IServiceCollection, T)
-- uid: BlazorFocused.Store.StoreAction`1
+- uid: BlazorFocused.StoreAction`1
   name: StoreAction<TState>
-  href: api/BlazorFocused.Store.StoreAction-1.html
-  commentId: T:BlazorFocused.Store.StoreAction`1
+  href: api/BlazorFocused.StoreAction-1.html
+  commentId: T:BlazorFocused.StoreAction`1
   name.vb: StoreAction(Of TState)
-  fullName: BlazorFocused.Store.StoreAction<TState>
-  fullName.vb: BlazorFocused.Store.StoreAction(Of TState)
+  fullName: BlazorFocused.StoreAction<TState>
+  fullName.vb: BlazorFocused.StoreAction(Of TState)
   nameWithType: StoreAction<TState>
   nameWithType.vb: StoreAction(Of TState)
-- uid: BlazorFocused.Store.StoreAction`1.Execute
+- uid: BlazorFocused.StoreAction`1.Execute
   name: Execute()
-  href: api/BlazorFocused.Store.StoreAction-1.html#BlazorFocused_Store_StoreAction_1_Execute
-  commentId: M:BlazorFocused.Store.StoreAction`1.Execute
-  fullName: BlazorFocused.Store.StoreAction<TState>.Execute()
-  fullName.vb: BlazorFocused.Store.StoreAction(Of TState).Execute()
+  href: api/BlazorFocused.StoreAction-1.html#BlazorFocused_StoreAction_1_Execute
+  commentId: M:BlazorFocused.StoreAction`1.Execute
+  fullName: BlazorFocused.StoreAction<TState>.Execute()
+  fullName.vb: BlazorFocused.StoreAction(Of TState).Execute()
   nameWithType: StoreAction<TState>.Execute()
   nameWithType.vb: StoreAction(Of TState).Execute()
-- uid: BlazorFocused.Store.StoreAction`1.Execute*
+- uid: BlazorFocused.StoreAction`1.Execute*
   name: Execute
-  href: api/BlazorFocused.Store.StoreAction-1.html#BlazorFocused_Store_StoreAction_1_Execute_
-  commentId: Overload:BlazorFocused.Store.StoreAction`1.Execute
+  href: api/BlazorFocused.StoreAction-1.html#BlazorFocused_StoreAction_1_Execute_
+  commentId: Overload:BlazorFocused.StoreAction`1.Execute
   isSpec: "True"
-  fullName: BlazorFocused.Store.StoreAction<TState>.Execute
-  fullName.vb: BlazorFocused.Store.StoreAction(Of TState).Execute
+  fullName: BlazorFocused.StoreAction<TState>.Execute
+  fullName.vb: BlazorFocused.StoreAction(Of TState).Execute
   nameWithType: StoreAction<TState>.Execute
   nameWithType.vb: StoreAction(Of TState).Execute
-- uid: BlazorFocused.Store.StoreAction`1.State
+- uid: BlazorFocused.StoreAction`1.State
   name: State
-  href: api/BlazorFocused.Store.StoreAction-1.html#BlazorFocused_Store_StoreAction_1_State
-  commentId: P:BlazorFocused.Store.StoreAction`1.State
-  fullName: BlazorFocused.Store.StoreAction<TState>.State
-  fullName.vb: BlazorFocused.Store.StoreAction(Of TState).State
+  href: api/BlazorFocused.StoreAction-1.html#BlazorFocused_StoreAction_1_State
+  commentId: P:BlazorFocused.StoreAction`1.State
+  fullName: BlazorFocused.StoreAction<TState>.State
+  fullName.vb: BlazorFocused.StoreAction(Of TState).State
   nameWithType: StoreAction<TState>.State
   nameWithType.vb: StoreAction(Of TState).State
-- uid: BlazorFocused.Store.StoreAction`1.State*
+- uid: BlazorFocused.StoreAction`1.State*
   name: State
-  href: api/BlazorFocused.Store.StoreAction-1.html#BlazorFocused_Store_StoreAction_1_State_
-  commentId: Overload:BlazorFocused.Store.StoreAction`1.State
+  href: api/BlazorFocused.StoreAction-1.html#BlazorFocused_StoreAction_1_State_
+  commentId: Overload:BlazorFocused.StoreAction`1.State
   isSpec: "True"
-  fullName: BlazorFocused.Store.StoreAction<TState>.State
-  fullName.vb: BlazorFocused.Store.StoreAction(Of TState).State
+  fullName: BlazorFocused.StoreAction<TState>.State
+  fullName.vb: BlazorFocused.StoreAction(Of TState).State
   nameWithType: StoreAction<TState>.State
   nameWithType.vb: StoreAction(Of TState).State
-- uid: BlazorFocused.Store.StoreAction`2
+- uid: BlazorFocused.StoreAction`2
   name: StoreAction<TState, TInput>
-  href: api/BlazorFocused.Store.StoreAction-2.html
-  commentId: T:BlazorFocused.Store.StoreAction`2
+  href: api/BlazorFocused.StoreAction-2.html
+  commentId: T:BlazorFocused.StoreAction`2
   name.vb: StoreAction(Of TState, TInput)
-  fullName: BlazorFocused.Store.StoreAction<TState, TInput>
-  fullName.vb: BlazorFocused.Store.StoreAction(Of TState, TInput)
+  fullName: BlazorFocused.StoreAction<TState, TInput>
+  fullName.vb: BlazorFocused.StoreAction(Of TState, TInput)
   nameWithType: StoreAction<TState, TInput>
   nameWithType.vb: StoreAction(Of TState, TInput)
-- uid: BlazorFocused.Store.StoreAction`2.Execute(`1)
+- uid: BlazorFocused.StoreAction`2.Execute(`1)
   name: Execute(TInput)
-  href: api/BlazorFocused.Store.StoreAction-2.html#BlazorFocused_Store_StoreAction_2_Execute__1_
-  commentId: M:BlazorFocused.Store.StoreAction`2.Execute(`1)
-  fullName: BlazorFocused.Store.StoreAction<TState, TInput>.Execute(TInput)
-  fullName.vb: BlazorFocused.Store.StoreAction(Of TState, TInput).Execute(TInput)
+  href: api/BlazorFocused.StoreAction-2.html#BlazorFocused_StoreAction_2_Execute__1_
+  commentId: M:BlazorFocused.StoreAction`2.Execute(`1)
+  fullName: BlazorFocused.StoreAction<TState, TInput>.Execute(TInput)
+  fullName.vb: BlazorFocused.StoreAction(Of TState, TInput).Execute(TInput)
   nameWithType: StoreAction<TState, TInput>.Execute(TInput)
   nameWithType.vb: StoreAction(Of TState, TInput).Execute(TInput)
-- uid: BlazorFocused.Store.StoreAction`2.Execute*
+- uid: BlazorFocused.StoreAction`2.Execute*
   name: Execute
-  href: api/BlazorFocused.Store.StoreAction-2.html#BlazorFocused_Store_StoreAction_2_Execute_
-  commentId: Overload:BlazorFocused.Store.StoreAction`2.Execute
+  href: api/BlazorFocused.StoreAction-2.html#BlazorFocused_StoreAction_2_Execute_
+  commentId: Overload:BlazorFocused.StoreAction`2.Execute
   isSpec: "True"
-  fullName: BlazorFocused.Store.StoreAction<TState, TInput>.Execute
-  fullName.vb: BlazorFocused.Store.StoreAction(Of TState, TInput).Execute
+  fullName: BlazorFocused.StoreAction<TState, TInput>.Execute
+  fullName.vb: BlazorFocused.StoreAction(Of TState, TInput).Execute
   nameWithType: StoreAction<TState, TInput>.Execute
   nameWithType.vb: StoreAction(Of TState, TInput).Execute
-- uid: BlazorFocused.Store.StoreAction`2.State
+- uid: BlazorFocused.StoreAction`2.State
   name: State
-  href: api/BlazorFocused.Store.StoreAction-2.html#BlazorFocused_Store_StoreAction_2_State
-  commentId: P:BlazorFocused.Store.StoreAction`2.State
-  fullName: BlazorFocused.Store.StoreAction<TState, TInput>.State
-  fullName.vb: BlazorFocused.Store.StoreAction(Of TState, TInput).State
+  href: api/BlazorFocused.StoreAction-2.html#BlazorFocused_StoreAction_2_State
+  commentId: P:BlazorFocused.StoreAction`2.State
+  fullName: BlazorFocused.StoreAction<TState, TInput>.State
+  fullName.vb: BlazorFocused.StoreAction(Of TState, TInput).State
   nameWithType: StoreAction<TState, TInput>.State
   nameWithType.vb: StoreAction(Of TState, TInput).State
-- uid: BlazorFocused.Store.StoreAction`2.State*
+- uid: BlazorFocused.StoreAction`2.State*
   name: State
-  href: api/BlazorFocused.Store.StoreAction-2.html#BlazorFocused_Store_StoreAction_2_State_
-  commentId: Overload:BlazorFocused.Store.StoreAction`2.State
+  href: api/BlazorFocused.StoreAction-2.html#BlazorFocused_StoreAction_2_State_
+  commentId: Overload:BlazorFocused.StoreAction`2.State
   isSpec: "True"
-  fullName: BlazorFocused.Store.StoreAction<TState, TInput>.State
-  fullName.vb: BlazorFocused.Store.StoreAction(Of TState, TInput).State
+  fullName: BlazorFocused.StoreAction<TState, TInput>.State
+  fullName.vb: BlazorFocused.StoreAction(Of TState, TInput).State
   nameWithType: StoreAction<TState, TInput>.State
   nameWithType.vb: StoreAction(Of TState, TInput).State
-- uid: BlazorFocused.Store.StoreActionAsync`1
+- uid: BlazorFocused.StoreActionAsync`1
   name: StoreActionAsync<TState>
-  href: api/BlazorFocused.Store.StoreActionAsync-1.html
-  commentId: T:BlazorFocused.Store.StoreActionAsync`1
+  href: api/BlazorFocused.StoreActionAsync-1.html
+  commentId: T:BlazorFocused.StoreActionAsync`1
   name.vb: StoreActionAsync(Of TState)
-  fullName: BlazorFocused.Store.StoreActionAsync<TState>
-  fullName.vb: BlazorFocused.Store.StoreActionAsync(Of TState)
+  fullName: BlazorFocused.StoreActionAsync<TState>
+  fullName.vb: BlazorFocused.StoreActionAsync(Of TState)
   nameWithType: StoreActionAsync<TState>
   nameWithType.vb: StoreActionAsync(Of TState)
-- uid: BlazorFocused.Store.StoreActionAsync`1.ExecuteAsync
+- uid: BlazorFocused.StoreActionAsync`1.ExecuteAsync
   name: ExecuteAsync()
-  href: api/BlazorFocused.Store.StoreActionAsync-1.html#BlazorFocused_Store_StoreActionAsync_1_ExecuteAsync
-  commentId: M:BlazorFocused.Store.StoreActionAsync`1.ExecuteAsync
-  fullName: BlazorFocused.Store.StoreActionAsync<TState>.ExecuteAsync()
-  fullName.vb: BlazorFocused.Store.StoreActionAsync(Of TState).ExecuteAsync()
+  href: api/BlazorFocused.StoreActionAsync-1.html#BlazorFocused_StoreActionAsync_1_ExecuteAsync
+  commentId: M:BlazorFocused.StoreActionAsync`1.ExecuteAsync
+  fullName: BlazorFocused.StoreActionAsync<TState>.ExecuteAsync()
+  fullName.vb: BlazorFocused.StoreActionAsync(Of TState).ExecuteAsync()
   nameWithType: StoreActionAsync<TState>.ExecuteAsync()
   nameWithType.vb: StoreActionAsync(Of TState).ExecuteAsync()
-- uid: BlazorFocused.Store.StoreActionAsync`1.ExecuteAsync*
+- uid: BlazorFocused.StoreActionAsync`1.ExecuteAsync*
   name: ExecuteAsync
-  href: api/BlazorFocused.Store.StoreActionAsync-1.html#BlazorFocused_Store_StoreActionAsync_1_ExecuteAsync_
-  commentId: Overload:BlazorFocused.Store.StoreActionAsync`1.ExecuteAsync
+  href: api/BlazorFocused.StoreActionAsync-1.html#BlazorFocused_StoreActionAsync_1_ExecuteAsync_
+  commentId: Overload:BlazorFocused.StoreActionAsync`1.ExecuteAsync
   isSpec: "True"
-  fullName: BlazorFocused.Store.StoreActionAsync<TState>.ExecuteAsync
-  fullName.vb: BlazorFocused.Store.StoreActionAsync(Of TState).ExecuteAsync
+  fullName: BlazorFocused.StoreActionAsync<TState>.ExecuteAsync
+  fullName.vb: BlazorFocused.StoreActionAsync(Of TState).ExecuteAsync
   nameWithType: StoreActionAsync<TState>.ExecuteAsync
   nameWithType.vb: StoreActionAsync(Of TState).ExecuteAsync
-- uid: BlazorFocused.Store.StoreActionAsync`1.State
+- uid: BlazorFocused.StoreActionAsync`1.State
   name: State
-  href: api/BlazorFocused.Store.StoreActionAsync-1.html#BlazorFocused_Store_StoreActionAsync_1_State
-  commentId: P:BlazorFocused.Store.StoreActionAsync`1.State
-  fullName: BlazorFocused.Store.StoreActionAsync<TState>.State
-  fullName.vb: BlazorFocused.Store.StoreActionAsync(Of TState).State
+  href: api/BlazorFocused.StoreActionAsync-1.html#BlazorFocused_StoreActionAsync_1_State
+  commentId: P:BlazorFocused.StoreActionAsync`1.State
+  fullName: BlazorFocused.StoreActionAsync<TState>.State
+  fullName.vb: BlazorFocused.StoreActionAsync(Of TState).State
   nameWithType: StoreActionAsync<TState>.State
   nameWithType.vb: StoreActionAsync(Of TState).State
-- uid: BlazorFocused.Store.StoreActionAsync`1.State*
+- uid: BlazorFocused.StoreActionAsync`1.State*
   name: State
-  href: api/BlazorFocused.Store.StoreActionAsync-1.html#BlazorFocused_Store_StoreActionAsync_1_State_
-  commentId: Overload:BlazorFocused.Store.StoreActionAsync`1.State
+  href: api/BlazorFocused.StoreActionAsync-1.html#BlazorFocused_StoreActionAsync_1_State_
+  commentId: Overload:BlazorFocused.StoreActionAsync`1.State
   isSpec: "True"
-  fullName: BlazorFocused.Store.StoreActionAsync<TState>.State
-  fullName.vb: BlazorFocused.Store.StoreActionAsync(Of TState).State
+  fullName: BlazorFocused.StoreActionAsync<TState>.State
+  fullName.vb: BlazorFocused.StoreActionAsync(Of TState).State
   nameWithType: StoreActionAsync<TState>.State
   nameWithType.vb: StoreActionAsync(Of TState).State
-- uid: BlazorFocused.Store.StoreActionAsync`2
+- uid: BlazorFocused.StoreActionAsync`2
   name: StoreActionAsync<TState, TInput>
-  href: api/BlazorFocused.Store.StoreActionAsync-2.html
-  commentId: T:BlazorFocused.Store.StoreActionAsync`2
+  href: api/BlazorFocused.StoreActionAsync-2.html
+  commentId: T:BlazorFocused.StoreActionAsync`2
   name.vb: StoreActionAsync(Of TState, TInput)
-  fullName: BlazorFocused.Store.StoreActionAsync<TState, TInput>
-  fullName.vb: BlazorFocused.Store.StoreActionAsync(Of TState, TInput)
+  fullName: BlazorFocused.StoreActionAsync<TState, TInput>
+  fullName.vb: BlazorFocused.StoreActionAsync(Of TState, TInput)
   nameWithType: StoreActionAsync<TState, TInput>
   nameWithType.vb: StoreActionAsync(Of TState, TInput)
-- uid: BlazorFocused.Store.StoreActionAsync`2.ExecuteAsync(`1)
+- uid: BlazorFocused.StoreActionAsync`2.ExecuteAsync(`1)
   name: ExecuteAsync(TInput)
-  href: api/BlazorFocused.Store.StoreActionAsync-2.html#BlazorFocused_Store_StoreActionAsync_2_ExecuteAsync__1_
-  commentId: M:BlazorFocused.Store.StoreActionAsync`2.ExecuteAsync(`1)
-  fullName: BlazorFocused.Store.StoreActionAsync<TState, TInput>.ExecuteAsync(TInput)
-  fullName.vb: BlazorFocused.Store.StoreActionAsync(Of TState, TInput).ExecuteAsync(TInput)
+  href: api/BlazorFocused.StoreActionAsync-2.html#BlazorFocused_StoreActionAsync_2_ExecuteAsync__1_
+  commentId: M:BlazorFocused.StoreActionAsync`2.ExecuteAsync(`1)
+  fullName: BlazorFocused.StoreActionAsync<TState, TInput>.ExecuteAsync(TInput)
+  fullName.vb: BlazorFocused.StoreActionAsync(Of TState, TInput).ExecuteAsync(TInput)
   nameWithType: StoreActionAsync<TState, TInput>.ExecuteAsync(TInput)
   nameWithType.vb: StoreActionAsync(Of TState, TInput).ExecuteAsync(TInput)
-- uid: BlazorFocused.Store.StoreActionAsync`2.ExecuteAsync*
+- uid: BlazorFocused.StoreActionAsync`2.ExecuteAsync*
   name: ExecuteAsync
-  href: api/BlazorFocused.Store.StoreActionAsync-2.html#BlazorFocused_Store_StoreActionAsync_2_ExecuteAsync_
-  commentId: Overload:BlazorFocused.Store.StoreActionAsync`2.ExecuteAsync
+  href: api/BlazorFocused.StoreActionAsync-2.html#BlazorFocused_StoreActionAsync_2_ExecuteAsync_
+  commentId: Overload:BlazorFocused.StoreActionAsync`2.ExecuteAsync
   isSpec: "True"
-  fullName: BlazorFocused.Store.StoreActionAsync<TState, TInput>.ExecuteAsync
-  fullName.vb: BlazorFocused.Store.StoreActionAsync(Of TState, TInput).ExecuteAsync
+  fullName: BlazorFocused.StoreActionAsync<TState, TInput>.ExecuteAsync
+  fullName.vb: BlazorFocused.StoreActionAsync(Of TState, TInput).ExecuteAsync
   nameWithType: StoreActionAsync<TState, TInput>.ExecuteAsync
   nameWithType.vb: StoreActionAsync(Of TState, TInput).ExecuteAsync
-- uid: BlazorFocused.Store.StoreActionAsync`2.State
+- uid: BlazorFocused.StoreActionAsync`2.State
   name: State
-  href: api/BlazorFocused.Store.StoreActionAsync-2.html#BlazorFocused_Store_StoreActionAsync_2_State
-  commentId: P:BlazorFocused.Store.StoreActionAsync`2.State
-  fullName: BlazorFocused.Store.StoreActionAsync<TState, TInput>.State
-  fullName.vb: BlazorFocused.Store.StoreActionAsync(Of TState, TInput).State
+  href: api/BlazorFocused.StoreActionAsync-2.html#BlazorFocused_StoreActionAsync_2_State
+  commentId: P:BlazorFocused.StoreActionAsync`2.State
+  fullName: BlazorFocused.StoreActionAsync<TState, TInput>.State
+  fullName.vb: BlazorFocused.StoreActionAsync(Of TState, TInput).State
   nameWithType: StoreActionAsync<TState, TInput>.State
   nameWithType.vb: StoreActionAsync(Of TState, TInput).State
-- uid: BlazorFocused.Store.StoreActionAsync`2.State*
+- uid: BlazorFocused.StoreActionAsync`2.State*
   name: State
-  href: api/BlazorFocused.Store.StoreActionAsync-2.html#BlazorFocused_Store_StoreActionAsync_2_State_
-  commentId: Overload:BlazorFocused.Store.StoreActionAsync`2.State
+  href: api/BlazorFocused.StoreActionAsync-2.html#BlazorFocused_StoreActionAsync_2_State_
+  commentId: Overload:BlazorFocused.StoreActionAsync`2.State
   isSpec: "True"
-  fullName: BlazorFocused.Store.StoreActionAsync<TState, TInput>.State
-  fullName.vb: BlazorFocused.Store.StoreActionAsync(Of TState, TInput).State
+  fullName: BlazorFocused.StoreActionAsync<TState, TInput>.State
+  fullName.vb: BlazorFocused.StoreActionAsync(Of TState, TInput).State
   nameWithType: StoreActionAsync<TState, TInput>.State
   nameWithType.vb: StoreActionAsync(Of TState, TInput).State
-- uid: BlazorFocused.Tools.Client
-  name: BlazorFocused.Tools.Client
-  href: api/BlazorFocused.Tools.Client.html
-  commentId: N:BlazorFocused.Tools.Client
-  fullName: BlazorFocused.Tools.Client
-  nameWithType: BlazorFocused.Tools.Client
-- uid: BlazorFocused.Tools.Client.HttpClientBuilderExtensions
+- uid: BlazorFocused.Tools
+  name: BlazorFocused.Tools
+  href: api/BlazorFocused.Tools.html
+  commentId: N:BlazorFocused.Tools
+  fullName: BlazorFocused.Tools
+  nameWithType: BlazorFocused.Tools
+- uid: BlazorFocused.Tools.HttpClientBuilderExtensions
   name: HttpClientBuilderExtensions
-  href: api/BlazorFocused.Tools.Client.HttpClientBuilderExtensions.html
-  commentId: T:BlazorFocused.Tools.Client.HttpClientBuilderExtensions
-  fullName: BlazorFocused.Tools.Client.HttpClientBuilderExtensions
+  href: api/BlazorFocused.Tools.HttpClientBuilderExtensions.html
+  commentId: T:BlazorFocused.Tools.HttpClientBuilderExtensions
+  fullName: BlazorFocused.Tools.HttpClientBuilderExtensions
   nameWithType: HttpClientBuilderExtensions
-- uid: BlazorFocused.Tools.Client.HttpClientBuilderExtensions.AddSimulatedHttp(IHttpClientBuilder,BlazorFocused.Tools.Client.ISimulatedHttp)
+- uid: BlazorFocused.Tools.HttpClientBuilderExtensions.AddSimulatedHttp(IHttpClientBuilder,BlazorFocused.Tools.ISimulatedHttp)
   name: AddSimulatedHttp(IHttpClientBuilder, ISimulatedHttp)
-  href: api/BlazorFocused.Tools.Client.HttpClientBuilderExtensions.html#BlazorFocused_Tools_Client_HttpClientBuilderExtensions_AddSimulatedHttp_IHttpClientBuilder_BlazorFocused_Tools_Client_ISimulatedHttp_
-  commentId: M:BlazorFocused.Tools.Client.HttpClientBuilderExtensions.AddSimulatedHttp(IHttpClientBuilder,BlazorFocused.Tools.Client.ISimulatedHttp)
-  fullName: BlazorFocused.Tools.Client.HttpClientBuilderExtensions.AddSimulatedHttp(IHttpClientBuilder, BlazorFocused.Tools.Client.ISimulatedHttp)
+  href: api/BlazorFocused.Tools.HttpClientBuilderExtensions.html#BlazorFocused_Tools_HttpClientBuilderExtensions_AddSimulatedHttp_IHttpClientBuilder_BlazorFocused_Tools_ISimulatedHttp_
+  commentId: M:BlazorFocused.Tools.HttpClientBuilderExtensions.AddSimulatedHttp(IHttpClientBuilder,BlazorFocused.Tools.ISimulatedHttp)
+  fullName: BlazorFocused.Tools.HttpClientBuilderExtensions.AddSimulatedHttp(IHttpClientBuilder, BlazorFocused.Tools.ISimulatedHttp)
   nameWithType: HttpClientBuilderExtensions.AddSimulatedHttp(IHttpClientBuilder, ISimulatedHttp)
-- uid: BlazorFocused.Tools.Client.HttpClientBuilderExtensions.AddSimulatedHttp*
+- uid: BlazorFocused.Tools.HttpClientBuilderExtensions.AddSimulatedHttp*
   name: AddSimulatedHttp
-  href: api/BlazorFocused.Tools.Client.HttpClientBuilderExtensions.html#BlazorFocused_Tools_Client_HttpClientBuilderExtensions_AddSimulatedHttp_
-  commentId: Overload:BlazorFocused.Tools.Client.HttpClientBuilderExtensions.AddSimulatedHttp
+  href: api/BlazorFocused.Tools.HttpClientBuilderExtensions.html#BlazorFocused_Tools_HttpClientBuilderExtensions_AddSimulatedHttp_
+  commentId: Overload:BlazorFocused.Tools.HttpClientBuilderExtensions.AddSimulatedHttp
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.HttpClientBuilderExtensions.AddSimulatedHttp
+  fullName: BlazorFocused.Tools.HttpClientBuilderExtensions.AddSimulatedHttp
   nameWithType: HttpClientBuilderExtensions.AddSimulatedHttp
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp
+- uid: BlazorFocused.Tools.ISimulatedHttp
   name: ISimulatedHttp
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html
-  commentId: T:BlazorFocused.Tools.Client.ISimulatedHttp
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html
+  commentId: T:BlazorFocused.Tools.ISimulatedHttp
+  fullName: BlazorFocused.Tools.ISimulatedHttp
   nameWithType: ISimulatedHttp
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.DelegatingHandler
+- uid: BlazorFocused.Tools.ISimulatedHttp.DelegatingHandler
   name: DelegatingHandler
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_DelegatingHandler
-  commentId: P:BlazorFocused.Tools.Client.ISimulatedHttp.DelegatingHandler
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.DelegatingHandler
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_DelegatingHandler
+  commentId: P:BlazorFocused.Tools.ISimulatedHttp.DelegatingHandler
+  fullName: BlazorFocused.Tools.ISimulatedHttp.DelegatingHandler
   nameWithType: ISimulatedHttp.DelegatingHandler
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.DelegatingHandler*
+- uid: BlazorFocused.Tools.ISimulatedHttp.DelegatingHandler*
   name: DelegatingHandler
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_DelegatingHandler_
-  commentId: Overload:BlazorFocused.Tools.Client.ISimulatedHttp.DelegatingHandler
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_DelegatingHandler_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.DelegatingHandler
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.DelegatingHandler
+  fullName: BlazorFocused.Tools.ISimulatedHttp.DelegatingHandler
   nameWithType: ISimulatedHttp.DelegatingHandler
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.HttpClient
+- uid: BlazorFocused.Tools.ISimulatedHttp.HttpClient
   name: HttpClient
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_HttpClient
-  commentId: P:BlazorFocused.Tools.Client.ISimulatedHttp.HttpClient
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.HttpClient
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_HttpClient
+  commentId: P:BlazorFocused.Tools.ISimulatedHttp.HttpClient
+  fullName: BlazorFocused.Tools.ISimulatedHttp.HttpClient
   nameWithType: ISimulatedHttp.HttpClient
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.HttpClient*
+- uid: BlazorFocused.Tools.ISimulatedHttp.HttpClient*
   name: HttpClient
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_HttpClient_
-  commentId: Overload:BlazorFocused.Tools.Client.ISimulatedHttp.HttpClient
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_HttpClient_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.HttpClient
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.HttpClient
+  fullName: BlazorFocused.Tools.ISimulatedHttp.HttpClient
   nameWithType: ISimulatedHttp.HttpClient
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.SetupDELETE(System.String)
+- uid: BlazorFocused.Tools.ISimulatedHttp.SetupDELETE(System.String)
   name: SetupDELETE(String)
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_SetupDELETE_System_String_
-  commentId: M:BlazorFocused.Tools.Client.ISimulatedHttp.SetupDELETE(System.String)
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.SetupDELETE(System.String)
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_SetupDELETE_System_String_
+  commentId: M:BlazorFocused.Tools.ISimulatedHttp.SetupDELETE(System.String)
+  fullName: BlazorFocused.Tools.ISimulatedHttp.SetupDELETE(System.String)
   nameWithType: ISimulatedHttp.SetupDELETE(String)
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.SetupDELETE*
+- uid: BlazorFocused.Tools.ISimulatedHttp.SetupDELETE*
   name: SetupDELETE
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_SetupDELETE_
-  commentId: Overload:BlazorFocused.Tools.Client.ISimulatedHttp.SetupDELETE
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_SetupDELETE_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.SetupDELETE
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.SetupDELETE
+  fullName: BlazorFocused.Tools.ISimulatedHttp.SetupDELETE
   nameWithType: ISimulatedHttp.SetupDELETE
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.SetupGET(System.String)
+- uid: BlazorFocused.Tools.ISimulatedHttp.SetupGET(System.String)
   name: SetupGET(String)
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_SetupGET_System_String_
-  commentId: M:BlazorFocused.Tools.Client.ISimulatedHttp.SetupGET(System.String)
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.SetupGET(System.String)
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_SetupGET_System_String_
+  commentId: M:BlazorFocused.Tools.ISimulatedHttp.SetupGET(System.String)
+  fullName: BlazorFocused.Tools.ISimulatedHttp.SetupGET(System.String)
   nameWithType: ISimulatedHttp.SetupGET(String)
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.SetupGET*
+- uid: BlazorFocused.Tools.ISimulatedHttp.SetupGET*
   name: SetupGET
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_SetupGET_
-  commentId: Overload:BlazorFocused.Tools.Client.ISimulatedHttp.SetupGET
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_SetupGET_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.SetupGET
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.SetupGET
+  fullName: BlazorFocused.Tools.ISimulatedHttp.SetupGET
   nameWithType: ISimulatedHttp.SetupGET
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.SetupPATCH(System.String,System.Object)
+- uid: BlazorFocused.Tools.ISimulatedHttp.SetupPATCH(System.String,System.Object)
   name: SetupPATCH(String, Object)
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_SetupPATCH_System_String_System_Object_
-  commentId: M:BlazorFocused.Tools.Client.ISimulatedHttp.SetupPATCH(System.String,System.Object)
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.SetupPATCH(System.String, System.Object)
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_SetupPATCH_System_String_System_Object_
+  commentId: M:BlazorFocused.Tools.ISimulatedHttp.SetupPATCH(System.String,System.Object)
+  fullName: BlazorFocused.Tools.ISimulatedHttp.SetupPATCH(System.String, System.Object)
   nameWithType: ISimulatedHttp.SetupPATCH(String, Object)
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.SetupPATCH*
+- uid: BlazorFocused.Tools.ISimulatedHttp.SetupPATCH*
   name: SetupPATCH
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_SetupPATCH_
-  commentId: Overload:BlazorFocused.Tools.Client.ISimulatedHttp.SetupPATCH
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_SetupPATCH_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.SetupPATCH
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.SetupPATCH
+  fullName: BlazorFocused.Tools.ISimulatedHttp.SetupPATCH
   nameWithType: ISimulatedHttp.SetupPATCH
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.SetupPOST(System.String,System.Object)
+- uid: BlazorFocused.Tools.ISimulatedHttp.SetupPOST(System.String,System.Object)
   name: SetupPOST(String, Object)
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_SetupPOST_System_String_System_Object_
-  commentId: M:BlazorFocused.Tools.Client.ISimulatedHttp.SetupPOST(System.String,System.Object)
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.SetupPOST(System.String, System.Object)
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_SetupPOST_System_String_System_Object_
+  commentId: M:BlazorFocused.Tools.ISimulatedHttp.SetupPOST(System.String,System.Object)
+  fullName: BlazorFocused.Tools.ISimulatedHttp.SetupPOST(System.String, System.Object)
   nameWithType: ISimulatedHttp.SetupPOST(String, Object)
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.SetupPOST*
+- uid: BlazorFocused.Tools.ISimulatedHttp.SetupPOST*
   name: SetupPOST
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_SetupPOST_
-  commentId: Overload:BlazorFocused.Tools.Client.ISimulatedHttp.SetupPOST
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_SetupPOST_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.SetupPOST
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.SetupPOST
+  fullName: BlazorFocused.Tools.ISimulatedHttp.SetupPOST
   nameWithType: ISimulatedHttp.SetupPOST
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.SetupPUT(System.String,System.Object)
+- uid: BlazorFocused.Tools.ISimulatedHttp.SetupPUT(System.String,System.Object)
   name: SetupPUT(String, Object)
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_SetupPUT_System_String_System_Object_
-  commentId: M:BlazorFocused.Tools.Client.ISimulatedHttp.SetupPUT(System.String,System.Object)
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.SetupPUT(System.String, System.Object)
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_SetupPUT_System_String_System_Object_
+  commentId: M:BlazorFocused.Tools.ISimulatedHttp.SetupPUT(System.String,System.Object)
+  fullName: BlazorFocused.Tools.ISimulatedHttp.SetupPUT(System.String, System.Object)
   nameWithType: ISimulatedHttp.SetupPUT(String, Object)
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.SetupPUT*
+- uid: BlazorFocused.Tools.ISimulatedHttp.SetupPUT*
   name: SetupPUT
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_SetupPUT_
-  commentId: Overload:BlazorFocused.Tools.Client.ISimulatedHttp.SetupPUT
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_SetupPUT_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.SetupPUT
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.SetupPUT
+  fullName: BlazorFocused.Tools.ISimulatedHttp.SetupPUT
   nameWithType: ISimulatedHttp.SetupPUT
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.VerifyWasCalled(HttpMethod,System.String,System.Object)
-  name: VerifyWasCalled(HttpMethod, String, Object)
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_VerifyWasCalled_HttpMethod_System_String_System_Object_
-  commentId: M:BlazorFocused.Tools.Client.ISimulatedHttp.VerifyWasCalled(HttpMethod,System.String,System.Object)
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.VerifyWasCalled(HttpMethod, System.String, System.Object)
-  nameWithType: ISimulatedHttp.VerifyWasCalled(HttpMethod, String, Object)
-- uid: BlazorFocused.Tools.Client.ISimulatedHttp.VerifyWasCalled*
-  name: VerifyWasCalled
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttp.html#BlazorFocused_Tools_Client_ISimulatedHttp_VerifyWasCalled_
-  commentId: Overload:BlazorFocused.Tools.Client.ISimulatedHttp.VerifyWasCalled
+- uid: BlazorFocused.Tools.ISimulatedHttp.VerifyDELETEWasCalled(System.String)
+  name: VerifyDELETEWasCalled(String)
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_VerifyDELETEWasCalled_System_String_
+  commentId: M:BlazorFocused.Tools.ISimulatedHttp.VerifyDELETEWasCalled(System.String)
+  fullName: BlazorFocused.Tools.ISimulatedHttp.VerifyDELETEWasCalled(System.String)
+  nameWithType: ISimulatedHttp.VerifyDELETEWasCalled(String)
+- uid: BlazorFocused.Tools.ISimulatedHttp.VerifyDELETEWasCalled*
+  name: VerifyDELETEWasCalled
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_VerifyDELETEWasCalled_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.VerifyDELETEWasCalled
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttp.VerifyWasCalled
-  nameWithType: ISimulatedHttp.VerifyWasCalled
-- uid: BlazorFocused.Tools.Client.ISimulatedHttpSetup
+  fullName: BlazorFocused.Tools.ISimulatedHttp.VerifyDELETEWasCalled
+  nameWithType: ISimulatedHttp.VerifyDELETEWasCalled
+- uid: BlazorFocused.Tools.ISimulatedHttp.VerifyGETWasCalled(System.String)
+  name: VerifyGETWasCalled(String)
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_VerifyGETWasCalled_System_String_
+  commentId: M:BlazorFocused.Tools.ISimulatedHttp.VerifyGETWasCalled(System.String)
+  fullName: BlazorFocused.Tools.ISimulatedHttp.VerifyGETWasCalled(System.String)
+  nameWithType: ISimulatedHttp.VerifyGETWasCalled(String)
+- uid: BlazorFocused.Tools.ISimulatedHttp.VerifyGETWasCalled*
+  name: VerifyGETWasCalled
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_VerifyGETWasCalled_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.VerifyGETWasCalled
+  isSpec: "True"
+  fullName: BlazorFocused.Tools.ISimulatedHttp.VerifyGETWasCalled
+  nameWithType: ISimulatedHttp.VerifyGETWasCalled
+- uid: BlazorFocused.Tools.ISimulatedHttp.VerifyPATCHWasCalled(System.String,System.Object)
+  name: VerifyPATCHWasCalled(String, Object)
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_VerifyPATCHWasCalled_System_String_System_Object_
+  commentId: M:BlazorFocused.Tools.ISimulatedHttp.VerifyPATCHWasCalled(System.String,System.Object)
+  fullName: BlazorFocused.Tools.ISimulatedHttp.VerifyPATCHWasCalled(System.String, System.Object)
+  nameWithType: ISimulatedHttp.VerifyPATCHWasCalled(String, Object)
+- uid: BlazorFocused.Tools.ISimulatedHttp.VerifyPATCHWasCalled*
+  name: VerifyPATCHWasCalled
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_VerifyPATCHWasCalled_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.VerifyPATCHWasCalled
+  isSpec: "True"
+  fullName: BlazorFocused.Tools.ISimulatedHttp.VerifyPATCHWasCalled
+  nameWithType: ISimulatedHttp.VerifyPATCHWasCalled
+- uid: BlazorFocused.Tools.ISimulatedHttp.VerifyPOSTWasCalled(System.String,System.Object)
+  name: VerifyPOSTWasCalled(String, Object)
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_VerifyPOSTWasCalled_System_String_System_Object_
+  commentId: M:BlazorFocused.Tools.ISimulatedHttp.VerifyPOSTWasCalled(System.String,System.Object)
+  fullName: BlazorFocused.Tools.ISimulatedHttp.VerifyPOSTWasCalled(System.String, System.Object)
+  nameWithType: ISimulatedHttp.VerifyPOSTWasCalled(String, Object)
+- uid: BlazorFocused.Tools.ISimulatedHttp.VerifyPOSTWasCalled*
+  name: VerifyPOSTWasCalled
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_VerifyPOSTWasCalled_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.VerifyPOSTWasCalled
+  isSpec: "True"
+  fullName: BlazorFocused.Tools.ISimulatedHttp.VerifyPOSTWasCalled
+  nameWithType: ISimulatedHttp.VerifyPOSTWasCalled
+- uid: BlazorFocused.Tools.ISimulatedHttp.VerifyPUTWasCalled(System.String,System.Object)
+  name: VerifyPUTWasCalled(String, Object)
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_VerifyPUTWasCalled_System_String_System_Object_
+  commentId: M:BlazorFocused.Tools.ISimulatedHttp.VerifyPUTWasCalled(System.String,System.Object)
+  fullName: BlazorFocused.Tools.ISimulatedHttp.VerifyPUTWasCalled(System.String, System.Object)
+  nameWithType: ISimulatedHttp.VerifyPUTWasCalled(String, Object)
+- uid: BlazorFocused.Tools.ISimulatedHttp.VerifyPUTWasCalled*
+  name: VerifyPUTWasCalled
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_VerifyPUTWasCalled_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.VerifyPUTWasCalled
+  isSpec: "True"
+  fullName: BlazorFocused.Tools.ISimulatedHttp.VerifyPUTWasCalled
+  nameWithType: ISimulatedHttp.VerifyPUTWasCalled
+- uid: BlazorFocused.Tools.ISimulatedHttpSetup
   name: ISimulatedHttpSetup
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttpSetup.html
-  commentId: T:BlazorFocused.Tools.Client.ISimulatedHttpSetup
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttpSetup
+  href: api/BlazorFocused.Tools.ISimulatedHttpSetup.html
+  commentId: T:BlazorFocused.Tools.ISimulatedHttpSetup
+  fullName: BlazorFocused.Tools.ISimulatedHttpSetup
   nameWithType: ISimulatedHttpSetup
-- uid: BlazorFocused.Tools.Client.ISimulatedHttpSetup.ReturnsAsync(System.Net.HttpStatusCode,System.Object)
+- uid: BlazorFocused.Tools.ISimulatedHttpSetup.ReturnsAsync(System.Net.HttpStatusCode,System.Object)
   name: ReturnsAsync(HttpStatusCode, Object)
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttpSetup.html#BlazorFocused_Tools_Client_ISimulatedHttpSetup_ReturnsAsync_System_Net_HttpStatusCode_System_Object_
-  commentId: M:BlazorFocused.Tools.Client.ISimulatedHttpSetup.ReturnsAsync(System.Net.HttpStatusCode,System.Object)
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttpSetup.ReturnsAsync(System.Net.HttpStatusCode, System.Object)
+  href: api/BlazorFocused.Tools.ISimulatedHttpSetup.html#BlazorFocused_Tools_ISimulatedHttpSetup_ReturnsAsync_System_Net_HttpStatusCode_System_Object_
+  commentId: M:BlazorFocused.Tools.ISimulatedHttpSetup.ReturnsAsync(System.Net.HttpStatusCode,System.Object)
+  fullName: BlazorFocused.Tools.ISimulatedHttpSetup.ReturnsAsync(System.Net.HttpStatusCode, System.Object)
   nameWithType: ISimulatedHttpSetup.ReturnsAsync(HttpStatusCode, Object)
-- uid: BlazorFocused.Tools.Client.ISimulatedHttpSetup.ReturnsAsync*
+- uid: BlazorFocused.Tools.ISimulatedHttpSetup.ReturnsAsync*
   name: ReturnsAsync
-  href: api/BlazorFocused.Tools.Client.ISimulatedHttpSetup.html#BlazorFocused_Tools_Client_ISimulatedHttpSetup_ReturnsAsync_
-  commentId: Overload:BlazorFocused.Tools.Client.ISimulatedHttpSetup.ReturnsAsync
+  href: api/BlazorFocused.Tools.ISimulatedHttpSetup.html#BlazorFocused_Tools_ISimulatedHttpSetup_ReturnsAsync_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttpSetup.ReturnsAsync
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.ISimulatedHttpSetup.ReturnsAsync
+  fullName: BlazorFocused.Tools.ISimulatedHttpSetup.ReturnsAsync
   nameWithType: ISimulatedHttpSetup.ReturnsAsync
-- uid: BlazorFocused.Tools.Client.SimulatedHttp
-  name: SimulatedHttp
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html
-  commentId: T:BlazorFocused.Tools.Client.SimulatedHttp
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp
-  nameWithType: SimulatedHttp
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.#ctor(System.String)
-  name: SimulatedHttp(String)
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp__ctor_System_String_
-  commentId: M:BlazorFocused.Tools.Client.SimulatedHttp.#ctor(System.String)
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.SimulatedHttp(System.String)
-  nameWithType: SimulatedHttp.SimulatedHttp(String)
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.#ctor*
-  name: SimulatedHttp
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp__ctor_
-  commentId: Overload:BlazorFocused.Tools.Client.SimulatedHttp.#ctor
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.SimulatedHttp
-  nameWithType: SimulatedHttp.SimulatedHttp
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.DelegatingHandler
-  name: DelegatingHandler
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_DelegatingHandler
-  commentId: P:BlazorFocused.Tools.Client.SimulatedHttp.DelegatingHandler
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.DelegatingHandler
-  nameWithType: SimulatedHttp.DelegatingHandler
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.DelegatingHandler*
-  name: DelegatingHandler
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_DelegatingHandler_
-  commentId: Overload:BlazorFocused.Tools.Client.SimulatedHttp.DelegatingHandler
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.DelegatingHandler
-  nameWithType: SimulatedHttp.DelegatingHandler
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.HttpClient
-  name: HttpClient
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_HttpClient
-  commentId: P:BlazorFocused.Tools.Client.SimulatedHttp.HttpClient
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.HttpClient
-  nameWithType: SimulatedHttp.HttpClient
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.HttpClient*
-  name: HttpClient
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_HttpClient_
-  commentId: Overload:BlazorFocused.Tools.Client.SimulatedHttp.HttpClient
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.HttpClient
-  nameWithType: SimulatedHttp.HttpClient
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.SetupDELETE(System.String)
-  name: SetupDELETE(String)
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_SetupDELETE_System_String_
-  commentId: M:BlazorFocused.Tools.Client.SimulatedHttp.SetupDELETE(System.String)
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.SetupDELETE(System.String)
-  nameWithType: SimulatedHttp.SetupDELETE(String)
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.SetupDELETE*
-  name: SetupDELETE
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_SetupDELETE_
-  commentId: Overload:BlazorFocused.Tools.Client.SimulatedHttp.SetupDELETE
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.SetupDELETE
-  nameWithType: SimulatedHttp.SetupDELETE
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.SetupGET(System.String)
-  name: SetupGET(String)
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_SetupGET_System_String_
-  commentId: M:BlazorFocused.Tools.Client.SimulatedHttp.SetupGET(System.String)
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.SetupGET(System.String)
-  nameWithType: SimulatedHttp.SetupGET(String)
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.SetupGET*
-  name: SetupGET
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_SetupGET_
-  commentId: Overload:BlazorFocused.Tools.Client.SimulatedHttp.SetupGET
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.SetupGET
-  nameWithType: SimulatedHttp.SetupGET
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.SetupPATCH(System.String,System.Object)
-  name: SetupPATCH(String, Object)
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_SetupPATCH_System_String_System_Object_
-  commentId: M:BlazorFocused.Tools.Client.SimulatedHttp.SetupPATCH(System.String,System.Object)
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.SetupPATCH(System.String, System.Object)
-  nameWithType: SimulatedHttp.SetupPATCH(String, Object)
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.SetupPATCH*
-  name: SetupPATCH
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_SetupPATCH_
-  commentId: Overload:BlazorFocused.Tools.Client.SimulatedHttp.SetupPATCH
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.SetupPATCH
-  nameWithType: SimulatedHttp.SetupPATCH
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.SetupPOST(System.String,System.Object)
-  name: SetupPOST(String, Object)
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_SetupPOST_System_String_System_Object_
-  commentId: M:BlazorFocused.Tools.Client.SimulatedHttp.SetupPOST(System.String,System.Object)
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.SetupPOST(System.String, System.Object)
-  nameWithType: SimulatedHttp.SetupPOST(String, Object)
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.SetupPOST*
-  name: SetupPOST
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_SetupPOST_
-  commentId: Overload:BlazorFocused.Tools.Client.SimulatedHttp.SetupPOST
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.SetupPOST
-  nameWithType: SimulatedHttp.SetupPOST
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.SetupPUT(System.String,System.Object)
-  name: SetupPUT(String, Object)
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_SetupPUT_System_String_System_Object_
-  commentId: M:BlazorFocused.Tools.Client.SimulatedHttp.SetupPUT(System.String,System.Object)
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.SetupPUT(System.String, System.Object)
-  nameWithType: SimulatedHttp.SetupPUT(String, Object)
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.SetupPUT*
-  name: SetupPUT
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_SetupPUT_
-  commentId: Overload:BlazorFocused.Tools.Client.SimulatedHttp.SetupPUT
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.SetupPUT
-  nameWithType: SimulatedHttp.SetupPUT
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.VerifyWasCalled(HttpMethod,System.String,System.Object)
-  name: VerifyWasCalled(HttpMethod, String, Object)
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_VerifyWasCalled_HttpMethod_System_String_System_Object_
-  commentId: M:BlazorFocused.Tools.Client.SimulatedHttp.VerifyWasCalled(HttpMethod,System.String,System.Object)
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.VerifyWasCalled(HttpMethod, System.String, System.Object)
-  nameWithType: SimulatedHttp.VerifyWasCalled(HttpMethod, String, Object)
-- uid: BlazorFocused.Tools.Client.SimulatedHttp.VerifyWasCalled*
-  name: VerifyWasCalled
-  href: api/BlazorFocused.Tools.Client.SimulatedHttp.html#BlazorFocused_Tools_Client_SimulatedHttp_VerifyWasCalled_
-  commentId: Overload:BlazorFocused.Tools.Client.SimulatedHttp.VerifyWasCalled
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.SimulatedHttp.VerifyWasCalled
-  nameWithType: SimulatedHttp.VerifyWasCalled
-- uid: BlazorFocused.Tools.Client.SimulatedHttpTestException
-  name: SimulatedHttpTestException
-  href: api/BlazorFocused.Tools.Client.SimulatedHttpTestException.html
-  commentId: T:BlazorFocused.Tools.Client.SimulatedHttpTestException
-  fullName: BlazorFocused.Tools.Client.SimulatedHttpTestException
-  nameWithType: SimulatedHttpTestException
-- uid: BlazorFocused.Tools.Client.SimulatedHttpTestException.#ctor(System.String)
-  name: SimulatedHttpTestException(String)
-  href: api/BlazorFocused.Tools.Client.SimulatedHttpTestException.html#BlazorFocused_Tools_Client_SimulatedHttpTestException__ctor_System_String_
-  commentId: M:BlazorFocused.Tools.Client.SimulatedHttpTestException.#ctor(System.String)
-  fullName: BlazorFocused.Tools.Client.SimulatedHttpTestException.SimulatedHttpTestException(System.String)
-  nameWithType: SimulatedHttpTestException.SimulatedHttpTestException(String)
-- uid: BlazorFocused.Tools.Client.SimulatedHttpTestException.#ctor*
-  name: SimulatedHttpTestException
-  href: api/BlazorFocused.Tools.Client.SimulatedHttpTestException.html#BlazorFocused_Tools_Client_SimulatedHttpTestException__ctor_
-  commentId: Overload:BlazorFocused.Tools.Client.SimulatedHttpTestException.#ctor
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Client.SimulatedHttpTestException.SimulatedHttpTestException
-  nameWithType: SimulatedHttpTestException.SimulatedHttpTestException
-- uid: BlazorFocused.Tools.Logger
-  name: BlazorFocused.Tools.Logger
-  href: api/BlazorFocused.Tools.Logger.html
-  commentId: N:BlazorFocused.Tools.Logger
-  fullName: BlazorFocused.Tools.Logger
-  nameWithType: BlazorFocused.Tools.Logger
-- uid: BlazorFocused.Tools.Logger.IMockLogger`1
-  name: IMockLogger<T>
-  href: api/BlazorFocused.Tools.Logger.IMockLogger-1.html
-  commentId: T:BlazorFocused.Tools.Logger.IMockLogger`1
-  name.vb: IMockLogger(Of T)
-  fullName: BlazorFocused.Tools.Logger.IMockLogger<T>
-  fullName.vb: BlazorFocused.Tools.Logger.IMockLogger(Of T)
-  nameWithType: IMockLogger<T>
-  nameWithType.vb: IMockLogger(Of T)
-- uid: BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalled
+- uid: BlazorFocused.Tools.ITestLogger`1
+  name: ITestLogger<T>
+  href: api/BlazorFocused.Tools.ITestLogger-1.html
+  commentId: T:BlazorFocused.Tools.ITestLogger`1
+  name.vb: ITestLogger(Of T)
+  fullName: BlazorFocused.Tools.ITestLogger<T>
+  fullName.vb: BlazorFocused.Tools.ITestLogger(Of T)
+  nameWithType: ITestLogger<T>
+  nameWithType.vb: ITestLogger(Of T)
+- uid: BlazorFocused.Tools.ITestLogger`1.VerifyWasCalled
   name: VerifyWasCalled()
-  href: api/BlazorFocused.Tools.Logger.IMockLogger-1.html#BlazorFocused_Tools_Logger_IMockLogger_1_VerifyWasCalled
-  commentId: M:BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalled
-  fullName: BlazorFocused.Tools.Logger.IMockLogger<T>.VerifyWasCalled()
-  fullName.vb: BlazorFocused.Tools.Logger.IMockLogger(Of T).VerifyWasCalled()
-  nameWithType: IMockLogger<T>.VerifyWasCalled()
-  nameWithType.vb: IMockLogger(Of T).VerifyWasCalled()
-- uid: BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalled*
+  href: api/BlazorFocused.Tools.ITestLogger-1.html#BlazorFocused_Tools_ITestLogger_1_VerifyWasCalled
+  commentId: M:BlazorFocused.Tools.ITestLogger`1.VerifyWasCalled
+  fullName: BlazorFocused.Tools.ITestLogger<T>.VerifyWasCalled()
+  fullName.vb: BlazorFocused.Tools.ITestLogger(Of T).VerifyWasCalled()
+  nameWithType: ITestLogger<T>.VerifyWasCalled()
+  nameWithType.vb: ITestLogger(Of T).VerifyWasCalled()
+- uid: BlazorFocused.Tools.ITestLogger`1.VerifyWasCalled*
   name: VerifyWasCalled
-  href: api/BlazorFocused.Tools.Logger.IMockLogger-1.html#BlazorFocused_Tools_Logger_IMockLogger_1_VerifyWasCalled_
-  commentId: Overload:BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalled
+  href: api/BlazorFocused.Tools.ITestLogger-1.html#BlazorFocused_Tools_ITestLogger_1_VerifyWasCalled_
+  commentId: Overload:BlazorFocused.Tools.ITestLogger`1.VerifyWasCalled
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Logger.IMockLogger<T>.VerifyWasCalled
-  fullName.vb: BlazorFocused.Tools.Logger.IMockLogger(Of T).VerifyWasCalled
-  nameWithType: IMockLogger<T>.VerifyWasCalled
-  nameWithType.vb: IMockLogger(Of T).VerifyWasCalled
-- uid: BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalledWith(LogLevel)
+  fullName: BlazorFocused.Tools.ITestLogger<T>.VerifyWasCalled
+  fullName.vb: BlazorFocused.Tools.ITestLogger(Of T).VerifyWasCalled
+  nameWithType: ITestLogger<T>.VerifyWasCalled
+  nameWithType.vb: ITestLogger(Of T).VerifyWasCalled
+- uid: BlazorFocused.Tools.ITestLogger`1.VerifyWasCalledWith(LogLevel)
   name: VerifyWasCalledWith(LogLevel)
-  href: api/BlazorFocused.Tools.Logger.IMockLogger-1.html#BlazorFocused_Tools_Logger_IMockLogger_1_VerifyWasCalledWith_LogLevel_
-  commentId: M:BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalledWith(LogLevel)
-  fullName: BlazorFocused.Tools.Logger.IMockLogger<T>.VerifyWasCalledWith(LogLevel)
-  fullName.vb: BlazorFocused.Tools.Logger.IMockLogger(Of T).VerifyWasCalledWith(LogLevel)
-  nameWithType: IMockLogger<T>.VerifyWasCalledWith(LogLevel)
-  nameWithType.vb: IMockLogger(Of T).VerifyWasCalledWith(LogLevel)
-- uid: BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalledWith(LogLevel,System.String)
+  href: api/BlazorFocused.Tools.ITestLogger-1.html#BlazorFocused_Tools_ITestLogger_1_VerifyWasCalledWith_LogLevel_
+  commentId: M:BlazorFocused.Tools.ITestLogger`1.VerifyWasCalledWith(LogLevel)
+  fullName: BlazorFocused.Tools.ITestLogger<T>.VerifyWasCalledWith(LogLevel)
+  fullName.vb: BlazorFocused.Tools.ITestLogger(Of T).VerifyWasCalledWith(LogLevel)
+  nameWithType: ITestLogger<T>.VerifyWasCalledWith(LogLevel)
+  nameWithType.vb: ITestLogger(Of T).VerifyWasCalledWith(LogLevel)
+- uid: BlazorFocused.Tools.ITestLogger`1.VerifyWasCalledWith(LogLevel,System.String)
   name: VerifyWasCalledWith(LogLevel, String)
-  href: api/BlazorFocused.Tools.Logger.IMockLogger-1.html#BlazorFocused_Tools_Logger_IMockLogger_1_VerifyWasCalledWith_LogLevel_System_String_
-  commentId: M:BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalledWith(LogLevel,System.String)
-  fullName: BlazorFocused.Tools.Logger.IMockLogger<T>.VerifyWasCalledWith(LogLevel, System.String)
-  fullName.vb: BlazorFocused.Tools.Logger.IMockLogger(Of T).VerifyWasCalledWith(LogLevel, System.String)
-  nameWithType: IMockLogger<T>.VerifyWasCalledWith(LogLevel, String)
-  nameWithType.vb: IMockLogger(Of T).VerifyWasCalledWith(LogLevel, String)
-- uid: BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalledWith*
+  href: api/BlazorFocused.Tools.ITestLogger-1.html#BlazorFocused_Tools_ITestLogger_1_VerifyWasCalledWith_LogLevel_System_String_
+  commentId: M:BlazorFocused.Tools.ITestLogger`1.VerifyWasCalledWith(LogLevel,System.String)
+  fullName: BlazorFocused.Tools.ITestLogger<T>.VerifyWasCalledWith(LogLevel, System.String)
+  fullName.vb: BlazorFocused.Tools.ITestLogger(Of T).VerifyWasCalledWith(LogLevel, System.String)
+  nameWithType: ITestLogger<T>.VerifyWasCalledWith(LogLevel, String)
+  nameWithType.vb: ITestLogger(Of T).VerifyWasCalledWith(LogLevel, String)
+- uid: BlazorFocused.Tools.ITestLogger`1.VerifyWasCalledWith*
   name: VerifyWasCalledWith
-  href: api/BlazorFocused.Tools.Logger.IMockLogger-1.html#BlazorFocused_Tools_Logger_IMockLogger_1_VerifyWasCalledWith_
-  commentId: Overload:BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalledWith
+  href: api/BlazorFocused.Tools.ITestLogger-1.html#BlazorFocused_Tools_ITestLogger_1_VerifyWasCalledWith_
+  commentId: Overload:BlazorFocused.Tools.ITestLogger`1.VerifyWasCalledWith
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Logger.IMockLogger<T>.VerifyWasCalledWith
-  fullName.vb: BlazorFocused.Tools.Logger.IMockLogger(Of T).VerifyWasCalledWith
-  nameWithType: IMockLogger<T>.VerifyWasCalledWith
-  nameWithType.vb: IMockLogger(Of T).VerifyWasCalledWith
-- uid: BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalledWith``1(LogLevel,``0,System.String)
+  fullName: BlazorFocused.Tools.ITestLogger<T>.VerifyWasCalledWith
+  fullName.vb: BlazorFocused.Tools.ITestLogger(Of T).VerifyWasCalledWith
+  nameWithType: ITestLogger<T>.VerifyWasCalledWith
+  nameWithType.vb: ITestLogger(Of T).VerifyWasCalledWith
+- uid: BlazorFocused.Tools.ITestLogger`1.VerifyWasCalledWith``1(LogLevel,``0,System.String)
   name: VerifyWasCalledWith<TException>(LogLevel, TException, String)
-  href: api/BlazorFocused.Tools.Logger.IMockLogger-1.html#BlazorFocused_Tools_Logger_IMockLogger_1_VerifyWasCalledWith__1_LogLevel___0_System_String_
-  commentId: M:BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalledWith``1(LogLevel,``0,System.String)
+  href: api/BlazorFocused.Tools.ITestLogger-1.html#BlazorFocused_Tools_ITestLogger_1_VerifyWasCalledWith__1_LogLevel___0_System_String_
+  commentId: M:BlazorFocused.Tools.ITestLogger`1.VerifyWasCalledWith``1(LogLevel,``0,System.String)
   name.vb: VerifyWasCalledWith(Of TException)(LogLevel, TException, String)
-  fullName: BlazorFocused.Tools.Logger.IMockLogger<T>.VerifyWasCalledWith<TException>(LogLevel, TException, System.String)
-  fullName.vb: BlazorFocused.Tools.Logger.IMockLogger(Of T).VerifyWasCalledWith(Of TException)(LogLevel, TException, System.String)
-  nameWithType: IMockLogger<T>.VerifyWasCalledWith<TException>(LogLevel, TException, String)
-  nameWithType.vb: IMockLogger(Of T).VerifyWasCalledWith(Of TException)(LogLevel, TException, String)
-- uid: BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalledWithException*
+  fullName: BlazorFocused.Tools.ITestLogger<T>.VerifyWasCalledWith<TException>(LogLevel, TException, System.String)
+  fullName.vb: BlazorFocused.Tools.ITestLogger(Of T).VerifyWasCalledWith(Of TException)(LogLevel, TException, System.String)
+  nameWithType: ITestLogger<T>.VerifyWasCalledWith<TException>(LogLevel, TException, String)
+  nameWithType.vb: ITestLogger(Of T).VerifyWasCalledWith(Of TException)(LogLevel, TException, String)
+- uid: BlazorFocused.Tools.ITestLogger`1.VerifyWasCalledWithException*
   name: VerifyWasCalledWithException
-  href: api/BlazorFocused.Tools.Logger.IMockLogger-1.html#BlazorFocused_Tools_Logger_IMockLogger_1_VerifyWasCalledWithException_
-  commentId: Overload:BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalledWithException
+  href: api/BlazorFocused.Tools.ITestLogger-1.html#BlazorFocused_Tools_ITestLogger_1_VerifyWasCalledWithException_
+  commentId: Overload:BlazorFocused.Tools.ITestLogger`1.VerifyWasCalledWithException
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Logger.IMockLogger<T>.VerifyWasCalledWithException
-  fullName.vb: BlazorFocused.Tools.Logger.IMockLogger(Of T).VerifyWasCalledWithException
-  nameWithType: IMockLogger<T>.VerifyWasCalledWithException
-  nameWithType.vb: IMockLogger(Of T).VerifyWasCalledWithException
-- uid: BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalledWithException``1(LogLevel)
+  fullName: BlazorFocused.Tools.ITestLogger<T>.VerifyWasCalledWithException
+  fullName.vb: BlazorFocused.Tools.ITestLogger(Of T).VerifyWasCalledWithException
+  nameWithType: ITestLogger<T>.VerifyWasCalledWithException
+  nameWithType.vb: ITestLogger(Of T).VerifyWasCalledWithException
+- uid: BlazorFocused.Tools.ITestLogger`1.VerifyWasCalledWithException``1(LogLevel)
   name: VerifyWasCalledWithException<TException>(LogLevel)
-  href: api/BlazorFocused.Tools.Logger.IMockLogger-1.html#BlazorFocused_Tools_Logger_IMockLogger_1_VerifyWasCalledWithException__1_LogLevel_
-  commentId: M:BlazorFocused.Tools.Logger.IMockLogger`1.VerifyWasCalledWithException``1(LogLevel)
+  href: api/BlazorFocused.Tools.ITestLogger-1.html#BlazorFocused_Tools_ITestLogger_1_VerifyWasCalledWithException__1_LogLevel_
+  commentId: M:BlazorFocused.Tools.ITestLogger`1.VerifyWasCalledWithException``1(LogLevel)
   name.vb: VerifyWasCalledWithException(Of TException)(LogLevel)
-  fullName: BlazorFocused.Tools.Logger.IMockLogger<T>.VerifyWasCalledWithException<TException>(LogLevel)
-  fullName.vb: BlazorFocused.Tools.Logger.IMockLogger(Of T).VerifyWasCalledWithException(Of TException)(LogLevel)
-  nameWithType: IMockLogger<T>.VerifyWasCalledWithException<TException>(LogLevel)
-  nameWithType.vb: IMockLogger(Of T).VerifyWasCalledWithException(Of TException)(LogLevel)
-- uid: BlazorFocused.Tools.Logger.MockLogger`1
-  name: MockLogger<T>
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html
-  commentId: T:BlazorFocused.Tools.Logger.MockLogger`1
-  name.vb: MockLogger(Of T)
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T)
-  nameWithType: MockLogger<T>
-  nameWithType.vb: MockLogger(Of T)
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.#ctor(Action{LogLevel,System.String,Exception})
-  name: MockLogger(Action<LogLevel, String, Exception>)
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1__ctor_Action_LogLevel_System_String_Exception__
-  commentId: M:BlazorFocused.Tools.Logger.MockLogger`1.#ctor(Action{LogLevel,System.String,Exception})
-  name.vb: MockLogger(Action(Of LogLevel, String, Exception))
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.MockLogger(Action<LogLevel, System.String, Exception>)
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).MockLogger(Action(Of LogLevel, System.String, Exception))
-  nameWithType: MockLogger<T>.MockLogger(Action<LogLevel, String, Exception>)
-  nameWithType.vb: MockLogger(Of T).MockLogger(Action(Of LogLevel, String, Exception))
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.#ctor*
-  name: MockLogger
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1__ctor_
-  commentId: Overload:BlazorFocused.Tools.Logger.MockLogger`1.#ctor
+  fullName: BlazorFocused.Tools.ITestLogger<T>.VerifyWasCalledWithException<TException>(LogLevel)
+  fullName.vb: BlazorFocused.Tools.ITestLogger(Of T).VerifyWasCalledWithException(Of TException)(LogLevel)
+  nameWithType: ITestLogger<T>.VerifyWasCalledWithException<TException>(LogLevel)
+  nameWithType.vb: ITestLogger(Of T).VerifyWasCalledWithException(Of TException)(LogLevel)
+- uid: BlazorFocused.Tools.ToolsBuilder
+  name: ToolsBuilder
+  href: api/BlazorFocused.Tools.ToolsBuilder.html
+  commentId: T:BlazorFocused.Tools.ToolsBuilder
+  fullName: BlazorFocused.Tools.ToolsBuilder
+  nameWithType: ToolsBuilder
+- uid: BlazorFocused.Tools.ToolsBuilder.CreateSimulatedHttp(System.String)
+  name: CreateSimulatedHttp(String)
+  href: api/BlazorFocused.Tools.ToolsBuilder.html#BlazorFocused_Tools_ToolsBuilder_CreateSimulatedHttp_System_String_
+  commentId: M:BlazorFocused.Tools.ToolsBuilder.CreateSimulatedHttp(System.String)
+  fullName: BlazorFocused.Tools.ToolsBuilder.CreateSimulatedHttp(System.String)
+  nameWithType: ToolsBuilder.CreateSimulatedHttp(String)
+- uid: BlazorFocused.Tools.ToolsBuilder.CreateSimulatedHttp*
+  name: CreateSimulatedHttp
+  href: api/BlazorFocused.Tools.ToolsBuilder.html#BlazorFocused_Tools_ToolsBuilder_CreateSimulatedHttp_
+  commentId: Overload:BlazorFocused.Tools.ToolsBuilder.CreateSimulatedHttp
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.MockLogger
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).MockLogger
-  nameWithType: MockLogger<T>.MockLogger
-  nameWithType.vb: MockLogger(Of T).MockLogger
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.BeginScope*
-  name: BeginScope
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_BeginScope_
-  commentId: Overload:BlazorFocused.Tools.Logger.MockLogger`1.BeginScope
+  fullName: BlazorFocused.Tools.ToolsBuilder.CreateSimulatedHttp
+  nameWithType: ToolsBuilder.CreateSimulatedHttp
+- uid: BlazorFocused.Tools.ToolsBuilder.CreateTestLogger*
+  name: CreateTestLogger
+  href: api/BlazorFocused.Tools.ToolsBuilder.html#BlazorFocused_Tools_ToolsBuilder_CreateTestLogger_
+  commentId: Overload:BlazorFocused.Tools.ToolsBuilder.CreateTestLogger
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.BeginScope
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).BeginScope
-  nameWithType: MockLogger<T>.BeginScope
-  nameWithType.vb: MockLogger(Of T).BeginScope
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.BeginScope``1(``0)
-  name: BeginScope<TState>(TState)
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_BeginScope__1___0_
-  commentId: M:BlazorFocused.Tools.Logger.MockLogger`1.BeginScope``1(``0)
-  name.vb: BeginScope(Of TState)(TState)
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.BeginScope<TState>(TState)
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).BeginScope(Of TState)(TState)
-  nameWithType: MockLogger<T>.BeginScope<TState>(TState)
-  nameWithType.vb: MockLogger(Of T).BeginScope(Of TState)(TState)
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.IsEnabled(LogLevel)
-  name: IsEnabled(LogLevel)
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_IsEnabled_LogLevel_
-  commentId: M:BlazorFocused.Tools.Logger.MockLogger`1.IsEnabled(LogLevel)
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.IsEnabled(LogLevel)
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).IsEnabled(LogLevel)
-  nameWithType: MockLogger<T>.IsEnabled(LogLevel)
-  nameWithType.vb: MockLogger(Of T).IsEnabled(LogLevel)
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.IsEnabled*
-  name: IsEnabled
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_IsEnabled_
-  commentId: Overload:BlazorFocused.Tools.Logger.MockLogger`1.IsEnabled
+  fullName: BlazorFocused.Tools.ToolsBuilder.CreateTestLogger
+  nameWithType: ToolsBuilder.CreateTestLogger
+- uid: BlazorFocused.Tools.ToolsBuilder.CreateTestLogger``1(Action{LogLevel,System.String,Exception})
+  name: CreateTestLogger<T>(Action<LogLevel, String, Exception>)
+  href: api/BlazorFocused.Tools.ToolsBuilder.html#BlazorFocused_Tools_ToolsBuilder_CreateTestLogger__1_Action_LogLevel_System_String_Exception__
+  commentId: M:BlazorFocused.Tools.ToolsBuilder.CreateTestLogger``1(Action{LogLevel,System.String,Exception})
+  name.vb: CreateTestLogger(Of T)(Action(Of LogLevel, String, Exception))
+  fullName: BlazorFocused.Tools.ToolsBuilder.CreateTestLogger<T>(Action<LogLevel, System.String, Exception>)
+  fullName.vb: BlazorFocused.Tools.ToolsBuilder.CreateTestLogger(Of T)(Action(Of LogLevel, System.String, Exception))
+  nameWithType: ToolsBuilder.CreateTestLogger<T>(Action<LogLevel, String, Exception>)
+  nameWithType.vb: ToolsBuilder.CreateTestLogger(Of T)(Action(Of LogLevel, String, Exception))
+- uid: BlazorFocused.UrlBuilder
+  name: UrlBuilder
+  href: api/BlazorFocused.UrlBuilder.html
+  commentId: T:BlazorFocused.UrlBuilder
+  fullName: BlazorFocused.UrlBuilder
+  nameWithType: UrlBuilder
+- uid: BlazorFocused.UrlBuilder.SetPath(System.String)
+  name: SetPath(String)
+  href: api/BlazorFocused.UrlBuilder.html#BlazorFocused_UrlBuilder_SetPath_System_String_
+  commentId: M:BlazorFocused.UrlBuilder.SetPath(System.String)
+  fullName: BlazorFocused.UrlBuilder.SetPath(System.String)
+  nameWithType: UrlBuilder.SetPath(String)
+- uid: BlazorFocused.UrlBuilder.SetPath*
+  name: SetPath
+  href: api/BlazorFocused.UrlBuilder.html#BlazorFocused_UrlBuilder_SetPath_
+  commentId: Overload:BlazorFocused.UrlBuilder.SetPath
   isSpec: "True"
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.IsEnabled
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).IsEnabled
-  nameWithType: MockLogger<T>.IsEnabled
-  nameWithType.vb: MockLogger(Of T).IsEnabled
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.Log*
-  name: Log
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_Log_
-  commentId: Overload:BlazorFocused.Tools.Logger.MockLogger`1.Log
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.Log
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).Log
-  nameWithType: MockLogger<T>.Log
-  nameWithType.vb: MockLogger(Of T).Log
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.Log``1(LogLevel,EventId,``0,Exception,Func{``0,Exception,System.String})
-  name: Log<TState>(LogLevel, EventId, TState, Exception, Func<TState, Exception, String>)
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_Log__1_LogLevel_EventId___0_Exception_Func___0_Exception_System_String__
-  commentId: M:BlazorFocused.Tools.Logger.MockLogger`1.Log``1(LogLevel,EventId,``0,Exception,Func{``0,Exception,System.String})
-  name.vb: Log(Of TState)(LogLevel, EventId, TState, Exception, Func(Of TState, Exception, String))
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.Log<TState>(LogLevel, EventId, TState, Exception, Func<TState, Exception, System.String>)
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).Log(Of TState)(LogLevel, EventId, TState, Exception, Func(Of TState, Exception, System.String))
-  nameWithType: MockLogger<T>.Log<TState>(LogLevel, EventId, TState, Exception, Func<TState, Exception, String>)
-  nameWithType.vb: MockLogger(Of T).Log(Of TState)(LogLevel, EventId, TState, Exception, Func(Of TState, Exception, String))
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalled
-  name: VerifyWasCalled()
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_VerifyWasCalled
-  commentId: M:BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalled
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.VerifyWasCalled()
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).VerifyWasCalled()
-  nameWithType: MockLogger<T>.VerifyWasCalled()
-  nameWithType.vb: MockLogger(Of T).VerifyWasCalled()
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalled*
-  name: VerifyWasCalled
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_VerifyWasCalled_
-  commentId: Overload:BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalled
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.VerifyWasCalled
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).VerifyWasCalled
-  nameWithType: MockLogger<T>.VerifyWasCalled
-  nameWithType.vb: MockLogger(Of T).VerifyWasCalled
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalledWith(LogLevel)
-  name: VerifyWasCalledWith(LogLevel)
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_VerifyWasCalledWith_LogLevel_
-  commentId: M:BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalledWith(LogLevel)
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.VerifyWasCalledWith(LogLevel)
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).VerifyWasCalledWith(LogLevel)
-  nameWithType: MockLogger<T>.VerifyWasCalledWith(LogLevel)
-  nameWithType.vb: MockLogger(Of T).VerifyWasCalledWith(LogLevel)
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalledWith(LogLevel,System.String)
-  name: VerifyWasCalledWith(LogLevel, String)
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_VerifyWasCalledWith_LogLevel_System_String_
-  commentId: M:BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalledWith(LogLevel,System.String)
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.VerifyWasCalledWith(LogLevel, System.String)
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).VerifyWasCalledWith(LogLevel, System.String)
-  nameWithType: MockLogger<T>.VerifyWasCalledWith(LogLevel, String)
-  nameWithType.vb: MockLogger(Of T).VerifyWasCalledWith(LogLevel, String)
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalledWith*
-  name: VerifyWasCalledWith
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_VerifyWasCalledWith_
-  commentId: Overload:BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalledWith
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.VerifyWasCalledWith
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).VerifyWasCalledWith
-  nameWithType: MockLogger<T>.VerifyWasCalledWith
-  nameWithType.vb: MockLogger(Of T).VerifyWasCalledWith
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalledWith``1(LogLevel,``0,System.String)
-  name: VerifyWasCalledWith<TException>(LogLevel, TException, String)
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_VerifyWasCalledWith__1_LogLevel___0_System_String_
-  commentId: M:BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalledWith``1(LogLevel,``0,System.String)
-  name.vb: VerifyWasCalledWith(Of TException)(LogLevel, TException, String)
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.VerifyWasCalledWith<TException>(LogLevel, TException, System.String)
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).VerifyWasCalledWith(Of TException)(LogLevel, TException, System.String)
-  nameWithType: MockLogger<T>.VerifyWasCalledWith<TException>(LogLevel, TException, String)
-  nameWithType.vb: MockLogger(Of T).VerifyWasCalledWith(Of TException)(LogLevel, TException, String)
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalledWithException*
-  name: VerifyWasCalledWithException
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_VerifyWasCalledWithException_
-  commentId: Overload:BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalledWithException
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.VerifyWasCalledWithException
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).VerifyWasCalledWithException
-  nameWithType: MockLogger<T>.VerifyWasCalledWithException
-  nameWithType.vb: MockLogger(Of T).VerifyWasCalledWithException
-- uid: BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalledWithException``1(LogLevel)
-  name: VerifyWasCalledWithException<TException>(LogLevel)
-  href: api/BlazorFocused.Tools.Logger.MockLogger-1.html#BlazorFocused_Tools_Logger_MockLogger_1_VerifyWasCalledWithException__1_LogLevel_
-  commentId: M:BlazorFocused.Tools.Logger.MockLogger`1.VerifyWasCalledWithException``1(LogLevel)
-  name.vb: VerifyWasCalledWithException(Of TException)(LogLevel)
-  fullName: BlazorFocused.Tools.Logger.MockLogger<T>.VerifyWasCalledWithException<TException>(LogLevel)
-  fullName.vb: BlazorFocused.Tools.Logger.MockLogger(Of T).VerifyWasCalledWithException(Of TException)(LogLevel)
-  nameWithType: MockLogger<T>.VerifyWasCalledWithException<TException>(LogLevel)
-  nameWithType.vb: MockLogger(Of T).VerifyWasCalledWithException(Of TException)(LogLevel)
-- uid: BlazorFocused.Tools.Logger.MockLoggerException
-  name: MockLoggerException
-  href: api/BlazorFocused.Tools.Logger.MockLoggerException.html
-  commentId: T:BlazorFocused.Tools.Logger.MockLoggerException
-  fullName: BlazorFocused.Tools.Logger.MockLoggerException
-  nameWithType: MockLoggerException
-- uid: BlazorFocused.Tools.Logger.MockLoggerException.#ctor(System.String)
-  name: MockLoggerException(String)
-  href: api/BlazorFocused.Tools.Logger.MockLoggerException.html#BlazorFocused_Tools_Logger_MockLoggerException__ctor_System_String_
-  commentId: M:BlazorFocused.Tools.Logger.MockLoggerException.#ctor(System.String)
-  fullName: BlazorFocused.Tools.Logger.MockLoggerException.MockLoggerException(System.String)
-  nameWithType: MockLoggerException.MockLoggerException(String)
-- uid: BlazorFocused.Tools.Logger.MockLoggerException.#ctor(System.String,Exception)
-  name: MockLoggerException(String, Exception)
-  href: api/BlazorFocused.Tools.Logger.MockLoggerException.html#BlazorFocused_Tools_Logger_MockLoggerException__ctor_System_String_Exception_
-  commentId: M:BlazorFocused.Tools.Logger.MockLoggerException.#ctor(System.String,Exception)
-  fullName: BlazorFocused.Tools.Logger.MockLoggerException.MockLoggerException(System.String, Exception)
-  nameWithType: MockLoggerException.MockLoggerException(String, Exception)
-- uid: BlazorFocused.Tools.Logger.MockLoggerException.#ctor*
-  name: MockLoggerException
-  href: api/BlazorFocused.Tools.Logger.MockLoggerException.html#BlazorFocused_Tools_Logger_MockLoggerException__ctor_
-  commentId: Overload:BlazorFocused.Tools.Logger.MockLoggerException.#ctor
-  isSpec: "True"
-  fullName: BlazorFocused.Tools.Logger.MockLoggerException.MockLoggerException
-  nameWithType: MockLoggerException.MockLoggerException
+  fullName: BlazorFocused.UrlBuilder.SetPath
+  nameWithType: UrlBuilder.SetPath
 - uid: client/oauthrestclient
   name: OAuth Rest Client
   href: guides/client/oauthrestclient.html

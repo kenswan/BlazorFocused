@@ -16,11 +16,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Client.IOAuthRestClient.yml",
+      "source_relative_path": "api/BlazorFocused.Client.Extensions.RestClientExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Client.IOAuthRestClient.html",
-          "hash": "q94valAzUGKvGU3IRpmqqOTfIq7KChNjr0v9+1k8PFo="
+          "relative_path": "api/BlazorFocused.Client.Extensions.RestClientExtensions.html",
+          "hash": "3/971C0+50Gb5QwJYKj9pyYtFGYHoJAmfckAfOIDp9M="
         }
       },
       "is_incremental": false,
@@ -28,11 +28,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Client.IRestClient.yml",
+      "source_relative_path": "api/BlazorFocused.Client.Extensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Client.IRestClient.html",
-          "hash": "RgfEl9wo2vIzgm43PT4v/7Rorl/2iUNsf7AYti8LnUk="
+          "relative_path": "api/BlazorFocused.Client.Extensions.html",
+          "hash": "FCYntjGo+lUUhibY5tWYbtqyfGkuI5ZYsaEDkgWDIiE="
         }
       },
       "is_incremental": false,
@@ -40,11 +40,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Client.RestClientException.yml",
+      "source_relative_path": "api/BlazorFocused.IAction-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Client.RestClientException.html",
-          "hash": "5fhZP2pxBEfgNJVOWqVJVjRQkXUbs4BAzEmNBqlg7SQ="
+          "relative_path": "api/BlazorFocused.IAction-1.html",
+          "hash": "qgbF8+KKTe3iVEJPdS334LvH84D+81y/L7p9PqDet3Q="
         }
       },
       "is_incremental": false,
@@ -52,11 +52,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Client.RestClientResponse-1.yml",
+      "source_relative_path": "api/BlazorFocused.IAction-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Client.RestClientResponse-1.html",
-          "hash": "KEtvFA4YitwDWzqz0MV7NATCUBXkSUozZKTi5FxjP5E="
+          "relative_path": "api/BlazorFocused.IAction-2.html",
+          "hash": "2LsyMeENXpG+jgN/dXSHnyIh1nke7tpNaxGa1yEDckM="
         }
       },
       "is_incremental": false,
@@ -64,11 +64,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Client.ServiceCollectionExtensions.yml",
+      "source_relative_path": "api/BlazorFocused.IActionAsync-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Client.ServiceCollectionExtensions.html",
-          "hash": "U3zqCbAFT8Umao4mMT5eMxkzvxSGuP/7qdU+b0/d20Q="
+          "relative_path": "api/BlazorFocused.IActionAsync-1.html",
+          "hash": "Q1PGZf7qxrjGouiOaI2LwU/StKzfXFj0sg4mr/7KPQk="
         }
       },
       "is_incremental": false,
@@ -76,11 +76,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Client.yml",
+      "source_relative_path": "api/BlazorFocused.IActionAsync-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Client.html",
-          "hash": "q2CQJV0uFBBqAUptcV+Jb1wThEZBt0OX5JwDgpu8qk4="
+          "relative_path": "api/BlazorFocused.IActionAsync-2.html",
+          "hash": "0qlkgS3Gt6LICPhby4NzuAmLcula5rpHLL6SNoIhwpY="
         }
       },
       "is_incremental": false,
@@ -88,11 +88,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.IAction-1.yml",
+      "source_relative_path": "api/BlazorFocused.IOAuthRestClient.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.IAction-1.html",
-          "hash": "C896G26h3eu39eXUUInpApjV1RsnO2915r1bxIx0WJY="
+          "relative_path": "api/BlazorFocused.IOAuthRestClient.html",
+          "hash": "6zJIgueemReeI9ayxvSEOh1XXrBCBBTpl2xYHCxWez0="
         }
       },
       "is_incremental": false,
@@ -100,11 +100,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.IAction-2.yml",
+      "source_relative_path": "api/BlazorFocused.IReducer-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.IAction-2.html",
-          "hash": "REZaJdGuveTlybp5K+rxvF9AeJHHK0opV2LCBl8v3qs="
+          "relative_path": "api/BlazorFocused.IReducer-2.html",
+          "hash": "uUmKr0xTqsbh7yHhvjmRa4nqRWQn7JWs/HG84W3NbRg="
         }
       },
       "is_incremental": false,
@@ -112,11 +112,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.IActionAsync-1.yml",
+      "source_relative_path": "api/BlazorFocused.IRestClient.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.IActionAsync-1.html",
-          "hash": "5NqQOpmFcHBgrSymhpErm9duYMdbxQO25oSpCkOUGoo="
+          "relative_path": "api/BlazorFocused.IRestClient.html",
+          "hash": "rUpl59VzOo0UbBaG+pwJ0TxEM8CLRD44Ug+PG8dXsx4="
         }
       },
       "is_incremental": false,
@@ -124,11 +124,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.IActionAsync-2.yml",
+      "source_relative_path": "api/BlazorFocused.IRestClientUrlBuilder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.IActionAsync-2.html",
-          "hash": "6ESUgupPLcwXVkEt6r02sX+vcp56cPCnyO1xZB87quc="
+          "relative_path": "api/BlazorFocused.IRestClientUrlBuilder.html",
+          "hash": "GyndOXxJZD7LC0m0OebM0D1T9lJLD5t9g0ZNzyfCPpE="
         }
       },
       "is_incremental": false,
@@ -136,11 +136,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.IReducer-2.yml",
+      "source_relative_path": "api/BlazorFocused.IStore-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.IReducer-2.html",
-          "hash": "oPGHGpw/RtDJM2DoRWFiQycRLhidbHN6jGCz3BubqPk="
+          "relative_path": "api/BlazorFocused.IStore-1.html",
+          "hash": "QzjECbMb9yeLzu8vl3CMI9tP6+FV0kVAQ8EoPFxywMo="
         }
       },
       "is_incremental": false,
@@ -148,11 +148,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.IStore-1.yml",
+      "source_relative_path": "api/BlazorFocused.IStoreAction-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.IStore-1.html",
-          "hash": "714bv3NjLAY7ChsJhY4W6BQjmNTIaqR/98lMjYXYL9M="
+          "relative_path": "api/BlazorFocused.IStoreAction-1.html",
+          "hash": "ubABu95ckjzo6dcUw73u2hACcLKExZqS5GHp4F5kw48="
         }
       },
       "is_incremental": false,
@@ -160,11 +160,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.IStoreAction-1.yml",
+      "source_relative_path": "api/BlazorFocused.RestClientHttpException.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.IStoreAction-1.html",
-          "hash": "heXGyQFSW5yks8W5BY/4WtmK7wHxwoZaJLTHiFJEE80="
+          "relative_path": "api/BlazorFocused.RestClientHttpException.html",
+          "hash": "86gTFI4xdCgvX0kpT3W+BAVz55Jmf8j8J3S5PLPMN94="
         }
       },
       "is_incremental": false,
@@ -172,11 +172,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.ServiceCollectionExtensions.yml",
+      "source_relative_path": "api/BlazorFocused.RestClientResponse-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.ServiceCollectionExtensions.html",
-          "hash": "dIUoGKahUMxvpf1vdOPakTSBdJVBWMFPDbctk1DaRAA="
+          "relative_path": "api/BlazorFocused.RestClientResponse-1.html",
+          "hash": "gqhAn4iuNuGuMB3peAvolJ3Bm5kiD6kiQKNU5fuI6mY="
         }
       },
       "is_incremental": false,
@@ -184,11 +184,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.StoreAction-1.yml",
+      "source_relative_path": "api/BlazorFocused.RestClientTask.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.StoreAction-1.html",
-          "hash": "tmPS5BQkuKCeF689xgAbJg+SxI855L5VjOjhjc0DLQc="
+          "relative_path": "api/BlazorFocused.RestClientTask.html",
+          "hash": "CqCVzIbPRQJ1Zy1IccXZsty6ixosctXKMxmwWuhAc3Y="
         }
       },
       "is_incremental": false,
@@ -196,11 +196,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.StoreAction-2.yml",
+      "source_relative_path": "api/BlazorFocused.ServiceCollectionExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.StoreAction-2.html",
-          "hash": "YoCO3erbTeyrSI26c2E0bYlS3kDeIZhdIl32afXrcnw="
+          "relative_path": "api/BlazorFocused.ServiceCollectionExtensions.html",
+          "hash": "y9lY517wZFwnx0wDlmiM3UTRkT3HTCjfBb3rwQ90tiw="
         }
       },
       "is_incremental": false,
@@ -208,11 +208,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.StoreActionAsync-1.yml",
+      "source_relative_path": "api/BlazorFocused.StoreAction-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.StoreActionAsync-1.html",
-          "hash": "F4acgUwIC9+DytifzaBCx+jTzlGxrMzhemFD+ix/kjw="
+          "relative_path": "api/BlazorFocused.StoreAction-1.html",
+          "hash": "J+0SCduhmjtpyKvINN72SZBgDbniZKtp/8zQQesmrX0="
         }
       },
       "is_incremental": false,
@@ -220,11 +220,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.StoreActionAsync-2.yml",
+      "source_relative_path": "api/BlazorFocused.StoreAction-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.StoreActionAsync-2.html",
-          "hash": "uGzDgTyAJgcaKVE7LnJ0d3KU/bwm7DlyK7T1uimRpUg="
+          "relative_path": "api/BlazorFocused.StoreAction-2.html",
+          "hash": "AtfWqEm0tvH4RTYtQDMiUGfcIamH5NTNtVydjYAV9PI="
         }
       },
       "is_incremental": false,
@@ -232,11 +232,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Store.yml",
+      "source_relative_path": "api/BlazorFocused.StoreActionAsync-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Store.html",
-          "hash": "DjeBKe7AW8f88IcV+3By0L8NRgnc+zMLix6emEQ4NxA="
+          "relative_path": "api/BlazorFocused.StoreActionAsync-1.html",
+          "hash": "vW8lc6v+jwgv55ELP48qeKcp8EsxwIEDLsj/oc1iDd0="
         }
       },
       "is_incremental": false,
@@ -244,11 +244,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Tools.Client.HttpClientBuilderExtensions.yml",
+      "source_relative_path": "api/BlazorFocused.StoreActionAsync-2.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Tools.Client.HttpClientBuilderExtensions.html",
-          "hash": "inrB/ZRJ7zQ3o1eX5Ez+QnkOSS21IeJLYetIJsGx3Fo="
+          "relative_path": "api/BlazorFocused.StoreActionAsync-2.html",
+          "hash": "L7QAO32FgKPmWHQKcg2VhTv5JwVLob2TUmCzJ09/6fU="
         }
       },
       "is_incremental": false,
@@ -256,11 +256,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Tools.Client.ISimulatedHttp.yml",
+      "source_relative_path": "api/BlazorFocused.Tools.HttpClientBuilderExtensions.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Tools.Client.ISimulatedHttp.html",
-          "hash": "Rc2MEkdfrAIfgpfHwVTChL8JLhnvzB1sdr8FVJLxLzI="
+          "relative_path": "api/BlazorFocused.Tools.HttpClientBuilderExtensions.html",
+          "hash": "IuUsKlDQLiUhhOqO10x/5bBhxJe+Ee7TJ0pXKyRyM6k="
         }
       },
       "is_incremental": false,
@@ -268,11 +268,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Tools.Client.ISimulatedHttpSetup.yml",
+      "source_relative_path": "api/BlazorFocused.Tools.ISimulatedHttp.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Tools.Client.ISimulatedHttpSetup.html",
-          "hash": "bxY2XgmHB/xUEbK9tS5GutyL4Y69/zyo9zLYo3CmAbU="
+          "relative_path": "api/BlazorFocused.Tools.ISimulatedHttp.html",
+          "hash": "0MNdxUSzr6yrGLJZ1qOmWvTtBIpkWR1pdwF5X4GyNIA="
         }
       },
       "is_incremental": false,
@@ -280,11 +280,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Tools.Client.SimulatedHttp.yml",
+      "source_relative_path": "api/BlazorFocused.Tools.ISimulatedHttpSetup.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Tools.Client.SimulatedHttp.html",
-          "hash": "wrZI5DJ0IGQs5OPNH6EMvX2FmU5MV9Svat9LZXJhDJY="
+          "relative_path": "api/BlazorFocused.Tools.ISimulatedHttpSetup.html",
+          "hash": "8dPp0BF2reuXrPK1O+S8qaVQu23zvSVsVyA5hC9h6ps="
         }
       },
       "is_incremental": false,
@@ -292,11 +292,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Tools.Client.SimulatedHttpTestException.yml",
+      "source_relative_path": "api/BlazorFocused.Tools.ITestLogger-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Tools.Client.SimulatedHttpTestException.html",
-          "hash": "q+72DOjWcSdL4gXuzvyrUZI8l7m/zo3iDwS6qwWnhxs="
+          "relative_path": "api/BlazorFocused.Tools.ITestLogger-1.html",
+          "hash": "Xnkn7mWwtPPu3ioFZv5jf8kEx0DxhBT0tWr0GgLaMk4="
         }
       },
       "is_incremental": false,
@@ -304,11 +304,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Tools.Client.yml",
+      "source_relative_path": "api/BlazorFocused.Tools.ToolsBuilder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Tools.Client.html",
-          "hash": "epKXWRY3D1BpvfWtbmHIgQCh8BuaOo+jpDtP3KABS0c="
+          "relative_path": "api/BlazorFocused.Tools.ToolsBuilder.html",
+          "hash": "mbanRazofIKRIHsFul4mFFFyni5Y8CgvnuQzWJnU4DI="
         }
       },
       "is_incremental": false,
@@ -316,11 +316,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Tools.Logger.IMockLogger-1.yml",
+      "source_relative_path": "api/BlazorFocused.Tools.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Tools.Logger.IMockLogger-1.html",
-          "hash": "ouq5sKyVdYy1e6D41loWUY7KMj6GDBkFJn4ywiY9wa8="
+          "relative_path": "api/BlazorFocused.Tools.html",
+          "hash": "LVWzgDTSoykUQqn6wbtMt1tQ6xeiPoVTcEPjvc3rF5c="
         }
       },
       "is_incremental": false,
@@ -328,11 +328,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Tools.Logger.MockLogger-1.yml",
+      "source_relative_path": "api/BlazorFocused.UrlBuilder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Tools.Logger.MockLogger-1.html",
-          "hash": "KdBrO8YXDUBnVzv/lCYgv/czEZBuzgZZdCUzt97271A="
+          "relative_path": "api/BlazorFocused.UrlBuilder.html",
+          "hash": "1hj9VKwyJx8wtHzQm7BWm6X2TLNWuVKA+fsxvYmjoGI="
         }
       },
       "is_incremental": false,
@@ -340,35 +340,26 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Tools.Logger.MockLoggerException.yml",
+      "source_relative_path": "api/BlazorFocused.yml",
       "output": {
         ".html": {
-          "relative_path": "api/BlazorFocused.Tools.Logger.MockLoggerException.html",
-          "hash": "CLpfGkYO19Qy6ZOaf7YeC/plZYSFhkkpn8n8GAepY9I="
+          "relative_path": "api/BlazorFocused.html",
+          "hash": "UBhajKHTvQzUikXnI3f/9am7AbvkFxs2oVhrqbJrUpk="
         }
       },
       "is_incremental": false,
       "version": ""
     },
     {
-      "type": "ManagedReference",
-      "source_relative_path": "api/BlazorFocused.Tools.Logger.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/BlazorFocused.Tools.Logger.html",
-          "hash": "UDgm1MOK+dp1OGZ4+1VJnyaU6DF2Uk8hVTsMVhEh3TY="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "mRjf2ETodFZBEcLTV+U8t/bUZXBoJMEK8DXDFVhy4xQ="
+          "hash": "9UqbAid3wQdFG3xETE38f+xgZjLVogQsNCnyfjyylSg="
         }
       },
       "is_incremental": false,
@@ -380,7 +371,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "MMd9IqadBmmcIjwU7t/VrI+luw7YTiWBXblLZdPXHJE="
+          "hash": "tfnN99uu3bkAc/ADCikIAAH4q9YvMCnoZ5hMJ766CAc="
         }
       },
       "is_incremental": false,
@@ -392,7 +383,7 @@
       "output": {
         ".html": {
           "relative_path": "guides/client/oauthrestclient.html",
-          "hash": "wqFh4wmQyKBsIuL8TUbvDgrjlOyHZEXdJUZur0/n1pg="
+          "hash": "PU2apn7HiHyvH9jAPg1oQZrFQfy/8jVeZCK90UHv9Rs="
         }
       },
       "is_incremental": false,
@@ -404,7 +395,7 @@
       "output": {
         ".html": {
           "relative_path": "guides/client/restclient.html",
-          "hash": "JJkxAjI5wxe+9cROY4lsmepuS41Vr6kvHfkxPA+s3oU="
+          "hash": "kkn6p67XK+4UVGGlXK62j/woNGJVigPQbjznB3i54hQ="
         }
       },
       "is_incremental": false,
@@ -416,7 +407,7 @@
       "output": {
         ".html": {
           "relative_path": "guides/index.html",
-          "hash": "FMITv4RMnLinyWd9WDk1kSVrMSdfFjmrmcJ2Q0jGcjA="
+          "hash": "qj7tYfYQMCjViSobmuwEOQN/eYlsjqVDEtU2ELQyrDA="
         }
       },
       "is_incremental": false,
@@ -428,7 +419,7 @@
       "output": {
         ".html": {
           "relative_path": "guides/store/actions.html",
-          "hash": "j6OVXg4Rhehw1UjXv4NE2zw6Smm1De9ChVVPTqQyWFI="
+          "hash": "BX81fMtgNWj/g63TDyiuF1UUnLYa24MicVWo+KVY7vA="
         }
       },
       "is_incremental": false,
@@ -440,7 +431,7 @@
       "output": {
         ".html": {
           "relative_path": "guides/store/reducers.html",
-          "hash": "P1RG1uXREJPWrseyvmXHTc0himCu4Jxq+deX0YiEYf8="
+          "hash": "a4y++rSdrBzXRylNQ3X9S8eYk86MNng3KM3rhFUmMvg="
         }
       },
       "is_incremental": false,
@@ -452,7 +443,7 @@
       "output": {
         ".html": {
           "relative_path": "guides/store/stores.html",
-          "hash": "c+QD0mJmJuvusXMZrYAnTxVqH+jntm9P1NCFU0ZKgK4="
+          "hash": "xj2/MIjr9XRacAePoscGacmZejvZvV1/Kei4xyItzbg="
         }
       },
       "is_incremental": false,
@@ -476,7 +467,7 @@
       "output": {
         ".html": {
           "relative_path": "guides/tools/mocklogger.html",
-          "hash": "Pelsko3/jWLfLMU7CDcnlJ6qGjlgh3gyAwpA/4vSwJc="
+          "hash": "SrEpv9o6y39snDKeg+TG6g+ktmBnAxB4/Wcc3ifRtEc="
         }
       },
       "is_incremental": false,
@@ -488,7 +479,7 @@
       "output": {
         ".html": {
           "relative_path": "guides/tools/simulatedhttp.html",
-          "hash": "ErFJOy8cRWu+C/rIrkyA8M+lKqABx8ItAwHfCPmincs="
+          "hash": "pnphu5X3+mXMxFCxrpF2VjubzP6SjfV3V8dmiZ83PaU="
         }
       },
       "is_incremental": false,
@@ -511,7 +502,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "rcySW9hBAxO2W1N9ncfAXDx4Pc2Gxrk27jN8GA80zgE="
+          "hash": "uWll46jCVDHc9ii0td685hfjKjzG21oxhgIHieiKsSc="
         }
       },
       "is_incremental": false,
@@ -550,7 +541,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 29,
+          "total_file_count": 28,
           "skipped_file_count": 0
         },
         "ResourceDocumentProcessor": {

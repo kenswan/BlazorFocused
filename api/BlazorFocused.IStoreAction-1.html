@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface ISimulatedHttpSetup
+    <title>Interface IStoreAction&lt;TState&gt;
    | Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface ISimulatedHttpSetup
+    <meta name="title" content="Interface IStoreAction&lt;TState&gt;
    | Documentation ">
     <meta name="generator" content="docfx 2.59.0.0">
     
@@ -68,59 +68,66 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="BlazorFocused.Tools.Client.ISimulatedHttpSetup">
+            <article class="content wrap" id="_content" data-uid="BlazorFocused.IStoreAction`1">
   
   
-  <h1 id="BlazorFocused_Tools_Client_ISimulatedHttpSetup" data-uid="BlazorFocused.Tools.Client.ISimulatedHttpSetup" class="text-break">Interface ISimulatedHttpSetup
+  <h1 id="BlazorFocused_IStoreAction_1" data-uid="BlazorFocused.IStoreAction`1" class="text-break">Interface IStoreAction&lt;TState&gt;
   </h1>
-  <div class="markdown level0 summary"><p>Handles configuration/simulated response returned for a request from <a class="xref" href="BlazorFocused.Tools.Client.ISimulatedHttp.html">ISimulatedHttp</a></p>
+  <div class="markdown level0 summary"><p>Base interface of all store actions for interacting with store state</p>
 </div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="BlazorFocused.Tools.Client.html">BlazorFocused.Tools.Client</a></h6>
-  <h6><strong>Assembly</strong>: BlazorFocused.Tools.dll</h6>
-  <h5 id="BlazorFocused_Tools_Client_ISimulatedHttpSetup_syntax">Syntax</h5>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlazorFocused.html">BlazorFocused</a></h6>
+  <h6><strong>Assembly</strong>: BlazorFocused.Store.dll</h6>
+  <h5 id="BlazorFocused_IStoreAction_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface ISimulatedHttpSetup</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IStoreAction&lt;TState&gt;</code></pre>
   </div>
-  <h3 id="methods">Methods
-  </h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Tools_Client_ISimulatedHttpSetup_ReturnsAsync_System_Net_HttpStatusCode_System_Object_.md&amp;value=---%0Auid%3A%20BlazorFocused.Tools.Client.ISimulatedHttpSetup.ReturnsAsync(System.Net.HttpStatusCode%2CSystem.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/tools/Client/ISimulatedHttpSetup.cs/#L15">View Source</a>
-  </span>
-  <a id="BlazorFocused_Tools_Client_ISimulatedHttpSetup_ReturnsAsync_" data-uid="BlazorFocused.Tools.Client.ISimulatedHttpSetup.ReturnsAsync*"></a>
-  <h4 id="BlazorFocused_Tools_Client_ISimulatedHttpSetup_ReturnsAsync_System_Net_HttpStatusCode_System_Object_" data-uid="BlazorFocused.Tools.Client.ISimulatedHttpSetup.ReturnsAsync(System.Net.HttpStatusCode,System.Object)">ReturnsAsync(HttpStatusCode, Object)</h4>
-  <div class="markdown level1 summary"><p>Configures the expected results of &quot;Setup&quot; request/&gt;</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void ReturnsAsync(HttpStatusCode statusCode, object responseObject)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
-        <th>Type</th>
         <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Net.HttpStatusCode</span></td>
-        <td><span class="parametername">statusCode</span></td>
-        <td><p>Simulated http response status</p>
+        <td><span class="parametername">TState</span></td>
+        <td><p>Type of <a class="xref" href="BlazorFocused.IStore-1.html">IStore&lt;TState&gt;</a> state</p>
 </td>
       </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_IStoreAction_1_State.md&amp;value=---%0Auid%3A%20BlazorFocused.IStoreAction%601.State%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/store/IStoreAction.cs/#L12">View Source</a>
+  </span>
+  <a id="BlazorFocused_IStoreAction_1_State_" data-uid="BlazorFocused.IStoreAction`1.State*"></a>
+  <h4 id="BlazorFocused_IStoreAction_1_State" data-uid="BlazorFocused.IStoreAction`1.State">State</h4>
+  <div class="markdown level1 summary"><p>Store State</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">TState State { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
       <tr>
-        <td><span class="xref">System.Object</span></td>
-        <td><span class="parametername">responseObject</span></td>
-        <td><p>Simulated deserialized object in http response body</p>
-</td>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TState</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -132,10 +139,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/new/ae569c8ca53ea09c037fad773fffbda460639b10/apiSpec/new?filename=BlazorFocused_Tools_Client_ISimulatedHttpSetup.md&amp;value=---%0Auid%3A%20BlazorFocused.Tools.Client.ISimulatedHttpSetup%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/new/e4d66f503ee4b8ba73b3279377a5b688dee939c9/apiSpec/new?filename=BlazorFocused_IStoreAction_1.md&amp;value=---%0Auid%3A%20BlazorFocused.IStoreAction%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/blob/ae569c8ca53ea09c037fad773fffbda460639b10/src/tools/Client/ISimulatedHttpSetup.cs/#L8" class="contribution-link">View Source</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/blob/e4d66f503ee4b8ba73b3279377a5b688dee939c9/src/store/IStoreAction.cs/#L7" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
