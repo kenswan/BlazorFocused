@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using Xunit;
 
-namespace BlazorFocused.Client.Extensions
+namespace BlazorFocused.Extensions
 {
     public partial class RestClientExtensionsTests
     {

@@ -4,7 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace BlazorFocused.Tools
 {
     /// <summary>
-    /// <see cref="IHttpClientBuilder"/> extensions that allow Typed Clients to return mock data
+    /// Extensions for <see cref="IHttpClientBuilder"/> that allow Typed Clients to return mock data
     /// </summary>
     public static class HttpClientBuilderExtensions
     {

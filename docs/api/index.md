@@ -7,14 +7,16 @@ _disableBreadcrumb: true
 
 ## Namespaces
 
-[BlazorFocused.Client](BlazorFocused.Client.yml)
+### [BlazorFocused.Client](BlazorFocused.yml)
+
+#### BlazorFocused Client
 
 Wrapped HttpClient interfaces that streamline normal usage
 
-[BlazorFocused.Store](BlazorFocused.Store.yml)
+#### BlazorFocused Store
 
 Provides one single source of updating and retrieving data throughout entire application
 
-[BlazorFocused.Tools](BlazorFocused.Tools.Client.yml)
+### [BlazorFocused.Tools](BlazorFocused.Tools.yml)
 
-Provides test utilities that make it easy test with lower construct dependencies
+Provides test utilities that make it easy test with lower construct dependencies (ILogger/HttpClient)
