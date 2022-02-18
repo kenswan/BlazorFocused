@@ -4,7 +4,7 @@
     /// Exception returned with failed requests and operations within <see cref="IRestClient"/>
     /// and <see cref="IOAuthRestClient"/>
     /// </summary>
-    public class RestClientException : Exception
+    internal class RestClientException : Exception
     {
         /// <summary>
         /// Initializes a new instance of <see cref="RestClientException"/>

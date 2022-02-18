@@ -2,12 +2,24 @@
 
 namespace BlazorFocused
 {
+    /// <summary>
+    /// Exception returned with failed http requests and operations within <see cref="IRestClient"/>
+    /// </summary>
     public class RestClientHttpException : Exception
     {
+        /// <summary>
+        /// Method of origin http request (DELETE, GET, PATCH, POST, PUT)
+        /// </summary>
         public HttpMethod Method { get; private set; }
 
+        /// <summary>
+        /// Http Response status code of failed http request
+        /// </summary>
         public HttpStatusCode StatusCode { get; private set; }
 
+        /// <summary>
+        /// Url of origin http request
+        /// </summary>
         public string Url { get; private set; }
 
         /// <summary>
