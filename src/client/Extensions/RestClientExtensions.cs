@@ -2,6 +2,9 @@
 
 namespace BlazorFocused.Client.Extensions
 {
+    /// <summary>
+    /// <see cref="IRestClient"/> extensions for http requests/responses and url construction
+    /// </summary>
     public static partial class RestClientExtensions
     {
         private static async Task<RestClientResponse<T>> GetRestClientResponse<T>(
