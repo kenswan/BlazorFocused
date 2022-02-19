@@ -18,6 +18,15 @@
         HttpClient HttpClient { get; }
 
         /// <summary>
+        /// Retrieve header values under specified key for a given request
+        /// </summary>
+        /// <param name="method">Http Method of which request was made</param>
+        /// <param name="url">Url of which request was made</param>
+        /// <param name="key">Header key for values to obtain</param>
+        /// <returns></returns>
+        IEnumerable<string> GetHeaderValues(HttpMethod method, string url, string key);
+
+        /// <summary>
         /// Begin setup for an expected DELETE request that will be used
         /// </summary>
         /// <param name="url">Relative or full url expected request</param>

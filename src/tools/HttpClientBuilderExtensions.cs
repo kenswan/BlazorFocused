@@ -19,6 +19,7 @@ namespace BlazorFocused.Tools
             httpClientBuilder
                 .AddHttpMessageHandler<SimulatedVerificationHandler>()
                 .AddHttpMessageHandler<SimulatedRequestHandler>()
+                .AddHttpMessageHandler<SimulatedHeadersHandler>()
                 .AddHttpMessageHandler<SimulatedResponseHandler>();
 
             httpClientBuilder.Services.AddSingleton(simulatedHttp);
@@ -29,6 +30,13 @@ namespace BlazorFocused.Tools
                 var registeredSimulatedHttp = sp.GetRequiredService<ISimulatedHttp>() as SimulatedHttp;
 
                 return new SimulatedRequestHandler(registeredSimulatedHttp.AddRequest);
+            });
+
+            httpClientBuilder.Services.AddTransient(sp =>
+            {
+                var registeredSimulatedHttp = sp.GetRequiredService<ISimulatedHttp>() as SimulatedHttp;
+
+                return new SimulatedHeadersHandler(registeredSimulatedHttp.StoreHeaders);
             });
 
             httpClientBuilder.Services.AddTransient(sp =>
