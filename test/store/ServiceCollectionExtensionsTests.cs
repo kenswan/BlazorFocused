@@ -12,7 +12,7 @@ namespace BlazorFocused
             var simpleClass = new SimpleClass { FieldOne = "Test" };
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddStore(simpleClass);
-            var provider = serviceCollection.BuildServiceProvider();
+            using var provider = serviceCollection.BuildServiceProvider();
 
             var store = provider.GetRequiredService<IStore<SimpleClass>>();
 

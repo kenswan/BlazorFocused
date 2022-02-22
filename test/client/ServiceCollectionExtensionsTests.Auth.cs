@@ -1,6 +1,7 @@
 ﻿using BlazorFocused.Client;
 using BlazorFocused.Tools;
 using BlazorFocused.Tools.Extensions;
+using BlazorFocused.Tools.Model;
 using Bogus;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net;
@@ -11,8 +12,10 @@ namespace BlazorFocused
     public partial class ServiceCollectionExtensionsTests
     {
         [Fact]
-        public void ShouldAdddAuthTokenInstantlyAfterReceiving()
+        public async Task ShouldAdddAuthTokenInstantlyAfterReceiving()
         {
+            var token = new Faker().Internet.Password(20);
+            var expectedAuthorization = $"Bearer {token}";
             var baseAddress = new Faker().Internet.Url();
             var relativeUrl = new Faker().Internet.UrlRootedPath();
             var responseObject = RestClientTestExtensions.GenerateResponseObject();
@@ -32,12 +35,24 @@ namespace BlazorFocused
             simulatedHttp.SetupGET(relativeUrl)
                 .ReturnsAsync(HttpStatusCode.OK, responseObject);
 
-            using var serviceProvider = serviceCollection.BuildServiceProvider();
+            using var serviceProvider = serviceCollection
+                .BuildProviderWithTestLoggers((services) =>
+                {
+                    services.AddTestLoggerToCollection<OAuthRestClient>(testOutpuHelper);
+                    services.AddTestLoggerToCollection<RestClientAuthHandler>(testOutpuHelper);
+                }) as ServiceProvider;
+
             using var scope = serviceProvider.CreateScope();
             var oAuthRestClient = scope.ServiceProvider.GetRequiredService<IOAuthRestClient>();
-            using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
+            oAuthRestClient.AddAuthorization("Bearer", token);
 
-            // TODO: Add upcoming implementation test for instant token request
+            var response = await oAuthRestClient.GetAsync<SimpleClass>(relativeUrl);
+
+            var actualAuthorization =
+                simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativeUrl, "Authorization")
+                    .FirstOrDefault();
+
+            Assert.Equal(expectedAuthorization, actualAuthorization);
         }
     }
 }
