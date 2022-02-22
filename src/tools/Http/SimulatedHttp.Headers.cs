@@ -2,7 +2,7 @@
 {
     internal partial class SimulatedHttp
     {
-        public IEnumerable<string> GetHeaderValues(HttpMethod method, string url, string key)
+        public IEnumerable<string> GetRequestHeaderValues(HttpMethod method, string url, string key)
         {
             var match = headers
                     .Where(request => request.Method == method && request.Url == GetFullUrl(url))

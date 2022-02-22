@@ -24,7 +24,7 @@
         /// <param name="url">Url of which request was made</param>
         /// <param name="key">Header key for values to obtain</param>
         /// <returns></returns>
-        IEnumerable<string> GetHeaderValues(HttpMethod method, string url, string key);
+        IEnumerable<string> GetRequestHeaderValues(HttpMethod method, string url, string key);
 
         /// <summary>
         /// Begin setup for an expected DELETE request that will be used

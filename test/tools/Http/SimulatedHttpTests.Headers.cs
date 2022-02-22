@@ -27,7 +27,7 @@ namespace BlazorFocused.Tools.Http
 
             await testService.MakeRequestAsync(httpMethod, url);
 
-            var actualValue = simulatedHttp.GetHeaderValues(httpMethod, url, key).FirstOrDefault();
+            var actualValue = simulatedHttp.GetRequestHeaderValues(httpMethod, url, key).FirstOrDefault();
 
             Assert.Equal(expectedValue, actualValue);
         }
@@ -52,7 +52,7 @@ namespace BlazorFocused.Tools.Http
 
             await testService.MakeRequestAsync(httpMethod, url);
 
-            var actualValue = simulatedHttp.GetHeaderValues(httpMethod, url, key).FirstOrDefault();
+            var actualValue = simulatedHttp.GetRequestHeaderValues(httpMethod, url, key).FirstOrDefault();
 
             Assert.Equal(expectedValue, actualValue);
         }
