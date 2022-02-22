@@ -10,374 +10,374 @@ references:
   commentId: N:BlazorFocused
   fullName: BlazorFocused
   nameWithType: BlazorFocused
-- uid: BlazorFocused.Client.Extensions
-  name: BlazorFocused.Client.Extensions
-  href: api/BlazorFocused.Client.Extensions.html
-  commentId: N:BlazorFocused.Client.Extensions
-  fullName: BlazorFocused.Client.Extensions
-  nameWithType: BlazorFocused.Client.Extensions
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions
+- uid: BlazorFocused.Extensions
+  name: BlazorFocused.Extensions
+  href: api/BlazorFocused.Extensions.html
+  commentId: N:BlazorFocused.Extensions
+  fullName: BlazorFocused.Extensions
+  nameWithType: BlazorFocused.Extensions
+- uid: BlazorFocused.Extensions.RestClientExtensions
   name: RestClientExtensions
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html
-  commentId: T:BlazorFocused.Client.Extensions.RestClientExtensions
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html
+  commentId: T:BlazorFocused.Extensions.RestClientExtensions
+  fullName: BlazorFocused.Extensions.RestClientExtensions
   nameWithType: RestClientExtensions
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.DeleteAsync*
   name: DeleteAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_DeleteAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_DeleteAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.DeleteAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.DeleteAsync
   nameWithType: RestClientExtensions.DeleteAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+- uid: BlazorFocused.Extensions.RestClientExtensions.DeleteAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
   name: DeleteAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_DeleteAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_DeleteAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.DeleteAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
   name.vb: DeleteAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
+  fullName: BlazorFocused.Extensions.RestClientExtensions.DeleteAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.DeleteAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
   nameWithType: RestClientExtensions.DeleteAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
   nameWithType.vb: RestClientExtensions.DeleteAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+- uid: BlazorFocused.Extensions.RestClientExtensions.DeleteTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
   name: DeleteTaskAsync(IRestClient, Action<IRestClientUrlBuilder>)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_DeleteTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_DeleteTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.DeleteTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
   name.vb: DeleteTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder))
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
+  fullName: BlazorFocused.Extensions.RestClientExtensions.DeleteTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.DeleteTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
   nameWithType: RestClientExtensions.DeleteTaskAsync(IRestClient, Action<IRestClientUrlBuilder>)
   nameWithType.vb: RestClientExtensions.DeleteTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder))
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.DeleteTaskAsync*
   name: DeleteTaskAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_DeleteTaskAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_DeleteTaskAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.DeleteTaskAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.DeleteTaskAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.DeleteTaskAsync
   nameWithType: RestClientExtensions.DeleteTaskAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.GetAsync*
   name: GetAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_GetAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_GetAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.GetAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.GetAsync
   nameWithType: RestClientExtensions.GetAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+- uid: BlazorFocused.Extensions.RestClientExtensions.GetAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
   name: GetAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_GetAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_GetAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.GetAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
   name.vb: GetAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.GetAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
+  fullName: BlazorFocused.Extensions.RestClientExtensions.GetAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.GetAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
   nameWithType: RestClientExtensions.GetAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
   nameWithType.vb: RestClientExtensions.GetAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.PatchAsync*
   name: PatchAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PatchAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_PatchAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.PatchAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.PatchAsync
   nameWithType: RestClientExtensions.PatchAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.PatchAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name: PatchAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PatchAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_PatchAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.PatchAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name.vb: PatchAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.PatchAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.PatchAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.PatchAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
   nameWithType: RestClientExtensions.PatchAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
   nameWithType.vb: RestClientExtensions.PatchAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.PatchTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name: PatchTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PatchTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_PatchTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.PatchTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name.vb: PatchTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.PatchTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.PatchTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
   nameWithType: RestClientExtensions.PatchTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
   nameWithType.vb: RestClientExtensions.PatchTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.PatchTaskAsync*
   name: PatchTaskAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PatchTaskAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_PatchTaskAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.PatchTaskAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PatchTaskAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.PatchTaskAsync
   nameWithType: RestClientExtensions.PatchTaskAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.PostAsync*
   name: PostAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PostAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_PostAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.PostAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.PostAsync
   nameWithType: RestClientExtensions.PostAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.PostAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name: PostAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PostAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_PostAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.PostAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name.vb: PostAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.PostAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.PostAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.PostAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
   nameWithType: RestClientExtensions.PostAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
   nameWithType.vb: RestClientExtensions.PostAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.PostTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name: PostTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PostTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_PostTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.PostTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name.vb: PostTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.PostTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.PostTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
   nameWithType: RestClientExtensions.PostTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
   nameWithType.vb: RestClientExtensions.PostTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.PostTaskAsync*
   name: PostTaskAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PostTaskAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_PostTaskAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.PostTaskAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PostTaskAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.PostTaskAsync
   nameWithType: RestClientExtensions.PostTaskAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.PutAsync*
   name: PutAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PutAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_PutAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.PutAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.PutAsync
   nameWithType: RestClientExtensions.PutAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.PutAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name: PutAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PutAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_PutAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.PutAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name.vb: PutAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.PutAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.PutAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.PutAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
   nameWithType: RestClientExtensions.PutAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
   nameWithType.vb: RestClientExtensions.PutAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.PutTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name: PutTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PutTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_PutTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.PutTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name.vb: PutTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.PutTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.PutTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
   nameWithType: RestClientExtensions.PutTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
   nameWithType.vb: RestClientExtensions.PutTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.PutTaskAsync*
   name: PutTaskAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_PutTaskAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_PutTaskAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.PutTaskAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.PutTaskAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.PutTaskAsync
   nameWithType: RestClientExtensions.PutTaskAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryDeleteAsync*
   name: TryDeleteAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryDeleteAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryDeleteAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.TryDeleteAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryDeleteAsync
   nameWithType: RestClientExtensions.TryDeleteAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryDeleteAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
   name: TryDeleteAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryDeleteAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryDeleteAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryDeleteAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
   name.vb: TryDeleteAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryDeleteAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryDeleteAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
   nameWithType: RestClientExtensions.TryDeleteAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
   nameWithType.vb: RestClientExtensions.TryDeleteAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync``1(BlazorFocused.IRestClient,System.String)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryDeleteAsync``1(BlazorFocused.IRestClient,System.String)
   name: TryDeleteAsync<T>(IRestClient, String)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryDeleteAsync__1_BlazorFocused_IRestClient_System_String_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync``1(BlazorFocused.IRestClient,System.String)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryDeleteAsync__1_BlazorFocused_IRestClient_System_String_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryDeleteAsync``1(BlazorFocused.IRestClient,System.String)
   name.vb: TryDeleteAsync(Of T)(IRestClient, String)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync<T>(BlazorFocused.IRestClient, System.String)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteAsync(Of T)(BlazorFocused.IRestClient, System.String)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryDeleteAsync<T>(BlazorFocused.IRestClient, System.String)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryDeleteAsync(Of T)(BlazorFocused.IRestClient, System.String)
   nameWithType: RestClientExtensions.TryDeleteAsync<T>(IRestClient, String)
   nameWithType.vb: RestClientExtensions.TryDeleteAsync(Of T)(IRestClient, String)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
   name: TryDeleteTaskAsync(IRestClient, Action<IRestClientUrlBuilder>)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryDeleteTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryDeleteTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
   name.vb: TryDeleteTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder))
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
   nameWithType: RestClientExtensions.TryDeleteTaskAsync(IRestClient, Action<IRestClientUrlBuilder>)
   nameWithType.vb: RestClientExtensions.TryDeleteTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder))
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient,System.String)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient,System.String)
   name: TryDeleteTaskAsync(IRestClient, String)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryDeleteTaskAsync_BlazorFocused_IRestClient_System_String_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient,System.String)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient, System.String)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryDeleteTaskAsync_BlazorFocused_IRestClient_System_String_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient,System.String)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryDeleteTaskAsync(BlazorFocused.IRestClient, System.String)
   nameWithType: RestClientExtensions.TryDeleteTaskAsync(IRestClient, String)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryDeleteTaskAsync*
   name: TryDeleteTaskAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryDeleteTaskAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryDeleteTaskAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.TryDeleteTaskAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryDeleteTaskAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryDeleteTaskAsync
   nameWithType: RestClientExtensions.TryDeleteTaskAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryGetAsync*
   name: TryGetAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryGetAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryGetAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.TryGetAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryGetAsync
   nameWithType: RestClientExtensions.TryGetAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryGetAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
   name: TryGetAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryGetAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryGetAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryGetAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder})
   name.vb: TryGetAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryGetAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryGetAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder))
   nameWithType: RestClientExtensions.TryGetAsync<T>(IRestClient, Action<IRestClientUrlBuilder>)
   nameWithType.vb: RestClientExtensions.TryGetAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder))
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync``1(BlazorFocused.IRestClient,System.String)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryGetAsync``1(BlazorFocused.IRestClient,System.String)
   name: TryGetAsync<T>(IRestClient, String)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryGetAsync__1_BlazorFocused_IRestClient_System_String_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync``1(BlazorFocused.IRestClient,System.String)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryGetAsync__1_BlazorFocused_IRestClient_System_String_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryGetAsync``1(BlazorFocused.IRestClient,System.String)
   name.vb: TryGetAsync(Of T)(IRestClient, String)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync<T>(BlazorFocused.IRestClient, System.String)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryGetAsync(Of T)(BlazorFocused.IRestClient, System.String)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryGetAsync<T>(BlazorFocused.IRestClient, System.String)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryGetAsync(Of T)(BlazorFocused.IRestClient, System.String)
   nameWithType: RestClientExtensions.TryGetAsync<T>(IRestClient, String)
   nameWithType.vb: RestClientExtensions.TryGetAsync(Of T)(IRestClient, String)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPatchAsync*
   name: TryPatchAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPatchAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPatchAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.TryPatchAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPatchAsync
   nameWithType: RestClientExtensions.TryPatchAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPatchAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name: TryPatchAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPatchAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPatchAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryPatchAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name.vb: TryPatchAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPatchAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryPatchAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
   nameWithType: RestClientExtensions.TryPatchAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
   nameWithType.vb: RestClientExtensions.TryPatchAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPatchAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
   name: TryPatchAsync<T>(IRestClient, String, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPatchAsync__1_BlazorFocused_IRestClient_System_String_System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPatchAsync__1_BlazorFocused_IRestClient_System_String_System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryPatchAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
   name.vb: TryPatchAsync(Of T)(IRestClient, String, Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync<T>(BlazorFocused.IRestClient, System.String, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchAsync(Of T)(BlazorFocused.IRestClient, System.String, System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPatchAsync<T>(BlazorFocused.IRestClient, System.String, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryPatchAsync(Of T)(BlazorFocused.IRestClient, System.String, System.Object)
   nameWithType: RestClientExtensions.TryPatchAsync<T>(IRestClient, String, Object)
   nameWithType.vb: RestClientExtensions.TryPatchAsync(Of T)(IRestClient, String, Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name: TryPatchTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPatchTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPatchTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name.vb: TryPatchTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
   nameWithType: RestClientExtensions.TryPatchTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
   nameWithType.vb: RestClientExtensions.TryPatchTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
   name: TryPatchTaskAsync(IRestClient, String, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPatchTaskAsync_BlazorFocused_IRestClient_System_String_System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient, System.String, System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPatchTaskAsync_BlazorFocused_IRestClient_System_String_System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPatchTaskAsync(BlazorFocused.IRestClient, System.String, System.Object)
   nameWithType: RestClientExtensions.TryPatchTaskAsync(IRestClient, String, Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPatchTaskAsync*
   name: TryPatchTaskAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPatchTaskAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPatchTaskAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.TryPatchTaskAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPatchTaskAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPatchTaskAsync
   nameWithType: RestClientExtensions.TryPatchTaskAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPostAsync*
   name: TryPostAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPostAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPostAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.TryPostAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPostAsync
   nameWithType: RestClientExtensions.TryPostAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPostAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name: TryPostAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPostAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPostAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryPostAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name.vb: TryPostAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPostAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryPostAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
   nameWithType: RestClientExtensions.TryPostAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
   nameWithType.vb: RestClientExtensions.TryPostAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPostAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
   name: TryPostAsync<T>(IRestClient, String, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPostAsync__1_BlazorFocused_IRestClient_System_String_System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPostAsync__1_BlazorFocused_IRestClient_System_String_System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryPostAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
   name.vb: TryPostAsync(Of T)(IRestClient, String, Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync<T>(BlazorFocused.IRestClient, System.String, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostAsync(Of T)(BlazorFocused.IRestClient, System.String, System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPostAsync<T>(BlazorFocused.IRestClient, System.String, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryPostAsync(Of T)(BlazorFocused.IRestClient, System.String, System.Object)
   nameWithType: RestClientExtensions.TryPostAsync<T>(IRestClient, String, Object)
   nameWithType.vb: RestClientExtensions.TryPostAsync(Of T)(IRestClient, String, Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name: TryPostTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPostTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPostTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name.vb: TryPostTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
   nameWithType: RestClientExtensions.TryPostTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
   nameWithType.vb: RestClientExtensions.TryPostTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
   name: TryPostTaskAsync(IRestClient, String, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPostTaskAsync_BlazorFocused_IRestClient_System_String_System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient, System.String, System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPostTaskAsync_BlazorFocused_IRestClient_System_String_System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPostTaskAsync(BlazorFocused.IRestClient, System.String, System.Object)
   nameWithType: RestClientExtensions.TryPostTaskAsync(IRestClient, String, Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPostTaskAsync*
   name: TryPostTaskAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPostTaskAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPostTaskAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.TryPostTaskAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPostTaskAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPostTaskAsync
   nameWithType: RestClientExtensions.TryPostTaskAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPutAsync*
   name: TryPutAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPutAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPutAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.TryPutAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPutAsync
   nameWithType: RestClientExtensions.TryPutAsync
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPutAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name: TryPutAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPutAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPutAsync__1_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryPutAsync``1(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name.vb: TryPutAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPutAsync<T>(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryPutAsync(Of T)(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
   nameWithType: RestClientExtensions.TryPutAsync<T>(IRestClient, Action<IRestClientUrlBuilder>, Object)
   nameWithType.vb: RestClientExtensions.TryPutAsync(Of T)(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPutAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
   name: TryPutAsync<T>(IRestClient, String, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPutAsync__1_BlazorFocused_IRestClient_System_String_System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPutAsync__1_BlazorFocused_IRestClient_System_String_System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryPutAsync``1(BlazorFocused.IRestClient,System.String,System.Object)
   name.vb: TryPutAsync(Of T)(IRestClient, String, Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync<T>(BlazorFocused.IRestClient, System.String, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutAsync(Of T)(BlazorFocused.IRestClient, System.String, System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPutAsync<T>(BlazorFocused.IRestClient, System.String, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryPutAsync(Of T)(BlazorFocused.IRestClient, System.String, System.Object)
   nameWithType: RestClientExtensions.TryPutAsync<T>(IRestClient, String, Object)
   nameWithType.vb: RestClientExtensions.TryPutAsync(Of T)(IRestClient, String, Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name: TryPutTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPutTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPutTaskAsync_BlazorFocused_IRestClient_Action_BlazorFocused_IRestClientUrlBuilder__System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient,Action{BlazorFocused.IRestClientUrlBuilder},System.Object)
   name.vb: TryPutTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
-  fullName.vb: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient, Action<BlazorFocused.IRestClientUrlBuilder>, System.Object)
+  fullName.vb: BlazorFocused.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient, Action(Of BlazorFocused.IRestClientUrlBuilder), System.Object)
   nameWithType: RestClientExtensions.TryPutTaskAsync(IRestClient, Action<IRestClientUrlBuilder>, Object)
   nameWithType.vb: RestClientExtensions.TryPutTaskAsync(IRestClient, Action(Of IRestClientUrlBuilder), Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
   name: TryPutTaskAsync(IRestClient, String, Object)
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPutTaskAsync_BlazorFocused_IRestClient_System_String_System_Object_
-  commentId: M:BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient, System.String, System.Object)
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPutTaskAsync_BlazorFocused_IRestClient_System_String_System_Object_
+  commentId: M:BlazorFocused.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient,System.String,System.Object)
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPutTaskAsync(BlazorFocused.IRestClient, System.String, System.Object)
   nameWithType: RestClientExtensions.TryPutTaskAsync(IRestClient, String, Object)
-- uid: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync*
+- uid: BlazorFocused.Extensions.RestClientExtensions.TryPutTaskAsync*
   name: TryPutTaskAsync
-  href: api/BlazorFocused.Client.Extensions.RestClientExtensions.html#BlazorFocused_Client_Extensions_RestClientExtensions_TryPutTaskAsync_
-  commentId: Overload:BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync
+  href: api/BlazorFocused.Extensions.RestClientExtensions.html#BlazorFocused_Extensions_RestClientExtensions_TryPutTaskAsync_
+  commentId: Overload:BlazorFocused.Extensions.RestClientExtensions.TryPutTaskAsync
   isSpec: "True"
-  fullName: BlazorFocused.Client.Extensions.RestClientExtensions.TryPutTaskAsync
+  fullName: BlazorFocused.Extensions.RestClientExtensions.TryPutTaskAsync
   nameWithType: RestClientExtensions.TryPutTaskAsync
 - uid: BlazorFocused.IAction`1
   name: IAction<TState>
@@ -1331,6 +1331,19 @@ references:
   isSpec: "True"
   fullName: BlazorFocused.Tools.ISimulatedHttp.DelegatingHandler
   nameWithType: ISimulatedHttp.DelegatingHandler
+- uid: BlazorFocused.Tools.ISimulatedHttp.GetRequestHeaderValues(HttpMethod,System.String,System.String)
+  name: GetRequestHeaderValues(HttpMethod, String, String)
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_GetRequestHeaderValues_HttpMethod_System_String_System_String_
+  commentId: M:BlazorFocused.Tools.ISimulatedHttp.GetRequestHeaderValues(HttpMethod,System.String,System.String)
+  fullName: BlazorFocused.Tools.ISimulatedHttp.GetRequestHeaderValues(HttpMethod, System.String, System.String)
+  nameWithType: ISimulatedHttp.GetRequestHeaderValues(HttpMethod, String, String)
+- uid: BlazorFocused.Tools.ISimulatedHttp.GetRequestHeaderValues*
+  name: GetRequestHeaderValues
+  href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_GetRequestHeaderValues_
+  commentId: Overload:BlazorFocused.Tools.ISimulatedHttp.GetRequestHeaderValues
+  isSpec: "True"
+  fullName: BlazorFocused.Tools.ISimulatedHttp.GetRequestHeaderValues
+  nameWithType: ISimulatedHttp.GetRequestHeaderValues
 - uid: BlazorFocused.Tools.ISimulatedHttp.HttpClient
   name: HttpClient
   href: api/BlazorFocused.Tools.ISimulatedHttp.html#BlazorFocused_Tools_ISimulatedHttp_HttpClient
