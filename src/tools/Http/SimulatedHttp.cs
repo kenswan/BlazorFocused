@@ -10,14 +10,16 @@
 
         internal List<SimulatedHttpResponse> Responses => responses;
 
+        private readonly List<SimulatedHttpHeaders> headers;
         private readonly List<SimulatedHttpRequest> requests;
         private readonly List<SimulatedHttpResponse> responses;
         private readonly Uri baseAddressUri;
 
         public SimulatedHttp(string baseAddress = "https://dev.blazorfocused.net")
         {
-            requests = new List<SimulatedHttpRequest>();
-            responses = new List<SimulatedHttpResponse>();
+            headers = new();
+            requests = new();
+            responses = new();
 
             if (Uri.TryCreate(baseAddress, UriKind.Absolute, out Uri uri))
             {
@@ -34,12 +36,20 @@
             requests.Add(request);
         }
 
+        internal void StoreHeaders(SimulatedHttpHeaders requestHeaders)
+        {
+            headers.Add(requestHeaders);
+        }
+
         private DelegatingHandler GetDelegatingHandler() =>
             new SimulatedVerificationHandler()
             {
                 InnerHandler = new SimulatedRequestHandler(AddRequest)
                 {
-                    InnerHandler = new SimulatedResponseHandler(responses)
+                    InnerHandler = new SimulatedHeadersHandler(StoreHeaders)
+                    {
+                        InnerHandler = new SimulatedResponseHandler(responses)
+                    }
                 }
             };
 

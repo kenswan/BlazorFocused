@@ -1,11 +1,12 @@
-﻿using BlazorFocused.Tools;
+﻿using BlazorFocused.Client;
+using BlazorFocused.Tools;
 using BlazorFocused.Tools.Extensions;
 using Bogus;
 using Microsoft.Extensions.Options;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace BlazorFocused.Client.Extensions
+namespace BlazorFocused.Extensions
 {
     public partial class RestClientExtensionsTests
     {

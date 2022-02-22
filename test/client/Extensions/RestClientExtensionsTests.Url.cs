@@ -3,7 +3,7 @@ using Bogus;
 using System.Net;
 using Xunit;
 
-namespace BlazorFocused.Client.Extensions
+namespace BlazorFocused.Extensions
 {
     public partial class RestClientExtensionsTests
     {

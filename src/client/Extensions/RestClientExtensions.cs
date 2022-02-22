@@ -1,6 +1,7 @@
-﻿using System.Net;
+﻿using BlazorFocused.Client;
+using System.Net;
 
-namespace BlazorFocused.Client.Extensions
+namespace BlazorFocused.Extensions
 {
     /// <summary>
     /// <see cref="IRestClient"/> extensions for http requests/responses and url construction
