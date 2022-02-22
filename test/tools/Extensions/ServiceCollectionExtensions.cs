@@ -23,17 +23,39 @@ namespace BlazorFocused.Tools.Extensions
         }
 
         public static IServiceProvider BuildProviderWithTestLogger<T>(
-            this IServiceCollection serviceCollection, ITestOutputHelper testOutputHelper)
+            this IServiceCollection serviceCollection,
+            ITestOutputHelper testOutputHelper)
         {
             var previousLogger = serviceCollection.FirstOrDefault(descriptor =>
                 descriptor.ServiceType == typeof(ILogger<>));
 
             serviceCollection.Remove(previousLogger);
 
-            serviceCollection.AddSingleton<ILogger<T>>(new TestLogger<T>((level, message, exception) =>
-                testOutputHelper.WriteTestLoggerMessage(level, message, exception)));
+            AddTestLoggerToCollection<T>(serviceCollection, testOutputHelper);
 
             return serviceCollection.BuildServiceProvider();
+        }
+
+        public static IServiceProvider BuildProviderWithTestLoggers(
+            this IServiceCollection serviceCollection,
+            Action<IServiceCollection> testLoggers)
+        {
+            var previousLogger = serviceCollection.FirstOrDefault(descriptor =>
+                descriptor.ServiceType == typeof(ILogger<>));
+
+            serviceCollection.Remove(previousLogger);
+
+            testLoggers(serviceCollection);
+
+            return serviceCollection.BuildServiceProvider();
+        }
+
+        public static void AddTestLoggerToCollection<T>(
+            this IServiceCollection serviceCollection,
+            ITestOutputHelper testOutputHelper)
+        {
+            serviceCollection.AddSingleton<ILogger<T>>(new TestLogger<T>((level, message, exception) =>
+                testOutputHelper.WriteTestLoggerMessage(level, message, exception)));
         }
     }
 }

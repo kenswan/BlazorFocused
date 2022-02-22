@@ -3,11 +3,19 @@ using BlazorFocused.Tools.Extensions;
 using Bogus;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace BlazorFocused
 {
     public partial class ServiceCollectionExtensionsTests
     {
+        private readonly ITestOutputHelper testOutpuHelper;
+
+        public ServiceCollectionExtensionsTests(ITestOutputHelper testOutpuHelper)
+        {
+            this.testOutpuHelper = testOutpuHelper;
+        }
+
         [Fact]
         public void ShouldProvideHttpClientBaseAddress()
         {
