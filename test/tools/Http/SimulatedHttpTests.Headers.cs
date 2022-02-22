@@ -8,7 +8,7 @@ namespace BlazorFocused.Tools.Http
     public partial class SimulatedHttpTests
     {
         [Fact]
-        public async Task ShouldTrackerRequestHeaders()
+        public async Task ShouldTrackRequestHeaders()
         {
             var httpMethod = HttpMethod.Get;
             var url = GetRandomRelativeUrl();
@@ -33,7 +33,7 @@ namespace BlazorFocused.Tools.Http
         }
 
         [Fact]
-        public async Task ShouldTrackerDefaultHeaders()
+        public async Task ShouldTrackDefaultHeaders()
         {
             var httpMethod = HttpMethod.Get;
             var url = GetRandomRelativeUrl();
