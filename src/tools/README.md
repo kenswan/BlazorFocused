@@ -6,4 +6,4 @@
 
 Tooling for testing Blazor Components and the BlazorFocused library
 
-Please visit [BlazorFocused Documentation Site](https://www.blazorfocused.net) for more information.
+Please visit the [BlazorFocused Documentation Site](https://www.blazorfocused.net) for installation, getting started, and API documentation.

@@ -1,5 +1,6 @@
 ---
 uid: api/index
+title: API
 _disableBreadcrumb: true
 ---
 

@@ -4,136 +4,25 @@
 
 # BlazorFocused
 
-Providing flux architecture and other tools for Blazor components and .NET development.
+Helpful tools/extensions to the Blazor Framework and .NET development
 
-## Installation
+- Flux architecture
+- Streamline http request/response/authorization
+- Testing tools for http requests, logging, etc.
 
-Install with .NET CLI
+## NuGet Packages
 
-```powershell
-dotnet add package BlazorFocused
-```
+| Package                                                                      | Description                                                         |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| [BlazorFocused](https://www.nuget.org/packages/BlazorFocused/)               | Combines BlazorFocused.Client and BlazorFocused.Store packages      |
+| [BlazorFocused.Client](https://www.nuget.org/packages/BlazorFocused.Client/) | Development tools and extensions for http requests                  |
+| [BlazorFocused.Store](https://www.nuget.org/packages/BlazorFocused.Store/)   | Providing Flux Architecture pattern in Blazor Components            |
+| [BlazorFocused.Tools](https://www.nuget.org/packages/BlazorFocused.Tools/)   | Tooling for testing Blazor Components and the BlazorFocused library |
 
-OR
+## Documentation
 
-Add the following line in your csproj package references
+Please visit the [BlazorFocused Documentation Site](https://www.blazorfocused.net) for installation, getting started, and API documentation.
 
-```xml
-<PackageReference Include="BlazorFocused" Version="1.x.x" />
-```
+## Samples
 
-## Quick Start
-
-### WebAssembly Blazor Startup
-
-```csharp
-public static async Task Main(string[] args)
-{
-    var builder = WebAssemblyHostBuilder.CreateDefault(args);
-
-    builder.RootComponents.Add<App>("#app");
-
-    builder.Services.AddScoped(sp =>
-        new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-
-    builder.Services.AddStore<TestStore>(new TestStore { FieldOne = "Initialized" })
-        .AddTransient<TestAction>()
-        .AddTransient<TestActionAsync>()
-        .AddTransient<TestReducer>()
-        .AddScoped<TestService>()
-        .AddSingleton<TestSingletonService>();
-
-    await builder.Build().RunAsync();
-}
-```
-
-### Server-side Blazor Startup
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddControllersWithViews();
-    services.AddRazorPages();
-
-    services.AddStore<TestStore>(new TestStore { FieldOne = "Initialized" })
-        .AddTransient<TestAction>()
-        .AddTransient<TestActionAsync>()
-        .AddTransient<TestReducer>()
-        .AddScoped<TestService>()
-        .AddSingleton<TestSingletonService>();
-}
-```
-
-### State
-
-Retrieve static state value from store:
-
-```csharp
-@inject IStore<TestStore> store;
-
-...
-
-store.GetState().FieldOne;
-
-```
-
-Retrieve state value and subscribe to store updates:
-
-```csharp
-@inject IStore<TestStore> store;
-
-...
-TestStore currentState = default;
-
-store.Subscribe((newState) => {
-    // update state used in page
-    currentState = newState;
-
-    // inform blazor page to refresh with state update
-    StateHasChanged();
-});
-
-```
-
-### Reducers
-
-Subscribe to reduced value from store:
-
-```csharp
-@inject IStore<TestStore> store;
-
-...
-TestStoreSubset subsetState = default;
-
-store.Reduce<TestReducer, TestStoreSubset>(reducedState =>
-{
-    // helpful if you do not care about the full state in your component
-    subsetState = reducedState;
-
-    // inform blazor page to refresh with state update
-    StateHasChanged();
-});
-```
-
-### Actions
-
-Execute actions to update store:
-
-```csharp
-@inject IStore<TestStore> store;
-
-...
-TestStore currentState = default;
-
-// call action to be committed
-// if action updates state, component will update
-store.Dispatch<TestAction>();
-
-store.Subscribe((newState) => {
-    // update state used in page
-    currentState = newState;
-
-    // inform blazor page to refresh with state update
-    StateHasChanged();
-});
-```
+Please visit and/or download our [BlazorFocused Sample Solution](https://github.com/kenswan/BlazorFocused/tree/main/samples) to get a more in-depth view of usage.
