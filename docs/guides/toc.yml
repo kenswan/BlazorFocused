@@ -1,7 +1,7 @@
 - name: Overview
   topicUid: guides/index
 - name: Store Components
-  topicUid: store/stores
+  topicUid: store/index
   items:
     - topicUid: store/stores
     - topicUid: store/actions

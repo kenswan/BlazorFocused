@@ -11,7 +11,7 @@ _disableToc: false
 
 Wrapped HttpClient interfaces that streamline normal usage
 
-## [BlazorFocused Store](store/stores.md)
+## [BlazorFocused Store](store/index.md)
 
 Provides one single source of updating and retrieving data throughout entire application
 
