@@ -15,4 +15,4 @@
   topicUid: tools/simulatedhttp
   items:
     - topicUid: tools/simulatedhttp
-    - topicUid: tools/mocklogger
+    - topicUid: tools/testlogger

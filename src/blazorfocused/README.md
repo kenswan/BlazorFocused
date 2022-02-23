@@ -6,9 +6,9 @@
 
 Introducing Flux Architecture and other utilities to Blazor Components
 
-Includes:
+Includes the following NuGet packages:
 
 - BlazorFocused.Client
 - BlazorFocused.Store
 
-Please visit [BlazorFocused Documentation Site](https://www.blazorfocused.net) for more information.
+Please visit the [BlazorFocused Documentation Site](https://www.blazorfocused.net) for installation, getting started, and API documentation.
