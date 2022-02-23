@@ -2,7 +2,7 @@
 sorted: true
 references:
 - uid: api/index
-  name: BlazorFocused API Documentation
+  name: API
   href: api/index.html
 - uid: BlazorFocused
   name: BlazorFocused
@@ -1645,23 +1645,26 @@ references:
   name: Rest Client
   href: guides/client/restclient.html
 - uid: guides/index
-  name: BlazorFocused Components
+  name: Guides
   href: guides/index.html
 - uid: home
-  name: BlazorFocused
+  name: Home
   href: index.html
 - uid: store/actions
   name: Store Actions
   href: guides/store/actions.html
+- uid: store/index
+  name: Overview
+  href: guides/store/index.html
 - uid: store/reducers
   name: Store Reducers
   href: guides/store/reducers.html
 - uid: store/stores
   name: Stores
   href: guides/store/stores.html
-- uid: tools/mocklogger
-  name: Mock Logger
-  href: guides/tools/mocklogger.html
 - uid: tools/simulatedhttp
   name: Simulated Http Client
   href: guides/tools/simulatedhttp.html
+- uid: tools/testlogger
+  name: Test Logger
+  href: guides/tools/testlogger.html
