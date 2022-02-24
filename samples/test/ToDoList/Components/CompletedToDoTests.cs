@@ -1,4 +1,4 @@
-﻿using BlazorFocused.Store;
+﻿using BlazorFocused;
 using Bogus;
 using Bunit;
 using FluentAssertions;

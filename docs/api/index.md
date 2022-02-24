@@ -8,7 +8,7 @@ _disableBreadcrumb: true
 
 ## Namespaces
 
-### [BlazorFocused.Client](BlazorFocused.yml)
+### [BlazorFocused](BlazorFocused.yml)
 
 #### BlazorFocused Client
 

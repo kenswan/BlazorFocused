@@ -1,5 +1,5 @@
 ---
-uid: client/oauthrestclient
+uid: guides/client/oauthrestclient
 ---
 
 # OAuth Rest Client

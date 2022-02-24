@@ -1,4 +1,4 @@
-﻿using BlazorFocused.Client;
+﻿using BlazorFocused;
 using Samples.Model;
 
 namespace ToDoList.Services

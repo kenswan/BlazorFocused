@@ -1,5 +1,5 @@
 ---
-uid: client/restclient
+uid: guides/client/restclient
 ---
 
 # Rest Client

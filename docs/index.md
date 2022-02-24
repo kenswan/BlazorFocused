@@ -27,6 +27,10 @@ _For code documentation, please navigate to the api documentation [here](/api/in
 
 Please visit and/or download our [BlazorFocused Sample Solution](https://github.com/kenswan/BlazorFocused/tree/main/samples) to get a more in-depth view of usage.
 
+### Guides
+
+Please visit [BlazorFocused Guides](guides/index.md) view documentation on functionality.
+
 ### NuGet Packages
 
 | Package                                                                      | Description                                                         |
