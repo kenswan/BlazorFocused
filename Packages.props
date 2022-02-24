@@ -24,12 +24,12 @@
 	</ItemGroup>
 
 	<ItemGroup Label="Sample Projects">
-		<PackageReference Update="BlazorFocused" Version="2.0.0-alpha1" />
-		<PackageReference Update="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.1" />
-		<PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0" />
-		<PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0" />
-		<PackageReference Update="Microsoft.EntityFrameworkCore.Design" Version="6.0.1" />
-		<PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.1" />
+		<PackageReference Update="BlazorFocused" Version="2.0.0" />
+		<PackageReference Update="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.2" />
+		<PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.2" />
+		<PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.2" />
+		<PackageReference Update="Microsoft.EntityFrameworkCore.Design" Version="6.0.2" />
+		<PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.2" />
 		<PackageReference Update="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
 		<PackageReference Update="Swashbuckle.AspNetCore" Version="6.2.3" />
 	</ItemGroup>

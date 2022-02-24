@@ -1,5 +1,4 @@
-using BlazorFocused.Client;
-using BlazorFocused.Store;
+using BlazorFocused;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using ToDoList;
