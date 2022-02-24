@@ -1,7 +1,28 @@
 ---
-uid: tools/testlogger
+uid: guides/tools/testlogger
 ---
 
 # Test Logger
 
-_Coming Soon_
+## Usage
+
+```csharp
+private readonly ITestLogger<TestService> testLogger;
+private readonly ITestService testService;
+
+public TestServiceTests()
+{
+    testLogger = ToolsBuilder.CreateTestLogger<TestService>();
+
+    testService =
+        new TestService(testLogger);
+}
+
+[Fact]
+public async Task ShouldLogError()
+{
+    testService.GeneralMethodWithError();
+
+    testLogger.VerifyWasCalledWith(LogLevel.Error)
+}
+```

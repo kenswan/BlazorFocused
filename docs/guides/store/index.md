@@ -1,5 +1,6 @@
 ---
-uid: store/index
+uid: guides/store/index
+title: BlazorFocused Store
 ---
 
 # Overview
@@ -19,8 +20,10 @@ public static async Task Main(string[] args)
 {
     var builder = WebAssemblyHostBuilder.CreateDefault(args);
     builder.RootComponents.Add<App>("#app");
+
     builder.Services.AddScoped(sp =>
         new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
     builder.Services.AddStore<TestStore>(new TestStore { FieldOne = "Initialized" })
         .AddTransient<TestAction>()
         .AddTransient<TestActionAsync>()
@@ -38,6 +41,7 @@ public void ConfigureServices(IServiceCollection services)
 {
     services.AddControllersWithViews();
     services.AddRazorPages();
+
     services.AddStore<TestStore>(new TestStore { FieldOne = "Initialized" })
         .AddTransient<TestAction>()
         .AddTransient<TestActionAsync>()

@@ -1,5 +1,5 @@
 ---
-uid: store/reducers
+uid: guides/store/reducers
 ---
 
 # Store Reducers

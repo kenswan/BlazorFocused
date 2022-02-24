@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="BlazorFocused.Tools" />
     <PackageReference Include="Bogus" />
     <PackageReference Include="bunit" />
     <PackageReference Include="FluentAssertions" />

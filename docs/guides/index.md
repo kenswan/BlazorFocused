@@ -5,9 +5,9 @@ _disableBreadcrumb: true
 _disableToc: false
 ---
 
-# BlazorFocused Components
+# BlazorFocused Guides
 
-## [BlazorFocused Client](client/restclient.md)
+## [BlazorFocused Client](client/index.md)
 
 Wrapped HttpClient interfaces that streamline normal usage
 
@@ -15,6 +15,6 @@ Wrapped HttpClient interfaces that streamline normal usage
 
 Provides one single source of updating and retrieving data throughout entire application
 
-## [BlazorFocused Tools](tools/simulatedhttp.md)
+## [BlazorFocused Tools](tools/index.md)
 
 Provides test utilities that make it easy test with lower construct dependencies

@@ -25,6 +25,7 @@
 
 	<ItemGroup Label="Sample Projects">
 		<PackageReference Update="BlazorFocused" Version="2.0.0" />
+		<PackageReference Update="BlazorFocused.Tools" Version="2.0.0" />
 		<PackageReference Update="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.2" />
 		<PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.2" />
 		<PackageReference Update="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.2" />

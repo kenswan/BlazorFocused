@@ -1,5 +1,5 @@
 ---
-uid: tools/simulatedhttp
+uid: guides/tools/simulatedhttp
 ---
 
 # Simulated Http Client
@@ -8,10 +8,9 @@ uid: tools/simulatedhttp
 
 ```csharp
 private readonly ISimulatedHttp simulatedHttp;
-
 private readonly ITestClient testClient;
 
-public RestClientTests(ITestOutputHelper testOutputHelper)
+public TestClientTests()
 {
     simulatedHttp = ToolsBuilder.CreateSimulatedHttp("https://blazorfocused.net");
 

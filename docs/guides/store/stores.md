@@ -1,5 +1,5 @@
 ---
-uid: store/stores
+uid: guides/store/stores
 ---
 
 # Stores
