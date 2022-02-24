@@ -1638,33 +1638,39 @@ references:
   isSpec: "True"
   fullName: BlazorFocused.UrlBuilder.SetPath
   nameWithType: UrlBuilder.SetPath
-- uid: client/oauthrestclient
+- uid: guides/client/index
+  name: BlazorFocused Client
+  href: guides/client/index.html
+- uid: guides/client/oauthrestclient
   name: OAuth Rest Client
   href: guides/client/oauthrestclient.html
-- uid: client/restclient
+- uid: guides/client/restclient
   name: Rest Client
   href: guides/client/restclient.html
 - uid: guides/index
   name: Guides
   href: guides/index.html
+- uid: guides/store/actions
+  name: Store Actions
+  href: guides/store/actions.html
+- uid: guides/store/index
+  name: BlazorFocused Store
+  href: guides/store/index.html
+- uid: guides/store/reducers
+  name: Store Reducers
+  href: guides/store/reducers.html
+- uid: guides/store/stores
+  name: Stores
+  href: guides/store/stores.html
+- uid: guides/tools/index
+  name: BlazorFocused Tools
+  href: guides/tools/index.html
+- uid: guides/tools/simulatedhttp
+  name: Simulated Http Client
+  href: guides/tools/simulatedhttp.html
+- uid: guides/tools/testlogger
+  name: Test Logger
+  href: guides/tools/testlogger.html
 - uid: home
   name: Home
   href: index.html
-- uid: store/actions
-  name: Store Actions
-  href: guides/store/actions.html
-- uid: store/index
-  name: Overview
-  href: guides/store/index.html
-- uid: store/reducers
-  name: Store Reducers
-  href: guides/store/reducers.html
-- uid: store/stores
-  name: Stores
-  href: guides/store/stores.html
-- uid: tools/simulatedhttp
-  name: Simulated Http Client
-  href: guides/tools/simulatedhttp.html
-- uid: tools/testlogger
-  name: Test Logger
-  href: guides/tools/testlogger.html

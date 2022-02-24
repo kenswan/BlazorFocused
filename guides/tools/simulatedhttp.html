@@ -66,10 +66,39 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="tools/simulatedhttp">
+            <article class="content wrap" id="_content" data-uid="guides/tools/simulatedhttp">
 <h1 id="simulated-http-client">Simulated Http Client</h1>
 
-<p><em>Coming Soon</em></p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">private readonly ISimulatedHttp simulatedHttp;
+private readonly ITestClient testClient;
+
+public TestClientTests()
+{
+    simulatedHttp = ToolsBuilder.CreateSimulatedHttp(&quot;https://blazorfocused.net&quot;);
+
+    restClient =
+        new TestClient(simulatedHttp.HttpClient);
+}
+
+[Fact]
+public async Task ShouldPerformHttpRequest()
+{
+    var url = &quot;api/test&quot;;
+    var request = new TestClass { Name = &quot;Testing&quot; };
+    HttpStatusCode statusCode = HttpStatusCode.OK;
+    var response = new TestClass { Id = &quot;123&quot;, Name = &quot;Testing&quot; };
+
+    simulatedHttp.SetupGET(HttpMethod.Get, url, request)
+        .ReturnsAsync(statusCode, response);
+
+    var actualResponse = await testClient.GetAsync&lt;SimpleClass&gt;(url, request);
+
+    actualResponse.Should().BeEquivalentTo(response);
+
+    simulatedHttp.VerifyWasCalled(httpMethod, url);
+}
+</code></pre>
 </article>
           </div>
           

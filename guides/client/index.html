@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Store Actions | Documentation </title>
+    <title>BlazorFocused Client | Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Store Actions | Documentation ">
+    <meta name="title" content="BlazorFocused Client | Documentation ">
     <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -66,10 +66,33 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="guides/store/actions">
-<h1 id="store-actions">Store Actions</h1>
+            <article class="content wrap" id="_content" data-uid="guides/client/index">
+<h1 id="client-overview">Client Overview</h1>
 
-<p><em>Coming Soon</em></p>
+<h2 id="app-settings">App Settings</h2>
+<p>You can add Rest Client configurations in <code>wwwroot/appsettings.json</code> by adding a <code>RestClient</code> section</p>
+<pre><code class="lang-json">{
+  &quot;Logging&quot;: {
+    &quot;LogLevel&quot;: {
+      &quot;Default&quot;: &quot;Information&quot;,
+      &quot;Microsoft&quot;: &quot;Information&quot;
+    }
+  },
+  &quot;RestClient&quot;: {
+    &quot;BaseAddress&quot;: &quot;https://localhost:7074&quot;
+  },
+  &quot;AllowedHosts&quot;: &quot;*&quot;
+}
+</code></pre>
+<h2 id="startup">Startup</h2>
+<p>Program.cs (leverages appsettings.json)</p>
+<pre><code class="lang-csharp">builder.Services.AddRestClient();
+</code></pre>
+<p>Program.cs (inline configuration)</p>
+<pre><code class="lang-csharp">builder.Services.AddRestClient((httpClient) =&gt; {
+    httpClient.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+});
+</code></pre>
 </article>
           </div>
           
@@ -78,7 +101,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/blob/main/docs/guides/store/actions.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/blob/main/docs/guides/client/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

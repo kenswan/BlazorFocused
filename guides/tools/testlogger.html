@@ -66,10 +66,29 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="tools/testlogger">
+            <article class="content wrap" id="_content" data-uid="guides/tools/testlogger">
 <h1 id="test-logger">Test Logger</h1>
 
-<p><em>Coming Soon</em></p>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-csharp">private readonly ITestLogger&lt;TestService&gt; testLogger;
+private readonly ITestService testService;
+
+public TestServiceTests()
+{
+    testLogger = ToolsBuilder.CreateTestLogger&lt;TestService&gt;();
+
+    testService =
+        new TestService(testLogger);
+}
+
+[Fact]
+public async Task ShouldLogError()
+{
+    testService.GeneralMethodWithError();
+
+    testLogger.VerifyWasCalledWith(LogLevel.Error)
+}
+</code></pre>
 </article>
           </div>
           

@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Store Actions | Documentation </title>
+    <title>BlazorFocused Tools | Documentation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Store Actions | Documentation ">
+    <meta name="title" content="BlazorFocused Tools | Documentation ">
     <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -66,10 +66,16 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="guides/store/actions">
-<h1 id="store-actions">Store Actions</h1>
+            <article class="content wrap" id="_content" data-uid="guides/tools/index">
+<h1 id="tools-overview">Tools Overview</h1>
 
-<p><em>Coming Soon</em></p>
+<p>Leverage <code>ToolsBuilder</code> class to access BlazorFocused tooling</p>
+<pre><code class="lang-csharp">ISimulatedHttp simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
+
+using HttpClient httpClient = simulatedHttp.HttpClient;
+</code></pre>
+<pre><code class="lang-csharp">ILogger&lt;TestClass&gt; logger = ToolsBuilder.CreateTestLogger&lt;TestClass&gt;();
+</code></pre>
 </article>
           </div>
           
@@ -78,7 +84,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/kenswan/BlazorFocused/blob/main/docs/guides/store/actions.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/kenswan/BlazorFocused/blob/main/docs/guides/tools/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
