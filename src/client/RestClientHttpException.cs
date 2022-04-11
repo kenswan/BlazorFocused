@@ -8,6 +8,11 @@ namespace BlazorFocused
     public class RestClientHttpException : Exception
     {
         /// <summary>
+        /// String content returned in non-successful http request
+        /// </summary>
+        public string Content { get; set; } = string.Empty;
+
+        /// <summary>
         /// Method of origin http request (DELETE, GET, PATCH, POST, PUT)
         /// </summary>
         public HttpMethod Method { get; private set; }

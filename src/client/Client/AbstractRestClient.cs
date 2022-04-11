@@ -20,7 +20,7 @@ namespace BlazorFocused.Client
         {
             logger.LogDebug("Starting Request: {Method} - {Url}", method, url);
 
-            HttpContent content = data != null ?
+            HttpContent content = data is not null ?
                 ConvertToHttpContent(data) : default;
 
             var httpRequestMessage = new HttpRequestMessage

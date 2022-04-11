@@ -25,7 +25,7 @@ namespace BlazorFocused.Tools.Http
             return new HttpResponseMessage
             {
                 StatusCode = response is not null ? response.StatusCode : HttpStatusCode.NotImplemented,
-                Content = new StringContent(response?.ResponseContent, Encoding.UTF8, "application/json"),
+                Content = new StringContent(response?.ResponseContent ?? string.Empty, Encoding.UTF8, "application/json"),
                 RequestMessage = request
             };
         }

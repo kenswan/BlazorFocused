@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using System.Text.Json;
 using Xunit;
 
 namespace BlazorFocused.Client
@@ -33,6 +34,7 @@ namespace BlazorFocused.Client
             var request = RestClientTestExtensions.GenerateResponseObjects();
             var errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
             var invalidResponse = RestClientTestExtensions.GenerateResponseObject();
+            var invalidResponseString = JsonSerializer.Serialize(invalidResponse);
 
             simulatedHttp.GetHttpSetup(httpMethod, url, request)
                 .ReturnsAsync(errorStatusCode, invalidResponse);
@@ -44,7 +46,31 @@ namespace BlazorFocused.Client
                 .And.Match<RestClientHttpException>(exception =>
                     exception.Method == httpMethod &&
                     exception.StatusCode == errorStatusCode &&
-                    exception.Message.Contains(url));
+                    exception.Message.Contains(url) &&
+                    exception.Content == invalidResponseString);
+        }
+
+        [Theory]
+        [MemberData(nameof(HttpMethodsForTask))]
+        public async Task ShouldReturnEmptyForErrorTaskContentIfNotAvailable(HttpMethod httpMethod)
+        {
+            var url = RestClientTestExtensions.GenerateRelativeUrl();
+            var request = RestClientTestExtensions.GenerateResponseObjects();
+            var errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
+            var invalidResponse = RestClientTestExtensions.GenerateResponseObject();
+
+            simulatedHttp.GetHttpSetup(httpMethod, url, request)
+                .ReturnsAsync(errorStatusCode, null);
+
+            var actualException = await Record.ExceptionAsync(() =>
+                MakeTaskRequest(httpMethod, url, request));
+
+            actualException.Should().BeOfType(typeof(RestClientHttpException))
+                .And.Match<RestClientHttpException>(exception =>
+                    exception.Method == httpMethod &&
+                    exception.StatusCode == errorStatusCode &&
+                    exception.Message.Contains(url) &&
+                    exception.Content == string.Empty);
         }
 
         private Task MakeTaskRequest(HttpMethod httpMethod, string url, object request)
