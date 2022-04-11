@@ -6,7 +6,7 @@ namespace BlazorFocused.Client
     /// <inheritdoc cref="IOAuthRestClient"/>
     internal class OAuthRestClient : RestClient, IOAuthRestClient
     {
-        private OAuthToken oAuthToken;
+        private readonly OAuthToken oAuthToken;
 
         public OAuthRestClient(
             OAuthToken oAuthToken,

@@ -22,11 +22,11 @@
     <PackageReference Include="FluentAssertions" />
     <PackageReference Include="Microsoft.Extensions.Hosting" />
   </ItemGroup>
-	
+
   <ItemGroup>
     <ProjectReference Include="..\..\src\client\BlazorFocused.Client.csproj" />
     <ProjectReference Include="..\..\src\tools\BlazorFocused.Tools.csproj" />
     <ProjectReference Include="..\tools\BlazorFocused.Tools.Test.csproj" />
   </ItemGroup>
-  
+
 </Project>

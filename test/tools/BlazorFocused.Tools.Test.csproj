@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
-	<RootNamespace>BlazorFocused.Tools</RootNamespace>
+    <RootNamespace>BlazorFocused.Tools</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,9 +18,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-	  <PackageReference Include="Moq" />
-	  <PackageReference Include="Bogus" />
-	  <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Moq" />
+    <PackageReference Include="Bogus" />
+    <PackageReference Include="FluentAssertions" />
   </ItemGroup>
 
   <ItemGroup>
