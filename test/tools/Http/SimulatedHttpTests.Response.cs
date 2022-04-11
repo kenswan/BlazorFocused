@@ -39,5 +39,30 @@ namespace BlazorFocused.Tools.Http
             Assert.Equal(httpStatusCode, actualResponse.StatusCode);
             actualResponseObject.Should().BeEquivalentTo(responseObject);
         }
+
+        [Theory]
+        [MemberData(nameof(HttpData))]
+        public async Task ShouldReturnEmptyStringForNullResponse(
+            HttpMethod httpMethod,
+            HttpStatusCode httpStatusCode,
+            string relativeRequestUrl,
+            SimpleClass requestObject,
+            SimpleClass responseObject)
+        {
+            responseObject = null;
+
+            ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
+            setup.ReturnsAsync(httpStatusCode, responseObject);
+
+            using var client = simulatedHttp.HttpClient;
+
+            HttpResponseMessage actualResponse =
+                await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
+
+            var actualResponseString = await actualResponse.Content.ReadAsStringAsync();
+
+            Assert.Equal(httpStatusCode, actualResponse.StatusCode);
+            Assert.Equal(string.Empty, actualResponseString);
+        }
     }
 }

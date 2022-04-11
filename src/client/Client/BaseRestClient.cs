@@ -31,9 +31,10 @@ namespace BlazorFocused.Client
         private async Task<HttpResponseMessage> SendAndLogAsync(HttpMethod method, string url, object data = null)
         {
             var httpResponseMessage = await SendAsync(method, url, data);
+            var errorContent = await httpResponseMessage.Content?.ReadAsStringAsync() ?? string.Empty;
 
             if (!httpResponseMessage.IsSuccessStatusCode)
-                LogAndThrowFailure(httpResponseMessage.StatusCode, method, url);
+                LogAndThrowFailure(httpResponseMessage.StatusCode, method, url, errorContent);
             else
                 LogSuccess(httpResponseMessage.StatusCode, method, url);
 
@@ -43,11 +44,17 @@ namespace BlazorFocused.Client
         private void LogSuccess(HttpStatusCode code, HttpMethod method, string url) =>
             logger.LogDebug("SUCCESSFUL Request: {Code} - {Method} - {Url} Request", code, method, url);
 
-        private void LogAndThrowFailure(HttpStatusCode code, HttpMethod method, string url)
+        private void LogAndThrowFailure(HttpStatusCode code, HttpMethod method, string url, string content)
         {
-            var exception = new RestClientHttpException(method, code, url);
+            var exception = new RestClientHttpException(method, code, url)
+            {
+                Content = content ?? string.Empty
+            };
 
             logger.LogError(exception, "FAILED Request: {Code} - {Method} - {Url} Request", code, method, url);
+
+            if (content is not null)
+                logger.LogDebug("FAILED Request Content: ({Method} - {Url}) {Content}", code, method, content);
 
             throw exception;
         }
