@@ -4,65 +4,64 @@ using System.Net;
 using System.Text.Json;
 using Xunit;
 
-namespace BlazorFocused.Tools.Http
+namespace BlazorFocused.Tools.Http;
+
+public partial class SimulatedHttpTests
 {
-    public partial class SimulatedHttpTests
+    [Fact]
+    public void ShouldSetBaseUri()
     {
-        [Fact]
-        public void ShouldSetBaseUri()
-        {
-            var actualBaseAddress = simulatedHttp.HttpClient.BaseAddress.OriginalString;
+        var actualBaseAddress = simulatedHttp.HttpClient.BaseAddress.OriginalString;
 
-            Assert.Equal(baseAddress, actualBaseAddress);
-        }
+        Assert.Equal(baseAddress, actualBaseAddress);
+    }
 
-        [Theory]
-        [MemberData(nameof(HttpData))]
-        public async Task ShouldReturnRequestedResponse(
-            HttpMethod httpMethod,
-            HttpStatusCode httpStatusCode,
-            string relativeRequestUrl,
-            SimpleClass requestObject,
-            SimpleClass responseObject)
-        {
-            ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
-            setup.ReturnsAsync(httpStatusCode, responseObject);
+    [Theory]
+    [MemberData(nameof(HttpData))]
+    public async Task ShouldReturnRequestedResponse(
+        HttpMethod httpMethod,
+        HttpStatusCode httpStatusCode,
+        string relativeRequestUrl,
+        SimpleClass requestObject,
+        SimpleClass responseObject)
+    {
+        ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
+        setup.ReturnsAsync(httpStatusCode, responseObject);
 
-            using var client = simulatedHttp.HttpClient;
+        using var client = simulatedHttp.HttpClient;
 
-            HttpResponseMessage actualResponse =
-                await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
+        HttpResponseMessage actualResponse =
+            await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
 
-            var actualResponseString = await actualResponse.Content.ReadAsStringAsync();
-            var actualResponseObject = JsonSerializer.Deserialize<SimpleClass>(actualResponseString);
+        var actualResponseString = await actualResponse.Content.ReadAsStringAsync();
+        var actualResponseObject = JsonSerializer.Deserialize<SimpleClass>(actualResponseString);
 
-            Assert.Equal(httpStatusCode, actualResponse.StatusCode);
-            actualResponseObject.Should().BeEquivalentTo(responseObject);
-        }
+        Assert.Equal(httpStatusCode, actualResponse.StatusCode);
+        actualResponseObject.Should().BeEquivalentTo(responseObject);
+    }
 
-        [Theory]
-        [MemberData(nameof(HttpData))]
-        public async Task ShouldReturnEmptyStringForNullResponse(
-            HttpMethod httpMethod,
-            HttpStatusCode httpStatusCode,
-            string relativeRequestUrl,
-            SimpleClass requestObject,
-            SimpleClass responseObject)
-        {
-            responseObject = null;
+    [Theory]
+    [MemberData(nameof(HttpData))]
+    public async Task ShouldReturnEmptyStringForNullResponse(
+        HttpMethod httpMethod,
+        HttpStatusCode httpStatusCode,
+        string relativeRequestUrl,
+        SimpleClass requestObject,
+        SimpleClass responseObject)
+    {
+        responseObject = null;
 
-            ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
-            setup.ReturnsAsync(httpStatusCode, responseObject);
+        ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
+        setup.ReturnsAsync(httpStatusCode, responseObject);
 
-            using var client = simulatedHttp.HttpClient;
+        using var client = simulatedHttp.HttpClient;
 
-            HttpResponseMessage actualResponse =
-                await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
+        HttpResponseMessage actualResponse =
+            await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
 
-            var actualResponseString = await actualResponse.Content.ReadAsStringAsync();
+        var actualResponseString = await actualResponse.Content.ReadAsStringAsync();
 
-            Assert.Equal(httpStatusCode, actualResponse.StatusCode);
-            Assert.Equal(string.Empty, actualResponseString);
-        }
+        Assert.Equal(httpStatusCode, actualResponse.StatusCode);
+        Assert.Equal(string.Empty, actualResponseString);
     }
 }

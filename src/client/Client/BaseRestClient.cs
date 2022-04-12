@@ -2,58 +2,57 @@
 using System.Net;
 using System.Net.Http.Json;
 
-namespace BlazorFocused.Client
+namespace BlazorFocused.Client;
+
+internal abstract class BaseRestClient : AbstractRestClient
 {
-    internal abstract class BaseRestClient : AbstractRestClient
+    public BaseRestClient(HttpClient httpClient, ILogger logger)
+        : base(httpClient, logger)
+    { }
+
+    public async Task<(HttpStatusCode, T)> SendAndDeserializeAsync<T>(HttpMethod method, string url, object data = null)
     {
-        public BaseRestClient(HttpClient httpClient, ILogger logger)
-            : base(httpClient, logger)
-        { }
+        var httpResponseMessage = await SendAndLogAsync(method, url, data);
 
-        public async Task<(HttpStatusCode, T)> SendAndDeserializeAsync<T>(HttpMethod method, string url, object data = null)
-        {
-            var httpResponseMessage = await SendAndLogAsync(method, url, data);
+        logger.LogDebug("Deserializing response content");
 
-            logger.LogDebug("Deserializing response content");
+        var content = await httpResponseMessage.Content.ReadFromJsonAsync<T>();
 
-            var content = await httpResponseMessage.Content.ReadFromJsonAsync<T>();
+        return (httpResponseMessage.StatusCode, content);
+    }
 
-            return (httpResponseMessage.StatusCode, content);
-        }
+    public async Task<HttpStatusCode> SendAndTaskAsync(HttpMethod method, string url, object data = null)
+    {
+        var httpResponseMessage = await SendAndLogAsync(method, url, data);
 
-        public async Task<HttpStatusCode> SendAndTaskAsync(HttpMethod method, string url, object data = null)
-        {
-            var httpResponseMessage = await SendAndLogAsync(method, url, data);
+        return httpResponseMessage.StatusCode;
+    }
 
-            return httpResponseMessage.StatusCode;
-        }
+    private async Task<HttpResponseMessage> SendAndLogAsync(HttpMethod method, string url, object data = null)
+    {
+        var httpResponseMessage = await SendAsync(method, url, data);
+        var errorContent = await httpResponseMessage.Content?.ReadAsStringAsync() ?? string.Empty;
 
-        private async Task<HttpResponseMessage> SendAndLogAsync(HttpMethod method, string url, object data = null)
-        {
-            var httpResponseMessage = await SendAsync(method, url, data);
-            var errorContent = await httpResponseMessage.Content?.ReadAsStringAsync() ?? string.Empty;
+        if (!httpResponseMessage.IsSuccessStatusCode)
+            LogAndThrowFailure(httpResponseMessage.StatusCode, method, url, errorContent);
+        else
+            LogSuccess(httpResponseMessage.StatusCode, method, url);
 
-            if (!httpResponseMessage.IsSuccessStatusCode)
-                LogAndThrowFailure(httpResponseMessage.StatusCode, method, url, errorContent);
-            else
-                LogSuccess(httpResponseMessage.StatusCode, method, url);
+        return httpResponseMessage;
+    }
 
-            return httpResponseMessage;
-        }
+    private void LogSuccess(HttpStatusCode code, HttpMethod method, string url) =>
+        logger.LogDebug("SUCCESSFUL Request: {Code} - {Method} - {Url} Request", code, method, url);
 
-        private void LogSuccess(HttpStatusCode code, HttpMethod method, string url) =>
-            logger.LogDebug("SUCCESSFUL Request: {Code} - {Method} - {Url} Request", code, method, url);
+    private void LogAndThrowFailure(HttpStatusCode code, HttpMethod method, string url, string content)
+    {
+        var exception = new RestClientHttpException(method, code, url) { Content = content };
 
-        private void LogAndThrowFailure(HttpStatusCode code, HttpMethod method, string url, string content)
-        {
-            var exception = new RestClientHttpException(method, code, url) { Content = content };
+        logger.LogError(exception, "FAILED Request: {Code} - {Method} - {Url} Request", code, method, url);
 
-            logger.LogError(exception, "FAILED Request: {Code} - {Method} - {Url} Request", code, method, url);
+        if (content is not null)
+            logger.LogDebug("FAILED Request Content: ({Method} - {Url}) {Content}", code, method, content);
 
-            if (content is not null)
-                logger.LogDebug("FAILED Request Content: ({Method} - {Url}) {Content}", code, method, content);
-
-            throw exception;
-        }
+        throw exception;
     }
 }

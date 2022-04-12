@@ -2,45 +2,44 @@
 using Microsoft.Extensions.Options;
 using Xunit;
 
-namespace BlazorFocused.Client
+namespace BlazorFocused.Client;
+
+public partial class RestClientTests
 {
-    public partial class RestClientTests
+    [Fact]
+    public void ShouldConfigureHttpClientWhenOptionsPresent()
     {
-        [Fact]
-        public void ShouldConfigureHttpClientWhenOptionsPresent()
+        var address = "https://blazorfocused.net";
+        var expectedBaseAddress = new Uri(address);
+
+        var expectedRequestHeaders = new Dictionary<string, string[]>()
         {
-            var address = "https://blazorfocused.net";
-            var expectedBaseAddress = new Uri(address);
+            ["Accept"] = new string[] { "application/json" },
+        };
 
-            var expectedRequestHeaders = new Dictionary<string, string[]>()
+        var restClientOptions = new RestClientOptions
+        {
+            BaseAddress = address,
+            MaxResponseContentBufferSize = 600000,
+            Timeout = 500000,
+            DefaultRequestHeaders = new Dictionary<string, string>()
             {
-                ["Accept"] = new string[] { "application/json" },
-            };
+                ["Accept"] = "application/json",
+            }
+        };
 
-            var restClientOptions = new RestClientOptions
-            {
-                BaseAddress = address,
-                MaxResponseContentBufferSize = 600000,
-                Timeout = 500000,
-                DefaultRequestHeaders = new Dictionary<string, string>()
-                {
-                    ["Accept"] = "application/json",
-                }
-            };
+        using var httpClient =
+            new RestClient(new HttpClient(), Options.Create(restClientOptions), testLogger).GetClient();
 
-            using var httpClient =
-                new RestClient(new HttpClient(), Options.Create(restClientOptions), testLogger).GetClient();
+        Assert.Equal(expectedBaseAddress, httpClient.BaseAddress);
 
-            Assert.Equal(expectedBaseAddress, httpClient.BaseAddress);
+        Assert.Equal(restClientOptions.MaxResponseContentBufferSize,
+            httpClient.MaxResponseContentBufferSize);
 
-            Assert.Equal(restClientOptions.MaxResponseContentBufferSize,
-                httpClient.MaxResponseContentBufferSize);
+        Assert.Equal(restClientOptions.Timeout, httpClient.Timeout.TotalMilliseconds);
 
-            Assert.Equal(restClientOptions.Timeout, httpClient.Timeout.TotalMilliseconds);
+        Assert.Single(httpClient.DefaultRequestHeaders);
 
-            Assert.Single(httpClient.DefaultRequestHeaders);
-
-            httpClient.DefaultRequestHeaders.Should().BeEquivalentTo(expectedRequestHeaders);
-        }
+        httpClient.DefaultRequestHeaders.Should().BeEquivalentTo(expectedRequestHeaders);
     }
 }

@@ -1,18 +1,17 @@
-﻿namespace BlazorFocused
+﻿namespace BlazorFocused;
+
+/// <inheritdoc cref="IActionAsync{TState}"/>
+public abstract class StoreActionAsync<TState> : IActionAsync<TState>
 {
-    /// <inheritdoc cref="IActionAsync{TState}"/>
-    public abstract class StoreActionAsync<TState> : IActionAsync<TState>
-    {
-        public TState State { get; set; }
+    public TState State { get; set; }
 
-        public abstract ValueTask<TState> ExecuteAsync();
-    }
+    public abstract ValueTask<TState> ExecuteAsync();
+}
 
-    /// <inheritdoc cref="IActionAsync{TState, TInput}"/>
-    public abstract class StoreActionAsync<TState, TInput> : IActionAsync<TState, TInput>
-    {
-        public TState State { get; set; }
+/// <inheritdoc cref="IActionAsync{TState, TInput}"/>
+public abstract class StoreActionAsync<TState, TInput> : IActionAsync<TState, TInput>
+{
+    public TState State { get; set; }
 
-        public abstract ValueTask<TState> ExecuteAsync(TInput input);
-    }
+    public abstract ValueTask<TState> ExecuteAsync(TInput input);
 }

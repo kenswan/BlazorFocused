@@ -1,17 +1,16 @@
-﻿namespace BlazorFocused.Tools.Utility
+﻿namespace BlazorFocused.Tools.Utility;
+
+public class TestService : TestClass, ITestService
 {
-    public class TestService : TestClass, ITestService
+    public TestService() { }
+
+    public virtual ValueTask<T> GetValueAsync<T>()
     {
-        public TestService() { }
+        return new ValueTask<T>(default(T));
+    }
 
-        public virtual ValueTask<T> GetValueAsync<T>()
-        {
-            return new ValueTask<T>(default(T));
-        }
-
-        public virtual ValueTask<TOutput> GetValueAsync<TInput, TOutput>(TInput input)
-        {
-            return new ValueTask<TOutput>(default(TOutput));
-        }
+    public virtual ValueTask<TOutput> GetValueAsync<TInput, TOutput>(TInput input)
+    {
+        return new ValueTask<TOutput>(default(TOutput));
     }
 }

@@ -7,52 +7,51 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Net;
 using Xunit;
 
-namespace BlazorFocused
+namespace BlazorFocused;
+
+public partial class ServiceCollectionExtensionsTests
 {
-    public partial class ServiceCollectionExtensionsTests
+    [Fact]
+    public async Task ShouldAdddAuthTokenInstantlyAfterReceiving()
     {
-        [Fact]
-        public async Task ShouldAdddAuthTokenInstantlyAfterReceiving()
+        var token = new Faker().Internet.Password(20);
+        var expectedAuthorization = $"Bearer {token}";
+        var baseAddress = new Faker().Internet.Url();
+        var relativeUrl = new Faker().Internet.UrlRootedPath();
+        var responseObject = RestClientTestExtensions.GenerateResponseObject();
+
+        var appSettings = new Dictionary<string, string>()
         {
-            var token = new Faker().Internet.Password(20);
-            var expectedAuthorization = $"Bearer {token}";
-            var baseAddress = new Faker().Internet.Url();
-            var relativeUrl = new Faker().Internet.UrlRootedPath();
-            var responseObject = RestClientTestExtensions.GenerateResponseObject();
+            ["restclient:baseAddress"] = baseAddress
+        };
 
-            var appSettings = new Dictionary<string, string>()
+        var simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
+        var serviceCollection = new ServiceCollection();
+        serviceCollection
+            .AddConfiguration(appSettings)
+            .AddOAuthRestClient()
+            .AddSimulatedHttp(simulatedHttp);
+
+        simulatedHttp.SetupGET(relativeUrl)
+            .ReturnsAsync(HttpStatusCode.OK, responseObject);
+
+        using var serviceProvider = serviceCollection
+            .BuildProviderWithTestLoggers((services) =>
             {
-                ["restclient:baseAddress"] = baseAddress
-            };
+                services.AddTestLoggerToCollection<OAuthRestClient>(testOutpuHelper);
+                services.AddTestLoggerToCollection<RestClientAuthHandler>(testOutpuHelper);
+            }) as ServiceProvider;
 
-            var simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
-            var serviceCollection = new ServiceCollection();
-            serviceCollection
-                .AddConfiguration(appSettings)
-                .AddOAuthRestClient()
-                .AddSimulatedHttp(simulatedHttp);
+        using var scope = serviceProvider.CreateScope();
+        var oAuthRestClient = scope.ServiceProvider.GetRequiredService<IOAuthRestClient>();
+        oAuthRestClient.AddAuthorization("Bearer", token);
 
-            simulatedHttp.SetupGET(relativeUrl)
-                .ReturnsAsync(HttpStatusCode.OK, responseObject);
+        var response = await oAuthRestClient.GetAsync<SimpleClass>(relativeUrl);
 
-            using var serviceProvider = serviceCollection
-                .BuildProviderWithTestLoggers((services) =>
-                {
-                    services.AddTestLoggerToCollection<OAuthRestClient>(testOutpuHelper);
-                    services.AddTestLoggerToCollection<RestClientAuthHandler>(testOutpuHelper);
-                }) as ServiceProvider;
+        var actualAuthorization =
+            simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativeUrl, "Authorization")
+                .FirstOrDefault();
 
-            using var scope = serviceProvider.CreateScope();
-            var oAuthRestClient = scope.ServiceProvider.GetRequiredService<IOAuthRestClient>();
-            oAuthRestClient.AddAuthorization("Bearer", token);
-
-            var response = await oAuthRestClient.GetAsync<SimpleClass>(relativeUrl);
-
-            var actualAuthorization =
-                simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativeUrl, "Authorization")
-                    .FirstOrDefault();
-
-            Assert.Equal(expectedAuthorization, actualAuthorization);
-        }
+        Assert.Equal(expectedAuthorization, actualAuthorization);
     }
 }

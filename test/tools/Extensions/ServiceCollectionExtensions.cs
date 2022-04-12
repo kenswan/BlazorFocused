@@ -4,58 +4,57 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Xunit.Abstractions;
 
-namespace BlazorFocused.Tools.Extensions
+namespace BlazorFocused.Tools.Extensions;
+
+public static class ServiceCollectionExtensions
 {
-    public static class ServiceCollectionExtensions
+    public static IServiceCollection AddConfiguration(
+        this IServiceCollection services,
+        Dictionary<string, string> appSettings = default)
     {
-        public static IServiceCollection AddConfiguration(
-            this IServiceCollection services,
-            Dictionary<string, string> appSettings = default)
+        var configurationBuilder = new ConfigurationBuilder();
+
+        if (appSettings is not null)
         {
-            var configurationBuilder = new ConfigurationBuilder();
-
-            if (appSettings is not null)
-            {
-                configurationBuilder.AddInMemoryCollection(appSettings);
-            }
-
-            return services.AddSingleton<IConfiguration>(configurationBuilder.Build());
+            configurationBuilder.AddInMemoryCollection(appSettings);
         }
 
-        public static IServiceProvider BuildProviderWithTestLogger<T>(
-            this IServiceCollection serviceCollection,
-            ITestOutputHelper testOutputHelper)
-        {
-            var previousLogger = serviceCollection.FirstOrDefault(descriptor =>
-                descriptor.ServiceType == typeof(ILogger<>));
+        return services.AddSingleton<IConfiguration>(configurationBuilder.Build());
+    }
 
-            serviceCollection.Remove(previousLogger);
+    public static IServiceProvider BuildProviderWithTestLogger<T>(
+        this IServiceCollection serviceCollection,
+        ITestOutputHelper testOutputHelper)
+    {
+        var previousLogger = serviceCollection.FirstOrDefault(descriptor =>
+            descriptor.ServiceType == typeof(ILogger<>));
 
-            AddTestLoggerToCollection<T>(serviceCollection, testOutputHelper);
+        serviceCollection.Remove(previousLogger);
 
-            return serviceCollection.BuildServiceProvider();
-        }
+        AddTestLoggerToCollection<T>(serviceCollection, testOutputHelper);
 
-        public static IServiceProvider BuildProviderWithTestLoggers(
-            this IServiceCollection serviceCollection,
-            Action<IServiceCollection> testLoggers)
-        {
-            var previousLogger = serviceCollection.FirstOrDefault(descriptor =>
-                descriptor.ServiceType == typeof(ILogger<>));
+        return serviceCollection.BuildServiceProvider();
+    }
 
-            serviceCollection.Remove(previousLogger);
+    public static IServiceProvider BuildProviderWithTestLoggers(
+        this IServiceCollection serviceCollection,
+        Action<IServiceCollection> testLoggers)
+    {
+        var previousLogger = serviceCollection.FirstOrDefault(descriptor =>
+            descriptor.ServiceType == typeof(ILogger<>));
 
-            testLoggers(serviceCollection);
+        serviceCollection.Remove(previousLogger);
 
-            return serviceCollection.BuildServiceProvider();
-        }
+        testLoggers(serviceCollection);
 
-        public static void AddTestLoggerToCollection<T>(
-            this IServiceCollection serviceCollection,
-            ITestOutputHelper testOutputHelper)
-        {
-            serviceCollection.AddSingleton<ILogger<T>>(new TestLogger<T>((level, message, exception) =>
-                testOutputHelper.WriteTestLoggerMessage(level, message, exception)));
-        }
+        return serviceCollection.BuildServiceProvider();
+    }
+
+    public static void AddTestLoggerToCollection<T>(
+        this IServiceCollection serviceCollection,
+        ITestOutputHelper testOutputHelper)
+    {
+        serviceCollection.AddSingleton<ILogger<T>>(new TestLogger<T>((level, message, exception) =>
+            testOutputHelper.WriteTestLoggerMessage(level, message, exception)));
     }
 }
