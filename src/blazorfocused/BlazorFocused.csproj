@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
-        <RootNamespace>BlazorFocused</RootNamespace>
-        <Title>BlazorFocused</Title>
-        <PackageId>BlazorFocused</PackageId>
-        <PackageTags>dotnet;blazor;c-sharp;flux-architecture;http-client</PackageTags>
-        <Description>Introducing Flux Architecture and other utilities to Blazor Components</Description>
+      <TargetFramework>net6.0</TargetFramework>
+      <RootNamespace>BlazorFocused</RootNamespace>
+      <Title>BlazorFocused</Title>
+      <PackageId>BlazorFocused</PackageId>
+      <PackageTags>dotnet;blazor;c-sharp;flux-architecture;http-client</PackageTags>
+      <Description>Introducing Flux Architecture and other utilities to Blazor Components</Description>
     </PropertyGroup>
 
     <ItemGroup>

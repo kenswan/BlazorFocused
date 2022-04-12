@@ -1,17 +1,16 @@
 ﻿using System.Net;
 
-namespace BlazorFocused.Tools
+namespace BlazorFocused.Tools;
+
+/// <summary>
+/// Handles configuration/simulated response returned for a request from <see cref="ISimulatedHttp"/>
+/// </summary>
+public interface ISimulatedHttpSetup
 {
     /// <summary>
-    /// Handles configuration/simulated response returned for a request from <see cref="ISimulatedHttp"/>
+    /// Configures the expected results of "Setup" request/>
     /// </summary>
-    public interface ISimulatedHttpSetup
-    {
-        /// <summary>
-        /// Configures the expected results of "Setup" request/>
-        /// </summary>
-        /// <param name="statusCode">Simulated http response status</param>
-        /// <param name="responseObject">Simulated deserialized object in http response body</param>
-        void ReturnsAsync(HttpStatusCode statusCode, object responseObject);
-    }
+    /// <param name="statusCode">Simulated http response status</param>
+    /// <param name="responseObject">Simulated deserialized object in http response body</param>
+    void ReturnsAsync(HttpStatusCode statusCode, object responseObject);
 }

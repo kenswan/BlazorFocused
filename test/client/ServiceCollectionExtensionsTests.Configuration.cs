@@ -7,134 +7,133 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Xunit;
 
-namespace BlazorFocused
+namespace BlazorFocused;
+
+public partial class ServiceCollectionExtensionsTests
 {
-    public partial class ServiceCollectionExtensionsTests
+    [Fact]
+    public void ShouldUseRestClientConfiguration()
     {
-        [Fact]
-        public void ShouldUseRestClientConfiguration()
+        var baseAddress = new Faker().Internet.Url();
+
+        var expectedRequestHeaders = new Dictionary<string, string[]>()
         {
-            var baseAddress = new Faker().Internet.Url();
+            ["Accept"] = new string[] { "application/json" },
+            ["Accept-Enconding"] = new string[] { "gzip" },
+            ["Cache-Control"] = new string[] { "max-age=0" }
+        };
 
-            var expectedRequestHeaders = new Dictionary<string, string[]>()
-            {
-                ["Accept"] = new string[] { "application/json" },
-                ["Accept-Enconding"] = new string[] { "gzip" },
-                ["Cache-Control"] = new string[] { "max-age=0" }
-            };
-
-            var appSettings = new Dictionary<string, string>()
-            {
-                ["restclient:baseAddress"] = baseAddress,
-                ["restclient:defaultRequestHeaders:Accept"] = "application/json",
-                ["restclient:defaultRequestHeaders:Accept-Enconding"] = "gzip",
-                ["restclient:defaultRequestHeaders:Cache-Control"] = "max-age=0",
-                ["restclient:maxResponseContentBufferSize"] = "500000",
-                ["restclient:timeout"] = "300000"
-            };
-
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddConfiguration(appSettings);
-            serviceCollection.AddRestClient();
-
-            using var serviceProvider = serviceCollection.BuildServiceProvider();
-            var restClient = serviceProvider.GetRequiredService<IRestClient>();
-            using HttpClient httpClient = (restClient as RestClient).GetClient();
-
-            Assert.Equal(baseAddress, httpClient.BaseAddress.OriginalString);
-            Assert.Equal(3, httpClient.DefaultRequestHeaders.Count());
-            httpClient.DefaultRequestHeaders.Should().BeEquivalentTo(expectedRequestHeaders);
-            Assert.Equal(500000, httpClient.MaxResponseContentBufferSize);
-            Assert.Equal(300000, httpClient.Timeout.TotalMilliseconds);
-        }
-
-        [Fact]
-        public void ShouldUseRestClientConfigurationIfOAuthNotPresent()
+        var appSettings = new Dictionary<string, string>()
         {
-            var baseAddress = new Faker().Internet.Url();
+            ["restclient:baseAddress"] = baseAddress,
+            ["restclient:defaultRequestHeaders:Accept"] = "application/json",
+            ["restclient:defaultRequestHeaders:Accept-Enconding"] = "gzip",
+            ["restclient:defaultRequestHeaders:Cache-Control"] = "max-age=0",
+            ["restclient:maxResponseContentBufferSize"] = "500000",
+            ["restclient:timeout"] = "300000"
+        };
 
-            var expectedRequestHeaders = new Dictionary<string, string[]>()
-            {
-                ["Accept"] = new string[] { "application/json" },
-                ["Accept-Enconding"] = new string[] { "gzip" },
-                ["Cache-Control"] = new string[] { "max-age=0" }
-            };
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.AddConfiguration(appSettings);
+        serviceCollection.AddRestClient();
 
-            var appSettings = new Dictionary<string, string>()
-            {
-                ["restclient:baseAddress"] = baseAddress,
-                ["restclient:defaultRequestHeaders:Accept"] = "application/json",
-                ["restclient:defaultRequestHeaders:Accept-Enconding"] = "gzip",
-                ["restclient:defaultRequestHeaders:Cache-Control"] = "max-age=0",
-                ["restclient:maxResponseContentBufferSize"] = "500000",
-                ["restclient:timeout"] = "300000"
-            };
+        using var serviceProvider = serviceCollection.BuildServiceProvider();
+        var restClient = serviceProvider.GetRequiredService<IRestClient>();
+        using HttpClient httpClient = (restClient as RestClient).GetClient();
 
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddConfiguration(appSettings);
-            serviceCollection.AddOAuthRestClient();
+        Assert.Equal(baseAddress, httpClient.BaseAddress.OriginalString);
+        Assert.Equal(3, httpClient.DefaultRequestHeaders.Count());
+        httpClient.DefaultRequestHeaders.Should().BeEquivalentTo(expectedRequestHeaders);
+        Assert.Equal(500000, httpClient.MaxResponseContentBufferSize);
+        Assert.Equal(300000, httpClient.Timeout.TotalMilliseconds);
+    }
 
-            using var serviceProvider = serviceCollection.BuildServiceProvider();
-            var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
-            using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
+    [Fact]
+    public void ShouldUseRestClientConfigurationIfOAuthNotPresent()
+    {
+        var baseAddress = new Faker().Internet.Url();
 
-            Assert.Equal(baseAddress, httpClient.BaseAddress.OriginalString);
-            Assert.Equal(3, httpClient.DefaultRequestHeaders.Count());
-            httpClient.DefaultRequestHeaders.Should().BeEquivalentTo(expectedRequestHeaders);
-            Assert.Equal(500000, httpClient.MaxResponseContentBufferSize);
-            Assert.Equal(300000, httpClient.Timeout.TotalMilliseconds);
-        }
-
-        [Fact]
-        public void ShouldNotConfigureRestClientWithoutConfiguration()
+        var expectedRequestHeaders = new Dictionary<string, string[]>()
         {
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddConfiguration(new Dictionary<string, string>());
-            serviceCollection.AddRestClient();
+            ["Accept"] = new string[] { "application/json" },
+            ["Accept-Enconding"] = new string[] { "gzip" },
+            ["Cache-Control"] = new string[] { "max-age=0" }
+        };
 
-            using var serviceProvider = serviceCollection.BuildServiceProvider();
-            var restClient = serviceProvider.GetRequiredService<IRestClient>();
-            using HttpClient httpClient = (restClient as RestClient).GetClient();
-
-            Assert.Null(httpClient.BaseAddress);
-            Assert.Empty(httpClient.DefaultRequestHeaders);
-            Assert.Equal(2147483647, httpClient.MaxResponseContentBufferSize); // Default value
-            Assert.Equal(100000, httpClient.Timeout.TotalMilliseconds); // Default value
-        }
-
-        [Fact]
-        public void ShouldNotConfigureOAuthRestClientWithoutConfiguration()
+        var appSettings = new Dictionary<string, string>()
         {
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddConfiguration(new Dictionary<string, string>());
-            serviceCollection.AddOAuthRestClient();
+            ["restclient:baseAddress"] = baseAddress,
+            ["restclient:defaultRequestHeaders:Accept"] = "application/json",
+            ["restclient:defaultRequestHeaders:Accept-Enconding"] = "gzip",
+            ["restclient:defaultRequestHeaders:Cache-Control"] = "max-age=0",
+            ["restclient:maxResponseContentBufferSize"] = "500000",
+            ["restclient:timeout"] = "300000"
+        };
 
-            using var serviceProvider = serviceCollection.BuildServiceProvider();
-            var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
-            using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.AddConfiguration(appSettings);
+        serviceCollection.AddOAuthRestClient();
 
-            Assert.Null(httpClient.BaseAddress);
-            Assert.Empty(httpClient.DefaultRequestHeaders);
-            Assert.Equal(2147483647, httpClient.MaxResponseContentBufferSize); // Default value
-            Assert.Equal(100000, httpClient.Timeout.TotalMilliseconds); // Default value
-        }
+        using var serviceProvider = serviceCollection.BuildServiceProvider();
+        var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+        using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
-        [Fact]
-        public void ShouldThrowExceptionWithInvalidUri()
+        Assert.Equal(baseAddress, httpClient.BaseAddress.OriginalString);
+        Assert.Equal(3, httpClient.DefaultRequestHeaders.Count());
+        httpClient.DefaultRequestHeaders.Should().BeEquivalentTo(expectedRequestHeaders);
+        Assert.Equal(500000, httpClient.MaxResponseContentBufferSize);
+        Assert.Equal(300000, httpClient.Timeout.TotalMilliseconds);
+    }
+
+    [Fact]
+    public void ShouldNotConfigureRestClientWithoutConfiguration()
+    {
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.AddConfiguration(new Dictionary<string, string>());
+        serviceCollection.AddRestClient();
+
+        using var serviceProvider = serviceCollection.BuildServiceProvider();
+        var restClient = serviceProvider.GetRequiredService<IRestClient>();
+        using HttpClient httpClient = (restClient as RestClient).GetClient();
+
+        Assert.Null(httpClient.BaseAddress);
+        Assert.Empty(httpClient.DefaultRequestHeaders);
+        Assert.Equal(2147483647, httpClient.MaxResponseContentBufferSize); // Default value
+        Assert.Equal(100000, httpClient.Timeout.TotalMilliseconds); // Default value
+    }
+
+    [Fact]
+    public void ShouldNotConfigureOAuthRestClientWithoutConfiguration()
+    {
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.AddConfiguration(new Dictionary<string, string>());
+        serviceCollection.AddOAuthRestClient();
+
+        using var serviceProvider = serviceCollection.BuildServiceProvider();
+        var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+        using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
+
+        Assert.Null(httpClient.BaseAddress);
+        Assert.Empty(httpClient.DefaultRequestHeaders);
+        Assert.Equal(2147483647, httpClient.MaxResponseContentBufferSize); // Default value
+        Assert.Equal(100000, httpClient.Timeout.TotalMilliseconds); // Default value
+    }
+
+    [Fact]
+    public void ShouldThrowExceptionWithInvalidUri()
+    {
+        var appSettings = new Dictionary<string, string>()
         {
-            var appSettings = new Dictionary<string, string>()
-            {
-                ["restclient:baseAddress"] = "ThisIsTestingAFail",
-            };
+            ["restclient:baseAddress"] = "ThisIsTestingAFail",
+        };
 
-            var serviceCollection = new ServiceCollection();
-            serviceCollection.AddConfiguration(appSettings);
-            serviceCollection.AddRestClient();
+        var serviceCollection = new ServiceCollection();
+        serviceCollection.AddConfiguration(appSettings);
+        serviceCollection.AddRestClient();
 
-            using var serviceProvider = serviceCollection.BuildServiceProvider();
+        using var serviceProvider = serviceCollection.BuildServiceProvider();
 
-            Assert.Throws<OptionsValidationException>(() =>
-                serviceProvider.GetRequiredService<IRestClient>());
-        }
+        Assert.Throws<OptionsValidationException>(() =>
+            serviceProvider.GetRequiredService<IRestClient>());
     }
 }

@@ -7,59 +7,58 @@ using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using Xunit;
 
-namespace BlazorFocused.Store
+namespace BlazorFocused.Store;
+
+public partial class StoreTests
 {
-    public partial class StoreTests
+    [Fact(DisplayName = "Should execute async action")]
+    public async Task ShouldRetrieveValueAsyncByInstance()
     {
-        [Fact(DisplayName = "Should execute async action")]
-        public async Task ShouldRetrieveValueAsyncByInstance()
-        {
-            var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
-            var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
-            var testServiceMock = new Mock<TestService>();
+        var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
+        var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
+        var testServiceMock = new Mock<TestService>();
 
-            testServiceMock.Setup(service =>
-                service.GetValueAsync<SimpleClass>())
-                    .ReturnsAsync(updatedClass);
+        testServiceMock.Setup(service =>
+            service.GetValueAsync<SimpleClass>())
+                .ReturnsAsync(updatedClass);
 
-            using var serviceProvider = serviceCollection
-                .AddTransient<TestActionAsync>()
-                .AddTransient(sp => testServiceMock.Object)
-                .BuildProviderWithTestLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
+        using var serviceProvider = serviceCollection
+            .AddTransient<TestActionAsync>()
+            .AddTransient(sp => testServiceMock.Object)
+            .BuildProviderWithTestLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
 
-            var store = new Store<SimpleClass>(originalClass, serviceProvider);
+        var store = new Store<SimpleClass>(originalClass, serviceProvider);
 
-            await store.DispatchAsync<TestActionAsync>();
+        await store.DispatchAsync<TestActionAsync>();
 
-            store.GetState().Should().BeEquivalentTo(updatedClass);
-            testServiceMock.Verify(service => service.GetValueAsync<SimpleClass>(), Times.Once);
-        }
+        store.GetState().Should().BeEquivalentTo(updatedClass);
+        testServiceMock.Verify(service => service.GetValueAsync<SimpleClass>(), Times.Once);
+    }
 
-        [Fact(DisplayName = "Should execute async action with input by instance")]
-        public async Task ShouldRetrieveValueAsyncWithInputByInstance()
-        {
-            var input = new Faker().Random.String();
-            var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
-            var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
-            var testServiceMock = new Mock<TestService>();
+    [Fact(DisplayName = "Should execute async action with input by instance")]
+    public async Task ShouldRetrieveValueAsyncWithInputByInstance()
+    {
+        var input = new Faker().Random.String();
+        var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
+        var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
+        var testServiceMock = new Mock<TestService>();
 
-            testServiceMock.Setup(service =>
-                service.GetValueAsync<string, SimpleClass>(input))
-                    .ReturnsAsync(updatedClass);
+        testServiceMock.Setup(service =>
+            service.GetValueAsync<string, SimpleClass>(input))
+                .ReturnsAsync(updatedClass);
 
-            using var serviceProvider = serviceCollection
-                .AddTransient<TestActionAsyncWithInput>()
-                .AddTransient(sp => testServiceMock.Object)
-                .BuildProviderWithTestLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
+        using var serviceProvider = serviceCollection
+            .AddTransient<TestActionAsyncWithInput>()
+            .AddTransient(sp => testServiceMock.Object)
+            .BuildProviderWithTestLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
 
-            var store = new Store<SimpleClass>(originalClass, serviceProvider);
+        var store = new Store<SimpleClass>(originalClass, serviceProvider);
 
-            await store.DispatchAsync<TestActionAsyncWithInput, string>(input);
+        await store.DispatchAsync<TestActionAsyncWithInput, string>(input);
 
-            store.GetState().Should().BeEquivalentTo(updatedClass);
+        store.GetState().Should().BeEquivalentTo(updatedClass);
 
-            testServiceMock.Verify(service =>
-                service.GetValueAsync<string, SimpleClass>(input), Times.Once);
-        }
+        testServiceMock.Verify(service =>
+            service.GetValueAsync<string, SimpleClass>(input), Times.Once);
     }
 }

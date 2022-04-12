@@ -7,31 +7,30 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Net;
 using Xunit;
 
-namespace BlazorFocused.Tools.Http
+namespace BlazorFocused.Tools.Http;
+
+public partial class SimulatedHttpTests
 {
-    public partial class SimulatedHttpTests
+    [Fact]
+    public async Task ShouldProvideMockDataThroughDependencyInjection()
     {
-        [Fact]
-        public async Task ShouldProvideMockDataThroughDependencyInjection()
-        {
-            var relativeUrl = new Faker().Internet.UrlRootedPath();
-            var expectedResponse = SimpleClassUtilities.GetRandomSimpleClass();
-            var serviceCollection = new ServiceCollection();
+        var relativeUrl = new Faker().Internet.UrlRootedPath();
+        var expectedResponse = SimpleClassUtilities.GetRandomSimpleClass();
+        var serviceCollection = new ServiceCollection();
 
-            serviceCollection
-                .AddConfiguration()
-                .AddRestClient(baseAddress)
-                .AddSimulatedHttp(simulatedHttp);
+        serviceCollection
+            .AddConfiguration()
+            .AddRestClient(baseAddress)
+            .AddSimulatedHttp(simulatedHttp);
 
-            using var serviceProvider = serviceCollection.BuildServiceProvider();
-            var restClient = serviceProvider.GetRequiredService<IRestClient>();
+        using var serviceProvider = serviceCollection.BuildServiceProvider();
+        var restClient = serviceProvider.GetRequiredService<IRestClient>();
 
-            simulatedHttp.SetupGET(relativeUrl)
-                .ReturnsAsync(HttpStatusCode.OK, expectedResponse);
+        simulatedHttp.SetupGET(relativeUrl)
+            .ReturnsAsync(HttpStatusCode.OK, expectedResponse);
 
-            var actualResponse = await restClient.GetAsync<SimpleClass>(relativeUrl);
+        var actualResponse = await restClient.GetAsync<SimpleClass>(relativeUrl);
 
-            actualResponse.Should().BeEquivalentTo(expectedResponse);
-        }
+        actualResponse.Should().BeEquivalentTo(expectedResponse);
     }
 }

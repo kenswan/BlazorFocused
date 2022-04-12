@@ -2,74 +2,73 @@
 using Bogus;
 using Xunit;
 
-namespace BlazorFocused.Client
+namespace BlazorFocused.Client;
+
+public class RestClientAuthHandlerTests
 {
-    public class RestClientAuthHandlerTests
+    private readonly ISimulatedHttp simulatedHttp;
+    private readonly ITestLogger<RestClientAuthHandler> testLogger;
+    private readonly string baseAddress = new Faker().Internet.Url();
+
+    public RestClientAuthHandlerTests()
     {
-        private readonly ISimulatedHttp simulatedHttp;
-        private readonly ITestLogger<RestClientAuthHandler> testLogger;
-        private readonly string baseAddress = new Faker().Internet.Url();
-
-        public RestClientAuthHandlerTests()
-        {
-            simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
-            testLogger = ToolsBuilder.CreateTestLogger<RestClientAuthHandler>(); ;
-        }
-
-        [Fact]
-        public async Task ShouldAddAuthTokenToRequest()
-        {
-            var scheme = "Bearer";
-            var token = GetRandomToken();
-            var oAuthToken = new OAuthToken { Scheme = scheme, Token = token };
-            var relativePath = new Faker().Internet.UrlRootedPath();
-
-            simulatedHttp.SetupGET(relativePath)
-                .ReturnsAsync(System.Net.HttpStatusCode.OK, string.Empty);
-
-            var restClientAuthHandler = new RestClientAuthHandler(oAuthToken, testLogger)
-            {
-                InnerHandler = simulatedHttp.DelegatingHandler
-            };
-
-            using var httpClient = new HttpClient(restClientAuthHandler)
-            {
-                BaseAddress = new Uri(baseAddress)
-            };
-
-            var httpResponseMessage = await httpClient.GetAsync(relativePath);
-
-            httpResponseMessage.EnsureSuccessStatusCode();
-            Assert.Equal(scheme, httpResponseMessage.RequestMessage.Headers.Authorization.Scheme);
-            Assert.Equal(token, httpResponseMessage.RequestMessage.Headers.Authorization.Parameter);
-        }
-
-        [Fact]
-        public async Task ShouldNotAddAuthTokenToRequestIfTokenEmpty()
-        {
-            var oAuthToken = new OAuthToken();
-            var relativePath = new Faker().Internet.UrlRootedPath();
-
-            simulatedHttp.SetupGET(relativePath)
-                .ReturnsAsync(System.Net.HttpStatusCode.OK, string.Empty);
-
-            var restClientAuthHandler = new RestClientAuthHandler(oAuthToken, testLogger)
-            {
-                InnerHandler = simulatedHttp.DelegatingHandler
-            };
-
-            using var httpClient = new HttpClient(restClientAuthHandler)
-            {
-                BaseAddress = new Uri(baseAddress)
-            };
-
-            var httpResponseMessage = await httpClient.GetAsync(relativePath);
-
-            httpResponseMessage.EnsureSuccessStatusCode();
-            Assert.Equal(default, httpResponseMessage.RequestMessage.Headers.Authorization);
-        }
-
-        private static string GetRandomToken() =>
-            new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
+        simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
+        testLogger = ToolsBuilder.CreateTestLogger<RestClientAuthHandler>(); ;
     }
+
+    [Fact]
+    public async Task ShouldAddAuthTokenToRequest()
+    {
+        var scheme = "Bearer";
+        var token = GetRandomToken();
+        var oAuthToken = new OAuthToken { Scheme = scheme, Token = token };
+        var relativePath = new Faker().Internet.UrlRootedPath();
+
+        simulatedHttp.SetupGET(relativePath)
+            .ReturnsAsync(System.Net.HttpStatusCode.OK, string.Empty);
+
+        var restClientAuthHandler = new RestClientAuthHandler(oAuthToken, testLogger)
+        {
+            InnerHandler = simulatedHttp.DelegatingHandler
+        };
+
+        using var httpClient = new HttpClient(restClientAuthHandler)
+        {
+            BaseAddress = new Uri(baseAddress)
+        };
+
+        var httpResponseMessage = await httpClient.GetAsync(relativePath);
+
+        httpResponseMessage.EnsureSuccessStatusCode();
+        Assert.Equal(scheme, httpResponseMessage.RequestMessage.Headers.Authorization.Scheme);
+        Assert.Equal(token, httpResponseMessage.RequestMessage.Headers.Authorization.Parameter);
+    }
+
+    [Fact]
+    public async Task ShouldNotAddAuthTokenToRequestIfTokenEmpty()
+    {
+        var oAuthToken = new OAuthToken();
+        var relativePath = new Faker().Internet.UrlRootedPath();
+
+        simulatedHttp.SetupGET(relativePath)
+            .ReturnsAsync(System.Net.HttpStatusCode.OK, string.Empty);
+
+        var restClientAuthHandler = new RestClientAuthHandler(oAuthToken, testLogger)
+        {
+            InnerHandler = simulatedHttp.DelegatingHandler
+        };
+
+        using var httpClient = new HttpClient(restClientAuthHandler)
+        {
+            BaseAddress = new Uri(baseAddress)
+        };
+
+        var httpResponseMessage = await httpClient.GetAsync(relativePath);
+
+        httpResponseMessage.EnsureSuccessStatusCode();
+        Assert.Equal(default, httpResponseMessage.RequestMessage.Headers.Authorization);
+    }
+
+    private static string GetRandomToken() =>
+        new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
 }

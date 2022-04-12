@@ -1,11 +1,10 @@
-﻿namespace BlazorFocused.Tools.Http
+﻿namespace BlazorFocused.Tools.Http;
+
+internal class SimulatedHttpHeaders
 {
-    internal class SimulatedHttpHeaders
-    {
-        public HttpMethod Method { get; set; }
+    public HttpMethod Method { get; set; }
 
-        public string Url { get; set; }
+    public string Url { get; set; }
 
-        public Dictionary<string, IEnumerable<string>> Headers { get; set; }
-    }
+    public Dictionary<string, IEnumerable<string>> Headers { get; set; }
 }

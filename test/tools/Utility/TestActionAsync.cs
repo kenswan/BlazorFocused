@@ -1,21 +1,20 @@
 ﻿using BlazorFocused.Tools.Model;
 
-namespace BlazorFocused.Tools.Utility
+namespace BlazorFocused.Tools.Utility;
+
+public class TestActionAsync : TestActionStateAsync<SimpleClass>
 {
-    public class TestActionAsync : TestActionStateAsync<SimpleClass>
+    private readonly TestService testService;
+
+    public TestActionAsync() { }
+
+    public TestActionAsync(TestService testService)
     {
-        private readonly TestService testService;
+        this.testService = testService;
+    }
 
-        public TestActionAsync() { }
-
-        public TestActionAsync(TestService testService)
-        {
-            this.testService = testService;
-        }
-
-        public override async ValueTask<SimpleClass> ExecuteAsync()
-        {
-            return await testService.GetValueAsync<SimpleClass>();
-        }
+    public override async ValueTask<SimpleClass> ExecuteAsync()
+    {
+        return await testService.GetValueAsync<SimpleClass>();
     }
 }

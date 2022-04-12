@@ -3,73 +3,72 @@ using Bogus;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace BlazorFocused.Client
+namespace BlazorFocused.Client;
+
+public class OAuthRestClientOptionsTests
 {
-    public class OAuthRestClientOptionsTests
+    private readonly IServiceCollection serviceCollection;
+
+    public OAuthRestClientOptionsTests()
     {
-        private readonly IServiceCollection serviceCollection;
+        serviceCollection = new ServiceCollection();
+    }
 
-        public OAuthRestClientOptionsTests()
+    [Fact]
+    public void ShouldUseOAuthRestClientOptionsIfPresent()
+    {
+        var restClientBaseAddress = new Faker().Internet.Url();
+        var oAuthRestClientBaseAddress = new Faker().Internet.Url();
+
+        var appSettings = new Dictionary<string, string>()
         {
-            serviceCollection = new ServiceCollection();
-        }
+            ["restclient:baseAddress"] = restClientBaseAddress,
+            ["oauthrestclient:baseAddress"] = oAuthRestClientBaseAddress
+        };
 
-        [Fact]
-        public void ShouldUseOAuthRestClientOptionsIfPresent()
+        serviceCollection.AddConfiguration(appSettings);
+        serviceCollection.AddRestClient();
+        serviceCollection.AddOAuthRestClient();
+
+        using var serviceProvider = serviceCollection.BuildServiceProvider();
+        var restClient = serviceProvider.GetRequiredService<IRestClient>();
+        var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+
+        var actualRestClientAddress =
+            (restClient as RestClient).GetClient().BaseAddress.OriginalString;
+
+        var actualOAuthAddress =
+            (oAuthRestClient as OAuthRestClient).GetClient().BaseAddress.OriginalString;
+
+        Assert.Equal(restClientBaseAddress, actualRestClientAddress);
+        Assert.Equal(oAuthRestClientBaseAddress, actualOAuthAddress);
+    }
+
+    [Fact]
+    public void ShouldUseRestClientOptionsIfOAuthRestClientOptionsNotPresent()
+    {
+        var restClientBaseAddress = new Faker().Internet.Url();
+
+        var appSettings = new Dictionary<string, string>()
         {
-            var restClientBaseAddress = new Faker().Internet.Url();
-            var oAuthRestClientBaseAddress = new Faker().Internet.Url();
+            ["restclient:baseAddress"] = restClientBaseAddress,
+        };
 
-            var appSettings = new Dictionary<string, string>()
-            {
-                ["restclient:baseAddress"] = restClientBaseAddress,
-                ["oauthrestclient:baseAddress"] = oAuthRestClientBaseAddress
-            };
+        serviceCollection.AddConfiguration(appSettings);
+        serviceCollection.AddRestClient();
+        serviceCollection.AddOAuthRestClient();
 
-            serviceCollection.AddConfiguration(appSettings);
-            serviceCollection.AddRestClient();
-            serviceCollection.AddOAuthRestClient();
+        using var serviceProvider = serviceCollection.BuildServiceProvider();
+        var restClient = serviceProvider.GetRequiredService<IRestClient>();
+        var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
 
-            using var serviceProvider = serviceCollection.BuildServiceProvider();
-            var restClient = serviceProvider.GetRequiredService<IRestClient>();
-            var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+        var actualRestClientAddress =
+            (restClient as RestClient).GetClient().BaseAddress.OriginalString;
 
-            var actualRestClientAddress =
-                (restClient as RestClient).GetClient().BaseAddress.OriginalString;
+        var actualOAuthAddress =
+            (oAuthRestClient as OAuthRestClient).GetClient().BaseAddress.OriginalString;
 
-            var actualOAuthAddress =
-                (oAuthRestClient as OAuthRestClient).GetClient().BaseAddress.OriginalString;
-
-            Assert.Equal(restClientBaseAddress, actualRestClientAddress);
-            Assert.Equal(oAuthRestClientBaseAddress, actualOAuthAddress);
-        }
-
-        [Fact]
-        public void ShouldUseRestClientOptionsIfOAuthRestClientOptionsNotPresent()
-        {
-            var restClientBaseAddress = new Faker().Internet.Url();
-
-            var appSettings = new Dictionary<string, string>()
-            {
-                ["restclient:baseAddress"] = restClientBaseAddress,
-            };
-
-            serviceCollection.AddConfiguration(appSettings);
-            serviceCollection.AddRestClient();
-            serviceCollection.AddOAuthRestClient();
-
-            using var serviceProvider = serviceCollection.BuildServiceProvider();
-            var restClient = serviceProvider.GetRequiredService<IRestClient>();
-            var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
-
-            var actualRestClientAddress =
-                (restClient as RestClient).GetClient().BaseAddress.OriginalString;
-
-            var actualOAuthAddress =
-                (oAuthRestClient as OAuthRestClient).GetClient().BaseAddress.OriginalString;
-
-            Assert.Equal(restClientBaseAddress, actualRestClientAddress);
-            Assert.Equal(restClientBaseAddress, actualOAuthAddress);
-        }
+        Assert.Equal(restClientBaseAddress, actualRestClientAddress);
+        Assert.Equal(restClientBaseAddress, actualOAuthAddress);
     }
 }

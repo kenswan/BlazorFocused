@@ -1,12 +1,11 @@
 ﻿using BlazorFocused.Tools.Model;
 
-namespace BlazorFocused.Tools.Utility
+namespace BlazorFocused.Tools.Utility;
+
+public class TestAction : TestActionState<SimpleClass>
 {
-    public class TestAction : TestActionState<SimpleClass>
+    public override SimpleClass Execute()
     {
-        public override SimpleClass Execute()
-        {
-            return SimpleClassUtilities.GetRandomSimpleClass();
-        }
+        return SimpleClassUtilities.GetRandomSimpleClass();
     }
 }

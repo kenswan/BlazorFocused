@@ -5,64 +5,63 @@ using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace BlazorFocused.Store
+namespace BlazorFocused.Store;
+
+public partial class StoreTests
 {
-    public partial class StoreTests
+    [Fact(DisplayName = "Should reduce state value with instance")]
+    public void ShouldReduceStateValueWithInstance()
     {
-        [Fact(DisplayName = "Should reduce state value with instance")]
-        public void ShouldReduceStateValueWithInstance()
+        var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
+        var originalReducedClass = new TestReducer().Execute(originalClass);
+        var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
+        var updatedReducedClass = new TestReducer().Execute(updatedClass);
+
+        using var serviceProvider = serviceCollection
+            .AddTransient<TestReducer>()
+            .BuildProviderWithTestLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
+
+        var store = new Store<SimpleClass>(originalClass, serviceProvider);
+
+        SimpleClassSubset actualReducedState = default;
+
+        store.Reduce<TestReducer, SimpleClassSubset>(reducedState =>
         {
-            var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
-            var originalReducedClass = new TestReducer().Execute(originalClass);
-            var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
-            var updatedReducedClass = new TestReducer().Execute(updatedClass);
+            actualReducedState = reducedState;
+        });
 
-            using var serviceProvider = serviceCollection
-                .AddTransient<TestReducer>()
-                .BuildProviderWithTestLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
+        actualReducedState.Should().BeEquivalentTo(originalReducedClass);
 
-            var store = new Store<SimpleClass>(originalClass, serviceProvider);
+        store.SetState(updatedClass);
 
-            SimpleClassSubset actualReducedState = default;
+        actualReducedState.Should().BeEquivalentTo(updatedReducedClass);
+    }
 
-            store.Reduce<TestReducer, SimpleClassSubset>(reducedState =>
-            {
-                actualReducedState = reducedState;
-            });
+    [Fact(DisplayName = "Should reduce state value with type")]
+    public void ShouldReduceStateValueWithType()
+    {
+        var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
+        var originalReducedClass = new TestReducer().Execute(originalClass);
+        var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
+        var updatedReducedClass = new TestReducer().Execute(updatedClass);
 
-            actualReducedState.Should().BeEquivalentTo(originalReducedClass);
+        using var serviceProvider =
+            serviceCollection.AddTransient<TestReducer>()
+            .BuildProviderWithTestLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
 
-            store.SetState(updatedClass);
+        var store = new Store<SimpleClass>(originalClass, serviceProvider);
 
-            actualReducedState.Should().BeEquivalentTo(updatedReducedClass);
-        }
+        SimpleClassSubset actualReducedState = default;
 
-        [Fact(DisplayName = "Should reduce state value with type")]
-        public void ShouldReduceStateValueWithType()
+        store.Reduce<TestReducer, SimpleClassSubset>(reducedState =>
         {
-            var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
-            var originalReducedClass = new TestReducer().Execute(originalClass);
-            var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
-            var updatedReducedClass = new TestReducer().Execute(updatedClass);
+            actualReducedState = reducedState;
+        });
 
-            using var serviceProvider =
-                serviceCollection.AddTransient<TestReducer>()
-                .BuildProviderWithTestLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
+        actualReducedState.Should().BeEquivalentTo(originalReducedClass);
 
-            var store = new Store<SimpleClass>(originalClass, serviceProvider);
+        store.SetState(updatedClass);
 
-            SimpleClassSubset actualReducedState = default;
-
-            store.Reduce<TestReducer, SimpleClassSubset>(reducedState =>
-            {
-                actualReducedState = reducedState;
-            });
-
-            actualReducedState.Should().BeEquivalentTo(originalReducedClass);
-
-            store.SetState(updatedClass);
-
-            actualReducedState.Should().BeEquivalentTo(updatedReducedClass);
-        }
+        actualReducedState.Should().BeEquivalentTo(updatedReducedClass);
     }
 }

@@ -1,9 +1,8 @@
-﻿namespace BlazorFocused.Tools.Model
+﻿namespace BlazorFocused.Tools.Model;
+
+public class SimpleClassSubset
 {
-    public class SimpleClassSubset
-    {
-        public string FieldOne { get; set; }
-        public string FieldThree { get; set; }
-        public string FieldFive { get; set; }
-    }
+    public string FieldOne { get; set; }
+    public string FieldThree { get; set; }
+    public string FieldFive { get; set; }
 }

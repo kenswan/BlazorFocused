@@ -5,46 +5,45 @@ using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace BlazorFocused.Store
+namespace BlazorFocused.Store;
+
+public partial class StoreTests
 {
-    public partial class StoreTests
+    protected readonly ServiceCollection serviceCollection;
+    private readonly ITestOutputHelper testOutputHelper;
+
+    public StoreTests(ITestOutputHelper testOutputHelper)
     {
-        protected readonly ServiceCollection serviceCollection;
-        private readonly ITestOutputHelper testOutputHelper;
+        serviceCollection = new();
+        this.testOutputHelper = testOutputHelper;
+    }
 
-        public StoreTests(ITestOutputHelper testOutputHelper)
-        {
-            serviceCollection = new();
-            this.testOutputHelper = testOutputHelper;
-        }
+    [Fact(DisplayName = "Should Store and Return Initial Value")]
+    public void ShouldStoreAndReturnInitialValue()
+    {
+        SimpleClass inputSimpleClass = SimpleClassUtilities.GetRandomSimpleClass();
+        SimpleClass expectedSimpleClass = inputSimpleClass;
 
-        [Fact(DisplayName = "Should Store and Return Initial Value")]
-        public void ShouldStoreAndReturnInitialValue()
-        {
-            SimpleClass inputSimpleClass = SimpleClassUtilities.GetRandomSimpleClass();
-            SimpleClass expectedSimpleClass = inputSimpleClass;
+        using var serviceProvider = new ServiceCollection()
+            .BuildProviderWithTestLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
 
-            using var serviceProvider = new ServiceCollection()
-                .BuildProviderWithTestLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
+        var store = new Store<SimpleClass>(inputSimpleClass, serviceProvider);
 
-            var store = new Store<SimpleClass>(inputSimpleClass, serviceProvider);
+        SimpleClass actualSimpleClass = store.GetState();
 
-            SimpleClass actualSimpleClass = store.GetState();
+        actualSimpleClass.Should().BeEquivalentTo(expectedSimpleClass);
+    }
 
-            actualSimpleClass.Should().BeEquivalentTo(expectedSimpleClass);
-        }
+    [Fact(DisplayName = "Should Return 'null' when initialized as null")]
+    public void ShouldReturnNullWhenInitializedAsNull()
+    {
+        using var serviceProvider = new ServiceCollection()
+            .BuildProviderWithTestLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
 
-        [Fact(DisplayName = "Should Return 'null' when initialized as null")]
-        public void ShouldReturnNullWhenInitializedAsNull()
-        {
-            using var serviceProvider = new ServiceCollection()
-                .BuildProviderWithTestLogger<Store<SimpleClass>>(testOutputHelper) as ServiceProvider;
+        var store = new Store<SimpleClass>(null, serviceProvider);
 
-            var store = new Store<SimpleClass>(null, serviceProvider);
+        SimpleClass actualSimpleClass = store.GetState();
 
-            SimpleClass actualSimpleClass = store.GetState();
-
-            actualSimpleClass.Should().BeNull();
-        }
+        actualSimpleClass.Should().BeNull();
     }
 }

@@ -1,9 +1,8 @@
-﻿namespace BlazorFocused.Tools.Utility
-{
-    public interface ITestService
-    {
-        ValueTask<T> GetValueAsync<T>();
+﻿namespace BlazorFocused.Tools.Utility;
 
-        ValueTask<TOutput> GetValueAsync<TInput, TOutput>(TInput input);
-    }
+public interface ITestService
+{
+    ValueTask<T> GetValueAsync<T>();
+
+    ValueTask<TOutput> GetValueAsync<TInput, TOutput>(TInput input);
 }

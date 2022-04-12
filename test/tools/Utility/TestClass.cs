@@ -1,7 +1,6 @@
-﻿namespace BlazorFocused.Tools.Utility
+﻿namespace BlazorFocused.Tools.Utility;
+
+public abstract class TestClass
 {
-    public abstract class TestClass
-    {
-        public string CheckedPropertyId { get; set; }
-    }
+    public string CheckedPropertyId { get; set; }
 }

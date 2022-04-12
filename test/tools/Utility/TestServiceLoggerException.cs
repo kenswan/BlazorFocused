@@ -1,7 +1,6 @@
-﻿namespace BlazorFocused.Tools.Utility
+﻿namespace BlazorFocused.Tools.Utility;
+
+public class TestServiceLoggerException : Exception
 {
-    public class TestServiceLoggerException : Exception
-    {
-        public TestServiceLoggerException(string message) : base(message) { }
-    }
+    public TestServiceLoggerException(string message) : base(message) { }
 }
