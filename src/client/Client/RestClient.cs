@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System.Net;
 
 namespace BlazorFocused.Client;
 
@@ -60,8 +59,8 @@ internal class RestClient : BaseRestClient, IRestClient
 
     private async Task<T> GetResponseValue<T>(HttpMethod method, string url, object data = null)
     {
-        (HttpStatusCode _, T value) = await SendAndDeserializeAsync<T>(method, url, data);
+        var restClientHttpResponse = await SendAndDeserializeAsync<T>(method, url, data);
 
-        return value;
+        return restClientHttpResponse.Content;
     }
 }

@@ -10,7 +10,7 @@ internal abstract class BaseRestClient : AbstractRestClient
         : base(httpClient, logger)
     { }
 
-    public async Task<(HttpStatusCode, T)> SendAndDeserializeAsync<T>(HttpMethod method, string url, object data = null)
+    public async Task<RestClientHttpResponse<T>> SendAndDeserializeAsync<T>(HttpMethod method, string url, object data = null)
     {
         var httpResponseMessage = await SendAndLogAsync(method, url, data);
 
@@ -18,14 +18,23 @@ internal abstract class BaseRestClient : AbstractRestClient
 
         var content = await httpResponseMessage.Content.ReadFromJsonAsync<T>();
 
-        return (httpResponseMessage.StatusCode, content);
+        return new RestClientHttpResponse<T>
+        {
+            Content = content,
+            StatusCode = httpResponseMessage.StatusCode,
+            Headers = httpResponseMessage.Headers
+        };
     }
 
-    public async Task<HttpStatusCode> SendAndTaskAsync(HttpMethod method, string url, object data = null)
+    public async Task<RestClientHttpResponse> SendAndTaskAsync(HttpMethod method, string url, object data = null)
     {
         var httpResponseMessage = await SendAndLogAsync(method, url, data);
 
-        return httpResponseMessage.StatusCode;
+        return new RestClientHttpResponse
+        {
+            Headers = httpResponseMessage.Headers,
+            StatusCode = httpResponseMessage.StatusCode
+        };
     }
 
     private async Task<HttpResponseMessage> SendAndLogAsync(HttpMethod method, string url, object data = null)
