@@ -9,15 +9,18 @@ internal partial class SimulatedHttp : ISimulatedHttp
         new(GetDelegatingHandler()) { BaseAddress = baseAddressUri };
 
     internal List<SimulatedHttpResponse> Responses => responses;
+    internal Dictionary<string, List<string>> ResponseHeaders => responseHeaders;
 
-    private readonly List<SimulatedHttpHeaders> headers;
+    private readonly List<SimulatedHttpHeaders> requestHeaders;
+    private readonly Dictionary<string, List<string>> responseHeaders;
     private readonly List<SimulatedHttpRequest> requests;
     private readonly List<SimulatedHttpResponse> responses;
     private readonly Uri baseAddressUri;
 
     public SimulatedHttp(string baseAddress = "https://dev.blazorfocused.net")
     {
-        headers = new();
+        requestHeaders = new();
+        responseHeaders = new();
         requests = new();
         responses = new();
 
@@ -38,7 +41,7 @@ internal partial class SimulatedHttp : ISimulatedHttp
 
     internal void StoreHeaders(SimulatedHttpHeaders requestHeaders)
     {
-        headers.Add(requestHeaders);
+        this.requestHeaders.Add(requestHeaders);
     }
 
     private DelegatingHandler GetDelegatingHandler() =>
@@ -48,7 +51,7 @@ internal partial class SimulatedHttp : ISimulatedHttp
             {
                 InnerHandler = new SimulatedHeadersHandler(StoreHeaders)
                 {
-                    InnerHandler = new SimulatedResponseHandler(responses)
+                    InnerHandler = new SimulatedResponseHandler(responses, responseHeaders)
                 }
             }
         };

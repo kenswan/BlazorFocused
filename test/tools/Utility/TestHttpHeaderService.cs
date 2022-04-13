@@ -24,7 +24,7 @@ internal class TestHttpHeaderService
         httpRequestMessage.Headers.Add(key, value);
     }
 
-    public async Task MakeRequestAsync(HttpMethod httpMethod, string url, object content = null)
+    public async Task<HttpResponseMessage> MakeRequestAsync(HttpMethod httpMethod, string url, object content = null)
     {
         httpRequestMessage.Method = httpMethod;
         httpRequestMessage.RequestUri = new Uri(httpClient.BaseAddress, url);
@@ -32,6 +32,6 @@ internal class TestHttpHeaderService
         httpRequestMessage.Content =
             new StringContent(JsonSerializer.Serialize(content), Encoding.UTF8, "application/json");
 
-        await httpClient.SendAsync(httpRequestMessage);
+        return await httpClient.SendAsync(httpRequestMessage);
     }
 }
