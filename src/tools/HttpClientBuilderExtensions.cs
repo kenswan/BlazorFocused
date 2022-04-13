@@ -43,7 +43,7 @@ public static class HttpClientBuilderExtensions
         {
             var registeredSimulatedHttp = sp.GetRequiredService<ISimulatedHttp>() as SimulatedHttp;
 
-            return new SimulatedResponseHandler(registeredSimulatedHttp.Responses);
+            return new SimulatedResponseHandler(registeredSimulatedHttp.Responses, registeredSimulatedHttp.ResponseHeaders);
         });
 
         return httpClientBuilder;

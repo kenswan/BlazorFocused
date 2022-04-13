@@ -4,7 +4,7 @@ internal partial class SimulatedHttp
 {
     public IEnumerable<string> GetRequestHeaderValues(HttpMethod method, string url, string key)
     {
-        var match = headers
+        var match = requestHeaders
                 .Where(request => request.Method == method && request.Url == GetFullUrl(url))
                 .FirstOrDefault();
 
@@ -17,5 +17,13 @@ internal partial class SimulatedHttp
         }
 
         return Enumerable.Empty<string>();
+    }
+
+    public void AddResponseHeader(string key, string value)
+    {
+        if (responseHeaders.ContainsKey(key))
+            responseHeaders[key].Add(value);
+        else
+            responseHeaders.Add(key, new List<string> { value });
     }
 }

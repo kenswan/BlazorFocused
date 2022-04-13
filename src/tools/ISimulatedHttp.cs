@@ -26,6 +26,8 @@ public interface ISimulatedHttp
     /// <returns></returns>
     IEnumerable<string> GetRequestHeaderValues(HttpMethod method, string url, string key);
 
+    void AddResponseHeader(string key, string value);
+
     /// <summary>
     /// Begin setup for an expected DELETE request that will be used
     /// </summary>
