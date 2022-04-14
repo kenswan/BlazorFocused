@@ -77,7 +77,35 @@ public partial class SimulatedHttpTests
 
         var testService = new TestHttpHeaderService(httpClient);
 
-        testService.AddDefaultHeader(key, expectedValue);
+        var responseMesssage = await testService.MakeRequestAsync(httpMethod, url);
+
+        var responseHeaderExists =
+            responseMesssage.Headers.TryGetValues(key, out var values);
+
+        Assert.True(responseHeaderExists);
+        Assert.Single(values);
+        Assert.Equal(expectedValue, values.FirstOrDefault());
+    }
+
+    [Fact]
+    public async Task ShouldSetMultipleResponseHeadersWithSameKey()
+    {
+        var httpMethod = HttpMethod.Get;
+        var url = GetRandomRelativeUrl();
+        var key = new Faker().Random.AlphaNumeric(5);
+        var expectedValueOne = new Faker().Random.AlphaNumeric(10);
+        var expectedValueTwo = new Faker().Random.AlphaNumeric(10);
+
+        GetHttpSetup(httpMethod, url, null)
+            .ReturnsAsync(HttpStatusCode.OK, GetRandomSimpleClass());
+
+        // Under Test
+        simulatedHttp.AddResponseHeader(key, expectedValueOne);
+        simulatedHttp.AddResponseHeader(key, expectedValueTwo);
+
+        using var httpClient = simulatedHttp.HttpClient;
+
+        var testService = new TestHttpHeaderService(httpClient);
 
         var responseMesssage = await testService.MakeRequestAsync(httpMethod, url);
 
@@ -85,6 +113,7 @@ public partial class SimulatedHttpTests
             responseMesssage.Headers.TryGetValues(key, out var values);
 
         Assert.True(responseHeaderExists);
-        Assert.Equal(expectedValue, values.FirstOrDefault());
+        Assert.Equal(2, values.Count());
+        Assert.True(values.Contains(expectedValueOne) && values.Contains(expectedValueTwo));
     }
 }

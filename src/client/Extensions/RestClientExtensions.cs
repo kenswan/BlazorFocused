@@ -1,5 +1,4 @@
 ﻿using BlazorFocused.Client;
-using System.Net;
 
 namespace BlazorFocused.Extensions;
 
@@ -11,14 +10,13 @@ public static partial class RestClientExtensions
     private static async Task<RestClientResponse<T>> GetRestClientResponse<T>(
         IRestClient restClient, HttpMethod method, string url, object data = null)
     {
-        HttpStatusCode? httpStatusCode = null;
-        T value = default;
+        RestClientHttpResponse<T> restClientHttpResponse = new();
         Exception exception = default;
 
         try
         {
             if (restClient is BaseRestClient baseRestClient)
-                (httpStatusCode, value) =
+                restClientHttpResponse =
                     await baseRestClient.SendAndDeserializeAsync<T>(method, url, data);
             else
                 ThrowUnqualifiedRestClient(restClient);
@@ -28,27 +26,28 @@ public static partial class RestClientExtensions
             exception = ex;
 
             if (ex is RestClientHttpException restClientHttpException)
-                httpStatusCode = restClientHttpException.StatusCode;
+                restClientHttpResponse.StatusCode = restClientHttpException.StatusCode;
         }
 
         return new RestClientResponse<T>
         {
             Exception = exception,
-            StatusCode = httpStatusCode.GetValueOrDefault(),
-            Value = value
+            Headers = restClientHttpResponse.Headers,
+            StatusCode = restClientHttpResponse.StatusCode.GetValueOrDefault(),
+            Value = restClientHttpResponse.Content
         };
     }
 
     private static async Task<RestClientTask> GetRestClientTask(
         IRestClient restClient, HttpMethod method, string url, object data = null)
     {
-        HttpStatusCode? httpStatusCode = null;
+        RestClientHttpResponse restClientHttpResponse = new();
         Exception exception = default;
 
         try
         {
             if (restClient is BaseRestClient baseRestClient)
-                httpStatusCode = await baseRestClient.SendAndTaskAsync(method, url, data);
+                restClientHttpResponse = await baseRestClient.SendAndTaskAsync(method, url, data);
             else
                 ThrowUnqualifiedRestClient(restClient);
         }
@@ -57,13 +56,14 @@ public static partial class RestClientExtensions
             exception = ex;
 
             if (ex is RestClientHttpException restClientHttpException)
-                httpStatusCode = restClientHttpException.StatusCode;
+                restClientHttpResponse.StatusCode = restClientHttpException.StatusCode;
         }
 
         return new RestClientTask
         {
             Exception = exception,
-            StatusCode = httpStatusCode.GetValueOrDefault(),
+            Headers = restClientHttpResponse.Headers,
+            StatusCode = restClientHttpResponse.StatusCode.GetValueOrDefault(),
         };
     }
 
