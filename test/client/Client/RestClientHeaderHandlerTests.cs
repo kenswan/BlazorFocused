@@ -16,7 +16,7 @@ public class RestClientHeaderHandlerTests
     }
 
     [Fact]
-    public async Task ShouldAddAuthTokenToRequest()
+    public async Task ShouldAddHeadersToRequest()
     {
         var keyOne = "X-IPv6-Address";
         var valueOneA = new Faker().Internet.Ipv6();
@@ -25,21 +25,21 @@ public class RestClientHeaderHandlerTests
         var valueTwo = new Faker().Internet.Ip();
         var relativePath = new Faker().Internet.UrlRootedPath();
 
-        var restClientRequestHeaders = new RestClientRequestHeaders
-        {
-            Enabled = true,
-            HeaderCache = new Dictionary<string, List<string>>()
-        };
+        var restClientRequestHeaders = new RestClientRequestHeaders();
+
+        restClientRequestHeaders.AddHeader(keyOne, valueOneA);
+        restClientRequestHeaders.AddHeader(keyOne, valueOneB);
+        restClientRequestHeaders.AddHeader(keyTwo, valueTwo);
 
         simulatedHttp.SetupGET(relativePath)
             .ReturnsAsync(System.Net.HttpStatusCode.OK, string.Empty);
 
-        var restClientAuthHandler = new RestClientHeaderHandler(restClientRequestHeaders, testLogger)
+        var restClientHeaderHandler = new RestClientHeaderHandler(restClientRequestHeaders, testLogger)
         {
             InnerHandler = simulatedHttp.DelegatingHandler
         };
 
-        using var httpClient = new HttpClient(restClientAuthHandler)
+        using var httpClient = new HttpClient(restClientHeaderHandler)
         {
             BaseAddress = new Uri(baseAddress)
         };
@@ -48,11 +48,8 @@ public class RestClientHeaderHandlerTests
 
         httpResponseMessage.EnsureSuccessStatusCode();
 
-        var firstKeyExists = httpResponseMessage.Headers.TryGetValues(keyOne, out var firstValueSet);
-        var secondKeyExists = httpResponseMessage.Headers.TryGetValues(keyTwo, out var secondValueSet);
-
-        Assert.True(firstKeyExists);
-        Assert.True(secondKeyExists);
+        var firstValueSet = simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativePath, keyOne);
+        var secondValueSet = simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativePath, keyTwo);
 
         Assert.Equal(2, firstValueSet.Count());
         Assert.Single(secondValueSet);

@@ -21,7 +21,7 @@ public class RestClientAuthHandlerTests
     {
         var scheme = "Bearer";
         var token = GetRandomToken();
-        var oAuthToken = new OAuthToken { Scheme = scheme, Token = token };
+        var oAuthToken = new OAuthToken(scheme, token);
         var relativePath = new Faker().Internet.UrlRootedPath();
 
         simulatedHttp.SetupGET(relativePath)

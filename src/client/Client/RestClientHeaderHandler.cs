@@ -3,11 +3,11 @@
 namespace BlazorFocused.Client;
 internal class RestClientHeaderHandler : DelegatingHandler
 {
-    private readonly RestClientRequestHeaders clientRequestHeaders;
+    private readonly IRestClientRequestHeaders clientRequestHeaders;
     private readonly ILogger<RestClientHeaderHandler> logger;
 
     public RestClientHeaderHandler(
-        RestClientRequestHeaders clientRequestHeaders,
+        IRestClientRequestHeaders clientRequestHeaders,
         ILogger<RestClientHeaderHandler> logger)
     {
         this.clientRequestHeaders = clientRequestHeaders;
@@ -16,9 +16,13 @@ internal class RestClientHeaderHandler : DelegatingHandler
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        if (clientRequestHeaders.HeaderCache.Any())
+        if (clientRequestHeaders.HasValues())
         {
             logger.LogDebug("Found header attributes to add to request");
+
+            foreach (var headerKey in clientRequestHeaders.GetHeaderKeys())
+                foreach (var value in clientRequestHeaders.GetHeaderValues(headerKey))
+                    request.Headers.Add(headerKey, value);
         }
         else
         {

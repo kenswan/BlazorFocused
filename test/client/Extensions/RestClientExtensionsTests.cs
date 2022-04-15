@@ -26,7 +26,7 @@ public partial class RestClientExtensionsTests
         var restClientOptions = Options.Create<RestClientOptions>(default);
 
         restClient =
-            new RestClient(simulatedHttp.HttpClient, restClientOptions, testLogger);
+            new RestClient(simulatedHttp.HttpClient, restClientOptions, default, testLogger);
     }
 
     public static TheoryData<HttpMethod> HttpMethodsForResponse =>

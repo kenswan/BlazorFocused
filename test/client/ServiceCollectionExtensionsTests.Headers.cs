@@ -39,10 +39,9 @@ public partial class ServiceCollectionExtensionsTests
         using var scope = serviceProvider.CreateScope();
         var restClient = scope.ServiceProvider.GetRequiredService<IRestClient>();
 
-        // RestClient Header API
-        // restClient.AddHeader(key, value);
+        restClient.AddHeader(headerKey, headerValue);
 
-        var response = await restClient.GetAsync<SimpleClass>(relativeUrl);
+        _ = await restClient.GetAsync<SimpleClass>(relativeUrl);
 
         var actualHeaderValue =
             simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativeUrl, headerKey)

@@ -111,7 +111,7 @@ public partial class ServiceCollectionExtensionsTests
         oAuthRestClient.AddAuthorization(expectedScheme, expectedToken);
 
         using var secondScope = serviceProvider.CreateScope();
-        var oAuthToken = secondScope.ServiceProvider.GetRequiredService<OAuthToken>();
+        var oAuthToken = secondScope.ServiceProvider.GetRequiredService<IOAuthToken>();
         Assert.Equal(expectedScheme, oAuthToken.Scheme);
         Assert.Equal(expectedToken, oAuthToken.Token);
     }
