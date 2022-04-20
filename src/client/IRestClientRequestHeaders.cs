@@ -1,5 +1,5 @@
-﻿namespace BlazorFocused.Client;
-internal interface IRestClientRequestHeaders
+﻿namespace BlazorFocused;
+public interface IRestClientRequestHeaders
 {
     public void AddHeader(string key, string value);
 

@@ -72,8 +72,9 @@ public partial class ServiceCollectionExtensionsTests
         using var serviceProvider = serviceCollection
             .BuildProviderWithTestLoggers((services) =>
             {
-                services.AddTestLoggerToCollection<RestClient>(testOutpuHelper);
+                services.AddTestLoggerToCollection<OAuthRestClient>(testOutpuHelper);
                 services.AddTestLoggerToCollection<RestClientHeaderHandler>(testOutpuHelper);
+                services.AddTestLoggerToCollection<RestClientAuthHandler>(testOutpuHelper);
             }) as ServiceProvider;
 
         using var scope = serviceProvider.CreateScope();
