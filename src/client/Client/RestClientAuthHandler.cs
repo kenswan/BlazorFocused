@@ -5,10 +5,10 @@ namespace BlazorFocused.Client;
 
 internal class RestClientAuthHandler : DelegatingHandler
 {
-    private readonly OAuthToken oAuthToken;
+    private readonly IOAuthToken oAuthToken;
     private readonly ILogger<RestClientAuthHandler> logger;
 
-    public RestClientAuthHandler(OAuthToken oAuthToken, ILogger<RestClientAuthHandler> logger)
+    public RestClientAuthHandler(IOAuthToken oAuthToken, ILogger<RestClientAuthHandler> logger)
     {
         this.oAuthToken = oAuthToken;
         this.logger = logger;

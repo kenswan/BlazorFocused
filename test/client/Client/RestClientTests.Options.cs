@@ -28,8 +28,8 @@ public partial class RestClientTests
             }
         };
 
-        using var httpClient =
-            new RestClient(new HttpClient(), Options.Create(restClientOptions), testLogger).GetClient();
+        using var httpClient = new RestClient(
+            new HttpClient(), Options.Create(restClientOptions), default, testLogger).GetClient();
 
         Assert.Equal(expectedBaseAddress, httpClient.BaseAddress);
 

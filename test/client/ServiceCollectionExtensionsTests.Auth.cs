@@ -40,6 +40,7 @@ public partial class ServiceCollectionExtensionsTests
             {
                 services.AddTestLoggerToCollection<OAuthRestClient>(testOutpuHelper);
                 services.AddTestLoggerToCollection<RestClientAuthHandler>(testOutpuHelper);
+                services.AddTestLoggerToCollection<RestClientHeaderHandler>(testOutpuHelper);
             }) as ServiceProvider;
 
         using var scope = serviceProvider.CreateScope();

@@ -6,6 +6,14 @@
 public interface IRestClient
 {
     /// <summary>
+    /// Adds header key/value pair to the Http Request Headers
+    /// </summary>
+    /// <param name="key">Header Key</param>
+    /// <param name="value">Header Value</param>
+    /// <param name="global">Use in all subsequent requests in other clients</param>
+    void AddHeader(string key, string value, bool global = true);
+
+    /// <summary>
     /// Performs DELETE http request
     /// </summary>
     /// <typeparam name="T">Object type of response from http request</typeparam>

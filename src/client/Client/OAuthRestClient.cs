@@ -6,14 +6,15 @@ namespace BlazorFocused.Client;
 /// <inheritdoc cref="IOAuthRestClient"/>
 internal class OAuthRestClient : RestClient, IOAuthRestClient
 {
-    private readonly OAuthToken oAuthToken;
+    private readonly IOAuthToken oAuthToken;
 
     public OAuthRestClient(
-        OAuthToken oAuthToken,
+        IOAuthToken oAuthToken,
         HttpClient httpClient,
         IOptionsSnapshot<RestClientOptions> restClientOptions,
+        IRestClientRequestHeaders requestHeaders,
         ILogger<OAuthRestClient> logger) :
-            base(httpClient, DetectOptions(restClientOptions), logger)
+            base(httpClient, DetectOptions(restClientOptions), requestHeaders, logger)
     {
         this.oAuthToken = oAuthToken;
     }
@@ -26,7 +27,7 @@ internal class OAuthRestClient : RestClient, IOAuthRestClient
         }
     }
     public void ClearAuthorization() =>
-        oAuthToken.Update("", "");
+        oAuthToken.Update(string.Empty, string.Empty);
 
     public bool HasAuthorization() =>
         !oAuthToken.IsEmpty();

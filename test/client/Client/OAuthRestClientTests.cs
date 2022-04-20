@@ -10,16 +10,21 @@ public class OAuthRestClientTests
     private readonly IOAuthRestClient oAuthRestClient;
     private readonly ISimulatedHttp simulatedHttp;
     private readonly ITestLogger<OAuthRestClient> testLogger;
-    private readonly OAuthToken oAuthToken;
+    private readonly IOAuthToken oAuthToken;
 
     public OAuthRestClientTests()
     {
-        oAuthToken = new();
+        oAuthToken = new OAuthToken();
         simulatedHttp = ToolsBuilder.CreateSimulatedHttp();
         testLogger = ToolsBuilder.CreateTestLogger<OAuthRestClient>();
 
         oAuthRestClient =
-            new OAuthRestClient(oAuthToken, simulatedHttp.HttpClient, default, testLogger);
+            new OAuthRestClient(
+                oAuthToken,
+                simulatedHttp.HttpClient,
+                default,
+                new RestClientRequestHeaders(),
+                testLogger);
     }
 
     [Fact]

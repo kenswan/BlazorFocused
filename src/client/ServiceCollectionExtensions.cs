@@ -31,9 +31,10 @@ public static class ServiceCollectionExtensions
     {
         services.AddRestClientOptions<RestClient>(registerDefault: true);
 
-        return (configureClient is null) ?
+        return ((configureClient is null) ?
             services.AddHttpClient<IRestClient, RestClient>() :
-            services.AddHttpClient<IRestClient, RestClient>(configureClient);
+            services.AddHttpClient<IRestClient, RestClient>(configureClient))
+                .AddHttpMessageHandler<RestClientHeaderHandler>();
     }
 
     /// <summary>
@@ -56,14 +57,15 @@ public static class ServiceCollectionExtensions
         Action<HttpClient> configureClient = null)
     {
         services.AddRestClientOptions<OAuthRestClient>();
-        services.TryAddSingleton(sp => new OAuthToken());
+        services.TryAddSingleton<IOAuthToken>(sp => new OAuthToken());
         services.TryAddTransient<RestClientAuthHandler>();
 
-        return (configureClient is null) ?
+        return ((configureClient is null) ?
             services.AddHttpClient<IOAuthRestClient, OAuthRestClient>()
                 .AddHttpMessageHandler<RestClientAuthHandler>() :
             services.AddHttpClient<IOAuthRestClient, OAuthRestClient>(configureClient)
-                .AddHttpMessageHandler<RestClientAuthHandler>();
+                .AddHttpMessageHandler<RestClientAuthHandler>())
+                    .AddHttpMessageHandler<RestClientHeaderHandler>();
     }
 
     private static void AddRestClientOptions<T>(
@@ -73,6 +75,9 @@ public static class ServiceCollectionExtensions
         var configKey = typeof(T).Name;
         var defaultKey = nameof(RestClient);
         var namedOption = registerDefault == true ? "" : typeof(T).Name;
+
+        services.TryAddSingleton<IRestClientRequestHeaders>(_ => new RestClientRequestHeaders());
+        services.TryAddTransient<RestClientHeaderHandler>();
 
         services
             .AddOptions<RestClientOptions>(namedOption)
