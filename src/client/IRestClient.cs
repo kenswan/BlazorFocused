@@ -10,7 +10,8 @@ public interface IRestClient
     /// </summary>
     /// <param name="key">Header Key</param>
     /// <param name="value">Header Value</param>
-    void AddHeader(string key, string value);
+    /// <param name="global">Use in all subsequent requests in other clients</param>
+    void AddHeader(string key, string value, bool global = true);
 
     /// <summary>
     /// Performs DELETE http request

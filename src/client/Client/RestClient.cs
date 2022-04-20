@@ -23,9 +23,12 @@ internal class RestClient : BaseRestClient, IRestClient
         this.requestHeaders = requestHeaders;
     }
 
-    public void AddHeader(string key, string value)
+    public void AddHeader(string key, string value, bool global = true)
     {
-        requestHeaders.AddHeader(key, value);
+        if (global)
+            requestHeaders.AddHeader(key, value);
+        else
+            httpClient.DefaultRequestHeaders.Add(key, value);
     }
 
     /// <summary>
