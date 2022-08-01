@@ -1,4 +1,5 @@
 ﻿using BlazorFocused.Client;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
 namespace BlazorFocused.Extensions;
@@ -8,8 +9,8 @@ namespace BlazorFocused.Extensions;
 /// </summary>
 public static partial class RestClientExtensions
 {
-    public static IRestClient CreateRestClient(HttpClient httpClient) =>
-            new StandaloneClient(httpClient, NullLogger<RestClient>.Instance);
+    public static IRestClient CreateRestClient(HttpClient httpClient, ILogger logger = null) =>
+            new StandaloneClient(httpClient, logger ?? NullLogger.Instance);
 
     private static async Task<RestClientResponse<T>> GetRestClientResponse<T>(
         IRestClient restClient, HttpMethod method, string url, object data = null)

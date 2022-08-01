@@ -1,67 +1,54 @@
 ﻿using Microsoft.Extensions.Logging;
-using System.Net;
-using System.Net.Http.Json;
 
 namespace BlazorFocused.Client;
 
-internal abstract class BaseRestClient : AbstractRestClient
+internal abstract partial class BaseRestClient : AbstractRestClient, IRestClient
 {
     public BaseRestClient(HttpClient httpClient, ILogger logger)
         : base(httpClient, logger)
     { }
 
-    public async Task<RestClientHttpResponse<T>> SendAndDeserializeAsync<T>(HttpMethod method, string url, object data = null)
+    public virtual void AddHeader(string key, string value, bool global = true)
     {
-        var httpResponseMessage = await SendAndLogAsync(method, url, data);
-
-        logger.LogDebug("Deserializing response content");
-
-        var content = await httpResponseMessage.Content.ReadFromJsonAsync<T>();
-
-        return new RestClientHttpResponse<T>
-        {
-            Content = content,
-            StatusCode = httpResponseMessage.StatusCode,
-            Headers = httpResponseMessage.Headers
-        };
+        httpClient.DefaultRequestHeaders.Add(key, value);
     }
 
-    public async Task<RestClientHttpResponse> SendAndTaskAsync(HttpMethod method, string url, object data = null)
+    /// <summary>
+    /// Gets current instance of <see cref="HttpClient"/> being used for requests
+    /// </summary>
+    /// <returns>Current <see cref="HttpClient"/> from dependency injection</returns>
+    /// <remarks>Primarily used for exposure/inspection in Test</remarks>
+    internal HttpClient GetClient() => httpClient;
+
+    public async Task<T> DeleteAsync<T>(string relativeUrl) =>
+        await GetResponseValue<T>(HttpMethod.Delete, relativeUrl);
+
+    public async Task DeleteTaskAsync(string relativeUrl) =>
+        await SendAndTaskAsync(HttpMethod.Delete, relativeUrl);
+
+    public async Task<T> GetAsync<T>(string relativeUrl) =>
+        await GetResponseValue<T>(HttpMethod.Get, relativeUrl);
+
+    public async Task<T> PatchAsync<T>(string relativeUrl, object data) =>
+        await GetResponseValue<T>(HttpMethod.Patch, relativeUrl, data);
+
+    public async Task PatchTaskAsync(string relativeUrl, object data) =>
+        await SendAndTaskAsync(HttpMethod.Patch, relativeUrl, data);
+
+    public async Task<T> PostAsync<T>(string relativeUrl, object data) =>
+        await GetResponseValue<T>(HttpMethod.Post, relativeUrl, data);
+
+    public async Task PostTaskAsync(string relativeUrl, object data) =>
+        await SendAndTaskAsync(HttpMethod.Post, relativeUrl, data);
+
+    public async Task<T> PutAsync<T>(string relativeUrl, object data) =>
+        await GetResponseValue<T>(HttpMethod.Put, relativeUrl, data);
+
+    public async Task PutTaskAsync(string relativeUrl, object data) =>
+        await SendAndTaskAsync(HttpMethod.Put, relativeUrl, data);
+
+    public void UpdateHttpClient(Action<HttpClient> updateHttpClient)
     {
-        var httpResponseMessage = await SendAndLogAsync(method, url, data);
-
-        return new RestClientHttpResponse
-        {
-            Headers = httpResponseMessage.Headers,
-            StatusCode = httpResponseMessage.StatusCode
-        };
-    }
-
-    private async Task<HttpResponseMessage> SendAndLogAsync(HttpMethod method, string url, object data = null)
-    {
-        var httpResponseMessage = await SendAsync(method, url, data);
-        var errorContent = await httpResponseMessage.Content?.ReadAsStringAsync() ?? string.Empty;
-
-        if (!httpResponseMessage.IsSuccessStatusCode)
-            LogAndThrowFailure(httpResponseMessage.StatusCode, method, url, errorContent);
-        else
-            LogSuccess(httpResponseMessage.StatusCode, method, url);
-
-        return httpResponseMessage;
-    }
-
-    private void LogSuccess(HttpStatusCode code, HttpMethod method, string url) =>
-        logger.LogDebug("SUCCESSFUL Request: {Code} - {Method} - {Url} Request", code, method, url);
-
-    private void LogAndThrowFailure(HttpStatusCode code, HttpMethod method, string url, string content)
-    {
-        var exception = new RestClientHttpException(method, code, url) { Content = content };
-
-        logger.LogError(exception, "FAILED Request: {Code} - {Method} - {Url} Request", code, method, url);
-
-        if (content is not null)
-            logger.LogDebug("FAILED Request Content: ({Method} - {Url}) {Content}", code, method, content);
-
-        throw exception;
+        updateHttpClient(httpClient);
     }
 }
