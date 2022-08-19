@@ -1,4 +1,6 @@
-﻿namespace BlazorFocused.Tools;
+﻿using BlazorFocused.Tools.Http;
+
+namespace BlazorFocused.Tools;
 
 /// <summary>
 /// Simulates <see cref="HttpClient"/> transactions for testing
