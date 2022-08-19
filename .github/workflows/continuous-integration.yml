@@ -21,6 +21,11 @@ jobs:
     strategy:
       matrix:
         dotnet-target-framework: [ 'net6.0', 'net7.0' ]
+        include:
+          - dotnet-install-framework: 6.0.x
+            dotnet-target-framework: net6.0
+          - dotnet-install-framework: 7.0.x
+            dotnet-target-framework: net7.0
     env:
       source-directory: ./src/client
       source-project: BlazorFocused.Client.csproj
@@ -33,9 +38,7 @@ jobs:
       - name: Install .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: |
-            6.0.x
-            7.0.x
+          dotnet-version: ${{ matrix.dotnet-install-framework }}
           include-prerelease: true
 
       - name: Install Dependencies
@@ -57,6 +60,11 @@ jobs:
     strategy:
       matrix:
         dotnet-target-framework: [ 'net6.0', 'net7.0' ]
+        include:
+          - dotnet-install-framework: 6.0.x
+            dotnet-target-framework: net6.0
+          - dotnet-install-framework: 7.0.x
+            dotnet-target-framework: net7.0
     env:
       source-directory: ./src/store
       source-project: BlazorFocused.Store.csproj
@@ -69,9 +77,7 @@ jobs:
       - name: Install .NET ${{ matrix.dotnet }}
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: |
-            6.0.x
-            7.0.x
+          dotnet-version: ${{ matrix.dotnet-install-framework }}
           include-prerelease: true
 
       - name: Install Dependencies
@@ -93,6 +99,11 @@ jobs:
     strategy:
       matrix:
         dotnet-target-framework: [ 'net6.0', 'net7.0' ]
+        include:
+          - dotnet-install-framework: 6.0.x
+            dotnet-target-framework: net6.0
+          - dotnet-install-framework: 7.0.x
+            dotnet-target-framework: net7.0
     env:
       source-directory: ./src/tools
       source-project: BlazorFocused.Tools.csproj
@@ -105,9 +116,7 @@ jobs:
       - name: Install .NET ${{ matrix.dotnet }}
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: |
-            6.0.x
-            7.0.x
+          dotnet-version: ${{ matrix.dotnet-install-framework }}
           include-prerelease: true
 
       - name: Install Dependencies
