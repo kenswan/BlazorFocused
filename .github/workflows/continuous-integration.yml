@@ -13,6 +13,8 @@ on:
 
 env:
   NUGET_SOURCE: "https://api.nuget.org/v3/index.json"
+  DOTNET_SIX_INSTALL: 6.0.x
+  DOTNET_SEVEN_INSTALL: 7.0.x
 
 jobs:
   client:
@@ -22,9 +24,9 @@ jobs:
       matrix:
         dotnet-target-framework: [ 'net6.0', 'net7.0' ]
         include:
-          - dotnet-install-framework: 6.0.x
+          - dotnet-install-framework: ${{ env.DOTNET_SIX_INSTALL }}
             dotnet-target-framework: net6.0
-          - dotnet-install-framework: 7.0.x
+          - dotnet-install-framework: ${{ env.DOTNET_SEVEN_INSTALL }}
             dotnet-target-framework: net7.0
     env:
       source-directory: ./src/client
@@ -61,9 +63,9 @@ jobs:
       matrix:
         dotnet-target-framework: [ 'net6.0', 'net7.0' ]
         include:
-          - dotnet-install-framework: 6.0.x
+          - dotnet-install-framework: ${{ env.DOTNET_SIX_INSTALL }}
             dotnet-target-framework: net6.0
-          - dotnet-install-framework: 7.0.x
+          - dotnet-install-framework: ${{ env.DOTNET_SEVEN_INSTALL }}
             dotnet-target-framework: net7.0
     env:
       source-directory: ./src/store
@@ -100,9 +102,9 @@ jobs:
       matrix:
         dotnet-target-framework: [ 'net6.0', 'net7.0' ]
         include:
-          - dotnet-install-framework: 6.0.x
+          - dotnet-install-framework: ${{ env.DOTNET_SIX_INSTALL }}
             dotnet-target-framework: net6.0
-          - dotnet-install-framework: 7.0.x
+          - dotnet-install-framework: ${{ env.DOTNET_SEVEN_INSTALL }}
             dotnet-target-framework: net7.0
     env:
       source-directory: ./src/tools
@@ -154,8 +156,8 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: |
-            6.0.x
-            7.0.x
+            ${{ env.DOTNET_SIX_INSTALL }}
+            ${{ env.DOTNET_SEVEN_INSTALL }}
           include-prerelease: true
 
       - name: Install Dependencies
