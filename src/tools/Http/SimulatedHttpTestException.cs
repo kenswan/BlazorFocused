@@ -1,4 +1,4 @@
-﻿namespace BlazorFocused.Tools;
+﻿namespace BlazorFocused.Tools.Http;
 
 /// <summary>
 /// Exception given when request was not verified with

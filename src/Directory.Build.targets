@@ -1,6 +1,11 @@
 <Project>
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., Directory.Build.targets))\Directory.Build.targets" />
 
+  <PropertyGroup Label="Trim Settings">
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <IsTrimmable>true</IsTrimmable>
+  </PropertyGroup>
+  
   <PropertyGroup Label="NuGet Metadata">
     <Authors>Kenneth Swan</Authors>
     <Copyright>Copyright (c) 2022 BlazorFocused</Copyright>
