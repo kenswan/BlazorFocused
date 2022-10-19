@@ -153,10 +153,8 @@ jobs:
       - name: Install .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: |
-            ${{ env.DOTNET_SIX_INSTALL }}
-            ${{ env.DOTNET_SEVEN_INSTALL }}
-          include-prerelease: true
+          dotnet-version: 6.0.x
+          include-prerelease: false
 
       - name: Install Dependencies
         working-directory: ./src
