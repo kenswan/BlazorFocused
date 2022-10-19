@@ -35,6 +35,18 @@ internal abstract class AbstractRestClient
         return await httpClient.SendAsync(httpRequestMessage);
     }
 
+    protected async Task<HttpResponseMessage> SendAsync(HttpRequestMessage httpRequestMessage)
+    {
+        logger.LogDebug("Starting Request: {Method} - {Url}", httpRequestMessage.Method, httpRequestMessage.RequestUri.OriginalString);
+
+        if (!httpRequestMessage.RequestUri.IsAbsoluteUri)
+            httpRequestMessage.RequestUri = new Uri(httpClient.BaseAddress, httpRequestMessage.RequestUri.OriginalString);
+
+        logger.LogDebug("Constructed HttpRequestMessage");
+
+        return await httpClient.SendAsync(httpRequestMessage);
+    }
+
     private HttpContent ConvertToHttpContent(object data)
     {
         logger.LogDebug("Creating HttpContent for request");

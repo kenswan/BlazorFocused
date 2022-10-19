@@ -12,14 +12,16 @@ internal partial class BaseRestClient
 
         logger.LogDebug("Deserializing response content");
 
-        var content = await httpResponseMessage.Content.ReadFromJsonAsync<T>();
+        return await DeserializeAsync<T>(httpResponseMessage);
+    }
 
-        return new RestClientHttpResponse<T>
-        {
-            Content = content,
-            StatusCode = httpResponseMessage.StatusCode,
-            Headers = httpResponseMessage.Headers
-        };
+    public async Task<RestClientHttpResponse<T>> SendAndDeserializeAsync<T>(HttpRequestMessage httpRequestMessage)
+    {
+        var httpResponseMessage = await SendAndLogAsync(httpRequestMessage);
+
+        logger.LogDebug("Deserializing response content");
+
+        return await DeserializeAsync<T>(httpResponseMessage);
     }
 
     public async Task<RestClientHttpResponse> SendAndTaskAsync(HttpMethod method, string url, object data = null)
@@ -33,9 +35,49 @@ internal partial class BaseRestClient
         };
     }
 
+    public async Task<RestClientHttpResponse> SendAndTaskAsync(HttpRequestMessage httpRequestMessage)
+    {
+        var httpResponseMessage = await SendAndLogAsync(httpRequestMessage);
+
+        return new RestClientHttpResponse
+        {
+            Headers = httpResponseMessage.Headers,
+            StatusCode = httpResponseMessage.StatusCode
+        };
+    }
+
+    public async Task<HttpResponseMessage> StandardSendAsync(HttpRequestMessage httpRequestMessage) =>
+        await SendAndLogAsync(httpRequestMessage);
+
     private async Task<HttpResponseMessage> SendAndLogAsync(HttpMethod method, string url, object data = null)
     {
         var httpResponseMessage = await SendAsync(method, url, data);
+
+        return await LogAsync(httpResponseMessage, method, url);
+    }
+
+    private async Task<HttpResponseMessage> SendAndLogAsync(HttpRequestMessage httpRequestMessage)
+    {
+        var method = httpRequestMessage.Method;
+        var url = httpRequestMessage.RequestUri.OriginalString;
+        var httpResponseMessage = await SendAsync(httpRequestMessage);
+
+        return await LogAsync(httpResponseMessage, method, url);
+    }
+
+    private async Task<RestClientHttpResponse<T>> DeserializeAsync<T>(HttpResponseMessage httpResponseMessage)
+    {
+        var content = await httpResponseMessage.Content.ReadFromJsonAsync<T>();
+
+        return new RestClientHttpResponse<T>
+        {
+            Content = content,
+            StatusCode = httpResponseMessage.StatusCode,
+            Headers = httpResponseMessage.Headers
+        };
+    }
+    private async Task<HttpResponseMessage> LogAsync(HttpResponseMessage httpResponseMessage, HttpMethod method, string url)
+    {
         var errorContent = await httpResponseMessage.Content?.ReadAsStringAsync() ?? string.Empty;
 
         if (!httpResponseMessage.IsSuccessStatusCode)
