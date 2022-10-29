@@ -36,7 +36,6 @@ public static partial class RestClientExtensions
     public static async Task<RestClientTask> TryPatchTaskAsync(this IRestClient restClient, string relativeUrl, object data) =>
         await GetRestClientTask(restClient, HttpMethod.Patch, relativeUrl, data);
 
-
     /// <summary>
     /// Performs POST http request
     /// </summary>

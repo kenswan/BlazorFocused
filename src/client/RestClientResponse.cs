@@ -19,5 +19,5 @@ public class RestClientResponse<T> : RestClientTask
     /// <summary>
     /// Value expected from <see cref="HttpResponseMessage.Content"/> deserialization
     /// </summary>
-    public T Value { get; set; } = default;
+    public T Value { get; set; }
 }

@@ -53,7 +53,7 @@ internal partial class TestLogger<T> : ITestLogger<T>
 
     private class LogScope : IDisposable
     {
-        private object scope = default;
+        private object scope;
 
         public LogScope(object scope)
         {

@@ -103,6 +103,6 @@ public class RestClientRequestHeadersTests
 
     }
 
-    private string GenerateRandomString() =>
+    private static string GenerateRandomString() =>
         new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
 }

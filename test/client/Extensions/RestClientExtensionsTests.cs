@@ -20,8 +20,10 @@ public partial class RestClientExtensionsTests
         baseAddress = new Faker().Internet.Url();
         simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
 
-        testLogger = ToolsBuilder.CreateTestLogger<RestClient>((level, message, exception) =>
-            testOutputHelper.WriteTestLoggerMessage(level, message, exception));
+        void logAction(Microsoft.Extensions.Logging.LogLevel level, string message, Exception exception) =>
+                    testOutputHelper.WriteTestLoggerMessage(level, message, exception);
+
+        testLogger = ToolsBuilder.CreateTestLogger<RestClient>(logAction);
 
         var restClientOptions = Options.Create<RestClientOptions>(default);
 

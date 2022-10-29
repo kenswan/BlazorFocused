@@ -12,5 +12,5 @@ internal class RestClientHttpResponse
 
 internal class RestClientHttpResponse<T> : RestClientHttpResponse
 {
-    public T Content { get; set; } = default;
+    public T Content { get; set; }
 }

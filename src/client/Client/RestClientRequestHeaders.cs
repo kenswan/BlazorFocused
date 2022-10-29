@@ -1,8 +1,8 @@
 ﻿namespace BlazorFocused.Client;
+
 internal class RestClientRequestHeaders : IRestClientRequestHeaders
 {
     private readonly Dictionary<string, List<string>> headerCache = new();
-
 
     public RestClientRequestHeaders()
     {

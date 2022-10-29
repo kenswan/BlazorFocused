@@ -114,7 +114,6 @@ public interface IRestClient
     /// </remarks>
     Task PutTaskAsync(string relativeUrl, object data);
 
-
     /// <summary>
     /// Updates HttpClient used within <see cref="IRestClient"/>
     /// </summary>

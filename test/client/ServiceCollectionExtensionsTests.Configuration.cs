@@ -133,7 +133,8 @@ public partial class ServiceCollectionExtensionsTests
 
         using var serviceProvider = serviceCollection.BuildServiceProvider();
 
-        Assert.Throws<OptionsValidationException>(() =>
-            serviceProvider.GetRequiredService<IRestClient>());
+        object? testCode() => serviceProvider.GetRequiredService<IRestClient>();
+
+        _ = Assert.Throws<OptionsValidationException>(testCode);
     }
 }

@@ -12,7 +12,7 @@ public class RestClientTask
     /// Exception that occurred during request
     /// </summary>
     /// <remarks>This value will be "null" if exception did not occur</remarks>
-    public Exception Exception { get; internal set; } = null;
+    public Exception Exception { get; internal set; }
 
     /// <summary>
     /// Response headers received from executing request
@@ -31,7 +31,7 @@ public class RestClientTask
     /// Status of http request
     /// </summary>
     /// <remarks>This may be null if url passed in is not valid relative or absolute path</remarks>
-    public HttpStatusCode? StatusCode { get; internal set; } = null;
+    public HttpStatusCode? StatusCode { get; internal set; }
 
     protected bool HasSuccessStatusCode() =>
         StatusCode.HasValue && new HttpResponseMessage(StatusCode.Value).IsSuccessStatusCode;

@@ -65,7 +65,7 @@ internal partial class BaseRestClient
         return await LogAsync(httpResponseMessage, method, url);
     }
 
-    private async Task<RestClientHttpResponse<T>> DeserializeAsync<T>(HttpResponseMessage httpResponseMessage)
+    private static async Task<RestClientHttpResponse<T>> DeserializeAsync<T>(HttpResponseMessage httpResponseMessage)
     {
         var content = await httpResponseMessage.Content.ReadFromJsonAsync<T>();
 
