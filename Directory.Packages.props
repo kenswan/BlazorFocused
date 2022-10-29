@@ -3,6 +3,11 @@
   <PropertyGroup Label="Package Management">
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
+
+  <PropertyGroup Label="Build">
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
   
   <ItemGroup Label="Microsoft NuGet Packages (Source)">
     <PackageVersion Include="System.Reactive" Version="5.0.0" />

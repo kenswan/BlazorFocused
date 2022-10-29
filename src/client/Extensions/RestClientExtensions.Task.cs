@@ -1,4 +1,6 @@
-﻿namespace BlazorFocused.Extensions;
+﻿// Add Header Here
+
+namespace BlazorFocused.Extensions;
 
 public static partial class RestClientExtensions
 {
@@ -35,7 +37,6 @@ public static partial class RestClientExtensions
     /// </returns>
     public static async Task<RestClientTask> TryPatchTaskAsync(this IRestClient restClient, string relativeUrl, object data) =>
         await GetRestClientTask(restClient, HttpMethod.Patch, relativeUrl, data);
-
 
     /// <summary>
     /// Performs POST http request

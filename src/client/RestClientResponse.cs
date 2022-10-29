@@ -1,4 +1,6 @@
-﻿namespace BlazorFocused;
+﻿// Add Header Here
+
+namespace BlazorFocused;
 
 /// <summary>
 /// Gives result of an http request using <see cref="IRestClient"/>
@@ -19,5 +21,5 @@ public class RestClientResponse<T> : RestClientTask
     /// <summary>
     /// Value expected from <see cref="HttpResponseMessage.Content"/> deserialization
     /// </summary>
-    public T Value { get; set; } = default;
+    public T Value { get; set; }
 }

@@ -15,4 +15,14 @@ public static class UrlBuilder
     /// <returns>Continuation of <see cref="IRestClientUrlBuilder"/> to further build url</returns>
     public static IRestClientUrlBuilder SetPath(string relativeOrAbsoluteUrl) =>
         new RestClientUrlBuilder().SetPath(relativeOrAbsoluteUrl);
+
+    public static void TestMethod()
+    {
+        string test = default;
+
+        if (test != null)
+        {
+            Console.WriteLine("Test");
+        }
+    }
 }

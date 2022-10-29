@@ -14,8 +14,10 @@ public class TestLoggerTests
 
     public TestLoggerTests(ITestOutputHelper testOutputHelper)
     {
-        testLogger = new TestLogger<TestServiceWithLogger>((level, message, exception) =>
-            testOutputHelper.WriteTestLoggerMessage(level, message, exception));
+        void logAction(LogLevel level, string message, Exception exception) =>
+                    testOutputHelper.WriteTestLoggerMessage(level, message, exception);
+
+        testLogger = new TestLogger<TestServiceWithLogger>(logAction);
 
         testServiceWithLogger = new(testLogger);
         this.testOutputHelper = testOutputHelper;
@@ -32,7 +34,9 @@ public class TestLoggerTests
     [Fact]
     public void ShouldFailIfLogNotCalled()
     {
-        Assert.Throws<TestLoggerException>(() => testLogger.VerifyWasCalled());
+        void testCode() => testLogger.VerifyWasCalled();
+
+        _ = Assert.Throws<TestLoggerException>(testCode);
     }
 
     [Fact]

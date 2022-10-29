@@ -54,7 +54,9 @@ public static class ServiceCollectionExtensions
         this IServiceCollection serviceCollection,
         ITestOutputHelper testOutputHelper)
     {
-        serviceCollection.AddSingleton<ILogger<T>>(new TestLogger<T>((level, message, exception) =>
-            testOutputHelper.WriteTestLoggerMessage(level, message, exception)));
+        void logAction(LogLevel level, string message, Exception exception) =>
+                    testOutputHelper.WriteTestLoggerMessage(level, message, exception);
+
+        serviceCollection.AddSingleton<ILogger<T>>(new TestLogger<T>(logAction));
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿// Add Header Here
+
+using Microsoft.Extensions.Logging;
 using System.Net;
 using System.Net.Http.Json;
 
@@ -65,7 +67,7 @@ internal partial class BaseRestClient
         return await LogAsync(httpResponseMessage, method, url);
     }
 
-    private async Task<RestClientHttpResponse<T>> DeserializeAsync<T>(HttpResponseMessage httpResponseMessage)
+    private static async Task<RestClientHttpResponse<T>> DeserializeAsync<T>(HttpResponseMessage httpResponseMessage)
     {
         var content = await httpResponseMessage.Content.ReadFromJsonAsync<T>();
 
