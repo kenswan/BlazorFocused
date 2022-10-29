@@ -45,13 +45,26 @@ charset = utf-8-bom
 
 [*.cs]
 
+# Directive sorting
+dotnet_sort_system_directives_first = false
+
+# Require var when apparent
+csharp_style_implicit_object_creation_when_type_is_apparent = true:suggestion
+
+# Namespace settings
+csharp_style_namespace_declarations = file_scoped
+
+# Newline settings
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = true
+csharp_new_line_before_members_in_anonymous_types = true
+
 # IDE0073: File header
 # dotnet_diagnostic.IDE0073.severity = warning
 # file_header_template = Add Header Here
-
-#Modified
-csharp_style_implicit_object_creation_when_type_is_apparent= true:suggestion
-dotnet_sort_system_directives_first = false
 
 # CA1047: Do not declare protected member in sealed type
 dotnet_diagnostic.CA1047.severity = warning
