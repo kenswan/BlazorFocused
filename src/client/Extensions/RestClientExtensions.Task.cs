@@ -1,6 +1,4 @@
-﻿// Add Header Here
-
-namespace BlazorFocused.Extensions;
+﻿namespace BlazorFocused.Extensions;
 
 public static partial class RestClientExtensions
 {

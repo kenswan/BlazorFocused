@@ -1,6 +1,4 @@
-﻿// Add Header Here
-
-namespace BlazorFocused;
+﻿namespace BlazorFocused;
 
 /// <summary>
 /// Gives result of an http request using <see cref="IRestClient"/>

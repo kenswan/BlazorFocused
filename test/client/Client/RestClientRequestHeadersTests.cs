@@ -1,6 +1,4 @@
-﻿// Add Header Here
-
-using Bogus;
+﻿using Bogus;
 using Xunit;
 
 namespace BlazorFocused.Client;
