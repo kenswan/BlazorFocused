@@ -184,9 +184,6 @@ dotnet_diagnostic.IDE0036.severity = warning
 # IDE0038: Use pattern matching to avoid is check followed by a cast (without variable)
 dotnet_diagnostic.IDE0038.severity = warning
 
-# IDE0038: Use pattern matching to avoid is check followed by a cast (without variable)
-dotnet_diagnostic.IDE0038.severity = warning
-
 # IDE0039: Use local function
 dotnet_diagnostic.IDE0039.severity = warning
 
@@ -211,6 +208,21 @@ dotnet_diagnostic.IDE0060.severity = warning
 
 # IDE0062: Make local function static
 dotnet_diagnostic.IDE0062.severity = warning
+
+# IDE0063: Use simple using statement
+dotnet_diagnostic.IDE0063.severity = warning
+
+# IDE0074: Use coalesce compound expression
+dotnet_diagnostic.IDE0074.severity = warning
+
+# IDE0075: Simplify conditional expression
+dotnet_diagnostic.IDE0075.severity = warning
+
+# IDE0078: Use pattern matching
+dotnet_diagnostic.IDE0078.severity = warning
+
+# IDE0090: Simplify new expression
+dotnet_diagnostic.IDE0090.severity = warning
 
 # IDE0161: Convert to file-scoped namespace
 dotnet_diagnostic.IDE0161.severity = warning
