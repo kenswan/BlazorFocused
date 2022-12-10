@@ -19,9 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{D975A9F2-7C1C-45BC-BBEF-302615F375B8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused", "..\src\blazorfocused\BlazorFocused.csproj", "{E2C2BC2D-A1E2-4112-97D6-604084A56FDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused", "..\src\blazorfocused\src\BlazorFocused.csproj", "{E2C2BC2D-A1E2-4112-97D6-604084A56FDA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused.Tools", "..\src\tools\BlazorFocused.Tools.csproj", "{415EEE41-E19A-4DB0-AF08-669E57F9D61B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused.Tools", "..\src\tools\src\BlazorFocused.Tools.csproj", "{415EEE41-E19A-4DB0-AF08-669E57F9D61B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

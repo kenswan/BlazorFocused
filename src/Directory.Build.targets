@@ -1,6 +1,6 @@
 <Project>
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory).., Directory.Build.targets))\Directory.Build.targets" />
-  
+
   <PropertyGroup Label="NuGet Metadata">
     <Authors>Kenneth Swan</Authors>
     <Copyright>Copyright (c) 2022 BlazorFocused</Copyright>
@@ -16,8 +16,8 @@
   </PropertyGroup>
 
   <ItemGroup Label="NuGet Artifacts">
-    <None Include="..\..\BlazorFocused.png" Pack="true" PackagePath="\" Visible="false"  />
-    <None Include=".\README.md" Pack="true" PackagePath="\" Visible="false"/>
+    <None Include="..\..\..\BlazorFocused.png" Pack="true" PackagePath="\" Visible="false"  />
+    <None Include="..\README.md" Pack="true" PackagePath="\" Visible="false"/>
   </ItemGroup>
 
 </Project>

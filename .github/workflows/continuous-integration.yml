@@ -27,9 +27,9 @@ jobs:
           - dotnet-install-framework: 7.0.x
             dotnet-target-framework: net7.0
     env:
-      source-directory: ./src/client
+      source-directory: ./src/client/src
       source-project: BlazorFocused.Client.csproj
-      test-directory: ./test/client
+      test-directory: ./src/client/test
       test-project: BlazorFocused.Client.Test.csproj
 
     steps:
@@ -66,9 +66,9 @@ jobs:
           - dotnet-install-framework: 7.0.x
             dotnet-target-framework: net7.0
     env:
-      source-directory: ./src/store
+      source-directory: ./src/store/src
       source-project: BlazorFocused.Store.csproj
-      test-directory: ./test/store
+      test-directory: ./src/store/test
       test-project: BlazorFocused.Store.Test.csproj
 
     steps:
@@ -105,9 +105,9 @@ jobs:
           - dotnet-install-framework: 7.0.x
             dotnet-target-framework: net7.0
     env:
-      source-directory: ./src/tools
+      source-directory: ./src/tools/src
       source-project: BlazorFocused.Tools.csproj
-      test-directory: ./test/tools
+      test-directory: ./src/tools/test
       test-project: BlazorFocused.Tools.Test.csproj
 
     steps:
@@ -167,14 +167,14 @@ jobs:
     if: github.event_name == 'release'
     runs-on: ubuntu-latest
     env:
-      base-project: ./blazorfocused/BlazorFocused.csproj
-      base-release-path: ./blazorfocused/bin/Release
-      client-project: ./client/BlazorFocused.Client.csproj
-      client-release-path: ./client/bin/Release
-      store-project: ./store/BlazorFocused.Store.csproj
-      store-release-path: ./store/bin/Release
-      tools-project: ./tools/BlazorFocused.Tools.csproj
-      tools-release-path: ./tools/bin/Release
+      base-project: ./blazorfocused/src/BlazorFocused.csproj
+      base-release-path: ./blazorfocused/src/bin/Release
+      client-project: ./client/src/BlazorFocused.Client.csproj
+      client-release-path: ./client/src/bin/Release
+      store-project: ./store/src/BlazorFocused.Store.csproj
+      store-release-path: ./store/src/bin/Release
+      tools-project: ./tools/src/BlazorFocused.Tools.csproj
+      tools-release-path: ./tools/src/bin/Release
 
     steps:
       - uses: actions/checkout@v2

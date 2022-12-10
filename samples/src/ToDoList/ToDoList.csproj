@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\blazorfocused\BlazorFocused.csproj" />
+    <ProjectReference Include="..\..\..\src\blazorfocused\src\BlazorFocused.csproj" />
     <ProjectReference Include="..\model\Samples.Model.csproj" />
   </ItemGroup>
 
