@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Tools.Utility;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Tools.Utility;
 
 public class TestHttpService : ITestHttpService
 {

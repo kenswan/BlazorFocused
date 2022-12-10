@@ -1,4 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using Microsoft.Extensions.Logging;
 
 namespace BlazorFocused.Client;
 internal class RestClientHeaderHandler : DelegatingHandler
@@ -21,8 +26,12 @@ internal class RestClientHeaderHandler : DelegatingHandler
             logger.LogDebug("Found header attributes to add to request");
 
             foreach (var headerKey in clientRequestHeaders.GetHeaderKeys())
+            {
                 foreach (var value in clientRequestHeaders.GetHeaderValues(headerKey))
+                {
                     request.Headers.Add(headerKey, value);
+                }
+            }
         }
         else
         {

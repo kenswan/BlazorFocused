@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused;
 
 /// <summary>
 /// Representation of a specific store operating within the context of the application.

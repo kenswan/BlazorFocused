@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Model;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Model;
 using FluentAssertions;
 using System.Net;
 using Xunit;
@@ -19,20 +24,20 @@ public partial class SimulatedHttpTests
         GetHttpSetup(httpMethod, relativeRequestUrl, requestObject)
             .ReturnsAsync(httpStatusCode, responseObject);
 
-        using var client = simulatedHttp.HttpClient;
+        using HttpClient client = simulatedHttp.HttpClient;
         var internalSimulatedHttp = simulatedHttp as SimulatedHttp;
 
         await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
 
-        var calledException = Record.Exception(() =>
+        Exception calledException = Record.Exception(() =>
         {
-            var action = GetVerifyActionGroup(httpMethod);
+            Action action = GetVerifyActionGroup(httpMethod);
             action.Invoke();
         });
 
-        var calledWithUrlException = Record.Exception(() =>
+        Exception calledWithUrlException = Record.Exception(() =>
         {
-            var action = GetVerifyActionGroup(httpMethod, relativeRequestUrl);
+            Action action = GetVerifyActionGroup(httpMethod, relativeRequestUrl);
             action.Invoke();
         });
 
@@ -41,9 +46,9 @@ public partial class SimulatedHttpTests
 
         if (!IsMethodWithoutContent(httpMethod))
         {
-            var calledWithUrlAndContentException = Record.Exception(() =>
+            Exception calledWithUrlAndContentException = Record.Exception(() =>
             {
-                var action = GetVerifyActionGroup(httpMethod, relativeRequestUrl, requestObject);
+                Action action = GetVerifyActionGroup(httpMethod, relativeRequestUrl, requestObject);
                 action.Invoke();
             });
 
@@ -63,11 +68,11 @@ public partial class SimulatedHttpTests
         GetHttpSetup(httpMethod, relativeRequestUrl, requestObject)
             .ReturnsAsync(httpStatusCode, responseObject);
 
-        using var client = simulatedHttp.HttpClient;
+        using HttpClient client = simulatedHttp.HttpClient;
         var internalSimulatedHttp = simulatedHttp as SimulatedHttp;
         await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
 
-        var differentHttpMethod = PickDifferentMethod(httpMethod);
+        HttpMethod differentHttpMethod = PickDifferentMethod(httpMethod);
         var differentRelativeUrl = GetRandomRelativeUrl();
 
         Action actWithMethod = GetVerifyActionGroup(differentHttpMethod);
@@ -109,8 +114,9 @@ public partial class SimulatedHttpTests
         action.Should().Throw<SimulatedHttpTestException>();
     }
 
-    private Action GetVerifyActionGroup(HttpMethod httpMethod, string url = null, object content = null) =>
-        httpMethod switch
+    private Action GetVerifyActionGroup(HttpMethod httpMethod, string url = null, object content = null)
+    {
+        return httpMethod switch
         {
             { } when httpMethod == HttpMethod.Delete && url is null =>
                 () => simulatedHttp.VerifyDELETEWasCalled(),
@@ -145,7 +151,10 @@ public partial class SimulatedHttpTests
 
             _ => throw new NotImplementedException("Verify Action Group Not Implemented")
         };
+    }
 
-    private static bool IsMethodWithoutContent(HttpMethod httpMethod) =>
-        httpMethod == HttpMethod.Delete || httpMethod == HttpMethod.Get;
+    private static bool IsMethodWithoutContent(HttpMethod httpMethod)
+    {
+        return httpMethod == HttpMethod.Delete || httpMethod == HttpMethod.Get;
+    }
 }

@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Extensions;
 using BlazorFocused.Tools;
 using Bogus;
 using Xunit.Abstractions;

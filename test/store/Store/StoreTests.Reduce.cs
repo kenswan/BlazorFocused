@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Extensions;
 using BlazorFocused.Tools.Model;
 using BlazorFocused.Tools.Utility;
 using FluentAssertions;
@@ -12,10 +17,10 @@ public partial class StoreTests
     [Fact(DisplayName = "Should reduce state value with instance")]
     public void ShouldReduceStateValueWithInstance()
     {
-        var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
-        var originalReducedClass = new TestReducer().Execute(originalClass);
-        var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
-        var updatedReducedClass = new TestReducer().Execute(updatedClass);
+        SimpleClass originalClass = SimpleClassUtilities.GetRandomSimpleClass();
+        SimpleClassSubset originalReducedClass = new TestReducer().Execute(originalClass);
+        SimpleClass updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
+        SimpleClassSubset updatedReducedClass = new TestReducer().Execute(updatedClass);
 
         using var serviceProvider = serviceCollection
             .AddTransient<TestReducer>()
@@ -40,10 +45,10 @@ public partial class StoreTests
     [Fact(DisplayName = "Should reduce state value with type")]
     public void ShouldReduceStateValueWithType()
     {
-        var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
-        var originalReducedClass = new TestReducer().Execute(originalClass);
-        var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
-        var updatedReducedClass = new TestReducer().Execute(updatedClass);
+        SimpleClass originalClass = SimpleClassUtilities.GetRandomSimpleClass();
+        SimpleClassSubset originalReducedClass = new TestReducer().Execute(originalClass);
+        SimpleClass updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
+        SimpleClassSubset updatedReducedClass = new TestReducer().Execute(updatedClass);
 
         using var serviceProvider =
             serviceCollection.AddTransient<TestReducer>()

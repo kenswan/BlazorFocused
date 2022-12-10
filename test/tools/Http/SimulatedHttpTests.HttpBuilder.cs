@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Extensions;
 using BlazorFocused.Tools.Model;
 using Bogus;
 using FluentAssertions;
@@ -15,7 +20,7 @@ public partial class SimulatedHttpTests
     public async Task ShouldProvideMockDataThroughDependencyInjection()
     {
         var relativeUrl = new Faker().Internet.UrlRootedPath();
-        var expectedResponse = SimpleClassUtilities.GetRandomSimpleClass();
+        SimpleClass expectedResponse = SimpleClassUtilities.GetRandomSimpleClass();
         var serviceCollection = new ServiceCollection();
 
         serviceCollection
@@ -23,13 +28,13 @@ public partial class SimulatedHttpTests
             .AddRestClient(baseAddress)
             .AddSimulatedHttp(simulatedHttp);
 
-        using var serviceProvider = serviceCollection.BuildServiceProvider();
-        var restClient = serviceProvider.GetRequiredService<IRestClient>();
+        using ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
+        IRestClient restClient = serviceProvider.GetRequiredService<IRestClient>();
 
         simulatedHttp.SetupGET(relativeUrl)
             .ReturnsAsync(HttpStatusCode.OK, expectedResponse);
 
-        var actualResponse = await restClient.GetAsync<SimpleClass>(relativeUrl);
+        SimpleClass actualResponse = await restClient.GetAsync<SimpleClass>(relativeUrl);
 
         actualResponse.Should().BeEquivalentTo(expectedResponse);
     }

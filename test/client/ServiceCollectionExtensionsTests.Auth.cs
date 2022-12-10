@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Client;
 using BlazorFocused.Tools;
 using BlazorFocused.Tools.Extensions;
 using BlazorFocused.Tools.Model;
@@ -18,14 +23,14 @@ public partial class ServiceCollectionExtensionsTests
         var expectedAuthorization = $"Bearer {token}";
         var baseAddress = new Faker().Internet.Url();
         var relativeUrl = new Faker().Internet.UrlRootedPath();
-        var responseObject = RestClientTestExtensions.GenerateResponseObject();
+        SimpleClass responseObject = RestClientTestExtensions.GenerateResponseObject();
 
         var appSettings = new Dictionary<string, string>()
         {
             ["restclient:baseAddress"] = baseAddress
         };
 
-        var simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
+        ISimulatedHttp simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
         var serviceCollection = new ServiceCollection();
         serviceCollection
             .AddConfiguration(appSettings)
@@ -43,11 +48,11 @@ public partial class ServiceCollectionExtensionsTests
                 services.AddTestLoggerToCollection<RestClientHeaderHandler>(testOutpuHelper);
             }) as ServiceProvider;
 
-        using var scope = serviceProvider.CreateScope();
-        var oAuthRestClient = scope.ServiceProvider.GetRequiredService<IOAuthRestClient>();
+        using IServiceScope scope = serviceProvider.CreateScope();
+        IOAuthRestClient oAuthRestClient = scope.ServiceProvider.GetRequiredService<IOAuthRestClient>();
         oAuthRestClient.AddAuthorization("Bearer", token);
 
-        var response = await oAuthRestClient.GetAsync<SimpleClass>(relativeUrl);
+        SimpleClass response = await oAuthRestClient.GetAsync<SimpleClass>(relativeUrl);
 
         var actualAuthorization =
             simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativeUrl, "Authorization")

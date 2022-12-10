@@ -1,4 +1,9 @@
-﻿using System.Text.Json;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using System.Text.Json;
 
 namespace BlazorFocused.Tools.Http;
 
@@ -50,21 +55,25 @@ internal partial class SimulatedHttp
         };
 
         if (!string.IsNullOrEmpty(invalidCheck))
+        {
             throw new SimulatedHttpTestException($"{invalidCheck} was not requested");
+        }
     }
 
     private string CheckFullRequest(SimulatedHttpRequest simulatedHttpRequest)
     {
-        var method = simulatedHttpRequest.Method;
+        HttpMethod method = simulatedHttpRequest.Method;
         var url = simulatedHttpRequest.Url;
 
-        var matches = requests
+        IEnumerable<SimulatedHttpRequest> matches = requests
                 .Where(request => request.Method == method && request.Url == GetFullUrl(url));
 
         if (!matches.Any())
+        {
             return $"Method {method} & Url {url}";
+        }
 
-        foreach (var match in matches)
+        foreach (SimulatedHttpRequest match in matches)
         {
             var requestMatchesExpected = string.Equals(
                 match.RequestContent,
@@ -72,7 +81,9 @@ internal partial class SimulatedHttp
                 StringComparison.InvariantCultureIgnoreCase);
 
             if (requestMatchesExpected)
+            {
                 return string.Empty;
+            }
         }
 
         return "Request Object";
@@ -80,10 +91,10 @@ internal partial class SimulatedHttp
 
     private string CheckMethodAndUrl(SimulatedHttpRequest simulatedHttpRequest)
     {
-        var method = simulatedHttpRequest.Method;
+        HttpMethod method = simulatedHttpRequest.Method;
         var url = simulatedHttpRequest.Url;
 
-        var match = requests
+        SimulatedHttpRequest match = requests
                 .Where(request => request.Method == method && request.Url == GetFullUrl(url))
                 .FirstOrDefault();
 
@@ -92,13 +103,15 @@ internal partial class SimulatedHttp
 
     private string CheckMethod(SimulatedHttpRequest simulatedHttpRequest)
     {
-        var method = simulatedHttpRequest.Method;
+        HttpMethod method = simulatedHttpRequest.Method;
 
-        var match = requests.Where(request => request.Method == method).FirstOrDefault();
+        SimulatedHttpRequest match = requests.Where(request => request.Method == method).FirstOrDefault();
 
         return match is not null ? String.Empty : $"Method {method}";
     }
 
-    private string CheckAny() =>
-        !requests.Any() ? "Generic (Any) Request" : string.Empty;
+    private string CheckAny()
+    {
+        return !requests.Any() ? "Generic (Any) Request" : string.Empty;
+    }
 }

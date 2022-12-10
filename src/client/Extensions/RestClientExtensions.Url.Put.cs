@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Extensions;
 
 public partial class RestClientExtensions
 {
@@ -16,8 +21,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="IRestClient.PutAsync{T}(string, object)"/> apply
     /// </remarks>
     public static Task<T> PutAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) =>
-            restClient.PutAsync<T>(GetUrlString(urlBuilder), data);
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
+    {
+        return restClient.PutAsync<T>(GetUrlString(urlBuilder), data);
+    }
 
     /// <summary>
     /// Performs PUT http request
@@ -32,8 +39,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="IRestClient.PutAsync{T}(string, object)"/> apply
     /// </remarks>
     public static Task PutTaskAsync(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) =>
-            restClient.PutTaskAsync(GetUrlString(urlBuilder), data);
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
+    {
+        return restClient.PutTaskAsync(GetUrlString(urlBuilder), data);
+    }
 
     /// <summary>
     /// Performs PUT http request
@@ -52,8 +61,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryPutAsync{T}(IRestClient, string, object)"/> apply
     /// </remarks>
     public static Task<RestClientResponse<T>> TryPutAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) =>
-            GetRestClientResponse<T>(restClient, HttpMethod.Put, GetUrlString(urlBuilder), data);
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
+    {
+        return GetRestClientResponse<T>(restClient, HttpMethod.Put, GetUrlString(urlBuilder), data);
+    }
 
     /// <summary>
     /// Performs PUT http request
@@ -70,6 +81,8 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryPutTaskAsync(IRestClient, string, object)"/> apply
     /// </remarks>
     public static Task<RestClientTask> TryPutTaskAsync(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) =>
-            GetRestClientTask(restClient, HttpMethod.Put, GetUrlString(urlBuilder), data);
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
+    {
+        return GetRestClientTask(restClient, HttpMethod.Put, GetUrlString(urlBuilder), data);
+    }
 }

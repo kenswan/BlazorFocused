@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Client;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
@@ -9,8 +14,10 @@ namespace BlazorFocused.Extensions;
 /// </summary>
 public static partial class RestClientExtensions
 {
-    public static IRestClient CreateRestClient(HttpClient httpClient, ILogger logger = null) =>
-            new StandaloneClient(httpClient, logger ?? NullLogger.Instance);
+    public static IRestClient CreateRestClient(HttpClient httpClient, ILogger logger = null)
+    {
+        return new StandaloneClient(httpClient, logger ?? NullLogger.Instance);
+    }
 
     private static async Task<RestClientResponse<T>> GetRestClientResponse<T>(
         IRestClient restClient, HttpMethod method, string url, object data = null)
@@ -21,17 +28,23 @@ public static partial class RestClientExtensions
         try
         {
             if (restClient is BaseRestClient baseRestClient)
+            {
                 restClientHttpResponse =
                     await baseRestClient.SendAndDeserializeAsync<T>(method, url, data);
+            }
             else
+            {
                 ThrowUnqualifiedRestClient(restClient);
+            }
         }
         catch (Exception ex)
         {
             exception = ex;
 
             if (ex is RestClientHttpException restClientHttpException)
+            {
                 restClientHttpResponse.StatusCode = restClientHttpException.StatusCode;
+            }
         }
 
         return new RestClientResponse<T>
@@ -52,16 +65,22 @@ public static partial class RestClientExtensions
         try
         {
             if (restClient is BaseRestClient baseRestClient)
+            {
                 restClientHttpResponse = await baseRestClient.SendAndTaskAsync(method, url, data);
+            }
             else
+            {
                 ThrowUnqualifiedRestClient(restClient);
+            }
         }
         catch (Exception ex)
         {
             exception = ex;
 
             if (ex is RestClientHttpException restClientHttpException)
+            {
                 restClientHttpResponse.StatusCode = restClientHttpException.StatusCode;
+            }
         }
 
         return new RestClientTask

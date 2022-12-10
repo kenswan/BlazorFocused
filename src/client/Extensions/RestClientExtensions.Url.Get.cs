@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Extensions;
 
 public partial class RestClientExtensions
 {
@@ -15,8 +20,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="IRestClient.GetAsync{T}(string)"/> apply
     /// </remarks>
     public static Task<T> GetAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder) =>
-            restClient.GetAsync<T>(GetUrlString(urlBuilder));
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder)
+    {
+        return restClient.GetAsync<T>(GetUrlString(urlBuilder));
+    }
 
     /// <summary>
     /// Performs GET http request
@@ -34,6 +41,8 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryGetAsync{T}(IRestClient, string)"/> apply
     /// </remarks>
     public static Task<RestClientResponse<T>> TryGetAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder) =>
-            GetRestClientResponse<T>(restClient, HttpMethod.Get, GetUrlString(urlBuilder));
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder)
+    {
+        return GetRestClientResponse<T>(restClient, HttpMethod.Get, GetUrlString(urlBuilder));
+    }
 }

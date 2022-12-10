@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Tools.Http;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Tools.Http;
 
 internal class SimulatedHeadersHandler : DelegatingHandler
 {
@@ -13,7 +18,7 @@ internal class SimulatedHeadersHandler : DelegatingHandler
     {
         var headers = request.Headers.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
-        (HttpMethod method, string url, string content) =
+        (HttpMethod method, var url, var content) =
             await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
         var requestHeaders = new SimulatedHttpHeaders

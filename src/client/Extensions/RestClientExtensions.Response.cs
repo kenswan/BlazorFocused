@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Extensions;
 
 public static partial class RestClientExtensions
 {
@@ -19,8 +24,10 @@ public static partial class RestClientExtensions
     /// See <see cref="RestClientResponse{T}"/>
     /// </remarks>
     public static Task<RestClientResponse<T>> TryDeleteAsync<T>(
-        this IRestClient restClient, string relativeUrl) =>
-            GetRestClientResponse<T>(restClient, HttpMethod.Delete, relativeUrl);
+        this IRestClient restClient, string relativeUrl)
+    {
+        return GetRestClientResponse<T>(restClient, HttpMethod.Delete, relativeUrl);
+    }
 
     /// <summary>
     /// Performs GET http request
@@ -38,8 +45,10 @@ public static partial class RestClientExtensions
     /// Success is indicated by "IsValid" property.
     /// See <see cref="RestClientResponse{T}"/>
     /// </remarks>
-    public static Task<RestClientResponse<T>> TryGetAsync<T>(this IRestClient restClient, string relativeUrl) =>
-        GetRestClientResponse<T>(restClient, HttpMethod.Get, relativeUrl);
+    public static Task<RestClientResponse<T>> TryGetAsync<T>(this IRestClient restClient, string relativeUrl)
+    {
+        return GetRestClientResponse<T>(restClient, HttpMethod.Get, relativeUrl);
+    }
 
     /// <summary>
     /// Performs PATCH http request
@@ -58,8 +67,10 @@ public static partial class RestClientExtensions
     /// Success is indicated by "IsValid" property.
     /// See <see cref="RestClientResponse{T}"/>
     /// </remarks>
-    public static Task<RestClientResponse<T>> TryPatchAsync<T>(this IRestClient restClient, string relativeUrl, object data) =>
-        GetRestClientResponse<T>(restClient, HttpMethod.Patch, relativeUrl, data);
+    public static Task<RestClientResponse<T>> TryPatchAsync<T>(this IRestClient restClient, string relativeUrl, object data)
+    {
+        return GetRestClientResponse<T>(restClient, HttpMethod.Patch, relativeUrl, data);
+    }
 
     /// <summary>
     /// Performs POST http request
@@ -78,8 +89,10 @@ public static partial class RestClientExtensions
     /// Success is indicated by "IsValid" property.
     /// See <see cref="RestClientResponse{T}"/>
     /// </remarks>
-    public static Task<RestClientResponse<T>> TryPostAsync<T>(this IRestClient restClient, string relativeUrl, object data) =>
-        GetRestClientResponse<T>(restClient, HttpMethod.Post, relativeUrl, data);
+    public static Task<RestClientResponse<T>> TryPostAsync<T>(this IRestClient restClient, string relativeUrl, object data)
+    {
+        return GetRestClientResponse<T>(restClient, HttpMethod.Post, relativeUrl, data);
+    }
 
     /// <summary>
     /// Performs PUT http request
@@ -98,6 +111,8 @@ public static partial class RestClientExtensions
     /// Success is indicated by "IsValid" property.
     /// See <see cref="RestClientResponse{T}"/>
     /// </remarks>
-    public static Task<RestClientResponse<T>> TryPutAsync<T>(this IRestClient restClient, string relativeUrl, object data) =>
-        GetRestClientResponse<T>(restClient, HttpMethod.Put, relativeUrl, data);
+    public static Task<RestClientResponse<T>> TryPutAsync<T>(this IRestClient restClient, string relativeUrl, object data)
+    {
+        return GetRestClientResponse<T>(restClient, HttpMethod.Put, relativeUrl, data);
+    }
 }

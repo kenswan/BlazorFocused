@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Extensions;
 using BlazorFocused.Tools.Model;
 using BlazorFocused.Tools.Utility;
 using Bogus;
@@ -14,8 +19,8 @@ public partial class StoreTests
     [Fact(DisplayName = "Should execute async action")]
     public async Task ShouldRetrieveValueAsyncByInstance()
     {
-        var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
-        var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
+        SimpleClass originalClass = SimpleClassUtilities.GetRandomSimpleClass();
+        SimpleClass updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
         var testServiceMock = new Mock<TestService>();
 
         testServiceMock.Setup(service =>
@@ -39,8 +44,8 @@ public partial class StoreTests
     public async Task ShouldRetrieveValueAsyncWithInputByInstance()
     {
         var input = new Faker().Random.String();
-        var originalClass = SimpleClassUtilities.GetRandomSimpleClass();
-        var updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
+        SimpleClass originalClass = SimpleClassUtilities.GetRandomSimpleClass();
+        SimpleClass updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
         var testServiceMock = new Mock<TestService>();
 
         testServiceMock.Setup(service =>

@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused;
 
 /// <summary>
 /// Base interface of all store actions for interacting with store state

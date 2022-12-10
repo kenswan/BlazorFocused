@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Extensions;
 using Bogus;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
@@ -30,9 +35,9 @@ public class OAuthRestClientOptionsTests
         serviceCollection.AddRestClient();
         serviceCollection.AddOAuthRestClient();
 
-        using var serviceProvider = serviceCollection.BuildServiceProvider();
-        var restClient = serviceProvider.GetRequiredService<IRestClient>();
-        var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+        using ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
+        IRestClient restClient = serviceProvider.GetRequiredService<IRestClient>();
+        IOAuthRestClient oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
 
         var actualRestClientAddress =
             (restClient as RestClient).GetClient().BaseAddress.OriginalString;
@@ -58,9 +63,9 @@ public class OAuthRestClientOptionsTests
         serviceCollection.AddRestClient();
         serviceCollection.AddOAuthRestClient();
 
-        using var serviceProvider = serviceCollection.BuildServiceProvider();
-        var restClient = serviceProvider.GetRequiredService<IRestClient>();
-        var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+        using ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
+        IRestClient restClient = serviceProvider.GetRequiredService<IRestClient>();
+        IOAuthRestClient oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
 
         var actualRestClientAddress =
             (restClient as RestClient).GetClient().BaseAddress.OriginalString;

@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Extensions;
 using BlazorFocused.Tools.Utility;
 using Microsoft.Extensions.Logging;
 using Xunit;
@@ -14,8 +19,10 @@ public class TestLoggerTests
 
     public TestLoggerTests(ITestOutputHelper testOutputHelper)
     {
-        void logAction(LogLevel level, string message, Exception exception) =>
-                    testOutputHelper.WriteTestLoggerMessage(level, message, exception);
+        void logAction(LogLevel level, string message, Exception exception)
+        {
+            testOutputHelper.WriteTestLoggerMessage(level, message, exception);
+        }
 
         testLogger = new TestLogger<TestServiceWithLogger>(logAction);
 
@@ -34,7 +41,10 @@ public class TestLoggerTests
     [Fact]
     public void ShouldFailIfLogNotCalled()
     {
-        void testCode() => testLogger.VerifyWasCalled();
+        void testCode()
+        {
+            testLogger.VerifyWasCalled();
+        }
 
         _ = Assert.Throws<TestLoggerException>(testCode);
     }

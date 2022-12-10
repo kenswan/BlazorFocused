@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Client;
 using BlazorFocused.Tools;
 using BlazorFocused.Tools.Extensions;
 using Bogus;
@@ -20,12 +25,14 @@ public partial class RestClientExtensionsTests
         baseAddress = new Faker().Internet.Url();
         simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
 
-        void logAction(Microsoft.Extensions.Logging.LogLevel level, string message, Exception exception) =>
-                    testOutputHelper.WriteTestLoggerMessage(level, message, exception);
+        void logAction(Microsoft.Extensions.Logging.LogLevel level, string message, Exception exception)
+        {
+            testOutputHelper.WriteTestLoggerMessage(level, message, exception);
+        }
 
         testLogger = ToolsBuilder.CreateTestLogger<RestClient>(logAction);
 
-        var restClientOptions = Options.Create<RestClientOptions>(default);
+        IOptions<RestClientOptions> restClientOptions = Options.Create<RestClientOptions>(default);
 
         restClient =
             new RestClient(simulatedHttp.HttpClient, restClientOptions, default, testLogger);

@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Tools.Logger;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Tools.Logger;
 
 /// <summary>
 /// Exception returned when log entry from <see cref="ITestLogger{T}"/>

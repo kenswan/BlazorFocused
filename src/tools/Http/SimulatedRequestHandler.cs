@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Tools.Http;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Tools.Http;
 
 internal class SimulatedRequestHandler : DelegatingHandler
 {
@@ -11,7 +16,7 @@ internal class SimulatedRequestHandler : DelegatingHandler
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        (HttpMethod method, string url, string content) =
+        (HttpMethod method, var url, var content) =
             await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
         addRequest(new SimulatedHttpRequest { Method = method, Url = url, RequestContent = content });

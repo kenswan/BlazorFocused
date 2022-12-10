@@ -14,8 +14,8 @@
   </ItemGroup>
 
   <ItemGroup Label="Microsoft NuGet Packages (Test)">
-    <PackageVersion Include="coverlet.collector" Version="3.1.2" />
-    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+    <PackageVersion Include="coverlet.collector" Version="3.2.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
     <PackageVersion Include="xunit" Version="2.4.2" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.4.5" />
   </ItemGroup>
@@ -27,9 +27,9 @@
   </ItemGroup>
 
   <ItemGroup Label="Microsoft NuGet Packages (Source)" Condition="'$(TargetFramework)' == 'net7.0'">
-    <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.0-preview.7.22375.6" />
-    <PackageVersion Include="Microsoft.Extensions.Http" Version="7.0.0-preview.7.22375.6" />
-    <PackageVersion Include="Microsoft.Extensions.Logging" Version="7.0.0-preview.7.22375.6" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="7.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Http" Version="7.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup Label="Microsoft NuGet Packages (Test)" Condition="'$(TargetFramework)' == 'net6.0'">
@@ -38,27 +38,15 @@
   </ItemGroup>
 
   <ItemGroup Label="Microsoft NuGet Packages (Test)" Condition="'$(TargetFramework)' == 'net7.0'">
-    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="7.0.0-preview.7.22375.6" />
-    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="7.0.0-preview.7.22375.6" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup Label="External Testing Packages">
-    <PackageVersion Include="Bogus" Version="34.0.1" />
-    <PackageVersion Include="bunit" Version="1.4.15" />
-    <PackageVersion Include="FluentAssertions" Version="6.4.0" />
-    <PackageVersion Include="Moq" Version="4.16.1" />
-  </ItemGroup>
-
-  <ItemGroup Label="Sample Projects">
-    <PackageVersion Include="BlazorFocused" Version="2.0.0" />
-    <PackageVersion Include="BlazorFocused.Tools" Version="2.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.2" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.2" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.2" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.2" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.2" />
-    <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
-    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageVersion Include="Bogus" Version="34.0.2" />
+    <PackageVersion Include="bunit" Version="1.12.6" />
+    <PackageVersion Include="FluentAssertions" Version="6.8.0" />
+    <PackageVersion Include="Moq" Version="4.18.3" />
   </ItemGroup>
 
 </Project>

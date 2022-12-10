@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused;
 
 /// <summary>
 /// Standardizes the handling of HTTP requests/responses within a given application.

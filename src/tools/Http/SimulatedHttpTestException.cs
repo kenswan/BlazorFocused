@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Tools.Http;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Tools.Http;
 
 /// <summary>
 /// Exception given when request was not verified with

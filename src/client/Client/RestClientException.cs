@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Client;
 
 /// <summary>
 /// Exception returned with failed requests and operations within <see cref="IRestClient"/>

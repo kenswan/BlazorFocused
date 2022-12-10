@@ -1,4 +1,9 @@
-﻿using FluentAssertions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using FluentAssertions;
 using Xunit;
 
 namespace BlazorFocused.Extensions;
@@ -10,23 +15,27 @@ public partial class RestClientExtensionsTests
     public async Task ShouldTryHttpRequestTask(HttpMethod httpMethod)
     {
         var url = RestClientTestExtensions.GenerateRelativeUrl();
-        var request = RestClientTestExtensions.GenerateResponseObjects();
-        var successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
-        var expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
+        IEnumerable<Tools.Model.SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
+        System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
+        IEnumerable<Tools.Model.SimpleClass> expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
 
         simulatedHttp.GetHttpSetup(httpMethod, url, request)
             .ReturnsAsync(successStatusCode, expectedResponse);
 
-        var actualTask = await MakeTryTaskRequest(httpMethod, url, request);
+        RestClientTask actualTask = await MakeTryTaskRequest(httpMethod, url, request);
 
         Assert.True(actualTask.IsSuccess);
         Assert.Equal(successStatusCode, actualTask.StatusCode);
         Assert.Null(actualTask.Exception);
 
         if (httpMethod == HttpMethod.Delete)
+        {
             simulatedHttp.VerifyWasCalled(httpMethod, url);
+        }
         else
+        {
             simulatedHttp.VerifyWasCalled(httpMethod, url, request);
+        }
     }
 
     [Theory]
@@ -34,14 +43,14 @@ public partial class RestClientExtensionsTests
     public async Task ShouldReturnInvalidTaskForNonSuccessStatusCodes(HttpMethod httpMethod)
     {
         var url = RestClientTestExtensions.GenerateRelativeUrl();
-        var request = RestClientTestExtensions.GenerateResponseObjects();
-        var errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
-        var invalidResponse = RestClientTestExtensions.GenerateResponseObject();
+        IEnumerable<Tools.Model.SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
+        System.Net.HttpStatusCode errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
+        Tools.Model.SimpleClass invalidResponse = RestClientTestExtensions.GenerateResponseObject();
 
         simulatedHttp.GetHttpSetup(httpMethod, url, request)
             .ReturnsAsync(errorStatusCode, invalidResponse);
 
-        var actualTask = await MakeTryTaskRequest(httpMethod, url, request);
+        RestClientTask actualTask = await MakeTryTaskRequest(httpMethod, url, request);
 
         Assert.False(actualTask.IsSuccess);
         Assert.Equal(errorStatusCode, actualTask.StatusCode);

@@ -1,4 +1,9 @@
-﻿using System.Text;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using System.Text;
 using System.Text.Json;
 
 namespace BlazorFocused.Tools.Utility;

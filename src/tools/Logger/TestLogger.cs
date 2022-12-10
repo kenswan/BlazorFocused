@@ -1,4 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using Microsoft.Extensions.Logging;
 
 namespace BlazorFocused.Tools.Logger;
 
@@ -30,7 +35,10 @@ internal partial class TestLogger<T> : ITestLogger<T>
         return scope;
     }
 
-    public bool IsEnabled(LogLevel logLevel) => true;
+    public bool IsEnabled(LogLevel logLevel)
+    {
+        return true;
+    }
 
     public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
     {

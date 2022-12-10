@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Tools.Http;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Tools.Http;
 
 /// <inheritdoc cref="ISimulatedHttp"/>
 internal partial class SimulatedHttp : ISimulatedHttp
@@ -24,14 +29,9 @@ internal partial class SimulatedHttp : ISimulatedHttp
         requests = new();
         responses = new();
 
-        if (Uri.TryCreate(baseAddress, UriKind.Absolute, out Uri uri))
-        {
-            baseAddressUri = uri;
-        }
-        else
-        {
-            throw new SimulatedHttpTestException("Invalid base address was given");
-        }
+        baseAddressUri = Uri.TryCreate(baseAddress, UriKind.Absolute, out Uri uri)
+            ? uri
+            : throw new SimulatedHttpTestException("Invalid base address was given");
     }
 
     internal void AddRequest(SimulatedHttpRequest request)
@@ -44,8 +44,9 @@ internal partial class SimulatedHttp : ISimulatedHttp
         this.requestHeaders.Add(requestHeaders);
     }
 
-    private DelegatingHandler GetDelegatingHandler() =>
-        new SimulatedVerificationHandler()
+    private DelegatingHandler GetDelegatingHandler()
+    {
+        return new SimulatedVerificationHandler()
         {
             InnerHandler = new SimulatedRequestHandler(AddRequest)
             {
@@ -55,7 +56,10 @@ internal partial class SimulatedHttp : ISimulatedHttp
                 }
             }
         };
+    }
 
-    private string GetFullUrl(string relativeUrl) =>
-        new Uri(baseAddressUri, relativeUrl).ToString();
+    private string GetFullUrl(string relativeUrl)
+    {
+        return new Uri(baseAddressUri, relativeUrl).ToString();
+    }
 }

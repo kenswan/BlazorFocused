@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Model;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Model;
 using Bogus;
 using System.Net;
 using Xunit;
@@ -45,8 +50,8 @@ public partial class RestClientExtensionsTests
     {
         var relativeUrl = RestClientTestExtensions.GenerateRelativeUrl();
         var requestVariableCount = new Faker().Random.Int(2, 5);
-        var requestVariables = RestClientTestExtensions.GenerateRequestParameters(requestVariableCount);
-        var response = RestClientTestExtensions.GenerateResponseObject();
+        Dictionary<string, string> requestVariables = RestClientTestExtensions.GenerateRequestParameters(requestVariableCount);
+        SimpleClass response = RestClientTestExtensions.GenerateResponseObject();
 
         var expectedUrl = $"{relativeUrl}?" +
             string.Join("&", requestVariables.Select(kvp => $"{kvp.Key}={kvp.Value}"));
@@ -56,8 +61,10 @@ public partial class RestClientExtensionsTests
             builder = builder.SetPath(relativeUrl);
 
             foreach (var variableKey in requestVariables.Keys)
+            {
                 builder = builder
                     .WithParameter(variableKey, requestVariables[variableKey]);
+            }
         }
 
         simulatedHttp.GetHttpSetup(httpMethod, expectedUrl, null)

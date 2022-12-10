@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Client;
 using BlazorFocused.Tools.Extensions;
 using Bogus;
 using FluentAssertions;
@@ -37,8 +42,8 @@ public partial class ServiceCollectionExtensionsTests
         serviceCollection.AddConfiguration(appSettings);
         serviceCollection.AddRestClient();
 
-        using var serviceProvider = serviceCollection.BuildServiceProvider();
-        var restClient = serviceProvider.GetRequiredService<IRestClient>();
+        using ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
+        IRestClient restClient = serviceProvider.GetRequiredService<IRestClient>();
         using HttpClient httpClient = (restClient as RestClient).GetClient();
 
         Assert.Equal(baseAddress, httpClient.BaseAddress.OriginalString);
@@ -74,8 +79,8 @@ public partial class ServiceCollectionExtensionsTests
         serviceCollection.AddConfiguration(appSettings);
         serviceCollection.AddOAuthRestClient();
 
-        using var serviceProvider = serviceCollection.BuildServiceProvider();
-        var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+        using ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
+        IOAuthRestClient oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
         using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
         Assert.Equal(baseAddress, httpClient.BaseAddress.OriginalString);
@@ -92,8 +97,8 @@ public partial class ServiceCollectionExtensionsTests
         serviceCollection.AddConfiguration(new Dictionary<string, string>());
         serviceCollection.AddRestClient();
 
-        using var serviceProvider = serviceCollection.BuildServiceProvider();
-        var restClient = serviceProvider.GetRequiredService<IRestClient>();
+        using ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
+        IRestClient restClient = serviceProvider.GetRequiredService<IRestClient>();
         using HttpClient httpClient = (restClient as RestClient).GetClient();
 
         Assert.Null(httpClient.BaseAddress);
@@ -109,8 +114,8 @@ public partial class ServiceCollectionExtensionsTests
         serviceCollection.AddConfiguration(new Dictionary<string, string>());
         serviceCollection.AddOAuthRestClient();
 
-        using var serviceProvider = serviceCollection.BuildServiceProvider();
-        var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+        using ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
+        IOAuthRestClient oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
         using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
         Assert.Null(httpClient.BaseAddress);
@@ -131,9 +136,12 @@ public partial class ServiceCollectionExtensionsTests
         serviceCollection.AddConfiguration(appSettings);
         serviceCollection.AddRestClient();
 
-        using var serviceProvider = serviceCollection.BuildServiceProvider();
+        using ServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
 
-        object? testCode() => serviceProvider.GetRequiredService<IRestClient>();
+        object? testCode()
+        {
+            return serviceProvider.GetRequiredService<IRestClient>();
+        }
 
         _ = Assert.Throws<OptionsValidationException>(testCode);
     }

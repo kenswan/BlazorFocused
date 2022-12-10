@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Extensions;
 using BlazorFocused.Tools.Model;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,7 +26,7 @@ public partial class StoreTests
 
         store.SetState(expectedState);
 
-        var actualState = store.GetState();
+        SimpleClass actualState = store.GetState();
 
         actualState.Should().BeEquivalentTo(expectedState);
     }
@@ -43,7 +48,7 @@ public partial class StoreTests
             return currentState;
         });
 
-        var actualState = store.GetState();
+        SimpleClass actualState = store.GetState();
 
         actualState.Should().BeEquivalentTo(expectedState);
     }

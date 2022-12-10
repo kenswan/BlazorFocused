@@ -1,4 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace BlazorFocused.Client;
@@ -26,18 +31,24 @@ internal class OAuthRestClient : RestClient, IOAuthRestClient
             oAuthToken.Update(scheme, token);
         }
     }
-    public void ClearAuthorization() =>
+    public void ClearAuthorization()
+    {
         oAuthToken.Update(string.Empty, string.Empty);
+    }
 
-    public bool HasAuthorization() =>
-        !oAuthToken.IsEmpty();
+    public bool HasAuthorization()
+    {
+        return !oAuthToken.IsEmpty();
+    }
 
-    public string RetrieveAuthorization() =>
-        oAuthToken.ToString();
+    public string RetrieveAuthorization()
+    {
+        return oAuthToken.ToString();
+    }
 
     private static IOptions<RestClientOptions> DetectOptions(IOptionsSnapshot<RestClientOptions> restClientOptions)
     {
-        var oAuthRestClientOptions = restClientOptions?.Get(nameof(OAuthRestClient));
+        RestClientOptions oAuthRestClientOptions = restClientOptions?.Get(nameof(OAuthRestClient));
 
         return (oAuthRestClientOptions is not null && oAuthRestClientOptions.IsConfigured) ?
             Options.Create(oAuthRestClientOptions) : restClientOptions;

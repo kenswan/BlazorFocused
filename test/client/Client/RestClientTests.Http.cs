@@ -1,4 +1,9 @@
-﻿using Bogus;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using Bogus;
 using Moq;
 using Xunit;
 
@@ -19,7 +24,7 @@ public partial class RestClientTests
             client.DefaultRequestHeaders.Add(headerKey, headerValue);
         });
 
-        using var httpClient = (restClient as RestClient).GetClient();
+        using HttpClient httpClient = (restClient as RestClient).GetClient();
 
         Assert.True(httpClient.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
         Assert.Single(actualValues);
@@ -49,7 +54,7 @@ public partial class RestClientTests
 
         restClient.AddHeader(headerKey, headerValue, false);
 
-        using var httpClient = (restClient as RestClient).GetClient();
+        using HttpClient httpClient = (restClient as RestClient).GetClient();
 
         var valueExists =
             httpClient.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> values);

@@ -1,11 +1,16 @@
-﻿namespace BlazorFocused.Tools.Http;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Tools.Http;
 
 internal class SimulatedHandler
 {
     public static async Task<(HttpMethod method, string url, string content)> GetRequestMessageContents(
         HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        var method = request.Method;
+        HttpMethod method = request.Method;
         var url = request.RequestUri.OriginalString;
 
         var content = (request.Content is not null) ?

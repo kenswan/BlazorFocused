@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused;
 
 /// <summary>
 /// URL building utility that implements full url path with parameters

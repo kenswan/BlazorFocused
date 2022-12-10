@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Client;
 using BlazorFocused.Tools.Extensions;
 using Bogus;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,8 +29,8 @@ public partial class ServiceCollectionExtensionsTests
         services.AddConfiguration();
         services.AddRestClient(url);
 
-        using var serviceProvider = services.BuildServiceProvider();
-        var restClient = serviceProvider.GetRequiredService<IRestClient>();
+        using ServiceProvider serviceProvider = services.BuildServiceProvider();
+        IRestClient restClient = serviceProvider.GetRequiredService<IRestClient>();
         using HttpClient httpClient = (restClient as RestClient).GetClient();
 
         Assert.Equal(url, httpClient.BaseAddress.OriginalString);
@@ -46,8 +51,8 @@ public partial class ServiceCollectionExtensionsTests
             client.DefaultRequestHeaders.Add(headerKey, headerValue);
         });
 
-        using var serviceProvider = services.BuildServiceProvider();
-        var restClient = serviceProvider.GetRequiredService<IRestClient>();
+        using ServiceProvider serviceProvider = services.BuildServiceProvider();
+        IRestClient restClient = serviceProvider.GetRequiredService<IRestClient>();
         using HttpClient httpClient = (restClient as RestClient).GetClient();
 
         Assert.True(httpClient.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
@@ -64,8 +69,8 @@ public partial class ServiceCollectionExtensionsTests
         services.AddConfiguration();
         services.AddOAuthRestClient(url);
 
-        using var serviceProvider = services.BuildServiceProvider();
-        var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+        using ServiceProvider serviceProvider = services.BuildServiceProvider();
+        IOAuthRestClient oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
         using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
         Assert.Equal(url, httpClient.BaseAddress.OriginalString);
@@ -86,8 +91,8 @@ public partial class ServiceCollectionExtensionsTests
             client.DefaultRequestHeaders.Add(headerKey, headerValue);
         });
 
-        using var serviceProvider = services.BuildServiceProvider();
-        var oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
+        using ServiceProvider serviceProvider = services.BuildServiceProvider();
+        IOAuthRestClient oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
         using HttpClient httpClient = (oAuthRestClient as OAuthRestClient).GetClient();
 
         Assert.True(httpClient.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> actualValues));
@@ -102,16 +107,16 @@ public partial class ServiceCollectionExtensionsTests
         ServiceCollection services = new();
         services.AddConfiguration();
         services.AddOAuthRestClient(new Faker().Internet.Url());
-        using var serviceProvider = services.BuildServiceProvider();
+        using ServiceProvider serviceProvider = services.BuildServiceProvider();
         var expectedScheme = "Bearer";
         var expectedToken = "TestToken";
 
-        using var firstScope = serviceProvider.CreateScope();
-        var oAuthRestClient = firstScope.ServiceProvider.GetRequiredService<IOAuthRestClient>();
+        using IServiceScope firstScope = serviceProvider.CreateScope();
+        IOAuthRestClient oAuthRestClient = firstScope.ServiceProvider.GetRequiredService<IOAuthRestClient>();
         oAuthRestClient.AddAuthorization(expectedScheme, expectedToken);
 
-        using var secondScope = serviceProvider.CreateScope();
-        var oAuthToken = secondScope.ServiceProvider.GetRequiredService<IOAuthToken>();
+        using IServiceScope secondScope = serviceProvider.CreateScope();
+        IOAuthToken oAuthToken = secondScope.ServiceProvider.GetRequiredService<IOAuthToken>();
         Assert.Equal(expectedScheme, oAuthToken.Scheme);
         Assert.Equal(expectedToken, oAuthToken.Token);
     }

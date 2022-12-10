@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Client;
 using BlazorFocused.Tools;
 using BlazorFocused.Tools.Extensions;
 using BlazorFocused.Tools.Model;
@@ -15,8 +20,8 @@ public partial class ServiceCollectionExtensionsTests
     {
         var baseAddress = new Faker().Internet.Url();
         var relativeUrl = new Faker().Internet.UrlRootedPath();
-        var responseObject = RestClientTestExtensions.GenerateResponseObject();
-        var simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
+        SimpleClass responseObject = RestClientTestExtensions.GenerateResponseObject();
+        ISimulatedHttp simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
         var headerKey = new Faker().Random.AlphaNumeric(5);
         var headerValue = new Faker().Internet.Ipv6();
 
@@ -36,8 +41,8 @@ public partial class ServiceCollectionExtensionsTests
                 services.AddTestLoggerToCollection<RestClientHeaderHandler>(testOutpuHelper);
             }) as ServiceProvider;
 
-        using var scope = serviceProvider.CreateScope();
-        var restClient = scope.ServiceProvider.GetRequiredService<IRestClient>();
+        using IServiceScope scope = serviceProvider.CreateScope();
+        IRestClient restClient = scope.ServiceProvider.GetRequiredService<IRestClient>();
 
         restClient.AddHeader(headerKey, headerValue, global: true);
 
@@ -55,8 +60,8 @@ public partial class ServiceCollectionExtensionsTests
     {
         var baseAddress = new Faker().Internet.Url();
         var relativeUrl = new Faker().Internet.UrlRootedPath();
-        var responseObject = RestClientTestExtensions.GenerateResponseObject();
-        var simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
+        SimpleClass responseObject = RestClientTestExtensions.GenerateResponseObject();
+        ISimulatedHttp simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
         var headerKey = new Faker().Random.AlphaNumeric(5);
         var headerValue = new Faker().Internet.Ipv6();
 
@@ -77,8 +82,8 @@ public partial class ServiceCollectionExtensionsTests
                 services.AddTestLoggerToCollection<RestClientAuthHandler>(testOutpuHelper);
             }) as ServiceProvider;
 
-        using var scope = serviceProvider.CreateScope();
-        var oAuthClient = scope.ServiceProvider.GetRequiredService<IOAuthRestClient>();
+        using IServiceScope scope = serviceProvider.CreateScope();
+        IOAuthRestClient oAuthClient = scope.ServiceProvider.GetRequiredService<IOAuthRestClient>();
 
         oAuthClient.AddHeader(headerKey, headerValue, global: true);
 
@@ -97,8 +102,8 @@ public partial class ServiceCollectionExtensionsTests
         var baseAddress = new Faker().Internet.Url();
         var firstRelativeUrl = new Faker().Internet.UrlRootedPath();
         var secondRelativeUrl = new Faker().Internet.UrlRootedPath();
-        var responseObject = RestClientTestExtensions.GenerateResponseObject();
-        var simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
+        SimpleClass responseObject = RestClientTestExtensions.GenerateResponseObject();
+        ISimulatedHttp simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
         var headerKey = new Faker().Random.AlphaNumeric(5);
         var headerValue = new Faker().Internet.Ipv6();
 
@@ -118,8 +123,8 @@ public partial class ServiceCollectionExtensionsTests
                 services.AddTestLoggerToCollection<RestClientHeaderHandler>(testOutpuHelper);
             }) as ServiceProvider;
 
-        using var firstScope = serviceProvider.CreateScope();
-        var firstRestClient = firstScope.ServiceProvider.GetRequiredService<IRestClient>();
+        using IServiceScope firstScope = serviceProvider.CreateScope();
+        IRestClient firstRestClient = firstScope.ServiceProvider.GetRequiredService<IRestClient>();
 
         firstRestClient.AddHeader(headerKey, headerValue, global: false);
 
@@ -131,8 +136,8 @@ public partial class ServiceCollectionExtensionsTests
 
         Assert.Equal(headerValue, firstHeaderValue);
 
-        using var secondScope = serviceProvider.CreateScope();
-        var secondRestClient = firstScope.ServiceProvider.GetRequiredService<IRestClient>();
+        using IServiceScope secondScope = serviceProvider.CreateScope();
+        IRestClient secondRestClient = firstScope.ServiceProvider.GetRequiredService<IRestClient>();
 
         _ = await secondRestClient.GetAsync<SimpleClass>(firstRelativeUrl);
 

@@ -1,4 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using Microsoft.Extensions.Logging;
 using System.Net.Http.Headers;
 
 namespace BlazorFocused.Client;
