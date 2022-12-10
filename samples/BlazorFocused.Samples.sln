@@ -23,6 +23,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused", "..\src\bla
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused.Tools", "..\src\tools\src\BlazorFocused.Tools.csproj", "{415EEE41-E19A-4DB0-AF08-669E57F9D61B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{BE03A755-A127-4979-AFE1-345F396C9822}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFocused.Docs", "..\docs\BlazorFocused.Docs.csproj", "{9FC54FC1-0087-42AC-9344-F53805D96B04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +57,10 @@ Global
 		{415EEE41-E19A-4DB0-AF08-669E57F9D61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{415EEE41-E19A-4DB0-AF08-669E57F9D61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{415EEE41-E19A-4DB0-AF08-669E57F9D61B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FC54FC1-0087-42AC-9344-F53805D96B04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FC54FC1-0087-42AC-9344-F53805D96B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FC54FC1-0087-42AC-9344-F53805D96B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FC54FC1-0087-42AC-9344-F53805D96B04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +68,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E2C2BC2D-A1E2-4112-97D6-604084A56FDA} = {D975A9F2-7C1C-45BC-BBEF-302615F375B8}
 		{415EEE41-E19A-4DB0-AF08-669E57F9D61B} = {D975A9F2-7C1C-45BC-BBEF-302615F375B8}
+		{9FC54FC1-0087-42AC-9344-F53805D96B04} = {BE03A755-A127-4979-AFE1-345F396C9822}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D132D08A-B881-4F18-A792-F94343880B10}
