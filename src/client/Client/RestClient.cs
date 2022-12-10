@@ -1,4 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace BlazorFocused.Client;
@@ -26,8 +31,12 @@ internal class RestClient : BaseRestClient
     public override void AddHeader(string key, string value, bool global = true)
     {
         if (global)
+        {
             requestHeaders.AddHeader(key, value);
+        }
         else
+        {
             httpClient.DefaultRequestHeaders.Add(key, value);
+        }
     }
 }

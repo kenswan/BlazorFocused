@@ -1,0 +1,8 @@
+<Project>
+  
+  <PropertyGroup Label="Compile Settings">
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>annotations</Nullable>
+  </PropertyGroup>
+
+</Project>

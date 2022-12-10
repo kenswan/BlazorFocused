@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Model;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Model;
 using FluentAssertions;
 using Xunit;
 
@@ -11,22 +16,26 @@ public partial class StandaloneClientTests
     public async Task ShouldPerformHttpRequest(HttpMethod httpMethod)
     {
         var url = RestClientTestExtensions.GenerateRelativeUrl();
-        var request = RestClientTestExtensions.GenerateResponseObjects();
-        var successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
-        var expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
+        IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
+        System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
+        IEnumerable<SimpleClass> expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
 
         simulatedHttp.GetHttpSetup(httpMethod, url, request)
             .ReturnsAsync(successStatusCode, expectedResponse);
 
-        var actualResponse =
+        IEnumerable<SimpleClass> actualResponse =
             await MakeRequest<IEnumerable<SimpleClass>>(httpMethod, url, request);
 
         actualResponse.Should().BeEquivalentTo(expectedResponse);
 
         if (httpMethod == HttpMethod.Delete || httpMethod == HttpMethod.Get)
+        {
             simulatedHttp.VerifyWasCalled(httpMethod, url);
+        }
         else
+        {
             simulatedHttp.VerifyWasCalled(httpMethod, url, request);
+        }
     }
 
     [Theory]
@@ -34,14 +43,14 @@ public partial class StandaloneClientTests
     public async Task ShouldThrowForNonSuccessStatusCodes(HttpMethod httpMethod)
     {
         var url = RestClientTestExtensions.GenerateRelativeUrl();
-        var request = RestClientTestExtensions.GenerateResponseObjects();
-        var errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
-        var invalidResponse = RestClientTestExtensions.GenerateResponseObject();
+        IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
+        System.Net.HttpStatusCode errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
+        SimpleClass invalidResponse = RestClientTestExtensions.GenerateResponseObject();
 
         simulatedHttp.GetHttpSetup(httpMethod, url, request)
             .ReturnsAsync(errorStatusCode, invalidResponse);
 
-        var actualException = await Record.ExceptionAsync(() =>
+        Exception actualException = await Record.ExceptionAsync(() =>
             MakeRequest<IEnumerable<SimpleClass>>(httpMethod, url, request));
 
         actualException.Should().BeOfType(typeof(RestClientHttpException))

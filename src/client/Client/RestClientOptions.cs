@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Client;
 
 internal class RestClientOptions
 {
@@ -10,14 +15,8 @@ internal class RestClientOptions
 
     public double? Timeout { get; set; }
 
-    public bool IsConfigured
-    {
-        get
-        {
-            return !string.IsNullOrEmpty(BaseAddress) ||
+    public bool IsConfigured => !string.IsNullOrEmpty(BaseAddress) ||
                 DefaultRequestHeaders.Count > 0 ||
                 MaxResponseContentBufferSize > 0 ||
                 Timeout > 0;
-        }
-    }
 }

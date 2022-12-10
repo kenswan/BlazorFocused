@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Model;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Model;
 using FluentAssertions;
 using System.Net;
 using System.Text.Json;
@@ -28,13 +33,13 @@ public partial class SimulatedHttpTests
         ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
         setup.ReturnsAsync(httpStatusCode, responseObject);
 
-        using var client = simulatedHttp.HttpClient;
+        using HttpClient client = simulatedHttp.HttpClient;
 
         HttpResponseMessage actualResponse =
             await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
 
         var actualResponseString = await actualResponse.Content.ReadAsStringAsync();
-        var actualResponseObject = JsonSerializer.Deserialize<SimpleClass>(actualResponseString);
+        SimpleClass actualResponseObject = JsonSerializer.Deserialize<SimpleClass>(actualResponseString);
 
         Assert.Equal(httpStatusCode, actualResponse.StatusCode);
         actualResponseObject.Should().BeEquivalentTo(responseObject);
@@ -54,7 +59,7 @@ public partial class SimulatedHttpTests
         ISimulatedHttpSetup setup = GetHttpSetup(httpMethod, relativeRequestUrl, requestObject);
         setup.ReturnsAsync(httpStatusCode, responseObject);
 
-        using var client = simulatedHttp.HttpClient;
+        using HttpClient client = simulatedHttp.HttpClient;
 
         HttpResponseMessage actualResponse =
             await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);

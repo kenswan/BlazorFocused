@@ -9,13 +9,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.Model", "src\model\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList", "src\ToDoList\ToDoList.csproj", "{7BF30F41-7F87-473C-8D57-6F5F29E98120}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Test", "test\ToDoList\ToDoList.Test.csproj", "{55F08AAB-929B-4700-9810-839EC23EA4C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Test", "test\ToDoList\ToDoList.Test.csproj", "{55F08AAB-929B-4700-9810-839EC23EA4C2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{191C771A-9B74-4F23-A5BE-09C597E968C4}"
 	ProjectSection(SolutionItems) = preProject
-		..\Directory.Build.targets = ..\Directory.Build.targets
-		..\Packages.props = ..\Packages.props
+		Directory.Build.targets = Directory.Build.targets
+		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{D975A9F2-7C1C-45BC-BBEF-302615F375B8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused", "..\src\blazorfocused\BlazorFocused.csproj", "{E2C2BC2D-A1E2-4112-97D6-604084A56FDA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorFocused.Tools", "..\src\tools\BlazorFocused.Tools.csproj", "{415EEE41-E19A-4DB0-AF08-669E57F9D61B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +45,21 @@ Global
 		{55F08AAB-929B-4700-9810-839EC23EA4C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55F08AAB-929B-4700-9810-839EC23EA4C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55F08AAB-929B-4700-9810-839EC23EA4C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2C2BC2D-A1E2-4112-97D6-604084A56FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2C2BC2D-A1E2-4112-97D6-604084A56FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2C2BC2D-A1E2-4112-97D6-604084A56FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2C2BC2D-A1E2-4112-97D6-604084A56FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{415EEE41-E19A-4DB0-AF08-669E57F9D61B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{415EEE41-E19A-4DB0-AF08-669E57F9D61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{415EEE41-E19A-4DB0-AF08-669E57F9D61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{415EEE41-E19A-4DB0-AF08-669E57F9D61B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E2C2BC2D-A1E2-4112-97D6-604084A56FDA} = {D975A9F2-7C1C-45BC-BBEF-302615F375B8}
+		{415EEE41-E19A-4DB0-AF08-669E57F9D61B} = {D975A9F2-7C1C-45BC-BBEF-302615F375B8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D132D08A-B881-4F18-A792-F94343880B10}

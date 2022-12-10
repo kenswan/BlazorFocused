@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools;
 using Bogus;
 using Xunit;
 
@@ -44,12 +49,12 @@ public class RestClientHeaderHandlerTests
             BaseAddress = new Uri(baseAddress)
         };
 
-        var httpResponseMessage = await httpClient.GetAsync(relativePath);
+        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(relativePath);
 
         httpResponseMessage.EnsureSuccessStatusCode();
 
-        var firstValueSet = simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativePath, keyOne);
-        var secondValueSet = simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativePath, keyTwo);
+        IEnumerable<string> firstValueSet = simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativePath, keyOne);
+        IEnumerable<string> secondValueSet = simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativePath, keyTwo);
 
         Assert.Equal(2, firstValueSet.Count());
         Assert.Single(secondValueSet);

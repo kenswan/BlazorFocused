@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Extensions;
 
 public static partial class RestClientExtensions
 {
@@ -16,8 +21,10 @@ public static partial class RestClientExtensions
     /// </para>
     /// </returns>
     public static async Task<RestClientTask> TryDeleteTaskAsync(
-        this IRestClient restClient, string relativeUrl) =>
-            await GetRestClientTask(restClient, HttpMethod.Delete, relativeUrl);
+        this IRestClient restClient, string relativeUrl)
+    {
+        return await GetRestClientTask(restClient, HttpMethod.Delete, relativeUrl);
+    }
 
     /// <summary>
     /// Performs PATCH http request
@@ -33,8 +40,10 @@ public static partial class RestClientExtensions
     /// <see cref="TryPatchAsync{T}(IRestClient, string, object)"/>
     /// </para>
     /// </returns>
-    public static async Task<RestClientTask> TryPatchTaskAsync(this IRestClient restClient, string relativeUrl, object data) =>
-        await GetRestClientTask(restClient, HttpMethod.Patch, relativeUrl, data);
+    public static async Task<RestClientTask> TryPatchTaskAsync(this IRestClient restClient, string relativeUrl, object data)
+    {
+        return await GetRestClientTask(restClient, HttpMethod.Patch, relativeUrl, data);
+    }
 
     /// <summary>
     /// Performs POST http request
@@ -50,8 +59,10 @@ public static partial class RestClientExtensions
     /// <see cref="TryPostAsync{T}(IRestClient, string, object)"/>
     /// </para>
     /// </returns>
-    public static async Task<RestClientTask> TryPostTaskAsync(this IRestClient restClient, string relativeUrl, object data) =>
-        await GetRestClientTask(restClient, HttpMethod.Post, relativeUrl, data);
+    public static async Task<RestClientTask> TryPostTaskAsync(this IRestClient restClient, string relativeUrl, object data)
+    {
+        return await GetRestClientTask(restClient, HttpMethod.Post, relativeUrl, data);
+    }
 
     /// <summary>
     /// Performs PUT http request
@@ -67,6 +78,8 @@ public static partial class RestClientExtensions
     /// <see cref="TryPutAsync{T}(IRestClient, string, object)"/>
     /// </para>
     /// </returns>
-    public static async Task<RestClientTask> TryPutTaskAsync(this IRestClient restClient, string relativeUrl, object data) =>
-       await GetRestClientTask(restClient, HttpMethod.Put, relativeUrl, data);
+    public static async Task<RestClientTask> TryPutTaskAsync(this IRestClient restClient, string relativeUrl, object data)
+    {
+        return await GetRestClientTask(restClient, HttpMethod.Put, relativeUrl, data);
+    }
 }

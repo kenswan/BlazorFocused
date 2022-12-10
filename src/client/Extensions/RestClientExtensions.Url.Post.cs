@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Extensions;
 
 public partial class RestClientExtensions
 {
@@ -16,8 +21,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="IRestClient.PostAsync{T}(string, object)"/> apply
     /// </remarks>
     public static Task<T> PostAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) =>
-            restClient.PostAsync<T>(GetUrlString(urlBuilder), data);
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
+    {
+        return restClient.PostAsync<T>(GetUrlString(urlBuilder), data);
+    }
 
     /// <summary>
     /// Performs POST http request
@@ -32,8 +39,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="IRestClient.PostAsync{T}(string, object)"/> apply
     /// </remarks>
     public static Task PostTaskAsync(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) =>
-            restClient.PostTaskAsync(GetUrlString(urlBuilder), data);
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
+    {
+        return restClient.PostTaskAsync(GetUrlString(urlBuilder), data);
+    }
 
     /// <summary>
     /// Performs POST http request
@@ -52,8 +61,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryPostAsync{T}(IRestClient, string, object)"/> apply
     /// </remarks>
     public static Task<RestClientResponse<T>> TryPostAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) =>
-            GetRestClientResponse<T>(restClient, HttpMethod.Post, GetUrlString(urlBuilder), data);
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
+    {
+        return GetRestClientResponse<T>(restClient, HttpMethod.Post, GetUrlString(urlBuilder), data);
+    }
 
     /// <summary>
     /// Performs POST http request
@@ -70,6 +81,8 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryPostTaskAsync(IRestClient, string, object)"/> apply
     /// </remarks>
     public static Task<RestClientTask> TryPostTaskAsync(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) =>
-            GetRestClientTask(restClient, HttpMethod.Post, GetUrlString(urlBuilder), data);
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
+    {
+        return GetRestClientTask(restClient, HttpMethod.Post, GetUrlString(urlBuilder), data);
+    }
 }

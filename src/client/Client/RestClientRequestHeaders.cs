@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Client;
 
 internal class RestClientRequestHeaders : IRestClientRequestHeaders
 {
@@ -17,9 +22,13 @@ internal class RestClientRequestHeaders : IRestClientRequestHeaders
     public void AddHeader(string key, string value)
     {
         if (headerCache.ContainsKey(key))
+        {
             headerCache[key].Add(value);
+        }
         else
+        {
             headerCache.Add(key, new List<string> { value });
+        }
     }
 
     public void ClearHeaders()

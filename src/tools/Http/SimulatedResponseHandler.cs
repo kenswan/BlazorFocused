@@ -1,4 +1,9 @@
-﻿using System.Net;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using System.Net;
 using System.Text;
 
 namespace BlazorFocused.Tools.Http;
@@ -18,10 +23,10 @@ internal class SimulatedResponseHandler : DelegatingHandler
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        (HttpMethod method, string url, string content) =
+        (HttpMethod method, var url, var content) =
             await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
-        var response = responses.Where(request =>
+        SimulatedHttpResponse response = responses.Where(request =>
             request.Method == method &&
             string.Equals(request.Url, url, StringComparison.OrdinalIgnoreCase))
                 .FirstOrDefault();

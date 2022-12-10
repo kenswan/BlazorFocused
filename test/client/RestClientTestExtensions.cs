@@ -1,12 +1,18 @@
-﻿using BlazorFocused.Tools;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools;
 
 namespace BlazorFocused;
 
 internal static partial class RestClientTestExtensions
 {
     public static ISimulatedHttpSetup GetHttpSetup(this ISimulatedHttp simulatedHttp,
-            HttpMethod httpMethod, string url, object request) =>
-        httpMethod switch
+            HttpMethod httpMethod, string url, object request)
+    {
+        return httpMethod switch
         {
             { } when httpMethod == HttpMethod.Delete => simulatedHttp.SetupDELETE(url),
             { } when httpMethod == HttpMethod.Get => simulatedHttp.SetupGET(url),
@@ -15,6 +21,7 @@ internal static partial class RestClientTestExtensions
             { } when httpMethod == HttpMethod.Put => simulatedHttp.SetupPUT(url, request),
             _ => throw new NotImplementedException($"HttpMethod {httpMethod} not implemented")
         };
+    }
 
     public static void VerifyWasCalled(this ISimulatedHttp simulatedHttp,
             HttpMethod httpMethod, string url = default, object content = default)

@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Http;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Http;
 using BlazorFocused.Tools.Logger;
 using Microsoft.Extensions.Logging;
 
@@ -14,9 +19,11 @@ public static class ToolsBuilder
     /// </summary>
     /// <param name="baseAddress"></param>
     /// <returns></returns>
-    public static ISimulatedHttp CreateSimulatedHttp(string baseAddress = null) =>
-        baseAddress is not null ?
+    public static ISimulatedHttp CreateSimulatedHttp(string baseAddress = null)
+    {
+        return baseAddress is not null ?
             new SimulatedHttp(baseAddress) : new SimulatedHttp();
+    }
 
     /// <summary>
     /// Provides implementations of <see cref="ITestLogger{T}"/> for testing
@@ -28,6 +35,8 @@ public static class ToolsBuilder
     /// </param>
     /// <returns></returns>
     public static ITestLogger<T> CreateTestLogger<T>(
-        Action<LogLevel, string, Exception> logAction = null) =>
-            new TestLogger<T>(logAction);
+        Action<LogLevel, string, Exception> logAction = null)
+    {
+        return new TestLogger<T>(logAction);
+    }
 }

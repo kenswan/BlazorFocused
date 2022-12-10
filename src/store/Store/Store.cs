@@ -1,4 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using System.Reactive.Subjects;
@@ -27,13 +32,13 @@ internal class Store<TState> : IStore<TState>, IDisposable where TState : class
 
     public void Dispatch<TAction>() where TAction : IAction<TState>
     {
-        var actionName = typeof(TAction);
+        Type actionName = typeof(TAction);
 
         logger.LogDebug("Retrieving action {ActionName}", actionName);
 
-        using var scope = serviceProvider.CreateScope();
+        using IServiceScope scope = serviceProvider.CreateScope();
 
-        var action = scope.ServiceProvider.GetRequiredService<TAction>();
+        TAction action = scope.ServiceProvider.GetRequiredService<TAction>();
 
         logger.LogDebug("Found action {ActionName}", actionName);
 
@@ -47,13 +52,13 @@ internal class Store<TState> : IStore<TState>, IDisposable where TState : class
     public void Dispatch<TAction, TInput>(TInput input)
         where TAction : IAction<TState, TInput>
     {
-        var actionName = typeof(TAction);
+        Type actionName = typeof(TAction);
 
         logger.LogDebug("Retrieving action {ActionName}", actionName);
 
-        using var scope = serviceProvider.CreateScope();
+        using IServiceScope scope = serviceProvider.CreateScope();
 
-        var action = scope.ServiceProvider.GetRequiredService<TAction>();
+        TAction action = scope.ServiceProvider.GetRequiredService<TAction>();
 
         logger.LogDebug("Found action {ActionName}", actionName);
 
@@ -66,13 +71,13 @@ internal class Store<TState> : IStore<TState>, IDisposable where TState : class
 
     public async ValueTask DispatchAsync<TActionAsync>() where TActionAsync : IActionAsync<TState>
     {
-        var actionName = typeof(TActionAsync);
+        Type actionName = typeof(TActionAsync);
 
         logger.LogDebug("Retrieving action {ActionName}", actionName);
 
-        using var scope = serviceProvider.CreateScope();
+        using IServiceScope scope = serviceProvider.CreateScope();
 
-        var action = scope.ServiceProvider.GetRequiredService<TActionAsync>();
+        TActionAsync action = scope.ServiceProvider.GetRequiredService<TActionAsync>();
 
         logger.LogDebug("Found action {ActionName}", actionName);
 
@@ -80,20 +85,20 @@ internal class Store<TState> : IStore<TState>, IDisposable where TState : class
 
         logger.LogInformation("Executing action {ActionName}", actionName);
 
-        var value = await action.ExecuteAsync();
+        TState value = await action.ExecuteAsync();
 
         state.OnNext(value);
     }
     public async ValueTask DispatchAsync<TActionAsync, TInput>(TInput input)
         where TActionAsync : IActionAsync<TState, TInput>
     {
-        var actionName = typeof(TActionAsync);
+        Type actionName = typeof(TActionAsync);
 
         logger.LogDebug("Retrieving action {ActionName}", actionName);
 
-        using var scope = serviceProvider.CreateScope();
+        using IServiceScope scope = serviceProvider.CreateScope();
 
-        var action = scope.ServiceProvider.GetRequiredService<TActionAsync>();
+        TActionAsync action = scope.ServiceProvider.GetRequiredService<TActionAsync>();
 
         logger.LogDebug("Found action {ActionName}", actionName);
 
@@ -101,7 +106,7 @@ internal class Store<TState> : IStore<TState>, IDisposable where TState : class
 
         logger.LogInformation("Executing action {ActionName}", actionName);
 
-        var value = await action.ExecuteAsync(input);
+        TState value = await action.ExecuteAsync(input);
 
         state.OnNext(value);
     }
@@ -115,13 +120,13 @@ internal class Store<TState> : IStore<TState>, IDisposable where TState : class
         where TOutput : class
         where TReducer : class, IReducer<TState, TOutput>
     {
-        var reducerName = typeof(TOutput);
+        Type reducerName = typeof(TOutput);
 
         logger.LogDebug("Retrieving reducer {ReducerName}", reducerName);
 
-        using var scope = serviceProvider.CreateScope();
+        using IServiceScope scope = serviceProvider.CreateScope();
 
-        var reducer = scope.ServiceProvider.GetRequiredService<TReducer>();
+        TReducer reducer = scope.ServiceProvider.GetRequiredService<TReducer>();
 
         logger.LogDebug("Found reducer {ReducerName}", reducerName);
 

@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Client;
 
 internal static class HttpClientExtensions
 {
@@ -9,7 +14,7 @@ internal static class HttpClientExtensions
             httpClient.BaseAddress = new Uri(restClientOptions.BaseAddress);
         }
 
-        foreach (var header in restClientOptions.DefaultRequestHeaders)
+        foreach (KeyValuePair<string, string> header in restClientOptions.DefaultRequestHeaders)
         {
             httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
         }

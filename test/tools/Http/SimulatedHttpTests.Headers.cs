@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Utility;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Utility;
 using Bogus;
 using System.Net;
 using Xunit;
@@ -10,16 +15,16 @@ public partial class SimulatedHttpTests
     [Fact]
     public async Task ShouldTrackRequestHeaders()
     {
-        var httpMethod = HttpMethod.Get;
+        HttpMethod httpMethod = HttpMethod.Get;
         var url = GetRandomRelativeUrl();
-        var response = GetRandomSimpleClass();
+        Model.SimpleClass response = GetRandomSimpleClass();
         var key = new Faker().Random.AlphaNumeric(5);
         var expectedValue = new Faker().Random.AlphaNumeric(10);
 
         GetHttpSetup(httpMethod, url, null)
             .ReturnsAsync(HttpStatusCode.OK, response);
 
-        using var httpClient = simulatedHttp.HttpClient;
+        using HttpClient httpClient = simulatedHttp.HttpClient;
 
         var testService = new TestHttpHeaderService(httpClient);
 
@@ -36,16 +41,16 @@ public partial class SimulatedHttpTests
     [Fact]
     public async Task ShouldTrackDefaultHeaders()
     {
-        var httpMethod = HttpMethod.Get;
+        HttpMethod httpMethod = HttpMethod.Get;
         var url = GetRandomRelativeUrl();
-        var response = GetRandomSimpleClass();
+        Model.SimpleClass response = GetRandomSimpleClass();
         var key = new Faker().Random.AlphaNumeric(5);
         var expectedValue = new Faker().Random.AlphaNumeric(10);
 
         GetHttpSetup(httpMethod, url, null)
             .ReturnsAsync(HttpStatusCode.OK, response);
 
-        using var httpClient = simulatedHttp.HttpClient;
+        using HttpClient httpClient = simulatedHttp.HttpClient;
 
         var testService = new TestHttpHeaderService(httpClient);
 
@@ -62,7 +67,7 @@ public partial class SimulatedHttpTests
     [Fact]
     public async Task ShouldSetResponseHeaders()
     {
-        var httpMethod = HttpMethod.Get;
+        HttpMethod httpMethod = HttpMethod.Get;
         var url = GetRandomRelativeUrl();
         var key = new Faker().Random.AlphaNumeric(5);
         var expectedValue = new Faker().Random.AlphaNumeric(10);
@@ -73,14 +78,14 @@ public partial class SimulatedHttpTests
         // Under Test
         simulatedHttp.AddResponseHeader(key, expectedValue);
 
-        using var httpClient = simulatedHttp.HttpClient;
+        using HttpClient httpClient = simulatedHttp.HttpClient;
 
         var testService = new TestHttpHeaderService(httpClient);
 
-        var responseMesssage = await testService.MakeRequestAsync(httpMethod, url);
+        HttpResponseMessage responseMesssage = await testService.MakeRequestAsync(httpMethod, url);
 
         var responseHeaderExists =
-            responseMesssage.Headers.TryGetValues(key, out var values);
+            responseMesssage.Headers.TryGetValues(key, out IEnumerable<string>? values);
 
         Assert.True(responseHeaderExists);
         Assert.Single(values);
@@ -90,7 +95,7 @@ public partial class SimulatedHttpTests
     [Fact]
     public async Task ShouldSetMultipleResponseHeadersWithSameKey()
     {
-        var httpMethod = HttpMethod.Get;
+        HttpMethod httpMethod = HttpMethod.Get;
         var url = GetRandomRelativeUrl();
         var key = new Faker().Random.AlphaNumeric(5);
         var expectedValueOne = new Faker().Random.AlphaNumeric(10);
@@ -103,14 +108,14 @@ public partial class SimulatedHttpTests
         simulatedHttp.AddResponseHeader(key, expectedValueOne);
         simulatedHttp.AddResponseHeader(key, expectedValueTwo);
 
-        using var httpClient = simulatedHttp.HttpClient;
+        using HttpClient httpClient = simulatedHttp.HttpClient;
 
         var testService = new TestHttpHeaderService(httpClient);
 
-        var responseMesssage = await testService.MakeRequestAsync(httpMethod, url);
+        HttpResponseMessage responseMesssage = await testService.MakeRequestAsync(httpMethod, url);
 
         var responseHeaderExists =
-            responseMesssage.Headers.TryGetValues(key, out var values);
+            responseMesssage.Headers.TryGetValues(key, out IEnumerable<string>? values);
 
         Assert.True(responseHeaderExists);
         Assert.Equal(2, values.Count());

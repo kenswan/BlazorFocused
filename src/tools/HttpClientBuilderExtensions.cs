@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Http;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BlazorFocused.Tools;

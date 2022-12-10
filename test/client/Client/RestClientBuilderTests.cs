@@ -1,4 +1,9 @@
-﻿using Bogus;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using Bogus;
 using Xunit;
 
 namespace BlazorFocused.Client;
@@ -39,14 +44,16 @@ public class RestClientBuilderTests
     public void ShouldAddRequestVariables()
     {
         var requestParamCount = new Faker().Random.Int(2, 5);
-        var requestParameters = RestClientTestExtensions.GenerateRequestParameters(requestParamCount);
-        var response = RestClientTestExtensions.GenerateResponseObject();
+        Dictionary<string, string> requestParameters = RestClientTestExtensions.GenerateRequestParameters(requestParamCount);
+        Tools.Model.SimpleClass response = RestClientTestExtensions.GenerateResponseObject();
 
         var expectedUrl = $"?" +
             string.Join("&", requestParameters.Select(kvp => $"{kvp.Key}={kvp.Value}"));
 
         foreach (var paramKey in requestParameters.Keys)
+        {
             restClientUrlBuilder.WithParameter(paramKey, requestParameters[paramKey]);
+        }
 
         Assert.Equal(expectedUrl, restClientUrlBuilder.Build());
     }
@@ -56,7 +63,7 @@ public class RestClientBuilderTests
     {
         var relativeUrl = RestClientTestExtensions.GenerateRelativeUrl();
         var requestParamCount = new Faker().Random.Int(2, 5);
-        var requestParameters = RestClientTestExtensions.GenerateRequestParameters(requestParamCount);
+        Dictionary<string, string> requestParameters = RestClientTestExtensions.GenerateRequestParameters(requestParamCount);
 
         var expectedUrl = $"{relativeUrl}?" +
             string.Join("&", requestParameters.Select(kvp => $"{kvp.Key}={kvp.Value}"));
@@ -64,7 +71,9 @@ public class RestClientBuilderTests
         restClientUrlBuilder.SetPath(relativeUrl);
 
         foreach (var paramKey in requestParameters.Keys)
+        {
             restClientUrlBuilder.WithParameter(paramKey, requestParameters[paramKey]);
+        }
 
         Assert.Equal(expectedUrl, restClientUrlBuilder.Build());
     }

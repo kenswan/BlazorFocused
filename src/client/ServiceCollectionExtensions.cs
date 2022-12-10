@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Client;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -16,8 +21,10 @@ public static class ServiceCollectionExtensions
     /// <param name="services">Current service collection</param>
     /// <param name="baseUrl">Url for base address of inner http client </param>
     /// <returns>Current service collection with <see cref="IRestClient"/></returns>
-    public static IHttpClientBuilder AddRestClient(this IServiceCollection services, string baseUrl) =>
-        services.AddRestClient(client => client.BaseAddress = new Uri(baseUrl));
+    public static IHttpClientBuilder AddRestClient(this IServiceCollection services, string baseUrl)
+    {
+        return services.AddRestClient(client => client.BaseAddress = new Uri(baseUrl));
+    }
 
     /// <summary>
     /// Adds and configures <see cref="IRestClient"/> within service collection 
@@ -43,8 +50,10 @@ public static class ServiceCollectionExtensions
     /// <param name="services">Current service collection</param>
     /// <param name="baseUrl">Url for base address of inner http client </param>
     /// <returns>Current service collection with <see cref="IOAuthRestClient"/></returns>
-    public static IHttpClientBuilder AddOAuthRestClient(this IServiceCollection services, string baseUrl) =>
-        services.AddOAuthRestClient(client => client.BaseAddress = new Uri(baseUrl));
+    public static IHttpClientBuilder AddOAuthRestClient(this IServiceCollection services, string baseUrl)
+    {
+        return services.AddOAuthRestClient(client => client.BaseAddress = new Uri(baseUrl));
+    }
 
     /// <summary>
     /// Adds and configures <see cref="IOAuthRestClient"/> within service collection

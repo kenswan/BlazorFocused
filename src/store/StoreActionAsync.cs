@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused;
 
 /// <inheritdoc cref="IActionAsync{TState}"/>
 public abstract class StoreActionAsync<TState> : IActionAsync<TState>

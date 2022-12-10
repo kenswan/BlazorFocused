@@ -1,4 +1,9 @@
-﻿using Bogus;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using Bogus;
 using Xunit;
 
 namespace BlazorFocused.Client;
@@ -55,7 +60,7 @@ public class RestClientRequestHeadersTests
 
         requestHeaders = new RestClientRequestHeaders(existingHeaders);
 
-        var keys = requestHeaders.GetHeaderKeys();
+        IEnumerable<string> keys = requestHeaders.GetHeaderKeys();
 
         Assert.Single(keys);
         Assert.Equal(header, keys.FirstOrDefault());
@@ -103,6 +108,8 @@ public class RestClientRequestHeadersTests
 
     }
 
-    private static string GenerateRandomString() =>
-        new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
+    private static string GenerateRandomString()
+    {
+        return new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
+    }
 }

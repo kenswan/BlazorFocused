@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools;
 using Bogus;
 using FluentAssertions;
 using Xunit;
@@ -86,6 +91,8 @@ public class OAuthRestClientTests
         Assert.Equal(expectedAuthorization, oAuthRestClient.RetrieveAuthorization());
     }
 
-    private static string GetRandomToken() =>
-        new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
+    private static string GetRandomToken()
+    {
+        return new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
+    }
 }

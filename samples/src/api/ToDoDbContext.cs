@@ -1,52 +1,56 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using Microsoft.EntityFrameworkCore;
 using Samples.Model;
 
-namespace Samples.Api
+namespace Samples.Api;
+
+public class ToDoDbContext : DbContext
 {
-    public class ToDoDbContext : DbContext
+    public DbSet<ToDo> ToDos { get; set; }
+
+    public ToDoDbContext(DbContextOptions<ToDoDbContext> options)
+        : base(options) { }
+
+    public IEnumerable<ToDo> GetToDos()
     {
-        public DbSet<ToDo> ToDos { get; set; }
+        ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
 
-        public ToDoDbContext(DbContextOptions<ToDoDbContext> options)
-            : base(options) { }
+        return ToDos;
+    }
 
-        public IEnumerable<ToDo> GetToDos()
-        {
-            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+    public bool ToDoExists(Guid id)
+    {
+        ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
 
-            return ToDos;
-        }
+        ToDo toDo = ToDos.Where(item => item.Id == id).FirstOrDefault();
 
-        public bool ToDoExists(Guid id)
-        {
-            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+        return toDo is not null;
+    }
 
-            var toDo = ToDos.Where(item => item.Id == id).FirstOrDefault();
+    public async Task<ToDo> GetToDoByIdAsync(Guid id)
+    {
+        ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
 
-            return toDo is not null;
-        }
+        return await ToDos.FindAsync(id);
+    }
 
-        public async Task<ToDo> GetToDoByIdAsync(Guid id)
-        {
-            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+    public async Task<ToDo> InsertToDoAsync(ToDo toDo)
+    {
+        Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<ToDo> entityEntry = await ToDos.AddAsync(toDo);
+        await SaveChangesAsync();
 
-            return await ToDos.FindAsync(id);
-        }
+        return entityEntry.Entity;
+    }
 
-        public async Task<ToDo> InsertToDoAsync(ToDo toDo)
-        {
-            var entityEntry = await ToDos.AddAsync(toDo);
-            await SaveChangesAsync();
+    public async Task<ToDo> UpdateToDoAsync(ToDo toDo)
+    {
+        Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<ToDo> entityEntry = ToDos.Update(toDo);
+        await SaveChangesAsync();
 
-            return entityEntry.Entity;
-        }
-
-        public async Task<ToDo> UpdateToDoAsync(ToDo toDo)
-        {
-            var entityEntry = ToDos.Update(toDo);
-            await SaveChangesAsync();
-
-            return entityEntry.Entity;
-        }
+        return entityEntry.Entity;
     }
 }

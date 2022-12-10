@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Tools.Model;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Tools.Model;
 
 public class SimpleClass
 {

@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools;
 using Bogus;
 using Xunit;
 
@@ -37,7 +42,7 @@ public class RestClientAuthHandlerTests
             BaseAddress = new Uri(baseAddress)
         };
 
-        var httpResponseMessage = await httpClient.GetAsync(relativePath);
+        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(relativePath);
 
         httpResponseMessage.EnsureSuccessStatusCode();
         Assert.Equal(scheme, httpResponseMessage.RequestMessage.Headers.Authorization.Scheme);
@@ -63,12 +68,14 @@ public class RestClientAuthHandlerTests
             BaseAddress = new Uri(baseAddress)
         };
 
-        var httpResponseMessage = await httpClient.GetAsync(relativePath);
+        HttpResponseMessage httpResponseMessage = await httpClient.GetAsync(relativePath);
 
         httpResponseMessage.EnsureSuccessStatusCode();
         Assert.Equal(default, httpResponseMessage.RequestMessage.Headers.Authorization);
     }
 
-    private static string GetRandomToken() =>
-        new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
+    private static string GetRandomToken()
+    {
+        return new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
+    }
 }

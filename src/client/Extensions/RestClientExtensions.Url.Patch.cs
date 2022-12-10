@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Extensions;
 
 public partial class RestClientExtensions
 {
@@ -16,8 +21,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="IRestClient.PatchAsync{T}(string, object)"/> apply
     /// </remarks>
     public static Task<T> PatchAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) =>
-            restClient.PatchAsync<T>(GetUrlString(urlBuilder), data);
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
+    {
+        return restClient.PatchAsync<T>(GetUrlString(urlBuilder), data);
+    }
 
     /// <summary>
     /// Performs PATCH http request
@@ -32,8 +39,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="IRestClient.PatchTaskAsync(string, object)"/> apply
     /// </remarks>
     public static Task PatchTaskAsync(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) =>
-            restClient.PatchTaskAsync(GetUrlString(urlBuilder), data);
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
+    {
+        return restClient.PatchTaskAsync(GetUrlString(urlBuilder), data);
+    }
 
     /// <summary>
     /// Performs PATCH http request
@@ -52,8 +61,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryPatchAsync{T}(IRestClient, string, object)"/> apply
     /// </remarks>
     public static Task<RestClientResponse<T>> TryPatchAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) =>
-            GetRestClientResponse<T>(restClient, HttpMethod.Patch, GetUrlString(urlBuilder), data);
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
+    {
+        return GetRestClientResponse<T>(restClient, HttpMethod.Patch, GetUrlString(urlBuilder), data);
+    }
 
     /// <summary>
     /// Performs PATCH http request
@@ -70,6 +81,8 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryPatchTaskAsync(IRestClient, string, object)"/> apply
     /// </remarks>
     public static Task<RestClientTask> TryPatchTaskAsync(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) =>
-            GetRestClientTask(restClient, HttpMethod.Patch, GetUrlString(urlBuilder), data);
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
+    {
+        return GetRestClientTask(restClient, HttpMethod.Patch, GetUrlString(urlBuilder), data);
+    }
 }

@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Model;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Model;
 using Bogus;
 using Xunit;
 
@@ -10,9 +15,9 @@ public partial class RestClientExtensionsTests
     public async Task ShouldReturnResponseHeaders(HttpMethod httpMethod)
     {
         var url = RestClientTestExtensions.GenerateRelativeUrl();
-        var request = RestClientTestExtensions.GenerateResponseObjects();
-        var successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
-        var expectedResponse = RestClientTestExtensions.GenerateResponseObject();
+        IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
+        System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
+        SimpleClass expectedResponse = RestClientTestExtensions.GenerateResponseObject();
         var keyOne = "X-IPv6-Address";
         var valueOneA = new Faker().Internet.Ipv6();
         var valueOneB = new Faker().Internet.Ipv6();
@@ -26,11 +31,11 @@ public partial class RestClientExtensionsTests
         simulatedHttp.GetHttpSetup(httpMethod, url, request)
             .ReturnsAsync(successStatusCode, expectedResponse);
 
-        var actualClientResponse =
+        RestClientResponse<SimpleClass> actualClientResponse =
             await MakeTryRequest<SimpleClass>(httpMethod, url, request);
 
-        var firstKeyExists = actualClientResponse.Headers.TryGetValues(keyOne, out var firstValueSet);
-        var secondKeyExists = actualClientResponse.Headers.TryGetValues(keyTwo, out var secondValueSet);
+        var firstKeyExists = actualClientResponse.Headers.TryGetValues(keyOne, out IEnumerable<string>? firstValueSet);
+        var secondKeyExists = actualClientResponse.Headers.TryGetValues(keyTwo, out IEnumerable<string>? secondValueSet);
 
         Assert.True(firstKeyExists);
         Assert.True(secondKeyExists);
@@ -47,9 +52,9 @@ public partial class RestClientExtensionsTests
     public async Task ShouldReturnTaskHeaders(HttpMethod httpMethod)
     {
         var url = RestClientTestExtensions.GenerateRelativeUrl();
-        var request = RestClientTestExtensions.GenerateResponseObjects();
-        var successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
-        var expectedResponse = RestClientTestExtensions.GenerateResponseObject();
+        IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
+        System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
+        SimpleClass expectedResponse = RestClientTestExtensions.GenerateResponseObject();
         var keyOne = "X-IPv6-Address";
         var valueOneA = new Faker().Internet.Ipv6();
         var valueOneB = new Faker().Internet.Ipv6();
@@ -63,10 +68,10 @@ public partial class RestClientExtensionsTests
         simulatedHttp.GetHttpSetup(httpMethod, url, request)
             .ReturnsAsync(successStatusCode, expectedResponse);
 
-        var actualTask = await MakeTryTaskRequest(httpMethod, url, request);
+        RestClientTask actualTask = await MakeTryTaskRequest(httpMethod, url, request);
 
-        actualTask.Headers.TryGetValues(keyOne, out var firstValueSet);
-        actualTask.Headers.TryGetValues(keyTwo, out var secondValueSet);
+        actualTask.Headers.TryGetValues(keyOne, out IEnumerable<string>? firstValueSet);
+        actualTask.Headers.TryGetValues(keyTwo, out IEnumerable<string>? secondValueSet);
 
         Assert.Equal(2, firstValueSet.Count());
         Assert.Single(secondValueSet);

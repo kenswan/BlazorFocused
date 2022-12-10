@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Client;
 
 namespace BlazorFocused.Extensions;
 public static partial class RestClientExtensions
@@ -11,17 +16,23 @@ public static partial class RestClientExtensions
         try
         {
             if (restClient is BaseRestClient baseRestClient)
+            {
                 restClientHttpResponse =
                     await baseRestClient.SendAndDeserializeAsync<T>(httpRequestMessage);
+            }
             else
+            {
                 ThrowUnqualifiedRestClient(restClient);
+            }
         }
         catch (Exception ex)
         {
             exception = ex;
 
             if (ex is RestClientHttpException restClientHttpException)
+            {
                 restClientHttpResponse.StatusCode = restClientHttpException.StatusCode;
+            }
         }
 
         return new RestClientResponse<T>
@@ -41,16 +52,22 @@ public static partial class RestClientExtensions
         try
         {
             if (restClient is BaseRestClient baseRestClient)
+            {
                 restClientHttpResponse = await baseRestClient.SendAndTaskAsync(httpRequestMessage);
+            }
             else
+            {
                 ThrowUnqualifiedRestClient(restClient);
+            }
         }
         catch (Exception ex)
         {
             exception = ex;
 
             if (ex is RestClientHttpException restClientHttpException)
+            {
                 restClientHttpResponse.StatusCode = restClientHttpException.StatusCode;
+            }
         }
 
         return new RestClientTask
@@ -66,9 +83,13 @@ public static partial class RestClientExtensions
         HttpResponseMessage responseMessage = null;
 
         if (restClient is BaseRestClient baseRestClient)
+        {
             responseMessage = await baseRestClient.StandardSendAsync(httpRequestMessage);
+        }
         else
+        {
             ThrowUnqualifiedRestClient(restClient);
+        }
 
         return responseMessage;
     }

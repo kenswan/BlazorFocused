@@ -1,4 +1,9 @@
-﻿using System.Net;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using System.Net;
 
 namespace BlazorFocused;
 

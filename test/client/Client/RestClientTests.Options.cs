@@ -1,4 +1,9 @@
-﻿using FluentAssertions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using FluentAssertions;
 using Microsoft.Extensions.Options;
 using Xunit;
 
@@ -28,7 +33,7 @@ public partial class RestClientTests
             }
         };
 
-        using var httpClient = new RestClient(
+        using HttpClient httpClient = new RestClient(
             new HttpClient(), Options.Create(restClientOptions), default, testLogger).GetClient();
 
         Assert.Equal(expectedBaseAddress, httpClient.BaseAddress);

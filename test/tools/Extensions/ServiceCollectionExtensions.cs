@@ -1,4 +1,9 @@
-﻿using BlazorFocused.Tools.Logger;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using BlazorFocused.Tools.Logger;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -26,7 +31,7 @@ public static class ServiceCollectionExtensions
         this IServiceCollection serviceCollection,
         ITestOutputHelper testOutputHelper)
     {
-        var previousLogger = serviceCollection.FirstOrDefault(descriptor =>
+        ServiceDescriptor previousLogger = serviceCollection.FirstOrDefault(descriptor =>
             descriptor.ServiceType == typeof(ILogger<>));
 
         serviceCollection.Remove(previousLogger);
@@ -40,7 +45,7 @@ public static class ServiceCollectionExtensions
         this IServiceCollection serviceCollection,
         Action<IServiceCollection> testLoggers)
     {
-        var previousLogger = serviceCollection.FirstOrDefault(descriptor =>
+        ServiceDescriptor previousLogger = serviceCollection.FirstOrDefault(descriptor =>
             descriptor.ServiceType == typeof(ILogger<>));
 
         serviceCollection.Remove(previousLogger);
@@ -54,8 +59,10 @@ public static class ServiceCollectionExtensions
         this IServiceCollection serviceCollection,
         ITestOutputHelper testOutputHelper)
     {
-        void logAction(LogLevel level, string message, Exception exception) =>
-                    testOutputHelper.WriteTestLoggerMessage(level, message, exception);
+        void logAction(LogLevel level, string message, Exception exception)
+        {
+            testOutputHelper.WriteTestLoggerMessage(level, message, exception);
+        }
 
         serviceCollection.AddSingleton<ILogger<T>>(new TestLogger<T>(logAction));
     }

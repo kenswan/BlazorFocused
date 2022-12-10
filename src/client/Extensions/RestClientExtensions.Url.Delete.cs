@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Extensions;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Extensions;
 
 public partial class RestClientExtensions
 {
@@ -15,8 +20,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="IRestClient.DeleteAsync{T}(string)"/> apply
     /// </remarks>
     public static Task<T> DeleteAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder) =>
-            restClient.DeleteAsync<T>(GetUrlString(urlBuilder));
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder)
+    {
+        return restClient.DeleteAsync<T>(GetUrlString(urlBuilder));
+    }
 
     /// <summary>
     /// Performs DELETE http request
@@ -30,8 +37,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="IRestClient.DeleteTaskAsync(string)"/> apply
     /// </remarks>
     public static Task DeleteTaskAsync(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder) =>
-            restClient.DeleteTaskAsync(GetUrlString(urlBuilder));
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder)
+    {
+        return restClient.DeleteTaskAsync(GetUrlString(urlBuilder));
+    }
 
     /// <summary>
     /// Performs DELETE http request
@@ -49,8 +58,10 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryDeleteAsync{T}(IRestClient, string)"/> apply
     /// </remarks>
     public static Task<RestClientResponse<T>> TryDeleteAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder) =>
-            GetRestClientResponse<T>(restClient, HttpMethod.Delete, GetUrlString(urlBuilder));
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder)
+    {
+        return GetRestClientResponse<T>(restClient, HttpMethod.Delete, GetUrlString(urlBuilder));
+    }
 
     /// <summary>
     /// Performs DELETE http request
@@ -66,6 +77,8 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryDeleteAsync{T}(IRestClient, string)"/> apply
     /// </remarks>
     public static Task<RestClientTask> TryDeleteTaskAsync(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder) =>
-            GetRestClientTask(restClient, HttpMethod.Delete, GetUrlString(urlBuilder));
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder)
+    {
+        return GetRestClientTask(restClient, HttpMethod.Delete, GetUrlString(urlBuilder));
+    }
 }

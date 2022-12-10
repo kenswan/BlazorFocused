@@ -1,4 +1,9 @@
-﻿using System.Net;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using System.Net;
 using System.Net.Http.Headers;
 
 namespace BlazorFocused;
@@ -22,10 +27,7 @@ public class RestClientTask
     /// <summary>
     /// Identifies whether request was successful or failed
     /// </summary>
-    public virtual bool IsSuccess
-    {
-        get => HasSuccessStatusCode();
-    }
+    public virtual bool IsSuccess => HasSuccessStatusCode();
 
     /// <summary>
     /// Status of http request
@@ -33,6 +35,8 @@ public class RestClientTask
     /// <remarks>This may be null if url passed in is not valid relative or absolute path</remarks>
     public HttpStatusCode? StatusCode { get; internal set; }
 
-    protected bool HasSuccessStatusCode() =>
-        StatusCode.HasValue && new HttpResponseMessage(StatusCode.Value).IsSuccessStatusCode;
+    protected bool HasSuccessStatusCode()
+    {
+        return StatusCode.HasValue && new HttpResponseMessage(StatusCode.Value).IsSuccessStatusCode;
+    }
 }

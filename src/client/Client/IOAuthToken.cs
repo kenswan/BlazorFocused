@@ -1,4 +1,9 @@
-﻿namespace BlazorFocused.Client;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+namespace BlazorFocused.Client;
 
 internal interface IOAuthToken
 {

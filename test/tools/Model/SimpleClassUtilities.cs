@@ -1,4 +1,9 @@
-﻿using Bogus;
+﻿// -------------------------------------------------------
+// Copyright (c) Ken Swan All rights reserved.
+// Licensed under the MIT License
+// -------------------------------------------------------
+
+using Bogus;
 
 namespace BlazorFocused.Tools.Model;
 
@@ -18,6 +23,8 @@ public class SimpleClassUtilities
             .Generate();
     }
 
-    public static int GetRandomInteger() =>
-        new Random().Next(5, 20);
+    public static int GetRandomInteger()
+    {
+        return new Random().Next(5, 20);
+    }
 }
