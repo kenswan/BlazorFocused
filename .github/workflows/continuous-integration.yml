@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-target-framework: [ 'net6.0', 'net7.0' ]
+        dotnet-target-framework: ["net6.0", "net7.0"]
         include:
           - dotnet-install-framework: 6.0.x
             dotnet-target-framework: net6.0
@@ -59,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-target-framework: [ 'net6.0', 'net7.0' ]
+        dotnet-target-framework: ["net6.0", "net7.0"]
         include:
           - dotnet-install-framework: 6.0.x
             dotnet-target-framework: net6.0
@@ -98,7 +98,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-target-framework: [ 'net6.0', 'net7.0' ]
+        dotnet-target-framework: ["net6.0", "net7.0"]
         include:
           - dotnet-install-framework: 6.0.x
             dotnet-target-framework: net6.0
@@ -131,6 +131,35 @@ jobs:
       - name: Test
         working-directory: ${{ env.test-directory }}
         run: dotnet test -p:TargetFramework=${{ matrix.dotnet-target-framework }} --no-restore --verbosity normal
+
+  samples:
+    name: Samples
+    runs-on: ubuntu-latest
+
+    env:
+      dotnet-install-framework: 7.0.x
+
+    defaults:
+      run:
+        working-directory: ./samples
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.dotnet-install-framework }}
+          include-prerelease: true
+
+      - name: Install Dependencies
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test --no-restore --verbosity normal
 
   release:
     name: Deploy Release
