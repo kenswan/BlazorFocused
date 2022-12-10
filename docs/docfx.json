@@ -4,22 +4,22 @@
       "src": [
         {
           "files": ["BlazorFocused.Client.csproj"],
-          "src": "../../BlazorFocused/src/client"
+          "src": "../../BlazorFocused/src/client/src"
         },
         {
           "files": ["BlazorFocused.Store.csproj"],
-          "src": "../../BlazorFocused/src/store"
+          "src": "../../BlazorFocused/src/store/src"
         },
         {
           "files": ["BlazorFocused.Tools.csproj"],
-          "src": "../../BlazorFocused/src/tools"
+          "src": "../../BlazorFocused/src/tools/src"
         }
       ],
       "dest": "api",
       "disableGitFeatures": false,
       "disableDefaultFilter": false,
       "properties": {
-        "TargetFramework": "net6.0"
+        "TargetFramework": "net7.0"
       }
     }
   ],

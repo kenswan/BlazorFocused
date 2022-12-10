@@ -13,7 +13,7 @@ namespace BlazorFocused;
 /// <summary>
 /// Extensions used to initialize <see cref="IRestClient"/> and inherited members
 /// </summary>
-public static class ServiceCollectionExtensions
+public static class ClientServiceCollectionExtensions
 {
     /// <summary>
     /// Adds and configures <see cref="IRestClient"/> within service collection

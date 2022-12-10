@@ -12,7 +12,7 @@ namespace BlazorFocused;
 /// Service Collection extensions that provide store registration
 /// in Startup.cs - ConfigureServices 
 /// </summary>
-public static class ServiceCollectionExtensions
+public static class StoreServiceCollectionExtensions
 {
     /// <summary>
     /// Registers a new store within the current application

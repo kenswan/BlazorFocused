@@ -10,8 +10,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\client\BlazorFocused.Client.csproj" />
-      <ProjectReference Include="..\store\BlazorFocused.Store.csproj" />
+      <ProjectReference Include="..\..\client\src\BlazorFocused.Client.csproj" />
+      <ProjectReference Include="..\..\store\src\BlazorFocused.Store.csproj" />
     </ItemGroup>
 
 </Project>

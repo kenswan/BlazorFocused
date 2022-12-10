@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\tools\BlazorFocused.Tools.csproj" />
+    <ProjectReference Include="..\..\..\src\tools\src\BlazorFocused.Tools.csproj" />
     <ProjectReference Include="..\..\src\ToDoList\ToDoList.csproj" />
   </ItemGroup>
 

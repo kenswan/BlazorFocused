@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bogus" />
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="Moq" />
     <PackageReference Include="xunit" />
     <PackageReference Include="xunit.runner.visualstudio">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -20,8 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\store\BlazorFocused.Store.csproj" />
-    <ProjectReference Include="..\tools\BlazorFocused.Tools.Test.csproj" />
+    <ProjectReference Include="..\src\BlazorFocused.Client.csproj" />
+    <ProjectReference Include="..\..\tools\src\BlazorFocused.Tools.csproj" />
+    <ProjectReference Include="..\..\tools\test\BlazorFocused.Tools.Test.csproj" />
   </ItemGroup>
 
 </Project>

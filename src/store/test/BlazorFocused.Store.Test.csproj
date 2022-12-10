@@ -3,15 +3,11 @@
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     <IsPackable>false</IsPackable>
-    <RootNamespace>BlazorFocused.Tools</RootNamespace>
+    <RootNamespace>BlazorFocused</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bogus" />
-    <PackageReference Include="FluentAssertions" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="Moq" />
     <PackageReference Include="xunit" />
     <PackageReference Include="xunit.runner.visualstudio">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -24,9 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\client\BlazorFocused.Client.csproj" />
-    <ProjectReference Include="..\..\src\store\BlazorFocused.Store.csproj" />
-    <ProjectReference Include="..\..\src\tools\BlazorFocused.Tools.csproj" />
+    <ProjectReference Include="..\src\BlazorFocused.Store.csproj" />
+    <ProjectReference Include="..\..\tools\test\BlazorFocused.Tools.Test.csproj" />
   </ItemGroup>
 
 </Project>
