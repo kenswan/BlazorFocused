@@ -9,6 +9,16 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
 
+  <ItemGroup Label="Microsoft NuGet Packages (Source)">
+    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.0" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.0" />
+    <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
   <ItemGroup Label="Microsoft NuGet Packages (Test)">
     <PackageVersion Include="coverlet.collector" Version="3.2.0" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
@@ -24,15 +34,8 @@
   </ItemGroup>
 
   <ItemGroup Label="Sample Projects">
-    <PackageVersion Include="BlazorFocused" Version="2.0.0" />
-    <PackageVersion Include="BlazorFocused.Tools" Version="2.0.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.2" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.2" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.2" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.2" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.2" />
-    <PackageVersion Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
-    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageVersion Include="BlazorFocused" Version="2.2.2" />
+    <PackageVersion Include="BlazorFocused.Tools" Version="2.2.2" />
   </ItemGroup>
 
 </Project>

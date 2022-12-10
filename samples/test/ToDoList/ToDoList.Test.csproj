@@ -1,15 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-	<ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>annotations</Nullable>
+    <TargetFramework>net7.0</TargetFramework>
     <IsPackable>false</IsPackable>
-	<RootNamespace>ToDoList</RootNamespace>
+	  <RootNamespace>ToDoList</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BlazorFocused.Tools" />
     <PackageReference Include="Bogus" />
     <PackageReference Include="bunit" />
     <PackageReference Include="FluentAssertions" />
@@ -27,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\src\tools\BlazorFocused.Tools.csproj" />
     <ProjectReference Include="..\..\src\ToDoList\ToDoList.csproj" />
   </ItemGroup>
 

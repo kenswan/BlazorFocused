@@ -9,12 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.Model", "src\model\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList", "src\ToDoList\ToDoList.csproj", "{7BF30F41-7F87-473C-8D57-6F5F29E98120}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList.Test", "test\ToDoList\ToDoList.Test.csproj", "{55F08AAB-929B-4700-9810-839EC23EA4C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList.Test", "test\ToDoList\ToDoList.Test.csproj", "{55F08AAB-929B-4700-9810-839EC23EA4C2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{191C771A-9B74-4F23-A5BE-09C597E968C4}"
 	ProjectSection(SolutionItems) = preProject
-		..\Directory.Build.targets = ..\Directory.Build.targets
-		..\Packages.props = ..\Packages.props
+		Directory.Build.targets = Directory.Build.targets
+		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
 EndProject
 Global
