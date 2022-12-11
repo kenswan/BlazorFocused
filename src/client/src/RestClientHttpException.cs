@@ -4,6 +4,7 @@
 // -------------------------------------------------------
 
 using System.Net;
+using System.Net.Http.Headers;
 
 namespace BlazorFocused;
 
@@ -15,7 +16,12 @@ public class RestClientHttpException : Exception
     /// <summary>
     /// String content returned in non-successful http request
     /// </summary>
-    public string Content { get; set; } = string.Empty;
+    public string Content { get; init; }
+
+    /// <summary>
+    /// Response headers received from executing request
+    /// </summary>
+    public HttpResponseHeaders Headers { get; init; }
 
     /// <summary>
     /// Method of origin http request (DELETE, GET, PATCH, POST, PUT)

@@ -26,7 +26,7 @@ public static partial class RestClientExtensions
     public static Task<RestClientResponse<T>> TryDeleteAsync<T>(
         this IRestClient restClient, string relativeUrl)
     {
-        return GetRestClientResponse<T>(restClient, HttpMethod.Delete, relativeUrl);
+        return restClient.SendAsync<T>(HttpMethod.Delete, relativeUrl);
     }
 
     /// <summary>
@@ -47,7 +47,7 @@ public static partial class RestClientExtensions
     /// </remarks>
     public static Task<RestClientResponse<T>> TryGetAsync<T>(this IRestClient restClient, string relativeUrl)
     {
-        return GetRestClientResponse<T>(restClient, HttpMethod.Get, relativeUrl);
+        return restClient.SendAsync<T>(HttpMethod.Get, relativeUrl);
     }
 
     /// <summary>
@@ -69,7 +69,7 @@ public static partial class RestClientExtensions
     /// </remarks>
     public static Task<RestClientResponse<T>> TryPatchAsync<T>(this IRestClient restClient, string relativeUrl, object data)
     {
-        return GetRestClientResponse<T>(restClient, HttpMethod.Patch, relativeUrl, data);
+        return restClient.SendAsync<T>(HttpMethod.Patch, relativeUrl, data);
     }
 
     /// <summary>
@@ -91,7 +91,7 @@ public static partial class RestClientExtensions
     /// </remarks>
     public static Task<RestClientResponse<T>> TryPostAsync<T>(this IRestClient restClient, string relativeUrl, object data)
     {
-        return GetRestClientResponse<T>(restClient, HttpMethod.Post, relativeUrl, data);
+        return restClient.SendAsync<T>(HttpMethod.Post, relativeUrl, data);
     }
 
     /// <summary>
@@ -113,6 +113,6 @@ public static partial class RestClientExtensions
     /// </remarks>
     public static Task<RestClientResponse<T>> TryPutAsync<T>(this IRestClient restClient, string relativeUrl, object data)
     {
-        return GetRestClientResponse<T>(restClient, HttpMethod.Put, relativeUrl, data);
+        return restClient.SendAsync<T>(HttpMethod.Put, relativeUrl, data);
     }
 }

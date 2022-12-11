@@ -15,15 +15,10 @@ public partial class RestClientExtensionsTests
 {
     [Theory]
     [MemberData(nameof(HttpMethodsForResponse))]
-    public async Task ShouldSendNativeHttpRequestAndDeserialize(HttpMethod httpMethod)
+    public async Task ShouldSendStandardHttpRequestAndDeserialize(HttpMethod httpMethod)
     {
         var url = RestClientTestExtensions.GenerateRelativeUrl();
         SimpleClass request = RestClientTestExtensions.GenerateResponseObject();
-
-        var requestMessage = new HttpRequestMessage(httpMethod, url)
-        {
-            Content = GetStringContent(request)
-        };
 
         System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
         IEnumerable<SimpleClass> expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
@@ -31,7 +26,7 @@ public partial class RestClientExtensionsTests
         simulatedHttp.GetHttpSetup(httpMethod, url, request)
             .ReturnsAsync(successStatusCode, expectedResponse);
 
-        RestClientResponse<IEnumerable<SimpleClass>> actualResponse = await restClient.SendAsync<IEnumerable<SimpleClass>>(requestMessage);
+        RestClientResponse<IEnumerable<SimpleClass>> actualResponse = await restClient.SendAsync<IEnumerable<SimpleClass>>(httpMethod, url, request);
 
         actualResponse.Value.Should().BeEquivalentTo(expectedResponse);
 
@@ -51,15 +46,10 @@ public partial class RestClientExtensionsTests
 
     [Theory]
     [MemberData(nameof(HttpMethodsForResponse))]
-    public async Task ShouldReturnInvalidResponseForNonSuccessStatusCodesForNativeRequest(HttpMethod httpMethod)
+    public async Task ShouldReturnInvalidResponseForNonSuccessStatusCodesForStandardRequest(HttpMethod httpMethod)
     {
         var url = RestClientTestExtensions.GenerateRelativeUrl();
         SimpleClass request = RestClientTestExtensions.GenerateResponseObject();
-
-        var requestMessage = new HttpRequestMessage(httpMethod, url)
-        {
-            Content = GetStringContent(request)
-        };
 
         System.Net.HttpStatusCode errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
         SimpleClass invalidResponse = RestClientTestExtensions.GenerateResponseObject();
@@ -67,7 +57,7 @@ public partial class RestClientExtensionsTests
         simulatedHttp.GetHttpSetup(httpMethod, url, request)
             .ReturnsAsync(errorStatusCode, invalidResponse);
 
-        RestClientResponse<IEnumerable<SimpleClass>> actualResponse = await restClient.SendAsync<IEnumerable<SimpleClass>>(requestMessage);
+        RestClientResponse<IEnumerable<SimpleClass>> actualResponse = await restClient.SendAsync<IEnumerable<SimpleClass>>(httpMethod, url, request);
 
         Assert.False(actualResponse.IsSuccess);
         Assert.Equal(errorStatusCode, actualResponse.StatusCode);
@@ -81,15 +71,10 @@ public partial class RestClientExtensionsTests
 
     [Theory]
     [MemberData(nameof(HttpMethodsForTask))]
-    public async Task ShouldNativeHttpRequestAndTask(HttpMethod httpMethod)
+    public async Task ShouldStandardHttpRequestAndTask(HttpMethod httpMethod)
     {
         var url = RestClientTestExtensions.GenerateRelativeUrl();
         IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
-
-        var requestMessage = new HttpRequestMessage(httpMethod, url)
-        {
-            Content = GetStringContent(request)
-        };
 
         System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
         IEnumerable<SimpleClass> expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
@@ -97,7 +82,7 @@ public partial class RestClientExtensionsTests
         simulatedHttp.GetHttpSetup(httpMethod, url, request)
             .ReturnsAsync(successStatusCode, expectedResponse);
 
-        RestClientTask actualTask = await restClient.SendAsync(requestMessage);
+        RestClientTask actualTask = await restClient.SendAsync(httpMethod, url, request);
 
         Assert.True(actualTask.IsSuccess);
         Assert.Equal(successStatusCode, actualTask.StatusCode);
@@ -115,15 +100,10 @@ public partial class RestClientExtensionsTests
 
     [Theory]
     [MemberData(nameof(HttpMethodsForTask))]
-    public async Task ShouldReturnInvalidTaskForNonSuccessStatusCodesNativeRequest(HttpMethod httpMethod)
+    public async Task ShouldReturnInvalidTaskForNonSuccessStatusCodesStandardRequest(HttpMethod httpMethod)
     {
         var url = RestClientTestExtensions.GenerateRelativeUrl();
         IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
-
-        var requestMessage = new HttpRequestMessage(httpMethod, url)
-        {
-            Content = GetStringContent(request)
-        };
 
         System.Net.HttpStatusCode errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
         SimpleClass invalidResponse = RestClientTestExtensions.GenerateResponseObject();
@@ -131,7 +111,7 @@ public partial class RestClientExtensionsTests
         simulatedHttp.GetHttpSetup(httpMethod, url, request)
             .ReturnsAsync(errorStatusCode, invalidResponse);
 
-        RestClientTask actualTask = await restClient.SendAsync(requestMessage);
+        RestClientTask actualTask = await restClient.SendAsync(httpMethod, url, request);
 
         Assert.False(actualTask.IsSuccess);
         Assert.Equal(errorStatusCode, actualTask.StatusCode);
@@ -147,6 +127,39 @@ public partial class RestClientExtensionsTests
     [MemberData(nameof(HttpMethodsForResponse))]
     public async Task ShouldSendNativeHttpRequest(HttpMethod httpMethod)
     {
+        var url = RestClientTestExtensions.GenerateAbsoluteUrl();
+        SimpleClass request = RestClientTestExtensions.GenerateResponseObject();
+
+        var requestMessage = new HttpRequestMessage(httpMethod, url)
+        {
+            Content = GetStringContent(request)
+        };
+
+        System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
+        IEnumerable<SimpleClass> expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
+
+        simulatedHttp.GetHttpSetup(httpMethod, url, request)
+            .ReturnsAsync(successStatusCode, expectedResponse);
+
+        HttpResponseMessage httpResponseMessage = await restClient.SendAsync(requestMessage);
+
+        Assert.True(httpResponseMessage.IsSuccessStatusCode);
+        Assert.Equal(successStatusCode, httpResponseMessage.StatusCode);
+
+        if (httpMethod != HttpMethod.Delete)
+        {
+            simulatedHttp.VerifyWasCalled(httpMethod, url, request);
+        }
+        else
+        {
+            simulatedHttp.VerifyWasCalled(httpMethod, url);
+        }
+    }
+
+    [Theory]
+    [MemberData(nameof(HttpMethodsForResponse))]
+    public async Task ShouldThrowOnBaseSendWhenUriIsNotAbsolute(HttpMethod httpMethod)
+    {
         var url = RestClientTestExtensions.GenerateRelativeUrl();
         SimpleClass request = RestClientTestExtensions.GenerateResponseObject();
 
@@ -161,20 +174,9 @@ public partial class RestClientExtensionsTests
         simulatedHttp.GetHttpSetup(httpMethod, url, request)
             .ReturnsAsync(successStatusCode, expectedResponse);
 
-        HttpResponseMessage httpResponseMessage = await restClient.BaseSendAsync(requestMessage);
-
-        Assert.True(httpResponseMessage.IsSuccessStatusCode);
-        Assert.Equal(successStatusCode, httpResponseMessage.StatusCode);
-
-        if (httpMethod != HttpMethod.Delete)
-        {
-            simulatedHttp.VerifyWasCalled(httpMethod, url, request);
-        }
-        else
-        {
-            simulatedHttp.VerifyWasCalled(httpMethod, url);
-        }
+        await Assert.ThrowsAsync<RestClientException>(() => restClient.SendAsync(requestMessage));
     }
+
     private static StringContent GetStringContent(object requestObject)
     {
         return new(JsonSerializer.Serialize(requestObject), Encoding.UTF8, "application/json");

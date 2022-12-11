@@ -3,7 +3,7 @@
 // Licensed under the MIT License
 // -------------------------------------------------------
 
-namespace BlazorFocused.Client;
+namespace BlazorFocused;
 
 /// <summary>
 /// Exception returned with failed requests and operations within <see cref="IRestClient"/>
