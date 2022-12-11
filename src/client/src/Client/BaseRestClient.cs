@@ -50,8 +50,7 @@ internal abstract class BaseRestClient : IBaseRestClient
         HttpContent httpContent = data switch
         {
             null => default,
-            { } when data is FormUrlEncodedContent formUrlEncodedContent => formUrlEncodedContent,
-            { } when data is MultipartFormDataContent multipartFormDataContent => multipartFormDataContent,
+            { } when data is HttpContent alreadyInHttpContent => alreadyInHttpContent,
             _ => new StringContent(JsonSerializer.Serialize(data), Encoding.UTF8, "application/json")
         };
 
