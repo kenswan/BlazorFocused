@@ -43,6 +43,6 @@ public partial class RestClientExtensions
     public static Task<RestClientResponse<T>> TryGetAsync<T>(
         this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder)
     {
-        return GetRestClientResponse<T>(restClient, HttpMethod.Get, GetUrlString(urlBuilder));
+        return restClient.SendAsync<T>(HttpMethod.Get, GetUrlString(urlBuilder));
     }
 }

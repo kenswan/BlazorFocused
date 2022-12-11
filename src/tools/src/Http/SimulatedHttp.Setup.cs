@@ -37,7 +37,12 @@ internal partial class SimulatedHttp
 
     private ISimulatedHttpSetup Setup(HttpMethod method, string url, object content = null)
     {
-        var requestString = content is not null ? JsonSerializer.Serialize(content) : null;
+        var requestString = content switch
+        {
+            null => null,
+            { } when content is HttpContent httpContent => httpContent.ReadAsStringAsync().GetAwaiter().GetResult(),
+            _ => JsonSerializer.Serialize(content)
+        };
 
         var request = new SimulatedHttpRequest { Method = method, Url = url, RequestContent = requestString };
 

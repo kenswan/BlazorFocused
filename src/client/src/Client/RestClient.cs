@@ -9,7 +9,7 @@ using Microsoft.Extensions.Options;
 namespace BlazorFocused.Client;
 
 /// <inheritdoc cref="IRestClient"/>
-internal class RestClient : BaseRestClient
+internal class RestClient : StandardRestClient
 {
     protected readonly IRestClientRequestHeaders requestHeaders;
 

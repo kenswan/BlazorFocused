@@ -38,10 +38,10 @@ public partial class RestClientExtensions
     /// <remarks>
     /// Rules/Details on <see cref="IRestClient.PatchTaskAsync(string, object)"/> apply
     /// </remarks>
-    public static Task PatchTaskAsync(
+    public static async Task PatchTaskAsync(
         this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
     {
-        return restClient.PatchTaskAsync(GetUrlString(urlBuilder), data);
+        await restClient.PatchTaskAsync(GetUrlString(urlBuilder), data);
     }
 
     /// <summary>
@@ -63,7 +63,7 @@ public partial class RestClientExtensions
     public static Task<RestClientResponse<T>> TryPatchAsync<T>(
         this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
     {
-        return GetRestClientResponse<T>(restClient, HttpMethod.Patch, GetUrlString(urlBuilder), data);
+        return restClient.SendAsync<T>(HttpMethod.Patch, GetUrlString(urlBuilder), data);
     }
 
     /// <summary>
@@ -83,6 +83,6 @@ public partial class RestClientExtensions
     public static Task<RestClientTask> TryPatchTaskAsync(
         this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
     {
-        return GetRestClientTask(restClient, HttpMethod.Patch, GetUrlString(urlBuilder), data);
+        return restClient.SendAsync(HttpMethod.Patch, GetUrlString(urlBuilder), data);
     }
 }

@@ -4,77 +4,113 @@
 // -------------------------------------------------------
 
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+using System.Net;
+using System.Text;
+using System.Text.Json;
 
 namespace BlazorFocused.Client;
 
-internal abstract partial class BaseRestClient : AbstractRestClient, IRestClient
+/// <inheritdoc cref="IBaseRestClient"/>
+internal abstract class BaseRestClient : IBaseRestClient
 {
+    protected readonly HttpClient httpClient;
+    protected readonly ILogger logger;
+
     public BaseRestClient(HttpClient httpClient, ILogger logger)
-        : base(httpClient, logger)
-    { }
-
-    public virtual void AddHeader(string key, string value, bool global = true)
     {
-        httpClient.DefaultRequestHeaders.Add(key, value);
+        this.httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+        this.logger = logger ?? NullLogger.Instance;
     }
 
-    /// <summary>
-    /// Gets current instance of <see cref="HttpClient"/> being used for requests
-    /// </summary>
-    /// <returns>Current <see cref="HttpClient"/> from dependency injection</returns>
-    /// <remarks>Primarily used for exposure/inspection in Test</remarks>
-    internal HttpClient GetClient()
+    public async Task<RestClientResponse<T>> SendAsync<T>(HttpMethod httpMethod, string url, object data = null)
     {
-        return httpClient;
+        RestClientTask task = await SendAsync(httpMethod, url, data);
+
+        var restClientResponse = new RestClientResponse<T>
+        {
+            Content = task.Content,
+            StatusCode = task.StatusCode,
+            Headers = task.Headers,
+            Exception = task.Exception
+        };
+
+        if (task.IsSuccess)
+        {
+            restClientResponse.Value = JsonSerializer.Deserialize<T>(task.Content);
+        }
+
+        return restClientResponse;
     }
 
-    public async Task<T> DeleteAsync<T>(string relativeUrl)
+    public async Task<RestClientTask> SendAsync(HttpMethod httpMethod, string url, object data = null)
     {
-        return await GetResponseValue<T>(HttpMethod.Delete, relativeUrl);
+        logger.LogDebug("Starting Request: {Method} - {Url}", httpMethod, url);
+
+        HttpContent httpContent = data switch
+        {
+            null => default,
+            { } when data is HttpContent alreadyInHttpContent => alreadyInHttpContent,
+            _ => new StringContent(JsonSerializer.Serialize(data), Encoding.UTF8, "application/json")
+        };
+
+        var httpRequestMessage = new HttpRequestMessage
+        {
+            Content = httpContent,
+            Method = httpMethod,
+            RequestUri = new(httpClient.BaseAddress, url)
+        };
+
+        HttpResponseMessage httpResponseMessage = await SendAsync(httpRequestMessage);
+        HttpStatusCode httpStatusCode = httpResponseMessage.StatusCode;
+        var contentString = await httpResponseMessage.Content?.ReadAsStringAsync();
+        RestClientHttpException exception = default;
+
+        if (!httpResponseMessage.IsSuccessStatusCode)
+        {
+            exception = new RestClientHttpException(httpMethod, httpStatusCode, url)
+            {
+                Content = contentString,
+                Headers = httpResponseMessage.Headers
+            };
+
+            if (contentString is not null)
+            {
+                logger.LogError("FAILED Request: {StatusCode} - {Method} - {Url} {Response}", httpStatusCode, httpMethod, url, contentString);
+            }
+            else
+            {
+                logger.LogError("FAILED Request: {StatusCode} - {Method} - {Url}", httpStatusCode, httpMethod, url);
+            }
+        }
+        else
+        {
+            logger.LogDebug("SUCCESSFUL Request: {StatusCode} - {Method} - {Url} {Response}", httpResponseMessage.StatusCode, httpMethod, url, contentString);
+        }
+
+        return new RestClientTask
+        {
+            Headers = httpResponseMessage.Headers,
+            StatusCode = httpResponseMessage.StatusCode,
+            Content = contentString,
+            Exception = exception
+        };
     }
 
-    public async Task DeleteTaskAsync(string relativeUrl)
+    public async Task<HttpResponseMessage> SendAsync(HttpRequestMessage httpRequestMessage)
     {
-        await SendAndTaskAsync(HttpMethod.Delete, relativeUrl);
-    }
+        HttpMethod httpMethod = httpRequestMessage.Method;
 
-    public async Task<T> GetAsync<T>(string relativeUrl)
-    {
-        return await GetResponseValue<T>(HttpMethod.Get, relativeUrl);
-    }
+        var url = httpRequestMessage.RequestUri.IsAbsoluteUri ?
+            httpRequestMessage.RequestUri.PathAndQuery :
+            throw new RestClientException($"Unable to send Http Request because {nameof(httpRequestMessage)} is not an absolute Uri");
 
-    public async Task<T> PatchAsync<T>(string relativeUrl, object data)
-    {
-        return await GetResponseValue<T>(HttpMethod.Patch, relativeUrl, data);
-    }
+        logger.LogDebug("Starting Request: {Method} - {Url}", httpMethod, url);
 
-    public async Task PatchTaskAsync(string relativeUrl, object data)
-    {
-        await SendAndTaskAsync(HttpMethod.Patch, relativeUrl, data);
-    }
+        HttpResponseMessage httpResponseMessage = await httpClient.SendAsync(httpRequestMessage);
 
-    public async Task<T> PostAsync<T>(string relativeUrl, object data)
-    {
-        return await GetResponseValue<T>(HttpMethod.Post, relativeUrl, data);
-    }
+        logger.LogDebug("Request Completed: {Method} - {Url}", httpMethod, url);
 
-    public async Task PostTaskAsync(string relativeUrl, object data)
-    {
-        await SendAndTaskAsync(HttpMethod.Post, relativeUrl, data);
-    }
-
-    public async Task<T> PutAsync<T>(string relativeUrl, object data)
-    {
-        return await GetResponseValue<T>(HttpMethod.Put, relativeUrl, data);
-    }
-
-    public async Task PutTaskAsync(string relativeUrl, object data)
-    {
-        await SendAndTaskAsync(HttpMethod.Put, relativeUrl, data);
-    }
-
-    public void UpdateHttpClient(Action<HttpClient> updateHttpClient)
-    {
-        updateHttpClient(httpClient);
+        return httpResponseMessage;
     }
 }

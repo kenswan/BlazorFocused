@@ -60,7 +60,7 @@ public partial class RestClientExtensions
     public static Task<RestClientResponse<T>> TryDeleteAsync<T>(
         this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder)
     {
-        return GetRestClientResponse<T>(restClient, HttpMethod.Delete, GetUrlString(urlBuilder));
+        return restClient.SendAsync<T>(HttpMethod.Delete, GetUrlString(urlBuilder));
     }
 
     /// <summary>
@@ -79,6 +79,6 @@ public partial class RestClientExtensions
     public static Task<RestClientTask> TryDeleteTaskAsync(
         this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder)
     {
-        return GetRestClientTask(restClient, HttpMethod.Delete, GetUrlString(urlBuilder));
+        return restClient.SendAsync(HttpMethod.Delete, GetUrlString(urlBuilder));
     }
 }

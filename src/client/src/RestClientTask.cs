@@ -35,6 +35,11 @@ public class RestClientTask
     /// <remarks>This may be null if url passed in is not valid relative or absolute path</remarks>
     public HttpStatusCode? StatusCode { get; internal set; }
 
+    /// <summary>
+    /// String representation of content returned from http request
+    /// </summary>
+    public string Content { get; internal set; }
+
     protected bool HasSuccessStatusCode()
     {
         return StatusCode.HasValue && new HttpResponseMessage(StatusCode.Value).IsSuccessStatusCode;

@@ -63,7 +63,7 @@ public partial class RestClientExtensions
     public static Task<RestClientResponse<T>> TryPutAsync<T>(
         this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
     {
-        return GetRestClientResponse<T>(restClient, HttpMethod.Put, GetUrlString(urlBuilder), data);
+        return restClient.SendAsync<T>(HttpMethod.Put, GetUrlString(urlBuilder), data);
     }
 
     /// <summary>
@@ -83,6 +83,6 @@ public partial class RestClientExtensions
     public static Task<RestClientTask> TryPutTaskAsync(
         this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
     {
-        return GetRestClientTask(restClient, HttpMethod.Put, GetUrlString(urlBuilder), data);
+        return restClient.SendAsync(HttpMethod.Put, GetUrlString(urlBuilder), data);
     }
 }

@@ -8,7 +8,7 @@ namespace BlazorFocused;
 /// <summary>
 /// Standardizes the handling of HTTP requests/responses within a given application.
 /// </summary>
-public interface IRestClient
+public interface IRestClient : IBaseRestClient
 {
     /// <summary>
     /// Adds header key/value pair to the Http Request Headers

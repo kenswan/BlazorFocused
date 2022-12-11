@@ -28,6 +28,11 @@ internal static partial class RestClientTestExtensions
         return new Faker().Internet.UrlRootedPath();
     }
 
+    public static string GenerateAbsoluteUrl()
+    {
+        return new Faker().Internet.UrlWithPath();
+    }
+
     public static IEnumerable<SimpleClass> GenerateResponseObjects()
     {
         return GetSimpleClassFaker().Generate(new Faker().Random.Int(2, 5));
