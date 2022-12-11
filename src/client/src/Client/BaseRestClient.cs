@@ -32,13 +32,13 @@ internal abstract class BaseRestClient : IBaseRestClient
             Content = task.Content,
             StatusCode = task.StatusCode,
             Headers = task.Headers,
-            Exception = task.Exception
+            Exception = task.Exception,
+            Value = task.IsSuccess ?
+                JsonSerializer.Deserialize<T>(
+                    task.Content,
+                    new JsonSerializerOptions(JsonSerializerDefaults.Web)) :
+                default
         };
-
-        if (task.IsSuccess)
-        {
-            restClientResponse.Value = JsonSerializer.Deserialize<T>(task.Content);
-        }
 
         return restClientResponse;
     }
