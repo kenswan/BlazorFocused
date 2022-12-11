@@ -17,12 +17,12 @@ public class RestClientTask
     /// Exception that occurred during request
     /// </summary>
     /// <remarks>This value will be "null" if exception did not occur</remarks>
-    public Exception Exception { get; internal set; }
+    public Exception Exception { get; init; }
 
     /// <summary>
     /// Response headers received from executing request
     /// </summary>
-    public HttpResponseHeaders Headers { get; internal set; }
+    public HttpResponseHeaders Headers { get; init; }
 
     /// <summary>
     /// Identifies whether request was successful or failed
@@ -33,12 +33,12 @@ public class RestClientTask
     /// Status of http request
     /// </summary>
     /// <remarks>This may be null if url passed in is not valid relative or absolute path</remarks>
-    public HttpStatusCode? StatusCode { get; internal set; }
+    public HttpStatusCode? StatusCode { get; init; }
 
     /// <summary>
     /// String representation of content returned from http request
     /// </summary>
-    public string Content { get; internal set; }
+    public string Content { get; init; }
 
     protected bool HasSuccessStatusCode()
     {
