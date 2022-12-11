@@ -5,6 +5,7 @@
 
 using BlazorFocused.Tools.Model;
 using FluentAssertions;
+using Moq;
 using Xunit;
 
 namespace BlazorFocused.Extensions;
@@ -68,7 +69,63 @@ public partial class RestClientExtensionsTests
                 exception.Message.Contains(url));
     }
 
+    [Theory]
+    [MemberData(nameof(HttpMethodsForResponse))]
+    public async Task ShouldPerformTryHttpRequestWithMock(HttpMethod httpMethod)
+    {
+        var url = RestClientTestExtensions.GenerateRelativeUrl();
+
+        IEnumerable<SimpleClass> request = (httpMethod != HttpMethod.Delete && httpMethod != HttpMethod.Get) ?
+            RestClientTestExtensions.GenerateResponseObjects() : null;
+
+        System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
+        SimpleClass expectedResponse = RestClientTestExtensions.GenerateResponseObject();
+
+        restClientMock.Setup(client =>
+            client.SendAsync<SimpleClass>(httpMethod, url, request))
+                .ReturnsAsync(new RestClientResponse<SimpleClass>
+                {
+                    StatusCode = successStatusCode,
+                    Value = expectedResponse
+                });
+
+        RestClientResponse<SimpleClass> actualClientResponse =
+            await MakeTryRequestWithMock<SimpleClass>(restClientMock.Object, httpMethod, url, request);
+
+        Assert.True(actualClientResponse.IsSuccess);
+        Assert.Equal(successStatusCode, actualClientResponse.StatusCode);
+        Assert.Null(actualClientResponse.Exception);
+
+        actualClientResponse.Value.Should().BeEquivalentTo(expectedResponse);
+
+        if (httpMethod == HttpMethod.Delete || httpMethod == HttpMethod.Get)
+        {
+            restClientMock.Verify(client =>
+                client.SendAsync<SimpleClass>(httpMethod, url, null),
+                    Times.Once());
+        }
+        else
+        {
+            restClientMock.Verify(client =>
+                client.SendAsync<SimpleClass>(httpMethod, url, request),
+                    Times.Once());
+        }
+    }
+
     private Task<RestClientResponse<T>> MakeTryRequest<T>(HttpMethod httpMethod, string url, object request)
+    {
+        return httpMethod switch
+        {
+            HttpMethod method when method == HttpMethod.Delete => restClient.TryDeleteAsync<T>(url),
+            HttpMethod method when method == HttpMethod.Get => restClient.TryGetAsync<T>(url),
+            HttpMethod method when method == HttpMethod.Patch => restClient.TryPatchAsync<T>(url, request),
+            HttpMethod method when method == HttpMethod.Post => restClient.TryPostAsync<T>(url, request),
+            HttpMethod method when method == HttpMethod.Put => restClient.TryPutAsync<T>(url, request),
+            _ => throw new ArgumentException($"{httpMethod} not supported"),
+        };
+    }
+
+    private static Task<RestClientResponse<T>> MakeTryRequestWithMock<T>(IRestClient restClient, HttpMethod httpMethod, string url, object request)
     {
         return httpMethod switch
         {

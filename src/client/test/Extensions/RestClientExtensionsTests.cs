@@ -8,6 +8,7 @@ using BlazorFocused.Tools;
 using BlazorFocused.Tools.Extensions;
 using Bogus;
 using Microsoft.Extensions.Options;
+using Moq;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -19,6 +20,7 @@ public partial class RestClientExtensionsTests
     private readonly ISimulatedHttp simulatedHttp;
     private readonly ITestLogger<RestClient> testLogger;
     private readonly IRestClient restClient;
+    private readonly Mock<IRestClient> restClientMock; // Use mock client for 'Try' requests
 
     public RestClientExtensionsTests(ITestOutputHelper testOutputHelper)
     {
@@ -36,6 +38,8 @@ public partial class RestClientExtensionsTests
 
         restClient =
             new RestClient(simulatedHttp.HttpClient, restClientOptions, default, testLogger);
+
+        restClientMock = new();
     }
 
     public static TheoryData<HttpMethod> HttpMethodsForResponse =>
