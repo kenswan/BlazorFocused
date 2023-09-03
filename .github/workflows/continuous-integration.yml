@@ -20,12 +20,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-target-framework: ["net6.0", "net7.0"]
+        dotnet-target-framework: ["net6.0", "net7.0", "net8.0"]
         include:
           - dotnet-install-framework: 6.0.x
             dotnet-target-framework: net6.0
           - dotnet-install-framework: 7.0.x
             dotnet-target-framework: net7.0
+          - dotnet-install-framework: 8.0.x
+            dotnet-target-framework: net8.0
     env:
       source-directory: ./src/client/src
       source-project: BlazorFocused.Client.csproj
@@ -59,12 +61,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-target-framework: ["net6.0", "net7.0"]
+        dotnet-target-framework: ["net6.0", "net7.0", "net8.0"]
         include:
           - dotnet-install-framework: 6.0.x
             dotnet-target-framework: net6.0
           - dotnet-install-framework: 7.0.x
             dotnet-target-framework: net7.0
+          - dotnet-install-framework: 8.0.x
+            dotnet-target-framework: net8.0
     env:
       source-directory: ./src/store/src
       source-project: BlazorFocused.Store.csproj
@@ -98,12 +102,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dotnet-target-framework: ["net6.0", "net7.0"]
+        dotnet-target-framework: ["net6.0", "net7.0", "net8.0"]
         include:
           - dotnet-install-framework: 6.0.x
             dotnet-target-framework: net6.0
           - dotnet-install-framework: 7.0.x
             dotnet-target-framework: net7.0
+          - dotnet-install-framework: 8.0.x
+            dotnet-target-framework: net8.0
     env:
       source-directory: ./src/tools/src
       source-project: BlazorFocused.Tools.csproj
@@ -182,7 +188,7 @@ jobs:
       - name: Install .NET
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: 7.0.x
+          dotnet-version: 8.0.x
           include-prerelease: true
 
       - name: Install Dependencies
