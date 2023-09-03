@@ -25,9 +25,9 @@ internal class RestClientHeaderHandler : DelegatingHandler
         {
             logger.LogDebug("Found header attributes to add to request");
 
-            foreach (var headerKey in clientRequestHeaders.GetHeaderKeys())
+            foreach (string headerKey in clientRequestHeaders.GetHeaderKeys())
             {
-                foreach (var value in clientRequestHeaders.GetHeaderValues(headerKey))
+                foreach (string value in clientRequestHeaders.GetHeaderValues(headerKey))
                 {
                     request.Headers.Add(headerKey, value);
                 }

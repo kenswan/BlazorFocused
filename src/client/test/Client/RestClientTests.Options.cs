@@ -14,7 +14,7 @@ public partial class RestClientTests
     [Fact]
     public void ShouldConfigureHttpClientWhenOptionsPresent()
     {
-        var address = "https://blazorfocused.net";
+        string address = "https://blazorfocused.net";
         var expectedBaseAddress = new Uri(address);
 
         var expectedRequestHeaders = new Dictionary<string, string[]>()

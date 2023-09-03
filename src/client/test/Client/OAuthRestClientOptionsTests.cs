@@ -22,8 +22,8 @@ public class OAuthRestClientOptionsTests
     [Fact]
     public void ShouldUseOAuthRestClientOptionsIfPresent()
     {
-        var restClientBaseAddress = new Faker().Internet.Url();
-        var oAuthRestClientBaseAddress = new Faker().Internet.Url();
+        string restClientBaseAddress = new Faker().Internet.Url();
+        string oAuthRestClientBaseAddress = new Faker().Internet.Url();
 
         var appSettings = new Dictionary<string, string>()
         {
@@ -39,10 +39,10 @@ public class OAuthRestClientOptionsTests
         IRestClient restClient = serviceProvider.GetRequiredService<IRestClient>();
         IOAuthRestClient oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
 
-        var actualRestClientAddress =
+        string actualRestClientAddress =
             (restClient as RestClient).GetClient().BaseAddress.OriginalString;
 
-        var actualOAuthAddress =
+        string actualOAuthAddress =
             (oAuthRestClient as OAuthRestClient).GetClient().BaseAddress.OriginalString;
 
         Assert.Equal(restClientBaseAddress, actualRestClientAddress);
@@ -52,7 +52,7 @@ public class OAuthRestClientOptionsTests
     [Fact]
     public void ShouldUseRestClientOptionsIfOAuthRestClientOptionsNotPresent()
     {
-        var restClientBaseAddress = new Faker().Internet.Url();
+        string restClientBaseAddress = new Faker().Internet.Url();
 
         var appSettings = new Dictionary<string, string>()
         {
@@ -67,10 +67,10 @@ public class OAuthRestClientOptionsTests
         IRestClient restClient = serviceProvider.GetRequiredService<IRestClient>();
         IOAuthRestClient oAuthRestClient = serviceProvider.GetRequiredService<IOAuthRestClient>();
 
-        var actualRestClientAddress =
+        string actualRestClientAddress =
             (restClient as RestClient).GetClient().BaseAddress.OriginalString;
 
-        var actualOAuthAddress =
+        string actualOAuthAddress =
             (oAuthRestClient as OAuthRestClient).GetClient().BaseAddress.OriginalString;
 
         Assert.Equal(restClientBaseAddress, actualRestClientAddress);

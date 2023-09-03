@@ -14,15 +14,15 @@ public partial class RestClientExtensionsTests
     [MemberData(nameof(HttpMethodsForResponse))]
     public async Task ShouldReturnResponseHeaders(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
         System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
         SimpleClass expectedResponse = RestClientTestExtensions.GenerateResponseObject();
-        var keyOne = "X-IPv6-Address";
-        var valueOneA = new Faker().Internet.Ipv6();
-        var valueOneB = new Faker().Internet.Ipv6();
-        var keyTwo = "X-IPv4-Address";
-        var valueTwo = new Faker().Internet.Ip();
+        string keyOne = "X-IPv6-Address";
+        string valueOneA = new Faker().Internet.Ipv6();
+        string valueOneB = new Faker().Internet.Ipv6();
+        string keyTwo = "X-IPv4-Address";
+        string valueTwo = new Faker().Internet.Ip();
 
         simulatedHttp.AddResponseHeader(keyOne, valueOneA);
         simulatedHttp.AddResponseHeader(keyOne, valueOneB);
@@ -34,8 +34,8 @@ public partial class RestClientExtensionsTests
         RestClientResponse<SimpleClass> actualClientResponse =
             await MakeTryRequest<SimpleClass>(httpMethod, url, request);
 
-        var firstKeyExists = actualClientResponse.Headers.TryGetValues(keyOne, out IEnumerable<string>? firstValueSet);
-        var secondKeyExists = actualClientResponse.Headers.TryGetValues(keyTwo, out IEnumerable<string>? secondValueSet);
+        bool firstKeyExists = actualClientResponse.Headers.TryGetValues(keyOne, out IEnumerable<string>? firstValueSet);
+        bool secondKeyExists = actualClientResponse.Headers.TryGetValues(keyTwo, out IEnumerable<string>? secondValueSet);
 
         Assert.True(firstKeyExists);
         Assert.True(secondKeyExists);
@@ -51,15 +51,15 @@ public partial class RestClientExtensionsTests
     [MemberData(nameof(HttpMethodsForTask))]
     public async Task ShouldReturnTaskHeaders(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
         System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
         SimpleClass expectedResponse = RestClientTestExtensions.GenerateResponseObject();
-        var keyOne = "X-IPv6-Address";
-        var valueOneA = new Faker().Internet.Ipv6();
-        var valueOneB = new Faker().Internet.Ipv6();
-        var keyTwo = "X-IPv4-Address";
-        var valueTwo = new Faker().Internet.Ip();
+        string keyOne = "X-IPv6-Address";
+        string valueOneA = new Faker().Internet.Ipv6();
+        string valueOneB = new Faker().Internet.Ipv6();
+        string keyTwo = "X-IPv4-Address";
+        string valueTwo = new Faker().Internet.Ip();
 
         simulatedHttp.AddResponseHeader(keyOne, valueOneA);
         simulatedHttp.AddResponseHeader(keyOne, valueOneB);

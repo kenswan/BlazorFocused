@@ -35,8 +35,9 @@ public interface IStore<TState> where TState : class
     /// Sends registered asynchronous action to the store to operate on current state
     /// </summary>
     /// <typeparam name="TActionAsync">Asynchronous action registered in store
-    /// See <see cref="IActionAsync{TState}"/></typeparam>
-    /// <returns>Awaitable task</returns>
+    /// See <see cref="IActionAsync{TState}"/>
+    /// </typeparam>
+    /// <returns>Task of operation</returns>
     ValueTask DispatchAsync<TActionAsync>()
         where TActionAsync : IActionAsync<TState>;
 
@@ -45,8 +46,8 @@ public interface IStore<TState> where TState : class
     /// </summary>
     /// <typeparam name="TActionAsync">Asynchronous action registered in store</typeparam>
     /// <typeparam name="TInput">Input object sent at time of execution</typeparam>
-    /// See <see cref="IActionAsync{TState,TInput}"/></typeparam>
-    /// <returns>Awaitable task</returns>
+    /// See <see cref="IActionAsync{TState,TInput}"/>
+    /// <returns>Task of operation</returns>
     ValueTask DispatchAsync<TActionAsync, TInput>(TInput input)
         where TActionAsync : IActionAsync<TState, TInput>;
 
@@ -59,7 +60,7 @@ public interface IStore<TState> where TState : class
     /// <summary>
     /// Retrieves reduced/transformed version of original store state
     /// </summary>
-    /// <typeparam name="TReducer">Reducer class peforming the reduction</typeparam>
+    /// <typeparam name="TReducer">Reducer class performing the reduction</typeparam>
     /// <typeparam name="TOutput">Reduced/transformed state</typeparam>
     /// <param name="action">Performed when initial or future reduced value
     /// of state is received</param>
@@ -87,7 +88,7 @@ public interface IStore<TState> where TState : class
     /// <summary>
     /// Subscribes to current and future values of store state
     /// </summary>
-    /// <param name="action">Peformed when initial state or updates are received</param>
+    /// <param name="action">Performed when initial state or updates are received</param>
     /// <remarks>
     /// When inside a Blazor component, this method will usually end with StateHasChanged()
     /// to update consumer components dependent upon that state

@@ -18,10 +18,7 @@ public class RestClientRequestHeadersTests
     }
 
     [Fact]
-    public void ShouldInitializeDefaultRequestHeaders()
-    {
-        Assert.False(requestHeaders.HasValues());
-    }
+    public void ShouldInitializeDefaultRequestHeaders() => Assert.False(requestHeaders.HasValues());
 
     [Fact]
     public void ShouldInitializeExistingRequestHeaders()
@@ -39,8 +36,8 @@ public class RestClientRequestHeadersTests
     [Fact]
     public void ShouldAddHeaders()
     {
-        var header = GenerateRandomString();
-        var value = GenerateRandomString();
+        string header = GenerateRandomString();
+        string value = GenerateRandomString();
 
         requestHeaders.AddHeader(header, value);
 
@@ -50,8 +47,8 @@ public class RestClientRequestHeadersTests
     [Fact]
     public void ShouldGetHeaderKeys()
     {
-        var header = GenerateRandomString();
-        var value = GenerateRandomString();
+        string header = GenerateRandomString();
+        string value = GenerateRandomString();
 
         var existingHeaders = new Dictionary<string, List<string>>
         {
@@ -69,8 +66,8 @@ public class RestClientRequestHeadersTests
     [Fact]
     public void ShouldGetHeaderValues()
     {
-        var header = GenerateRandomString();
-        var value = GenerateRandomString();
+        string header = GenerateRandomString();
+        string value = GenerateRandomString();
 
         var existingHeaders = new Dictionary<string, List<string>>
         {
@@ -79,7 +76,7 @@ public class RestClientRequestHeadersTests
 
         requestHeaders = new RestClientRequestHeaders(existingHeaders);
 
-        var actualValue = requestHeaders.GetHeaderValues(header).FirstOrDefault();
+        string actualValue = requestHeaders.GetHeaderValues(header).FirstOrDefault();
 
         Assert.Equal(value, actualValue);
     }
@@ -87,8 +84,8 @@ public class RestClientRequestHeadersTests
     [Fact]
     public void ShouldClearHeaders()
     {
-        var header = GenerateRandomString();
-        var value = GenerateRandomString();
+        string header = GenerateRandomString();
+        string value = GenerateRandomString();
 
         var existingHeaders = new Dictionary<string, List<string>>
         {
@@ -108,8 +105,5 @@ public class RestClientRequestHeadersTests
 
     }
 
-    private static string GenerateRandomString()
-    {
-        return new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
-    }
+    private static string GenerateRandomString() => new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
 }

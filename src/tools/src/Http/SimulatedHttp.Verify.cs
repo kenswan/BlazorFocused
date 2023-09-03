@@ -9,34 +9,19 @@ namespace BlazorFocused.Tools.Http;
 
 internal partial class SimulatedHttp
 {
-    public void VerifyDELETEWasCalled(string url = null)
-    {
-        VerifyWasCalled(HttpMethod.Delete, url);
-    }
+    public void VerifyDELETEWasCalled(string url = null) => VerifyWasCalled(HttpMethod.Delete, url);
 
-    public void VerifyGETWasCalled(string url = null)
-    {
-        VerifyWasCalled(HttpMethod.Get, url);
-    }
+    public void VerifyGETWasCalled(string url = null) => VerifyWasCalled(HttpMethod.Get, url);
 
-    public void VerifyPATCHWasCalled(string url = null, object content = null)
-    {
-        VerifyWasCalled(HttpMethod.Patch, url, content);
-    }
+    public void VerifyPATCHWasCalled(string url = null, object content = null) => VerifyWasCalled(HttpMethod.Patch, url, content);
 
-    public void VerifyPOSTWasCalled(string url = null, object content = null)
-    {
-        VerifyWasCalled(HttpMethod.Post, url, content);
-    }
+    public void VerifyPOSTWasCalled(string url = null, object content = null) => VerifyWasCalled(HttpMethod.Post, url, content);
 
-    public void VerifyPUTWasCalled(string url = null, object content = null)
-    {
-        VerifyWasCalled(HttpMethod.Put, url, content);
-    }
+    public void VerifyPUTWasCalled(string url = null, object content = null) => VerifyWasCalled(HttpMethod.Put, url, content);
 
     private void VerifyWasCalled(HttpMethod method = default, string url = default, object content = default)
     {
-        var requestString = content switch
+        string requestString = content switch
         {
             null => null,
             { } when content is HttpContent httpContent => httpContent.ReadAsStringAsync().GetAwaiter().GetResult(),
@@ -50,7 +35,7 @@ internal partial class SimulatedHttp
             RequestContent = requestString,
         };
 
-        var invalidCheck = simulatedRequest switch
+        string invalidCheck = simulatedRequest switch
         {
             { Method: null, Url: null, RequestContent: null } => CheckAny(),
             { Url: null, RequestContent: null } => CheckMethod(simulatedRequest),
@@ -68,7 +53,7 @@ internal partial class SimulatedHttp
     private string CheckFullRequest(SimulatedHttpRequest simulatedHttpRequest)
     {
         HttpMethod method = simulatedHttpRequest.Method;
-        var url = simulatedHttpRequest.Url;
+        string url = simulatedHttpRequest.Url;
 
         IEnumerable<SimulatedHttpRequest> matches = requests
                 .Where(request => request.Method == method && request.Url == GetFullUrl(url));
@@ -80,7 +65,7 @@ internal partial class SimulatedHttp
 
         foreach (SimulatedHttpRequest match in matches)
         {
-            var requestMatchesExpected = string.Equals(
+            bool requestMatchesExpected = string.Equals(
                 match.RequestContent,
                 simulatedHttpRequest.RequestContent,
                 StringComparison.InvariantCultureIgnoreCase);
@@ -97,7 +82,7 @@ internal partial class SimulatedHttp
     private string CheckMethodAndUrl(SimulatedHttpRequest simulatedHttpRequest)
     {
         HttpMethod method = simulatedHttpRequest.Method;
-        var url = simulatedHttpRequest.Url;
+        string url = simulatedHttpRequest.Url;
 
         SimulatedHttpRequest match = requests
                 .Where(request => request.Method == method && request.Url == GetFullUrl(url))
@@ -115,8 +100,5 @@ internal partial class SimulatedHttp
         return match is not null ? String.Empty : $"Method {method}";
     }
 
-    private string CheckAny()
-    {
-        return !requests.Any() ? "Generic (Any) Request" : string.Empty;
-    }
+    private string CheckAny() => !requests.Any() ? "Generic (Any) Request" : string.Empty;
 }

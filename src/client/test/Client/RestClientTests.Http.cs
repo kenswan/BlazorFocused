@@ -14,9 +14,9 @@ public partial class RestClientTests
     [Fact]
     public void ShouldUpdateHttpProperties()
     {
-        var url = new Faker().Internet.Url();
-        var headerKey = "X-PORT-NUMBER";
-        var headerValue = new Faker().Internet.Port().ToString();
+        string url = new Faker().Internet.Url();
+        string headerKey = "X-PORT-NUMBER";
+        string headerValue = new Faker().Internet.Port().ToString();
 
         restClient.UpdateHttpClient(client =>
         {
@@ -35,9 +35,9 @@ public partial class RestClientTests
     [Fact]
     public void ShouldAssignRequestHeadersGlobally()
     {
-        var url = new Faker().Internet.Url();
-        var headerKey = "X-PORT-NUMBER";
-        var headerValue = new Faker().Internet.Port().ToString();
+        string url = new Faker().Internet.Url();
+        string headerKey = "X-PORT-NUMBER";
+        string headerValue = new Faker().Internet.Port().ToString();
 
         restClient.AddHeader(headerKey, headerValue, true);
 
@@ -48,15 +48,15 @@ public partial class RestClientTests
     [Fact]
     public void ShouldAssignRequestHeadersLocally()
     {
-        var url = new Faker().Internet.Url();
-        var headerKey = "X-PORT-NUMBER";
-        var headerValue = new Faker().Internet.Port().ToString();
+        string url = new Faker().Internet.Url();
+        string headerKey = "X-PORT-NUMBER";
+        string headerValue = new Faker().Internet.Port().ToString();
 
         restClient.AddHeader(headerKey, headerValue, false);
 
         using HttpClient httpClient = (restClient as RestClient).GetClient();
 
-        var valueExists =
+        bool valueExists =
             httpClient.DefaultRequestHeaders.TryGetValues(headerKey, out IEnumerable<string> values);
 
         Assert.True(valueExists);

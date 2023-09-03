@@ -16,15 +16,12 @@ public partial class RestClientExtensions
     /// <see cref="IRestClientUrlBuilder"/> used to construct relative or absolute url for request
     /// </param>
     /// <param name="data">Http request object body</param>
-    /// <returns>Http response body of type <see cref="{T}"/></returns>
+    /// <returns>Http response body of type <typeparamref name="T"/></returns>
     /// <remarks>
     /// Rules/Details on <see cref="IRestClient.PatchAsync{T}(string, object)"/> apply
     /// </remarks>
     public static Task<T> PatchAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
-    {
-        return restClient.PatchAsync<T>(GetUrlString(urlBuilder), data);
-    }
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) => restClient.PatchAsync<T>(GetUrlString(urlBuilder), data);
 
     /// <summary>
     /// Performs PATCH http request
@@ -39,10 +36,7 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="IRestClient.PatchTaskAsync(string, object)"/> apply
     /// </remarks>
     public static async Task PatchTaskAsync(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
-    {
-        await restClient.PatchTaskAsync(GetUrlString(urlBuilder), data);
-    }
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) => await restClient.PatchTaskAsync(GetUrlString(urlBuilder), data);
 
     /// <summary>
     /// Performs PATCH http request
@@ -61,10 +55,7 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryPatchAsync{T}(IRestClient, string, object)"/> apply
     /// </remarks>
     public static Task<RestClientResponse<T>> TryPatchAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
-    {
-        return restClient.SendAsync<T>(HttpMethod.Patch, GetUrlString(urlBuilder), data);
-    }
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) => restClient.SendAsync<T>(HttpMethod.Patch, GetUrlString(urlBuilder), data);
 
     /// <summary>
     /// Performs PATCH http request
@@ -81,8 +72,5 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryPatchTaskAsync(IRestClient, string, object)"/> apply
     /// </remarks>
     public static Task<RestClientTask> TryPatchTaskAsync(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
-    {
-        return restClient.SendAsync(HttpMethod.Patch, GetUrlString(urlBuilder), data);
-    }
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) => restClient.SendAsync(HttpMethod.Patch, GetUrlString(urlBuilder), data);
 }

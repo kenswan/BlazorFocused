@@ -13,8 +13,8 @@ public class ToDoCountReducer : IReducer<ToDoStore, ToDoCount>
 {
     public ToDoCount Execute(ToDoStore input)
     {
-        var complete = input.Complete.Count;
-        var incomplete = input.InComplete.Count;
+        int complete = input.Complete.Count;
+        int incomplete = input.InComplete.Count;
 
         return new ToDoCount
         {

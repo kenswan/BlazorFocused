@@ -35,9 +35,9 @@ public class OAuthRestClientTests
     [Fact]
     public void ShouldAddAuthorization()
     {
-        var scheme = "Bearer";
-        var token = GetRandomToken();
-        var expectedAuthorization = $"{scheme} {token}";
+        string scheme = "Bearer";
+        string token = GetRandomToken();
+        string expectedAuthorization = $"{scheme} {token}";
 
         oAuthRestClient.AddAuthorization(scheme, token);
 
@@ -48,10 +48,10 @@ public class OAuthRestClientTests
     [Fact]
     public void ShouldClearAuthorization()
     {
-        var scheme = "Bearer";
-        var token = GetRandomToken();
-        var addedAuthorization = $"{scheme} {token}";
-        var clearedAuthorization = string.Empty;
+        string scheme = "Bearer";
+        string token = GetRandomToken();
+        string addedAuthorization = $"{scheme} {token}";
+        string clearedAuthorization = string.Empty;
 
         oAuthRestClient.AddAuthorization(scheme, token);
 
@@ -67,8 +67,8 @@ public class OAuthRestClientTests
     [Fact]
     public void ShouldDetectAuthorization()
     {
-        var scheme = "Bearer";
-        var token = GetRandomToken();
+        string scheme = "Bearer";
+        string token = GetRandomToken();
 
         oAuthRestClient.AddAuthorization(scheme, token);
 
@@ -82,17 +82,14 @@ public class OAuthRestClientTests
     [Fact]
     public void ShouldReturnAuthorization()
     {
-        var scheme = "Bearer";
-        var token = GetRandomToken();
-        var expectedAuthorization = $"{scheme} {token}";
+        string scheme = "Bearer";
+        string token = GetRandomToken();
+        string expectedAuthorization = $"{scheme} {token}";
 
         oAuthRestClient.AddAuthorization(scheme, token);
 
         Assert.Equal(expectedAuthorization, oAuthRestClient.RetrieveAuthorization());
     }
 
-    private static string GetRandomToken()
-    {
-        return new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
-    }
+    private static string GetRandomToken() => new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
 }

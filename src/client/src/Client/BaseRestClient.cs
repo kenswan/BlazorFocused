@@ -63,7 +63,7 @@ internal abstract class BaseRestClient : IBaseRestClient
 
         HttpResponseMessage httpResponseMessage = await SendAsync(httpRequestMessage);
         HttpStatusCode httpStatusCode = httpResponseMessage.StatusCode;
-        var contentString = await httpResponseMessage.Content?.ReadAsStringAsync();
+        string contentString = await httpResponseMessage.Content?.ReadAsStringAsync();
         RestClientHttpException exception = default;
 
         if (!httpResponseMessage.IsSuccessStatusCode)
@@ -101,7 +101,7 @@ internal abstract class BaseRestClient : IBaseRestClient
     {
         HttpMethod httpMethod = httpRequestMessage.Method;
 
-        var url = httpRequestMessage.RequestUri.IsAbsoluteUri ?
+        string url = httpRequestMessage.RequestUri.IsAbsoluteUri ?
             httpRequestMessage.RequestUri.PathAndQuery :
             throw new RestClientException($"Unable to send Http Request because {nameof(httpRequestMessage)} is not an absolute Uri");
 

@@ -16,7 +16,7 @@ public partial class RestClientTests
     [MemberData(nameof(HttpMethodsForResponse))]
     public async Task ShouldPerformHttpRequest(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
         System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
         IEnumerable<SimpleClass> expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
@@ -43,11 +43,11 @@ public partial class RestClientTests
     [MemberData(nameof(HttpMethodsForResponse))]
     public async Task ShouldThrowForNonSuccessStatusCodes(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
         System.Net.HttpStatusCode errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
         SimpleClass invalidResponse = RestClientTestExtensions.GenerateResponseObject();
-        var invalidResponseString = JsonSerializer.Serialize(invalidResponse);
+        string invalidResponseString = JsonSerializer.Serialize(invalidResponse);
 
         simulatedHttp.GetHttpSetup(httpMethod, url, request)
             .ReturnsAsync(errorStatusCode, invalidResponse);
@@ -67,7 +67,7 @@ public partial class RestClientTests
     [MemberData(nameof(HttpMethodsForResponse))]
     public async Task ShouldReturnEmptyForErrorResponseContentIfNotAvailable(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
         System.Net.HttpStatusCode errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
         SimpleClass invalidResponse = RestClientTestExtensions.GenerateResponseObject();
@@ -86,18 +86,15 @@ public partial class RestClientTests
                 exception.Content == string.Empty);
     }
 
-    private Task<T> MakeRequest<T>(HttpMethod httpMethod, string url, object request)
+    private Task<T> MakeRequest<T>(HttpMethod httpMethod, string url, object request) => httpMethod switch
     {
-        return httpMethod switch
-        {
-            HttpMethod method when method == HttpMethod.Delete => restClient.DeleteAsync<T>(url),
-            HttpMethod method when method == HttpMethod.Get => restClient.GetAsync<T>(url),
-            HttpMethod method when method == HttpMethod.Patch => restClient.PatchAsync<T>(url, request),
-            HttpMethod method when method == HttpMethod.Post => restClient.PostAsync<T>(url, request),
-            HttpMethod method when method == HttpMethod.Put => restClient.PutAsync<T>(url, request),
-            _ => throw new ArgumentException($"{httpMethod} not supported"),
-        };
-    }
+        HttpMethod method when method == HttpMethod.Delete => restClient.DeleteAsync<T>(url),
+        HttpMethod method when method == HttpMethod.Get => restClient.GetAsync<T>(url),
+        HttpMethod method when method == HttpMethod.Patch => restClient.PatchAsync<T>(url, request),
+        HttpMethod method when method == HttpMethod.Post => restClient.PostAsync<T>(url, request),
+        HttpMethod method when method == HttpMethod.Put => restClient.PutAsync<T>(url, request),
+        _ => throw new ArgumentException($"{httpMethod} not supported"),
+    };
 
     public static TheoryData<HttpMethod> HttpMethodsForResponse =>
         new()

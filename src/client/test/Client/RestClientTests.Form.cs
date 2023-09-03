@@ -20,7 +20,7 @@ public partial class RestClientTests
             return;
         }
 
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
         IEnumerable<SimpleClass> expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
 
@@ -53,7 +53,7 @@ public partial class RestClientTests
             return;
         }
 
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
         IEnumerable<SimpleClass> expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
 

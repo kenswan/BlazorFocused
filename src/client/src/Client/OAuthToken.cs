@@ -28,13 +28,7 @@ internal class OAuthToken : IOAuthToken
         Token = token;
     }
 
-    public bool IsEmpty()
-    {
-        return string.IsNullOrWhiteSpace(Scheme) || string.IsNullOrEmpty(Token);
-    }
+    public bool IsEmpty() => string.IsNullOrWhiteSpace(Scheme) || string.IsNullOrEmpty(Token);
 
-    public override string ToString()
-    {
-        return IsEmpty() ? "" : $"{Scheme} {Token}";
-    }
+    public override string ToString() => IsEmpty() ? "" : $"{Scheme} {Token}";
 }

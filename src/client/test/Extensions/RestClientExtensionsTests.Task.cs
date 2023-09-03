@@ -17,7 +17,7 @@ public partial class RestClientExtensionsTests
     [MemberData(nameof(HttpMethodsForTask))]
     public async Task ShouldTryHttpRequestTask(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
         HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
         IEnumerable<SimpleClass> expectedResponse = RestClientTestExtensions.GenerateResponseObjects();
@@ -45,7 +45,7 @@ public partial class RestClientExtensionsTests
     [MemberData(nameof(HttpMethodsForTask))]
     public async Task ShouldReturnInvalidTaskForNonSuccessStatusCodes(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
         HttpStatusCode errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
         SimpleClass invalidResponse = RestClientTestExtensions.GenerateResponseObject();
@@ -69,7 +69,7 @@ public partial class RestClientExtensionsTests
     [MemberData(nameof(HttpMethodsForTask))]
     public async Task ShouldPerformTryHttpRequestTaskWithMock(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
 
         IEnumerable<SimpleClass> request = (httpMethod != HttpMethod.Delete) ?
             RestClientTestExtensions.GenerateResponseObjects() : null;
@@ -104,27 +104,21 @@ public partial class RestClientExtensionsTests
         }
     }
 
-    private Task<RestClientTask> MakeTryTaskRequest(HttpMethod httpMethod, string url, object request)
+    private Task<RestClientTask> MakeTryTaskRequest(HttpMethod httpMethod, string url, object request) => httpMethod switch
     {
-        return httpMethod switch
-        {
-            HttpMethod method when method == HttpMethod.Delete => restClient.TryDeleteTaskAsync(url),
-            HttpMethod method when method == HttpMethod.Patch => restClient.TryPatchTaskAsync(url, request),
-            HttpMethod method when method == HttpMethod.Post => restClient.TryPostTaskAsync(url, request),
-            HttpMethod method when method == HttpMethod.Put => restClient.TryPutTaskAsync(url, request),
-            _ => throw new Exception($"{httpMethod} not supported"),
-        };
-    }
+        HttpMethod method when method == HttpMethod.Delete => restClient.TryDeleteTaskAsync(url),
+        HttpMethod method when method == HttpMethod.Patch => restClient.TryPatchTaskAsync(url, request),
+        HttpMethod method when method == HttpMethod.Post => restClient.TryPostTaskAsync(url, request),
+        HttpMethod method when method == HttpMethod.Put => restClient.TryPutTaskAsync(url, request),
+        _ => throw new Exception($"{httpMethod} not supported"),
+    };
 
-    private static Task<RestClientTask> MakeTryRequestTaskWithMock(IRestClient restClient, HttpMethod httpMethod, string url, object request)
+    private static Task<RestClientTask> MakeTryRequestTaskWithMock(IRestClient restClient, HttpMethod httpMethod, string url, object request) => httpMethod switch
     {
-        return httpMethod switch
-        {
-            HttpMethod method when method == HttpMethod.Delete => restClient.TryDeleteTaskAsync(url),
-            HttpMethod method when method == HttpMethod.Patch => restClient.TryPatchTaskAsync(url, request),
-            HttpMethod method when method == HttpMethod.Post => restClient.TryPostTaskAsync(url, request),
-            HttpMethod method when method == HttpMethod.Put => restClient.TryPutTaskAsync(url, request),
-            _ => throw new ArgumentException($"{httpMethod} not supported"),
-        };
-    }
+        HttpMethod method when method == HttpMethod.Delete => restClient.TryDeleteTaskAsync(url),
+        HttpMethod method when method == HttpMethod.Patch => restClient.TryPatchTaskAsync(url, request),
+        HttpMethod method when method == HttpMethod.Post => restClient.TryPostTaskAsync(url, request),
+        HttpMethod method when method == HttpMethod.Put => restClient.TryPutTaskAsync(url, request),
+        _ => throw new ArgumentException($"{httpMethod} not supported"),
+    };
 }

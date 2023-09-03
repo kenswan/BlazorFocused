@@ -16,7 +16,7 @@ public partial class SimulatedHttpTests
     [Fact]
     public void ShouldSetBaseUri()
     {
-        var actualBaseAddress = simulatedHttp.HttpClient.BaseAddress.OriginalString;
+        string actualBaseAddress = simulatedHttp.HttpClient.BaseAddress.OriginalString;
 
         Assert.Equal(baseAddress, actualBaseAddress);
     }
@@ -38,7 +38,7 @@ public partial class SimulatedHttpTests
         HttpResponseMessage actualResponse =
             await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
 
-        var actualResponseString = await actualResponse.Content.ReadAsStringAsync();
+        string actualResponseString = await actualResponse.Content.ReadAsStringAsync();
         SimpleClass actualResponseObject = JsonSerializer.Deserialize<SimpleClass>(actualResponseString);
 
         Assert.Equal(httpStatusCode, actualResponse.StatusCode);
@@ -64,7 +64,7 @@ public partial class SimulatedHttpTests
         HttpResponseMessage actualResponse =
             await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
 
-        var actualResponseString = await actualResponse.Content.ReadAsStringAsync();
+        string actualResponseString = await actualResponse.Content.ReadAsStringAsync();
 
         Assert.Equal(httpStatusCode, actualResponse.StatusCode);
         Assert.Equal(string.Empty, actualResponseString);

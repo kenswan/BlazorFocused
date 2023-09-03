@@ -20,7 +20,7 @@ public class RestClientBuilderTests
     [Fact]
     public void ShouldSetPath()
     {
-        var relativeUrl = RestClientTestExtensions.GenerateRelativeUrl();
+        string relativeUrl = RestClientTestExtensions.GenerateRelativeUrl();
 
         restClientUrlBuilder.SetPath(relativeUrl);
 
@@ -30,10 +30,10 @@ public class RestClientBuilderTests
     [Fact]
     public void ShouldAddRequestParameters()
     {
-        var parameter = RestClientTestExtensions.GenerateParameter();
-        var parameterValue = RestClientTestExtensions.GenerateParameter();
+        string parameter = RestClientTestExtensions.GenerateParameter();
+        string parameterValue = RestClientTestExtensions.GenerateParameter();
 
-        var expectedUrl = $"?{parameter}={parameterValue}";
+        string expectedUrl = $"?{parameter}={parameterValue}";
 
         restClientUrlBuilder.WithParameter(parameter, parameterValue);
 
@@ -43,14 +43,14 @@ public class RestClientBuilderTests
     [Fact]
     public void ShouldAddRequestVariables()
     {
-        var requestParamCount = new Faker().Random.Int(2, 5);
+        int requestParamCount = new Faker().Random.Int(2, 5);
         Dictionary<string, string> requestParameters = RestClientTestExtensions.GenerateRequestParameters(requestParamCount);
         Tools.Model.SimpleClass response = RestClientTestExtensions.GenerateResponseObject();
 
-        var expectedUrl = $"?" +
+        string expectedUrl = $"?" +
             string.Join("&", requestParameters.Select(kvp => $"{kvp.Key}={kvp.Value}"));
 
-        foreach (var paramKey in requestParameters.Keys)
+        foreach (string paramKey in requestParameters.Keys)
         {
             restClientUrlBuilder.WithParameter(paramKey, requestParameters[paramKey]);
         }
@@ -61,16 +61,16 @@ public class RestClientBuilderTests
     [Fact]
     public void ShouldCombinePathAndVariables()
     {
-        var relativeUrl = RestClientTestExtensions.GenerateRelativeUrl();
-        var requestParamCount = new Faker().Random.Int(2, 5);
+        string relativeUrl = RestClientTestExtensions.GenerateRelativeUrl();
+        int requestParamCount = new Faker().Random.Int(2, 5);
         Dictionary<string, string> requestParameters = RestClientTestExtensions.GenerateRequestParameters(requestParamCount);
 
-        var expectedUrl = $"{relativeUrl}?" +
+        string expectedUrl = $"{relativeUrl}?" +
             string.Join("&", requestParameters.Select(kvp => $"{kvp.Key}={kvp.Value}"));
 
         restClientUrlBuilder.SetPath(relativeUrl);
 
-        foreach (var paramKey in requestParameters.Keys)
+        foreach (string paramKey in requestParameters.Keys)
         {
             restClientUrlBuilder.WithParameter(paramKey, requestParameters[paramKey]);
         }

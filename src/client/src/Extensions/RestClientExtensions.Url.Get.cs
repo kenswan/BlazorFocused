@@ -15,15 +15,12 @@ public partial class RestClientExtensions
     /// <param name="urlBuilder">
     /// <see cref="IRestClientUrlBuilder"/> used to construct relative or absolute url for request
     /// </param>
-    /// <returns>Http response body of type <see cref="{T}"/></returns>
+    /// <returns>Http response body of type <typeparamref name="T"/></returns>
     /// <remarks>
     /// Rules/Details on <see cref="IRestClient.GetAsync{T}(string)"/> apply
     /// </remarks>
     public static Task<T> GetAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder)
-    {
-        return restClient.GetAsync<T>(GetUrlString(urlBuilder));
-    }
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder) => restClient.GetAsync<T>(GetUrlString(urlBuilder));
 
     /// <summary>
     /// Performs GET http request
@@ -41,8 +38,5 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryGetAsync{T}(IRestClient, string)"/> apply
     /// </remarks>
     public static Task<RestClientResponse<T>> TryGetAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder)
-    {
-        return restClient.SendAsync<T>(HttpMethod.Get, GetUrlString(urlBuilder));
-    }
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder) => restClient.SendAsync<T>(HttpMethod.Get, GetUrlString(urlBuilder));
 }

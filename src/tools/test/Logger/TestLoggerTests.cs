@@ -68,7 +68,7 @@ public class TestLoggerTests
     [Fact]
     public void ShouldPassIfLogCalledWithMessage()
     {
-        var message = "This is a test message for an error";
+        string message = "This is a test message for an error";
 
         testServiceWithLogger.LogErrorWithMessage(message);
 
@@ -78,8 +78,8 @@ public class TestLoggerTests
     [Fact]
     public void ShouldFailIfLogNotCalledWithMessage()
     {
-        var expectedMessage = "This is the expected message for the error";
-        var actualMessage = "This is the actual message for the error";
+        string expectedMessage = "This is the expected message for the error";
+        string actualMessage = "This is the actual message for the error";
 
         testServiceWithLogger.LogErrorWithMessage(actualMessage);
 
@@ -90,8 +90,8 @@ public class TestLoggerTests
     [Fact]
     public void ShouldPassIfLogCalledWithException()
     {
-        var exceptionMessage = "This is a test exception message for an error";
-        var clientMessage = "This is a test client message for an error";
+        string exceptionMessage = "This is a test exception message for an error";
+        string clientMessage = "This is a test client message for an error";
         var exception = new TestServiceLoggerException(exceptionMessage);
 
         testServiceWithLogger.LogErrorWithException(exceptionMessage, clientMessage);
@@ -102,8 +102,8 @@ public class TestLoggerTests
     [Fact]
     public void ShouldFailIfLogNotCalledWithException()
     {
-        var exceptionMessage = "This is a test exception message for an error";
-        var clientMessage = "This is a test client message for an error";
+        string exceptionMessage = "This is a test exception message for an error";
+        string clientMessage = "This is a test client message for an error";
         var exception = new InvalidOperationException(exceptionMessage);
 
         testServiceWithLogger.LogErrorWithException(exceptionMessage, clientMessage);
@@ -115,8 +115,8 @@ public class TestLoggerTests
     [Fact]
     public void ShouldPassIfLogCalledWithExceptionType()
     {
-        var exceptionMessage = "This is a test exception message for an error";
-        var clientMessage = "This is a test client message for an error";
+        string exceptionMessage = "This is a test exception message for an error";
+        string clientMessage = "This is a test client message for an error";
 
         testServiceWithLogger.LogErrorWithException(exceptionMessage, clientMessage);
 
@@ -126,8 +126,8 @@ public class TestLoggerTests
     [Fact]
     public void ShouldFailIfLogNotCalledWithExceptionType()
     {
-        var exceptionMessage = "This is a test exception message for an error";
-        var clientMessage = "This is a test client message for an error";
+        string exceptionMessage = "This is a test exception message for an error";
+        string clientMessage = "This is a test client message for an error";
 
         testServiceWithLogger.LogErrorWithException(exceptionMessage, clientMessage);
 
@@ -138,9 +138,9 @@ public class TestLoggerTests
     [Fact]
     public void ShouldTrackOutput()
     {
-        var exceptionMessage = "This is a test exception message for an error";
-        var clientMessage = "This is a test client message for an error";
-        var outputCount = 0;
+        string exceptionMessage = "This is a test exception message for an error";
+        string clientMessage = "This is a test client message for an error";
+        int outputCount = 0;
         var outputMockLogger = new TestLogger<TestServiceWithLogger>((logLevel, message, exception) =>
         {
             testOutputHelper.WriteLine($"{logLevel} : {message} : {exception}");

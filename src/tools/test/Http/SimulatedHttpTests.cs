@@ -63,23 +63,18 @@ public partial class SimulatedHttpTests
             }
         };
 
-    private ISimulatedHttpSetup GetHttpSetup(HttpMethod httpMethod, string url, object request)
+    private ISimulatedHttpSetup GetHttpSetup(HttpMethod httpMethod, string url, object request) => httpMethod switch
     {
-        return httpMethod switch
-        {
-            { } when httpMethod == HttpMethod.Delete => simulatedHttp.SetupDELETE(url),
-            { } when httpMethod == HttpMethod.Get => simulatedHttp.SetupGET(url),
-            { } when httpMethod == HttpMethod.Patch => simulatedHttp.SetupPATCH(url, request),
-            { } when httpMethod == HttpMethod.Post => simulatedHttp.SetupPOST(url, request),
-            { } when httpMethod == HttpMethod.Put => simulatedHttp.SetupPUT(url, request),
-            _ => null
-        };
-    }
+        { } when httpMethod == HttpMethod.Delete => simulatedHttp.SetupDELETE(url),
+        { } when httpMethod == HttpMethod.Get => simulatedHttp.SetupGET(url),
+        { } when httpMethod == HttpMethod.Patch => simulatedHttp.SetupPATCH(url, request),
+        { } when httpMethod == HttpMethod.Post => simulatedHttp.SetupPOST(url, request),
+        { } when httpMethod == HttpMethod.Put => simulatedHttp.SetupPUT(url, request),
+        _ => null
+    };
 
     private static Task<HttpResponseMessage> MakeRequest(
-        HttpClient client, HttpMethod httpMethod, string url, object request)
-    {
-        return httpMethod switch
+        HttpClient client, HttpMethod httpMethod, string url, object request) => httpMethod switch
         {
             HttpMethod method when method == HttpMethod.Delete => client.DeleteAsync(url),
             HttpMethod method when method == HttpMethod.Get => client.GetAsync(url),
@@ -95,11 +90,10 @@ public partial class SimulatedHttpTests
 
             _ => throw new SimulatedHttpTestException($"{httpMethod} not supported"),
         };
-    }
 
     private static HttpContent GetHttpContent(object content)
     {
-        var contentString = JsonSerializer.Serialize(content);
+        string contentString = JsonSerializer.Serialize(content);
 
         return content is not null ?
             new StringContent(contentString, Encoding.UTF8, "application/json") : default;
@@ -120,30 +114,15 @@ public partial class SimulatedHttpTests
         return new Faker().PickRandom(methods);
     }
 
-    private static HttpStatusCode GetRandomStatusCode()
-    {
-        return new Faker().PickRandom<HttpStatusCode>();
-    }
+    private static HttpStatusCode GetRandomStatusCode() => new Faker().PickRandom<HttpStatusCode>();
 
-    private static string GetRandomUrl()
-    {
-        return new Faker().Internet.Url();
-    }
+    private static string GetRandomUrl() => new Faker().Internet.Url();
 
-    private static string GetRandomRelativeUrl()
-    {
-        return new Faker().Internet.UrlRootedPath();
-    }
+    private static string GetRandomRelativeUrl() => new Faker().Internet.UrlRootedPath();
 
-    private static SimpleClass GetRandomSimpleClass()
-    {
-        return new Faker<SimpleClass>()
+    private static SimpleClass GetRandomSimpleClass() => new Faker<SimpleClass>()
             .RuleForType(typeof(string), fake => fake.Lorem.Sentence(GetRandomNumber()))
             .Generate();
-    }
 
-    private static int GetRandomNumber()
-    {
-        return new Faker().Random.Int(4, 10);
-    }
+    private static int GetRandomNumber() => new Faker().Random.Int(4, 10);
 }

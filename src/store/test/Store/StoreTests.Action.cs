@@ -35,7 +35,7 @@ public partial class StoreTests
     [Fact(DisplayName = "Should execute action with input by instance")]
     public void ShouldExecuteActionWithInputByInstance()
     {
-        var input = new Faker().Random.String2(10);
+        string input = new Faker().Random.String2(10);
         SimpleClass originalClass = default;
         SimpleClass expectedClass = SimpleClassUtilities.GetStaticSimpleClass(input);
 
@@ -74,7 +74,7 @@ public partial class StoreTests
     [Fact(DisplayName = "Should execute action with input by type")]
     public void ShouldExecuteActionWithInputByType()
     {
-        var input = new Faker().Random.String2(10);
+        string input = new Faker().Random.String2(10);
         SimpleClass originalClass = default;
         SimpleClass expectedClass = SimpleClassUtilities.GetStaticSimpleClass(input);
 

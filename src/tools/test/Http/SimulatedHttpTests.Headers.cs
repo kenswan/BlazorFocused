@@ -16,10 +16,10 @@ public partial class SimulatedHttpTests
     public async Task ShouldTrackRequestHeaders()
     {
         HttpMethod httpMethod = HttpMethod.Get;
-        var url = GetRandomRelativeUrl();
+        string url = GetRandomRelativeUrl();
         Model.SimpleClass response = GetRandomSimpleClass();
-        var key = new Faker().Random.AlphaNumeric(5);
-        var expectedValue = new Faker().Random.AlphaNumeric(10);
+        string key = new Faker().Random.AlphaNumeric(5);
+        string expectedValue = new Faker().Random.AlphaNumeric(10);
 
         GetHttpSetup(httpMethod, url, null)
             .ReturnsAsync(HttpStatusCode.OK, response);
@@ -33,7 +33,7 @@ public partial class SimulatedHttpTests
         _ = await testService.MakeRequestAsync(httpMethod, url);
 
         // Under Test
-        var actualValue = simulatedHttp.GetRequestHeaderValues(httpMethod, url, key).FirstOrDefault();
+        string actualValue = simulatedHttp.GetRequestHeaderValues(httpMethod, url, key).FirstOrDefault();
 
         Assert.Equal(expectedValue, actualValue);
     }
@@ -42,10 +42,10 @@ public partial class SimulatedHttpTests
     public async Task ShouldTrackDefaultHeaders()
     {
         HttpMethod httpMethod = HttpMethod.Get;
-        var url = GetRandomRelativeUrl();
+        string url = GetRandomRelativeUrl();
         Model.SimpleClass response = GetRandomSimpleClass();
-        var key = new Faker().Random.AlphaNumeric(5);
-        var expectedValue = new Faker().Random.AlphaNumeric(10);
+        string key = new Faker().Random.AlphaNumeric(5);
+        string expectedValue = new Faker().Random.AlphaNumeric(10);
 
         GetHttpSetup(httpMethod, url, null)
             .ReturnsAsync(HttpStatusCode.OK, response);
@@ -59,7 +59,7 @@ public partial class SimulatedHttpTests
         _ = await testService.MakeRequestAsync(httpMethod, url);
 
         // Under Test
-        var actualValue = simulatedHttp.GetRequestHeaderValues(httpMethod, url, key).FirstOrDefault();
+        string actualValue = simulatedHttp.GetRequestHeaderValues(httpMethod, url, key).FirstOrDefault();
 
         Assert.Equal(expectedValue, actualValue);
     }
@@ -68,9 +68,9 @@ public partial class SimulatedHttpTests
     public async Task ShouldSetResponseHeaders()
     {
         HttpMethod httpMethod = HttpMethod.Get;
-        var url = GetRandomRelativeUrl();
-        var key = new Faker().Random.AlphaNumeric(5);
-        var expectedValue = new Faker().Random.AlphaNumeric(10);
+        string url = GetRandomRelativeUrl();
+        string key = new Faker().Random.AlphaNumeric(5);
+        string expectedValue = new Faker().Random.AlphaNumeric(10);
 
         GetHttpSetup(httpMethod, url, null)
             .ReturnsAsync(HttpStatusCode.OK, GetRandomSimpleClass());
@@ -84,7 +84,7 @@ public partial class SimulatedHttpTests
 
         HttpResponseMessage responseMesssage = await testService.MakeRequestAsync(httpMethod, url);
 
-        var responseHeaderExists =
+        bool responseHeaderExists =
             responseMesssage.Headers.TryGetValues(key, out IEnumerable<string>? values);
 
         Assert.True(responseHeaderExists);
@@ -96,10 +96,10 @@ public partial class SimulatedHttpTests
     public async Task ShouldSetMultipleResponseHeadersWithSameKey()
     {
         HttpMethod httpMethod = HttpMethod.Get;
-        var url = GetRandomRelativeUrl();
-        var key = new Faker().Random.AlphaNumeric(5);
-        var expectedValueOne = new Faker().Random.AlphaNumeric(10);
-        var expectedValueTwo = new Faker().Random.AlphaNumeric(10);
+        string url = GetRandomRelativeUrl();
+        string key = new Faker().Random.AlphaNumeric(5);
+        string expectedValueOne = new Faker().Random.AlphaNumeric(10);
+        string expectedValueTwo = new Faker().Random.AlphaNumeric(10);
 
         GetHttpSetup(httpMethod, url, null)
             .ReturnsAsync(HttpStatusCode.OK, GetRandomSimpleClass());
@@ -114,7 +114,7 @@ public partial class SimulatedHttpTests
 
         HttpResponseMessage responseMesssage = await testService.MakeRequestAsync(httpMethod, url);
 
-        var responseHeaderExists =
+        bool responseHeaderExists =
             responseMesssage.Headers.TryGetValues(key, out IEnumerable<string>? values);
 
         Assert.True(responseHeaderExists);

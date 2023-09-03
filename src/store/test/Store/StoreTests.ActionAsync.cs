@@ -43,7 +43,7 @@ public partial class StoreTests
     [Fact(DisplayName = "Should execute async action with input by instance")]
     public async Task ShouldRetrieveValueAsyncWithInputByInstance()
     {
-        var input = new Faker().Random.String();
+        string input = new Faker().Random.String();
         SimpleClass originalClass = SimpleClassUtilities.GetRandomSimpleClass();
         SimpleClass updatedClass = SimpleClassUtilities.GetRandomSimpleClass();
         var testServiceMock = new Mock<TestService>();

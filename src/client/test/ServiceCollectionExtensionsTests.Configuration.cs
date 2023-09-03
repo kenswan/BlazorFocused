@@ -19,7 +19,7 @@ public partial class ServiceCollectionExtensionsTests
     [Fact]
     public void ShouldUseRestClientConfiguration()
     {
-        var baseAddress = new Faker().Internet.Url();
+        string baseAddress = new Faker().Internet.Url();
 
         var expectedRequestHeaders = new Dictionary<string, string[]>()
         {
@@ -56,7 +56,7 @@ public partial class ServiceCollectionExtensionsTests
     [Fact]
     public void ShouldUseRestClientConfigurationIfOAuthNotPresent()
     {
-        var baseAddress = new Faker().Internet.Url();
+        string baseAddress = new Faker().Internet.Url();
 
         var expectedRequestHeaders = new Dictionary<string, string[]>()
         {

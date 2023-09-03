@@ -16,15 +16,12 @@ public partial class RestClientExtensions
     /// <see cref="IRestClientUrlBuilder"/> used to construct relative or absolute url for request
     /// </param>
     /// <param name="data">Http request object body</param>
-    /// <returns>Http response body of type <see cref="{T}"/></returns>
+    /// <returns>Http response body of type <typeparamref name="T"/></returns>
     /// <remarks>
     /// Rules/Details on <see cref="IRestClient.PutAsync{T}(string, object)"/> apply
     /// </remarks>
     public static Task<T> PutAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
-    {
-        return restClient.PutAsync<T>(GetUrlString(urlBuilder), data);
-    }
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) => restClient.PutAsync<T>(GetUrlString(urlBuilder), data);
 
     /// <summary>
     /// Performs PUT http request
@@ -39,10 +36,7 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="IRestClient.PutAsync{T}(string, object)"/> apply
     /// </remarks>
     public static Task PutTaskAsync(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
-    {
-        return restClient.PutTaskAsync(GetUrlString(urlBuilder), data);
-    }
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) => restClient.PutTaskAsync(GetUrlString(urlBuilder), data);
 
     /// <summary>
     /// Performs PUT http request
@@ -61,10 +55,7 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryPutAsync{T}(IRestClient, string, object)"/> apply
     /// </remarks>
     public static Task<RestClientResponse<T>> TryPutAsync<T>(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
-    {
-        return restClient.SendAsync<T>(HttpMethod.Put, GetUrlString(urlBuilder), data);
-    }
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) => restClient.SendAsync<T>(HttpMethod.Put, GetUrlString(urlBuilder), data);
 
     /// <summary>
     /// Performs PUT http request
@@ -81,8 +72,5 @@ public partial class RestClientExtensions
     /// Rules/Details on <see cref="TryPutTaskAsync(IRestClient, string, object)"/> apply
     /// </remarks>
     public static Task<RestClientTask> TryPutTaskAsync(
-        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data)
-    {
-        return restClient.SendAsync(HttpMethod.Put, GetUrlString(urlBuilder), data);
-    }
+        this IRestClient restClient, Action<IRestClientUrlBuilder> urlBuilder, object data) => restClient.SendAsync(HttpMethod.Put, GetUrlString(urlBuilder), data);
 }

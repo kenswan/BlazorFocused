@@ -19,10 +19,10 @@ public partial class ServiceCollectionExtensionsTests
     [Fact]
     public async Task ShouldAdddAuthTokenInstantlyAfterReceiving()
     {
-        var token = new Faker().Internet.Password(20);
-        var expectedAuthorization = $"Bearer {token}";
-        var baseAddress = new Faker().Internet.Url();
-        var relativeUrl = new Faker().Internet.UrlRootedPath();
+        string token = new Faker().Internet.Password(20);
+        string expectedAuthorization = $"Bearer {token}";
+        string baseAddress = new Faker().Internet.Url();
+        string relativeUrl = new Faker().Internet.UrlRootedPath();
         SimpleClass responseObject = RestClientTestExtensions.GenerateResponseObject();
 
         var appSettings = new Dictionary<string, string>()
@@ -54,7 +54,7 @@ public partial class ServiceCollectionExtensionsTests
 
         SimpleClass response = await oAuthRestClient.GetAsync<SimpleClass>(relativeUrl);
 
-        var actualAuthorization =
+        string actualAuthorization =
             simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativeUrl, "Authorization")
                 .FirstOrDefault();
 

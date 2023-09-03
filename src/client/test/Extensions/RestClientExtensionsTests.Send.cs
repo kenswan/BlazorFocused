@@ -17,7 +17,7 @@ public partial class RestClientExtensionsTests
     [MemberData(nameof(HttpMethodsForResponse))]
     public async Task ShouldSendStandardHttpRequestAndDeserialize(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         SimpleClass request = RestClientTestExtensions.GenerateResponseObject();
 
         System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
@@ -48,7 +48,7 @@ public partial class RestClientExtensionsTests
     [MemberData(nameof(HttpMethodsForResponse))]
     public async Task ShouldReturnInvalidResponseForNonSuccessStatusCodesForStandardRequest(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         SimpleClass request = RestClientTestExtensions.GenerateResponseObject();
 
         System.Net.HttpStatusCode errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
@@ -73,7 +73,7 @@ public partial class RestClientExtensionsTests
     [MemberData(nameof(HttpMethodsForTask))]
     public async Task ShouldStandardHttpRequestAndTask(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
 
         System.Net.HttpStatusCode successStatusCode = RestClientTestExtensions.GenerateSuccessStatusCode();
@@ -102,7 +102,7 @@ public partial class RestClientExtensionsTests
     [MemberData(nameof(HttpMethodsForTask))]
     public async Task ShouldReturnInvalidTaskForNonSuccessStatusCodesStandardRequest(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         IEnumerable<SimpleClass> request = RestClientTestExtensions.GenerateResponseObjects();
 
         System.Net.HttpStatusCode errorStatusCode = RestClientTestExtensions.GenerateErrorStatusCode();
@@ -127,7 +127,7 @@ public partial class RestClientExtensionsTests
     [MemberData(nameof(HttpMethodsForResponse))]
     public async Task ShouldSendNativeHttpRequest(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateAbsoluteUrl();
+        string url = RestClientTestExtensions.GenerateAbsoluteUrl();
         SimpleClass request = RestClientTestExtensions.GenerateResponseObject();
 
         var requestMessage = new HttpRequestMessage(httpMethod, url)
@@ -160,7 +160,7 @@ public partial class RestClientExtensionsTests
     [MemberData(nameof(HttpMethodsForResponse))]
     public async Task ShouldThrowOnBaseSendWhenUriIsNotAbsolute(HttpMethod httpMethod)
     {
-        var url = RestClientTestExtensions.GenerateRelativeUrl();
+        string url = RestClientTestExtensions.GenerateRelativeUrl();
         SimpleClass request = RestClientTestExtensions.GenerateResponseObject();
 
         var requestMessage = new HttpRequestMessage(httpMethod, url)
@@ -177,8 +177,5 @@ public partial class RestClientExtensionsTests
         await Assert.ThrowsAsync<RestClientException>(() => restClient.SendAsync(requestMessage));
     }
 
-    private static StringContent GetStringContent(object requestObject)
-    {
-        return new(JsonSerializer.Serialize(requestObject), Encoding.UTF8, "application/json");
-    }
+    private static StringContent GetStringContent(object requestObject) => new(JsonSerializer.Serialize(requestObject), Encoding.UTF8, "application/json");
 }

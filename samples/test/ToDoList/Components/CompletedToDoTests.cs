@@ -45,12 +45,9 @@ public class CompletedToDoTests
         actualTitles.Should().BeEquivalentTo(expectedTitles);
     }
 
-    private static List<ToDo> GenerateCompletedToDos()
-    {
-        return new Faker<ToDo>()
+    private static List<ToDo> GenerateCompletedToDos() => new Faker<ToDo>()
         .RuleFor(todo => todo.Id, fake => fake.Random.Guid())
         .RuleFor(todo => todo.Title, fake => fake.Commerce.Product())
         .RuleFor(todo => todo.IsCompleted, _ => true)
         .Generate(new Faker().Random.Int(3, 5));
-    }
 }

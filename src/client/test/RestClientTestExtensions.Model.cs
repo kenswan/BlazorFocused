@@ -11,43 +11,25 @@ namespace BlazorFocused;
 
 internal static partial class RestClientTestExtensions
 {
-    public static HttpStatusCode GenerateSuccessStatusCode()
-    {
-        return new Faker().PickRandom(
+    public static HttpStatusCode GenerateSuccessStatusCode() => new Faker().PickRandom(
             HttpStatusCode.OK, HttpStatusCode.Created, HttpStatusCode.Accepted);
-    }
 
-    public static HttpStatusCode GenerateErrorStatusCode()
-    {
-        return new Faker().PickRandom(
+    public static HttpStatusCode GenerateErrorStatusCode() => new Faker().PickRandom(
             HttpStatusCode.BadRequest, HttpStatusCode.NotFound, HttpStatusCode.InternalServerError);
-    }
 
-    public static string GenerateRelativeUrl()
-    {
-        return new Faker().Internet.UrlRootedPath();
-    }
+    public static string GenerateRelativeUrl() => new Faker().Internet.UrlRootedPath();
 
-    public static string GenerateAbsoluteUrl()
-    {
-        return new Faker().Internet.UrlWithPath();
-    }
+    public static string GenerateAbsoluteUrl() => new Faker().Internet.UrlWithPath();
 
-    public static IEnumerable<SimpleClass> GenerateResponseObjects()
-    {
-        return GetSimpleClassFaker().Generate(new Faker().Random.Int(2, 5));
-    }
+    public static IEnumerable<SimpleClass> GenerateResponseObjects() => GetSimpleClassFaker().Generate(new Faker().Random.Int(2, 5));
 
-    public static SimpleClass GenerateResponseObject()
-    {
-        return GetSimpleClassFaker().Generate();
-    }
+    public static SimpleClass GenerateResponseObject() => GetSimpleClassFaker().Generate();
 
     public static Dictionary<string, string> GenerateRequestParameters(int count)
     {
         var parameters = new Dictionary<string, string>();
 
-        for (var i = 0; i < count; i++)
+        for (int i = 0; i < count; i++)
         {
             parameters.Add(GenerateParameter(), GenerateParameter());
         }
@@ -55,14 +37,8 @@ internal static partial class RestClientTestExtensions
         return parameters;
     }
 
-    public static string GenerateParameter()
-    {
-        return new Faker().Random.String2(new Faker().Random.Int(20, 30));
-    }
+    public static string GenerateParameter() => new Faker().Random.String2(new Faker().Random.Int(20, 30));
 
-    private static Faker<SimpleClass> GetSimpleClassFaker()
-    {
-        return new Faker<SimpleClass>()
+    private static Faker<SimpleClass> GetSimpleClassFaker() => new Faker<SimpleClass>()
             .RuleForType(typeof(string), faker => faker.Lorem.Sentence());
-    }
 }

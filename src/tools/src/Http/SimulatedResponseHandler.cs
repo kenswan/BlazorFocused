@@ -23,7 +23,7 @@ internal class SimulatedResponseHandler : DelegatingHandler
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        (HttpMethod method, var url, var content) =
+        (HttpMethod method, string url, string content) =
             await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
         SimulatedHttpResponse response = responses.Where(request =>
@@ -38,9 +38,9 @@ internal class SimulatedResponseHandler : DelegatingHandler
             RequestMessage = request
         };
 
-        foreach (var headerKey in responseHeaders.Keys)
+        foreach (string headerKey in responseHeaders.Keys)
         {
-            foreach (var value in responseHeaders[headerKey])
+            foreach (string value in responseHeaders[headerKey])
             {
                 responseMessage.Headers.Add(headerKey, value);
             }

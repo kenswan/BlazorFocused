@@ -23,12 +23,12 @@ public class RestClientHeaderHandlerTests
     [Fact]
     public async Task ShouldAddHeadersToRequest()
     {
-        var keyOne = "X-IPv6-Address";
-        var valueOneA = new Faker().Internet.Ipv6();
-        var valueOneB = new Faker().Internet.Ipv6();
-        var keyTwo = "X-IPv4-Address";
-        var valueTwo = new Faker().Internet.Ip();
-        var relativePath = new Faker().Internet.UrlRootedPath();
+        string keyOne = "X-IPv6-Address";
+        string valueOneA = new Faker().Internet.Ipv6();
+        string valueOneB = new Faker().Internet.Ipv6();
+        string keyTwo = "X-IPv4-Address";
+        string valueTwo = new Faker().Internet.Ip();
+        string relativePath = new Faker().Internet.UrlRootedPath();
 
         var restClientRequestHeaders = new RestClientRequestHeaders();
 

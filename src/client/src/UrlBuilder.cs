@@ -18,8 +18,5 @@ public static class UrlBuilder
     /// </summary>
     /// <param name="relativeOrAbsoluteUrl">Absolute or relative url parameters will be placed on</param>
     /// <returns>Continuation of <see cref="IRestClientUrlBuilder"/> to further build url</returns>
-    public static IRestClientUrlBuilder SetPath(string relativeOrAbsoluteUrl)
-    {
-        return new RestClientUrlBuilder().SetPath(relativeOrAbsoluteUrl);
-    }
+    public static IRestClientUrlBuilder SetPath(string relativeOrAbsoluteUrl) => new RestClientUrlBuilder().SetPath(relativeOrAbsoluteUrl);
 }
