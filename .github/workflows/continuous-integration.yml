@@ -16,7 +16,7 @@ env:
 
 jobs:
   client:
-    uses: ./build-and-test.yml
+    uses: ./.github/workflows/build-and-test.yml
     with:
       name: "Client"
       source-directory: ./src/client/src
@@ -25,7 +25,7 @@ jobs:
       test-project: BlazorFocused.Client.Test.csproj
 
   store:
-    uses: ./build-and-test.yml
+    uses: ./.github/workflows/build-and-test.yml
     with:
       name: "Store"
       source-directory: ./src/store/src
@@ -34,7 +34,7 @@ jobs:
       test-project: BlazorFocused.Store.Test.csproj
 
   tools:
-    uses: ./build-and-test.yml
+    uses: ./.github/workflows/build-and-test.yml
     with:
       name: "Tools"
       source-directory: ./src/tools/src
