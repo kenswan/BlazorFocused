@@ -16,134 +16,38 @@ env:
 
 jobs:
   client:
-    name: Client (${{ matrix.dotnet-target-framework }})
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        dotnet-target-framework: ["net6.0", "net7.0", "net8.0"]
-        include:
-          - dotnet-install-framework: 6.0.x
-            dotnet-target-framework: net6.0
-          - dotnet-install-framework: 7.0.x
-            dotnet-target-framework: net7.0
-          - dotnet-install-framework: 8.0.x
-            dotnet-target-framework: net8.0
-    env:
+    uses: ./.github/workflows/build-and-test.yml
+    with:
+      name: "Client"
       source-directory: ./src/client/src
       source-project: BlazorFocused.Client.csproj
       test-directory: ./src/client/test
       test-project: BlazorFocused.Client.Test.csproj
 
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Install .NET
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: ${{ matrix.dotnet-install-framework }}
-          include-prerelease: true
-
-      - name: Install Dependencies
-        run: |
-          dotnet restore ${{ env.source-directory }}/${{ env.source-project }} -p:TargetFramework=${{ matrix.dotnet-target-framework }}
-          dotnet restore ${{ env.test-directory }}/${{ env.test-project }} -p:TargetFramework=${{ matrix.dotnet-target-framework }}
-
-      - name: Build
-        working-directory: ${{ env.source-directory }}
-        run: dotnet build --configuration Release -p:TargetFramework=${{ matrix.dotnet-target-framework }} --no-restore
-
-      - name: Test
-        working-directory: ${{ env.test-directory }}
-        run: dotnet test -p:TargetFramework=${{ matrix.dotnet-target-framework }} --no-restore --verbosity normal
-
   store:
-    name: Store (${{ matrix.dotnet-target-framework }})
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        dotnet-target-framework: ["net6.0", "net7.0", "net8.0"]
-        include:
-          - dotnet-install-framework: 6.0.x
-            dotnet-target-framework: net6.0
-          - dotnet-install-framework: 7.0.x
-            dotnet-target-framework: net7.0
-          - dotnet-install-framework: 8.0.x
-            dotnet-target-framework: net8.0
-    env:
+    uses: ./.github/workflows/build-and-test.yml
+    with:
+      name: "Store"
       source-directory: ./src/store/src
       source-project: BlazorFocused.Store.csproj
       test-directory: ./src/store/test
       test-project: BlazorFocused.Store.Test.csproj
 
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Install .NET ${{ matrix.dotnet }}
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: ${{ matrix.dotnet-install-framework }}
-          include-prerelease: true
-
-      - name: Install Dependencies
-        run: |
-          dotnet restore ${{ env.source-directory }}/${{ env.source-project }} -p:TargetFramework=${{ matrix.dotnet-target-framework }}
-          dotnet restore ${{ env.test-directory }}/${{ env.test-project }} -p:TargetFramework=${{ matrix.dotnet-target-framework }}
-
-      - name: Build
-        working-directory: ${{ env.source-directory }}
-        run: dotnet build --configuration Release -p:TargetFramework=${{ matrix.dotnet-target-framework }} --no-restore
-
-      - name: Test
-        working-directory: ${{ env.test-directory }}
-        run: dotnet test -p:TargetFramework=${{ matrix.dotnet-target-framework }} --no-restore --verbosity normal
-
   tools:
-    name: Tools (${{ matrix.dotnet-target-framework }})
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        dotnet-target-framework: ["net6.0", "net7.0", "net8.0"]
-        include:
-          - dotnet-install-framework: 6.0.x
-            dotnet-target-framework: net6.0
-          - dotnet-install-framework: 7.0.x
-            dotnet-target-framework: net7.0
-          - dotnet-install-framework: 8.0.x
-            dotnet-target-framework: net8.0
-    env:
+    uses: ./.github/workflows/build-and-test.yml
+    with:
+      name: "Tools"
       source-directory: ./src/tools/src
       source-project: BlazorFocused.Tools.csproj
       test-directory: ./src/tools/test
       test-project: BlazorFocused.Tools.Test.csproj
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Install .NET ${{ matrix.dotnet }}
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: ${{ matrix.dotnet-install-framework }}
-          include-prerelease: true
-
-      - name: Install Dependencies
-        run: |
-          dotnet restore ${{ env.source-directory }}/${{ env.source-project }} -p:TargetFramework=${{ matrix.dotnet-target-framework }}
-          dotnet restore ${{ env.test-directory }}/${{ env.test-project }} -p:TargetFramework=${{ matrix.dotnet-target-framework }}
-
-      - name: Build
-        working-directory: ${{ env.source-directory }}
-        run: dotnet build --configuration Release -p:TargetFramework=${{ matrix.dotnet-target-framework }} --no-restore
-
-      - name: Test
-        working-directory: ${{ env.test-directory }}
-        run: dotnet test -p:TargetFramework=${{ matrix.dotnet-target-framework }} --no-restore --verbosity normal
 
   samples:
     name: Samples
     runs-on: ubuntu-latest
 
     env:
-      dotnet-install-framework: 7.0.x
+      dotnet-install-framework: 8.0.x
 
     defaults:
       run:
@@ -159,13 +63,13 @@ jobs:
           include-prerelease: true
 
       - name: Install Dependencies
-        run: dotnet restore -p:TargetFramework=net7.0
+        run: dotnet restore
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore -p:TargetFramework=net7.0
+        run: dotnet build --configuration Release --no-restore
 
       - name: Test
-        run: dotnet test --no-restore --verbosity normal -p:TargetFramework=net7.0
+        run: dotnet test --no-restore --verbosity normal
 
   release:
     name: Deploy Release

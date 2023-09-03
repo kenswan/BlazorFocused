@@ -25,6 +25,7 @@ appSettings.Development.json
 
 # Sandbox DataStore (sqlite)
 *.db
+*.db-*
 
 .DS_Store
 
