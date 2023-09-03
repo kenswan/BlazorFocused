@@ -11,9 +11,7 @@ namespace Samples.Api.Migrations;
 
 public partial class ToDoDataMigration : Migration
 {
-    protected override void Up(MigrationBuilder migrationBuilder)
-    {
-        migrationBuilder.CreateTable(
+    protected override void Up(MigrationBuilder migrationBuilder) => migrationBuilder.CreateTable(
             name: "ToDos",
             columns: table => new
             {
@@ -25,11 +23,7 @@ public partial class ToDoDataMigration : Migration
             {
                 table.PrimaryKey("PK_ToDos", x => x.Id);
             });
-    }
 
-    protected override void Down(MigrationBuilder migrationBuilder)
-    {
-        migrationBuilder.DropTable(
+    protected override void Down(MigrationBuilder migrationBuilder) => migrationBuilder.DropTable(
             name: "ToDos");
-    }
 }

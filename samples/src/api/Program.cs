@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DbConnection")));
 
-var AllowedCorsSpecification = "_AllowedCorsSpecification";
+string AllowedCorsSpecification = "_AllowedCorsSpecification";
 
 builder.Services.AddCors(options =>
 {

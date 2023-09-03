@@ -17,10 +17,7 @@ public class ToDoService : IToDoService
         this.restClient = restClient;
     }
 
-    public async Task<ToDo> AddToDoAsync(ToDo toDo)
-    {
-        return await restClient.PostAsync<ToDo>("api/todo", toDo);
-    }
+    public async Task<ToDo> AddToDoAsync(ToDo toDo) => await restClient.PostAsync<ToDo>("api/todo", toDo);
 
     public async Task<ToDo> CompleteToDoAsync(ToDo toDo)
     {
@@ -29,10 +26,7 @@ public class ToDoService : IToDoService
         return await restClient.PutAsync<ToDo>($"api/todo/{toDo.Id}", toDo);
     }
 
-    public async Task<IEnumerable<ToDo>> GetToDoItemsAsync()
-    {
-        return await restClient.GetAsync<IEnumerable<ToDo>>("api/todo");
-    }
+    public async Task<IEnumerable<ToDo>> GetToDoItemsAsync() => await restClient.GetAsync<IEnumerable<ToDo>>("api/todo");
 
     public async Task<ToDo> RestoreToDoAsync(ToDo toDo)
     {
