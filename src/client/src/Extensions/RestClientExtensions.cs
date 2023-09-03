@@ -14,10 +14,7 @@ namespace BlazorFocused.Extensions;
 /// </summary>
 public static partial class RestClientExtensions
 {
-    public static IRestClient CreateRestClient(HttpClient httpClient, ILogger logger = null)
-    {
-        return new StandaloneClient(httpClient, logger ?? NullLogger.Instance);
-    }
+    public static IRestClient CreateRestClient(HttpClient httpClient, ILogger logger = null) => new StandaloneClient(httpClient, logger ?? NullLogger.Instance);
 
     private static string GetUrlString(Action<IRestClientUrlBuilder> builderUrlAction)
     {

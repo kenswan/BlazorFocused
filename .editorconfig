@@ -9,6 +9,10 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
+# XML project files
+[*.{csproj,vbproj,vcxproj,vcxproj.filters,proj,projitems,shproj}]
+indent_size = 2
+
 # XML config files
 [*.{xml,config,*proj,nuspec,props,targets,ruleset,resx,vsixmanifest,vsct,yml,tasks}]
 indent_size = 2
@@ -37,6 +41,9 @@ charset = utf-8-bom
 # Directive sorting
 dotnet_sort_system_directives_first = false
 
+# Expression Bodied Members (method() => body)
+csharp_style_expression_bodied_methods = true:warning
+
 # Require var when apparent
 csharp_style_implicit_object_creation_when_type_is_apparent = true:suggestion
 
@@ -44,8 +51,8 @@ csharp_style_implicit_object_creation_when_type_is_apparent = true:suggestion
 csharp_style_namespace_declarations = file_scoped
 
 # var preferences
-csharp_style_var_elsewhere = false:suggestion
-csharp_style_var_for_built_in_types = true:suggestion
+csharp_style_var_elsewhere = false:warning
+csharp_style_var_for_built_in_types = false:warning
 csharp_style_var_when_type_is_apparent = true:warning
 
 # Newline settings
@@ -172,6 +179,9 @@ dotnet_diagnostic.IDE0011.severity = warning
 # IDE0020: Use pattern matching to avoid is check followed by a cast (with variable)
 dotnet_diagnostic.IDE0020.severity = warning
 
+# IDE0022: Use expression body for methods (method() => body)
+dotnet_diagnostic.IDE0022.severity = warning
+
 # IDE0029: Use coalesce expression (non-nullable types)
 dotnet_diagnostic.IDE0029.severity = warning
 
@@ -202,6 +212,9 @@ dotnet_diagnostic.IDE0044.severity = warning
 
 # IDE0051: Remove unused private members
 dotnet_diagnostic.IDE0051.severity = warning
+
+# IDE0052: Remove unread private members
+dotnet_diagnostic.IDE0052.severity = warning
 
 # IDE0055: All formatting rules
 dotnet_diagnostic.IDE0055.severity = suggestion

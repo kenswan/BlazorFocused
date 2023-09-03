@@ -11,9 +11,9 @@ internal class SimulatedHandler
         HttpRequestMessage request, CancellationToken cancellationToken)
     {
         HttpMethod method = request.Method;
-        var url = request.RequestUri.OriginalString;
+        string url = request.RequestUri.OriginalString;
 
-        var content = (request.Content is not null) ?
+        string content = (request.Content is not null) ?
             await request.Content.ReadAsStringAsync(cancellationToken) : default;
 
         return (method, url, content);

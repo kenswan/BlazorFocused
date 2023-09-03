@@ -9,8 +9,5 @@ namespace BlazorFocused.Tools.Utility;
 
 public class TestAction : TestActionState<SimpleClass>
 {
-    public override SimpleClass Execute()
-    {
-        return SimpleClassUtilities.GetRandomSimpleClass();
-    }
+    public override SimpleClass Execute() => SimpleClassUtilities.GetRandomSimpleClass();
 }

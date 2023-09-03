@@ -19,15 +19,9 @@ internal class TestHttpHeaderService
         httpRequestMessage = new();
     }
 
-    public void AddDefaultHeader(string key, string value)
-    {
-        httpClient.DefaultRequestHeaders.Add(key, value);
-    }
+    public void AddDefaultHeader(string key, string value) => httpClient.DefaultRequestHeaders.Add(key, value);
 
-    public void AddRequestHeader(string key, string value)
-    {
-        httpRequestMessage.Headers.Add(key, value);
-    }
+    public void AddRequestHeader(string key, string value) => httpRequestMessage.Headers.Add(key, value);
 
     public async Task<HttpResponseMessage> MakeRequestAsync(HttpMethod httpMethod, string url, object content = null)
     {

@@ -23,7 +23,7 @@ public interface IRestClient : IBaseRestClient
     /// </summary>
     /// <typeparam name="T">Object type of response from http request</typeparam>
     /// <param name="relativeUrl">Relative url for http request</param>
-    /// <returns>Http response body of type <see cref="{T}"/></returns>
+    /// <returns>Http response body of type <typeparamref name="T"/></returns>
     /// <remarks>
     /// This method will throw an exception for non-success status codes 
     /// </remarks>
@@ -44,7 +44,7 @@ public interface IRestClient : IBaseRestClient
     /// </summary>
     /// <typeparam name="T">Object type of response from http request</typeparam>
     /// <param name="relativeUrl">Relative url for http request</param>
-    /// <returns>Http response body of type <see cref="{T}"/></returns>
+    /// <returns>Http response body of type <typeparamref name="T"/></returns>
     /// <remarks>
     /// This method will throw an exception for non-success status codes 
     /// </remarks>
@@ -56,7 +56,7 @@ public interface IRestClient : IBaseRestClient
     /// <typeparam name="T">Object type of response from http request</typeparam>
     /// <param name="relativeUrl">Relative url for http request</param>
     /// <param name="data">Http request object body</param>
-    /// <returns>Http response body of type <see cref="{T}"/></returns>
+    /// <returns>Http response body of type <typeparamref name="T"/></returns>
     /// <remarks>
     /// This method will throw an exception for non-success status codes
     /// </remarks>
@@ -79,7 +79,7 @@ public interface IRestClient : IBaseRestClient
     /// <typeparam name="T">Object type of response from http request</typeparam>
     /// <param name="relativeUrl">Relative url for http request</param>
     /// <param name="data">Http request object body</param>
-    /// <returns>Http response body of type <see cref="{T}"/></returns>
+    /// <returns>Http response body of type <typeparamref name="T"/></returns>
     /// <remarks>
     /// This method will throw an exception for non-success status codes
     /// </remarks>
@@ -102,7 +102,7 @@ public interface IRestClient : IBaseRestClient
     /// <typeparam name="T">Object type of response from http request</typeparam>
     /// <param name="relativeUrl">Relative url for http request</param>
     /// <param name="data">Http request object body</param>
-    /// <returns>Http response body of type <see cref="{T}"/></returns>
+    /// <returns>Http response body of type <typeparamref name="T"/></returns>
     /// <remarks>
     /// This method will throw an exception for non-success status codes
     /// </remarks>

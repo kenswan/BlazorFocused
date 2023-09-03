@@ -18,7 +18,7 @@ internal class SimulatedHeadersHandler : DelegatingHandler
     {
         var headers = request.Headers.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
 
-        (HttpMethod method, var url, var content) =
+        (HttpMethod method, string url, string content) =
             await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
         var requestHeaders = new SimulatedHttpHeaders

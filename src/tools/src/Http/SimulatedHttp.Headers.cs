@@ -15,7 +15,7 @@ internal partial class SimulatedHttp
 
         if (match is not null)
         {
-            var containsKey = match.Headers.TryGetValue(key, out IEnumerable<string> values);
+            bool containsKey = match.Headers.TryGetValue(key, out IEnumerable<string> values);
 
             if (containsKey)
             {
@@ -28,13 +28,13 @@ internal partial class SimulatedHttp
 
     public void AddResponseHeader(string key, string value)
     {
-        if (responseHeaders.ContainsKey(key))
+        if (ResponseHeaders.ContainsKey(key))
         {
-            responseHeaders[key].Add(value);
+            ResponseHeaders[key].Add(value);
         }
         else
         {
-            responseHeaders.Add(key, new List<string> { value });
+            ResponseHeaders.Add(key, new List<string> { value });
         }
     }
 }

@@ -111,10 +111,7 @@ internal class Store<TState> : IStore<TState>, IDisposable where TState : class
         state.OnNext(value);
     }
 
-    public TState GetState()
-    {
-        return state.Value;
-    }
+    public TState GetState() => state.Value;
 
     public void Reduce<TReducer, TOutput>(Action<TOutput> action)
         where TOutput : class
@@ -161,8 +158,5 @@ internal class Store<TState> : IStore<TState>, IDisposable where TState : class
         state.Subscribe(data => action(data));
     }
 
-    public void Dispose()
-    {
-        state.Dispose();
-    }
+    public void Dispose() => state.Dispose();
 }

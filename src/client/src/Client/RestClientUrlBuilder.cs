@@ -12,7 +12,7 @@ internal class RestClientUrlBuilder : IRestClientUrlBuilder
 
     public string Build()
     {
-        var parameterString = parameters.Count > 0 ? "?" +
+        string parameterString = parameters.Count > 0 ? "?" +
             string.Join("&", parameters.Select(kvp => $"{kvp.Key}={kvp.Value}")) : string.Empty;
 
         return basePath + parameterString;

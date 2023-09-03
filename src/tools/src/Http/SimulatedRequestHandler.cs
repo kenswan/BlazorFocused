@@ -16,7 +16,7 @@ internal class SimulatedRequestHandler : DelegatingHandler
 
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        (HttpMethod method, var url, var content) =
+        (HttpMethod method, string url, string content) =
             await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
         addRequest(new SimulatedHttpRequest { Method = method, Url = url, RequestContent = content });

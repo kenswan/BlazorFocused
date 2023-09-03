@@ -20,6 +20,9 @@ log.txt
 # User-specific Development Settings (Integration)
 appSettings.Development.json
 
+# User-specific VS Code Settings
+.vscode/settings.json
+
 # Sandbox DataStore (sqlite)
 *.db
 

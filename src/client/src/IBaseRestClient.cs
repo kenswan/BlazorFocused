@@ -17,8 +17,8 @@ public interface IBaseRestClient
     /// <param name="httpMethod">Http Method type</param>
     /// <param name="url">Absolute or relative url path</param>
     /// <param name="data">Http request body object</param>
-    /// <returns>Http response body of type <see cref="{T}"/></returns>
-    /// <remarks>Supports <see cref="class"/> objects, <see cref="MultipartFormDataContent"/>, and <see cref="FormUrlEncodedContent"/> in data payload</remarks>
+    /// <returns>Http response body of type <typeparamref name="T"/></returns>
+    /// <remarks>Supports class objects, <see cref="MultipartFormDataContent"/>, and <see cref="FormUrlEncodedContent"/> in data payload</remarks>
     Task<RestClientResponse<T>> SendAsync<T>(HttpMethod httpMethod, string url, object data = null);
 
     /// <summary>

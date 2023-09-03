@@ -40,8 +40,5 @@ public class RestClientTask
     /// </summary>
     public string Content { get; init; }
 
-    protected bool HasSuccessStatusCode()
-    {
-        return StatusCode.HasValue && new HttpResponseMessage(StatusCode.Value).IsSuccessStatusCode;
-    }
+    protected bool HasSuccessStatusCode() => StatusCode.HasValue && new HttpResponseMessage(StatusCode.Value).IsSuccessStatusCode;
 }

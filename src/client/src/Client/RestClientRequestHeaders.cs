@@ -31,25 +31,16 @@ internal class RestClientRequestHeaders : IRestClientRequestHeaders
         }
     }
 
-    public void ClearHeaders()
-    {
-        headerCache.Clear();
-    }
+    public void ClearHeaders() => headerCache.Clear();
 
-    public IEnumerable<string> GetHeaderKeys()
-    {
-        return headerCache.Keys;
-    }
+    public IEnumerable<string> GetHeaderKeys() => headerCache.Keys;
 
     public IEnumerable<string> GetHeaderValues(string key)
     {
-        var keyExists = headerCache.TryGetValue(key, out List<string> values);
+        bool keyExists = headerCache.TryGetValue(key, out List<string> values);
 
         return keyExists ? values : Enumerable.Empty<string>();
     }
 
-    public bool HasValues()
-    {
-        return headerCache.Any();
-    }
+    public bool HasValues() => headerCache.Any();
 }

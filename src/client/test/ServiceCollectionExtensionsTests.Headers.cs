@@ -18,12 +18,12 @@ public partial class ServiceCollectionExtensionsTests
     [Fact]
     public async Task ShouldAddRestClientHeadersGlobally()
     {
-        var baseAddress = new Faker().Internet.Url();
-        var relativeUrl = new Faker().Internet.UrlRootedPath();
+        string baseAddress = new Faker().Internet.Url();
+        string relativeUrl = new Faker().Internet.UrlRootedPath();
         SimpleClass responseObject = RestClientTestExtensions.GenerateResponseObject();
         ISimulatedHttp simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
-        var headerKey = new Faker().Random.AlphaNumeric(5);
-        var headerValue = new Faker().Internet.Ipv6();
+        string headerKey = new Faker().Random.AlphaNumeric(5);
+        string headerValue = new Faker().Internet.Ipv6();
 
         simulatedHttp.SetupGET(relativeUrl)
             .ReturnsAsync(HttpStatusCode.OK, responseObject);
@@ -48,7 +48,7 @@ public partial class ServiceCollectionExtensionsTests
 
         _ = await restClient.GetAsync<SimpleClass>(relativeUrl);
 
-        var actualHeaderValue =
+        string actualHeaderValue =
             simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativeUrl, headerKey)
                 .FirstOrDefault();
 
@@ -58,12 +58,12 @@ public partial class ServiceCollectionExtensionsTests
     [Fact]
     public async Task ShouldAddOAuthRestClientHeaders()
     {
-        var baseAddress = new Faker().Internet.Url();
-        var relativeUrl = new Faker().Internet.UrlRootedPath();
+        string baseAddress = new Faker().Internet.Url();
+        string relativeUrl = new Faker().Internet.UrlRootedPath();
         SimpleClass responseObject = RestClientTestExtensions.GenerateResponseObject();
         ISimulatedHttp simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
-        var headerKey = new Faker().Random.AlphaNumeric(5);
-        var headerValue = new Faker().Internet.Ipv6();
+        string headerKey = new Faker().Random.AlphaNumeric(5);
+        string headerValue = new Faker().Internet.Ipv6();
 
         simulatedHttp.SetupGET(relativeUrl)
             .ReturnsAsync(HttpStatusCode.OK, responseObject);
@@ -89,7 +89,7 @@ public partial class ServiceCollectionExtensionsTests
 
         _ = await oAuthClient.GetAsync<SimpleClass>(relativeUrl);
 
-        var actualHeaderValue =
+        string actualHeaderValue =
             simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, relativeUrl, headerKey)
                 .FirstOrDefault();
 
@@ -99,13 +99,13 @@ public partial class ServiceCollectionExtensionsTests
     [Fact]
     public async Task ShouldOnlyAddHeadersToOneRequestWhenLocal()
     {
-        var baseAddress = new Faker().Internet.Url();
-        var firstRelativeUrl = new Faker().Internet.UrlRootedPath();
-        var secondRelativeUrl = new Faker().Internet.UrlRootedPath();
+        string baseAddress = new Faker().Internet.Url();
+        string firstRelativeUrl = new Faker().Internet.UrlRootedPath();
+        string secondRelativeUrl = new Faker().Internet.UrlRootedPath();
         SimpleClass responseObject = RestClientTestExtensions.GenerateResponseObject();
         ISimulatedHttp simulatedHttp = ToolsBuilder.CreateSimulatedHttp(baseAddress);
-        var headerKey = new Faker().Random.AlphaNumeric(5);
-        var headerValue = new Faker().Internet.Ipv6();
+        string headerKey = new Faker().Random.AlphaNumeric(5);
+        string headerValue = new Faker().Internet.Ipv6();
 
         simulatedHttp.SetupGET(firstRelativeUrl)
             .ReturnsAsync(HttpStatusCode.OK, responseObject);
@@ -130,7 +130,7 @@ public partial class ServiceCollectionExtensionsTests
 
         _ = await firstRestClient.GetAsync<SimpleClass>(firstRelativeUrl);
 
-        var firstHeaderValue =
+        string firstHeaderValue =
             simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, firstRelativeUrl, headerKey)
                 .FirstOrDefault();
 
@@ -141,7 +141,7 @@ public partial class ServiceCollectionExtensionsTests
 
         _ = await secondRestClient.GetAsync<SimpleClass>(firstRelativeUrl);
 
-        var secondHeaderValue =
+        string secondHeaderValue =
             simulatedHttp.GetRequestHeaderValues(HttpMethod.Get, secondRelativeUrl, headerKey)
                 .FirstOrDefault();
 

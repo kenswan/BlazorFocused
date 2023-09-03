@@ -9,8 +9,5 @@ namespace BlazorFocused.Tools.Utility;
 
 public class TestActionWithInput : TestActionState<SimpleClass, string>
 {
-    public override SimpleClass Execute(string input)
-    {
-        return SimpleClassUtilities.GetStaticSimpleClass(input);
-    }
+    public override SimpleClass Execute(string input) => SimpleClassUtilities.GetStaticSimpleClass(input);
 }

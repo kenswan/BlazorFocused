@@ -31,20 +31,11 @@ internal class OAuthRestClient : RestClient, IOAuthRestClient
             oAuthToken.Update(scheme, token);
         }
     }
-    public void ClearAuthorization()
-    {
-        oAuthToken.Update(string.Empty, string.Empty);
-    }
+    public void ClearAuthorization() => oAuthToken.Update(string.Empty, string.Empty);
 
-    public bool HasAuthorization()
-    {
-        return !oAuthToken.IsEmpty();
-    }
+    public bool HasAuthorization() => !oAuthToken.IsEmpty();
 
-    public string RetrieveAuthorization()
-    {
-        return oAuthToken.ToString();
-    }
+    public string RetrieveAuthorization() => oAuthToken.ToString();
 
     private static IOptions<RestClientOptions> DetectOptions(IOptionsSnapshot<RestClientOptions> restClientOptions)
     {

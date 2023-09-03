@@ -19,7 +19,7 @@ public partial class SimulatedHttpTests
     [Fact]
     public async Task ShouldProvideMockDataThroughDependencyInjection()
     {
-        var relativeUrl = new Faker().Internet.UrlRootedPath();
+        string relativeUrl = new Faker().Internet.UrlRootedPath();
         SimpleClass expectedResponse = SimpleClassUtilities.GetRandomSimpleClass();
         var serviceCollection = new ServiceCollection();
 

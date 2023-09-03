@@ -20,8 +20,5 @@ internal class SimulatedHttpSetup : ISimulatedHttpSetup
         this.responseAction = responseAction;
     }
 
-    public void ReturnsAsync(HttpStatusCode statusCode, object responseObject)
-    {
-        responseAction(request, statusCode, responseObject);
-    }
+    public void ReturnsAsync(HttpStatusCode statusCode, object responseObject) => responseAction(request, statusCode, responseObject);
 }

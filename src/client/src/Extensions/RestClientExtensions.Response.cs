@@ -24,10 +24,7 @@ public static partial class RestClientExtensions
     /// See <see cref="RestClientResponse{T}"/>
     /// </remarks>
     public static Task<RestClientResponse<T>> TryDeleteAsync<T>(
-        this IRestClient restClient, string relativeUrl)
-    {
-        return restClient.SendAsync<T>(HttpMethod.Delete, relativeUrl);
-    }
+        this IRestClient restClient, string relativeUrl) => restClient.SendAsync<T>(HttpMethod.Delete, relativeUrl);
 
     /// <summary>
     /// Performs GET http request
@@ -45,10 +42,7 @@ public static partial class RestClientExtensions
     /// Success is indicated by "IsValid" property.
     /// See <see cref="RestClientResponse{T}"/>
     /// </remarks>
-    public static Task<RestClientResponse<T>> TryGetAsync<T>(this IRestClient restClient, string relativeUrl)
-    {
-        return restClient.SendAsync<T>(HttpMethod.Get, relativeUrl);
-    }
+    public static Task<RestClientResponse<T>> TryGetAsync<T>(this IRestClient restClient, string relativeUrl) => restClient.SendAsync<T>(HttpMethod.Get, relativeUrl);
 
     /// <summary>
     /// Performs PATCH http request
@@ -67,10 +61,7 @@ public static partial class RestClientExtensions
     /// Success is indicated by "IsValid" property.
     /// See <see cref="RestClientResponse{T}"/>
     /// </remarks>
-    public static Task<RestClientResponse<T>> TryPatchAsync<T>(this IRestClient restClient, string relativeUrl, object data)
-    {
-        return restClient.SendAsync<T>(HttpMethod.Patch, relativeUrl, data);
-    }
+    public static Task<RestClientResponse<T>> TryPatchAsync<T>(this IRestClient restClient, string relativeUrl, object data) => restClient.SendAsync<T>(HttpMethod.Patch, relativeUrl, data);
 
     /// <summary>
     /// Performs POST http request
@@ -89,10 +80,7 @@ public static partial class RestClientExtensions
     /// Success is indicated by "IsValid" property.
     /// See <see cref="RestClientResponse{T}"/>
     /// </remarks>
-    public static Task<RestClientResponse<T>> TryPostAsync<T>(this IRestClient restClient, string relativeUrl, object data)
-    {
-        return restClient.SendAsync<T>(HttpMethod.Post, relativeUrl, data);
-    }
+    public static Task<RestClientResponse<T>> TryPostAsync<T>(this IRestClient restClient, string relativeUrl, object data) => restClient.SendAsync<T>(HttpMethod.Post, relativeUrl, data);
 
     /// <summary>
     /// Performs PUT http request
@@ -111,8 +99,5 @@ public static partial class RestClientExtensions
     /// Success is indicated by "IsValid" property.
     /// See <see cref="RestClientResponse{T}"/>
     /// </remarks>
-    public static Task<RestClientResponse<T>> TryPutAsync<T>(this IRestClient restClient, string relativeUrl, object data)
-    {
-        return restClient.SendAsync<T>(HttpMethod.Put, relativeUrl, data);
-    }
+    public static Task<RestClientResponse<T>> TryPutAsync<T>(this IRestClient restClient, string relativeUrl, object data) => restClient.SendAsync<T>(HttpMethod.Put, relativeUrl, data);
 }

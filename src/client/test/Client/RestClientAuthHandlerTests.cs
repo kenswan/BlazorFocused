@@ -24,10 +24,10 @@ public class RestClientAuthHandlerTests
     [Fact]
     public async Task ShouldAddAuthTokenToRequest()
     {
-        var scheme = "Bearer";
-        var token = GetRandomToken();
+        string scheme = "Bearer";
+        string token = GetRandomToken();
         var oAuthToken = new OAuthToken(scheme, token);
-        var relativePath = new Faker().Internet.UrlRootedPath();
+        string relativePath = new Faker().Internet.UrlRootedPath();
 
         simulatedHttp.SetupGET(relativePath)
             .ReturnsAsync(System.Net.HttpStatusCode.OK, string.Empty);
@@ -53,7 +53,7 @@ public class RestClientAuthHandlerTests
     public async Task ShouldNotAddAuthTokenToRequestIfTokenEmpty()
     {
         var oAuthToken = new OAuthToken();
-        var relativePath = new Faker().Internet.UrlRootedPath();
+        string relativePath = new Faker().Internet.UrlRootedPath();
 
         simulatedHttp.SetupGET(relativePath)
             .ReturnsAsync(System.Net.HttpStatusCode.OK, string.Empty);
@@ -74,8 +74,5 @@ public class RestClientAuthHandlerTests
         Assert.Equal(default, httpResponseMessage.RequestMessage.Headers.Authorization);
     }
 
-    private static string GetRandomToken()
-    {
-        return new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
-    }
+    private static string GetRandomToken() => new Faker().Random.AlphaNumeric(new Faker().Random.Int(10, 20));
 }

@@ -18,8 +18,5 @@ public class TestActionAsync : TestActionStateAsync<SimpleClass>
         this.testService = testService;
     }
 
-    public override async ValueTask<SimpleClass> ExecuteAsync()
-    {
-        return await testService.GetValueAsync<SimpleClass>();
-    }
+    public override async ValueTask<SimpleClass> ExecuteAsync() => await testService.GetValueAsync<SimpleClass>();
 }

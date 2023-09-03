@@ -73,7 +73,7 @@ public partial class SimulatedHttpTests
         await MakeRequest(client, httpMethod, relativeRequestUrl, requestObject);
 
         HttpMethod differentHttpMethod = PickDifferentMethod(httpMethod);
-        var differentRelativeUrl = GetRandomRelativeUrl();
+        string differentRelativeUrl = GetRandomRelativeUrl();
 
         Action actWithMethod = GetVerifyActionGroup(differentHttpMethod);
         Action actWithMethodAndUrl = GetVerifyActionGroup(httpMethod, differentRelativeUrl);
@@ -114,47 +114,41 @@ public partial class SimulatedHttpTests
         action.Should().Throw<SimulatedHttpTestException>();
     }
 
-    private Action GetVerifyActionGroup(HttpMethod httpMethod, string url = null, object content = null)
+    private Action GetVerifyActionGroup(HttpMethod httpMethod, string url = null, object content = null) => httpMethod switch
     {
-        return httpMethod switch
-        {
-            { } when httpMethod == HttpMethod.Delete && url is null =>
-                () => simulatedHttp.VerifyDELETEWasCalled(),
-            { } when httpMethod == HttpMethod.Delete && url is not null =>
-                () => simulatedHttp.VerifyDELETEWasCalled(url),
+        { } when httpMethod == HttpMethod.Delete && url is null =>
+            () => simulatedHttp.VerifyDELETEWasCalled(),
+        { } when httpMethod == HttpMethod.Delete && url is not null =>
+            () => simulatedHttp.VerifyDELETEWasCalled(url),
 
-            { } when httpMethod == HttpMethod.Get && url is null =>
-                () => simulatedHttp.VerifyGETWasCalled(),
-            { } when httpMethod == HttpMethod.Get && url is not null =>
-                () => simulatedHttp.VerifyGETWasCalled(url),
+        { } when httpMethod == HttpMethod.Get && url is null =>
+            () => simulatedHttp.VerifyGETWasCalled(),
+        { } when httpMethod == HttpMethod.Get && url is not null =>
+            () => simulatedHttp.VerifyGETWasCalled(url),
 
-            { } when httpMethod == HttpMethod.Patch && url is null =>
-                () => simulatedHttp.VerifyPATCHWasCalled(),
-            { } when httpMethod == HttpMethod.Patch && url is not null && content is null =>
-                () => simulatedHttp.VerifyPATCHWasCalled(url),
-            { } when httpMethod == HttpMethod.Patch && url is not null && content is not null =>
-                () => simulatedHttp.VerifyPATCHWasCalled(url, content),
+        { } when httpMethod == HttpMethod.Patch && url is null =>
+            () => simulatedHttp.VerifyPATCHWasCalled(),
+        { } when httpMethod == HttpMethod.Patch && url is not null && content is null =>
+            () => simulatedHttp.VerifyPATCHWasCalled(url),
+        { } when httpMethod == HttpMethod.Patch && url is not null && content is not null =>
+            () => simulatedHttp.VerifyPATCHWasCalled(url, content),
 
-            { } when httpMethod == HttpMethod.Post && url is null =>
-                () => simulatedHttp.VerifyPOSTWasCalled(),
-            { } when httpMethod == HttpMethod.Post && url is not null && content is null =>
-                () => simulatedHttp.VerifyPOSTWasCalled(url),
-            { } when httpMethod == HttpMethod.Post && url is not null && content is not null =>
-                () => simulatedHttp.VerifyPOSTWasCalled(url, content),
+        { } when httpMethod == HttpMethod.Post && url is null =>
+            () => simulatedHttp.VerifyPOSTWasCalled(),
+        { } when httpMethod == HttpMethod.Post && url is not null && content is null =>
+            () => simulatedHttp.VerifyPOSTWasCalled(url),
+        { } when httpMethod == HttpMethod.Post && url is not null && content is not null =>
+            () => simulatedHttp.VerifyPOSTWasCalled(url, content),
 
-            { } when httpMethod == HttpMethod.Put && url is null =>
-                () => simulatedHttp.VerifyPUTWasCalled(),
-            { } when httpMethod == HttpMethod.Put && url is not null && content is null =>
-                () => simulatedHttp.VerifyPUTWasCalled(url),
-            { } when httpMethod == HttpMethod.Put && url is not null && content is not null =>
-                () => simulatedHttp.VerifyPUTWasCalled(url, content),
+        { } when httpMethod == HttpMethod.Put && url is null =>
+            () => simulatedHttp.VerifyPUTWasCalled(),
+        { } when httpMethod == HttpMethod.Put && url is not null && content is null =>
+            () => simulatedHttp.VerifyPUTWasCalled(url),
+        { } when httpMethod == HttpMethod.Put && url is not null && content is not null =>
+            () => simulatedHttp.VerifyPUTWasCalled(url, content),
 
-            _ => throw new NotImplementedException("Verify Action Group Not Implemented")
-        };
-    }
+        _ => throw new NotImplementedException("Verify Action Group Not Implemented")
+    };
 
-    private static bool IsMethodWithoutContent(HttpMethod httpMethod)
-    {
-        return httpMethod == HttpMethod.Delete || httpMethod == HttpMethod.Get;
-    }
+    private static bool IsMethodWithoutContent(HttpMethod httpMethod) => httpMethod == HttpMethod.Delete || httpMethod == HttpMethod.Get;
 }

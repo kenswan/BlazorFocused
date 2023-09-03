@@ -24,7 +24,7 @@ public partial class ServiceCollectionExtensionsTests
     [Fact]
     public void ShouldProvideHttpClientBaseAddress()
     {
-        var url = new Faker().Internet.Url();
+        string url = new Faker().Internet.Url();
         ServiceCollection services = new();
         services.AddConfiguration();
         services.AddRestClient(url);
@@ -39,9 +39,9 @@ public partial class ServiceCollectionExtensionsTests
     [Fact]
     public void ShouldConfigureHttpClientProperties()
     {
-        var url = new Faker().Internet.Url();
-        var headerKey = "X-PORT-NUMBER";
-        var headerValue = new Faker().Internet.Port().ToString();
+        string url = new Faker().Internet.Url();
+        string headerKey = "X-PORT-NUMBER";
+        string headerValue = new Faker().Internet.Port().ToString();
         ServiceCollection services = new();
         services.AddConfiguration();
 
@@ -64,7 +64,7 @@ public partial class ServiceCollectionExtensionsTests
     [Fact]
     public void ShouldConfigureOAuthRestClient()
     {
-        var url = new Faker().Internet.Url();
+        string url = new Faker().Internet.Url();
         ServiceCollection services = new();
         services.AddConfiguration();
         services.AddOAuthRestClient(url);
@@ -79,9 +79,9 @@ public partial class ServiceCollectionExtensionsTests
     [Fact]
     public void ShouldConfigureOAuthHttpProperties()
     {
-        var url = new Faker().Internet.Url();
-        var headerKey = "X-PORT-NUMBER";
-        var headerValue = new Faker().Internet.Port().ToString();
+        string url = new Faker().Internet.Url();
+        string headerKey = "X-PORT-NUMBER";
+        string headerValue = new Faker().Internet.Port().ToString();
         ServiceCollection services = new();
         services.AddConfiguration();
 
@@ -108,8 +108,8 @@ public partial class ServiceCollectionExtensionsTests
         services.AddConfiguration();
         services.AddOAuthRestClient(new Faker().Internet.Url());
         using ServiceProvider serviceProvider = services.BuildServiceProvider();
-        var expectedScheme = "Bearer";
-        var expectedToken = "TestToken";
+        string expectedScheme = "Bearer";
+        string expectedToken = "TestToken";
 
         using IServiceScope firstScope = serviceProvider.CreateScope();
         IOAuthRestClient oAuthRestClient = firstScope.ServiceProvider.GetRequiredService<IOAuthRestClient>();

@@ -9,7 +9,7 @@ internal class SimulatedVerificationHandler : DelegatingHandler
 {
     protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     {
-        (HttpMethod _, var url, var _) =
+        (HttpMethod _, string url, string _) =
             await SimulatedHandler.GetRequestMessageContents(request, cancellationToken);
 
         return !Uri.TryCreate(url, UriKind.RelativeOrAbsolute, out Uri _)

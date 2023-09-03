@@ -35,10 +35,7 @@ internal partial class TestLogger<T> : ITestLogger<T>
         return scope;
     }
 
-    public bool IsEnabled(LogLevel logLevel)
-    {
-        return true;
-    }
+    public bool IsEnabled(LogLevel logLevel) => true;
 
     public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
     {
@@ -70,7 +67,11 @@ internal partial class TestLogger<T> : ITestLogger<T>
 
         public void Dispose()
         {
-            scope = default;
+            if (scope is not null)
+            {
+                scope = default;
+            }
+
             GC.SuppressFinalize(this);
         }
     }

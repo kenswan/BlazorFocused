@@ -21,10 +21,7 @@ public static class StoreServiceCollectionExtensions
     /// <param name="services">Service Collection being extended</param>
     /// <param name="initialData">Initial value of state within the store</param>
     public static IServiceCollection AddStore<T>(
-        this IServiceCollection services, T initialData) where T : class
-    {
-        return services.AddScoped<IStore<T>, Store<T>>(serviceProvider =>
-                new Store<T>(initialData, serviceProvider)
+        this IServiceCollection services, T initialData) where T : class => services.AddScoped<IStore<T>, Store<T>>(serviceProvider =>
+                                                                                         new Store<T>(initialData, serviceProvider)
             );
-    }
 }

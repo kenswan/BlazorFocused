@@ -14,8 +14,5 @@ public class TestHttpService : ITestHttpService
         this.HttpClient = httpClient;
     }
 
-    public ValueTask<T> GetValueAsync<T>(string url)
-    {
-        return new ValueTask<T>(default(T));
-    }
+    public ValueTask<T> GetValueAsync<T>(string url) => new(default(T));
 }

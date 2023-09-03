@@ -21,10 +21,7 @@ public static partial class RestClientExtensions
     /// </para>
     /// </returns>
     public static Task<RestClientTask> TryDeleteTaskAsync(
-        this IRestClient restClient, string relativeUrl)
-    {
-        return restClient.SendAsync(HttpMethod.Delete, relativeUrl);
-    }
+        this IRestClient restClient, string relativeUrl) => restClient.SendAsync(HttpMethod.Delete, relativeUrl);
 
     /// <summary>
     /// Performs PATCH http request
@@ -40,10 +37,7 @@ public static partial class RestClientExtensions
     /// <see cref="TryPatchAsync{T}(IRestClient, string, object)"/>
     /// </para>
     /// </returns>
-    public static Task<RestClientTask> TryPatchTaskAsync(this IRestClient restClient, string relativeUrl, object data)
-    {
-        return restClient.SendAsync(HttpMethod.Patch, relativeUrl, data);
-    }
+    public static Task<RestClientTask> TryPatchTaskAsync(this IRestClient restClient, string relativeUrl, object data) => restClient.SendAsync(HttpMethod.Patch, relativeUrl, data);
 
     /// <summary>
     /// Performs POST http request
@@ -59,10 +53,7 @@ public static partial class RestClientExtensions
     /// <see cref="TryPostAsync{T}(IRestClient, string, object)"/>
     /// </para>
     /// </returns>
-    public static Task<RestClientTask> TryPostTaskAsync(this IRestClient restClient, string relativeUrl, object data)
-    {
-        return restClient.SendAsync(HttpMethod.Post, relativeUrl, data);
-    }
+    public static Task<RestClientTask> TryPostTaskAsync(this IRestClient restClient, string relativeUrl, object data) => restClient.SendAsync(HttpMethod.Post, relativeUrl, data);
 
     /// <summary>
     /// Performs PUT http request
@@ -78,8 +69,5 @@ public static partial class RestClientExtensions
     /// <see cref="TryPutAsync{T}(IRestClient, string, object)"/>
     /// </para>
     /// </returns>
-    public static Task<RestClientTask> TryPutTaskAsync(this IRestClient restClient, string relativeUrl, object data)
-    {
-        return restClient.SendAsync(HttpMethod.Put, relativeUrl, data);
-    }
+    public static Task<RestClientTask> TryPutTaskAsync(this IRestClient restClient, string relativeUrl, object data) => restClient.SendAsync(HttpMethod.Put, relativeUrl, data);
 }

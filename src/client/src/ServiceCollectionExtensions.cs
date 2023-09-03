@@ -21,10 +21,7 @@ public static class ClientServiceCollectionExtensions
     /// <param name="services">Current service collection</param>
     /// <param name="baseUrl">Url for base address of inner http client </param>
     /// <returns>Current service collection with <see cref="IRestClient"/></returns>
-    public static IHttpClientBuilder AddRestClient(this IServiceCollection services, string baseUrl)
-    {
-        return services.AddRestClient(client => client.BaseAddress = new Uri(baseUrl));
-    }
+    public static IHttpClientBuilder AddRestClient(this IServiceCollection services, string baseUrl) => services.AddRestClient(client => client.BaseAddress = new Uri(baseUrl));
 
     /// <summary>
     /// Adds and configures <see cref="IRestClient"/> within service collection 
@@ -50,10 +47,7 @@ public static class ClientServiceCollectionExtensions
     /// <param name="services">Current service collection</param>
     /// <param name="baseUrl">Url for base address of inner http client </param>
     /// <returns>Current service collection with <see cref="IOAuthRestClient"/></returns>
-    public static IHttpClientBuilder AddOAuthRestClient(this IServiceCollection services, string baseUrl)
-    {
-        return services.AddOAuthRestClient(client => client.BaseAddress = new Uri(baseUrl));
-    }
+    public static IHttpClientBuilder AddOAuthRestClient(this IServiceCollection services, string baseUrl) => services.AddOAuthRestClient(client => client.BaseAddress = new Uri(baseUrl));
 
     /// <summary>
     /// Adds and configures <see cref="IOAuthRestClient"/> within service collection
@@ -81,9 +75,9 @@ public static class ClientServiceCollectionExtensions
         this IServiceCollection services, bool registerDefault = false)
         where T : IRestClient
     {
-        var configKey = typeof(T).Name;
-        var defaultKey = nameof(RestClient);
-        var namedOption = registerDefault == true ? "" : typeof(T).Name;
+        string configKey = typeof(T).Name;
+        string defaultKey = nameof(RestClient);
+        string namedOption = registerDefault == true ? "" : typeof(T).Name;
 
         services.TryAddSingleton<IRestClientRequestHeaders>(_ => new RestClientRequestHeaders());
         services.TryAddTransient<RestClientHeaderHandler>();
