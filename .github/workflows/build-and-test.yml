@@ -1,0 +1,67 @@
+name: Build & Test Workflow
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: "Name of current job"
+        required: true
+        type: string
+      source-directory:
+        description: "Relative path to source directory folder"
+        required: true
+        type: string
+      source-project:
+        description: "Name of .csproj file in source directory folder"
+        required: true
+        type: string
+      test-directory:
+        description: "Relative path to test directory folder"
+        required: true
+        type: string
+      test-project:
+        description: "Name of .csproj file in test directory folder"
+        required: true
+        type: string
+
+jobs:
+  client:
+    name: ${{ inputs.name }} (${{ matrix.dotnet-target-framework }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet-target-framework: ["net6.0", "net7.0", "net8.0"]
+        include:
+          - dotnet-install-framework: 6.0.x
+            dotnet-target-framework: net6.0
+          - dotnet-install-framework: 7.0.x
+            dotnet-target-framework: net7.0
+          - dotnet-install-framework: 8.0.x
+            dotnet-target-framework: net8.0
+    env:
+      source-directory: ${{ inputs.source-directory }}
+      source-project: ${{ inputs.source-project }}
+      test-directory: ${{ inputs.test-directory }}
+      test-project: ${{ inputs.test-project }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet-install-framework }}
+          include-prerelease: true
+
+      - name: Install Dependencies
+        run: |
+          dotnet restore ${{ env.source-directory }}/${{ env.source-project }} -p:TargetFramework=${{ matrix.dotnet-target-framework }}
+          dotnet restore ${{ env.test-directory }}/${{ env.test-project }} -p:TargetFramework=${{ matrix.dotnet-target-framework }}
+
+      - name: Build
+        working-directory: ${{ env.source-directory }}
+        run: dotnet build --configuration Release -p:TargetFramework=${{ matrix.dotnet-target-framework }} --no-restore
+
+      - name: Test
+        working-directory: ${{ env.test-directory }}
+        run: dotnet test -p:TargetFramework=${{ matrix.dotnet-target-framework }} --no-restore --verbosity normal
